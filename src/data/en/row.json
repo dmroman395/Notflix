@@ -1,0 +1,40 @@
+[
+    {
+        "id": 1,
+        "headline": "Enjoy on your TV.",
+        "desc": "Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.",
+        "graphic": "./src/images/tv.png",
+        "video": "./src/videos/video-tv-0819.mp4",
+        "videoType": 1,
+        "isLeft": false,
+        "hasOverlay": false
+    },
+    {
+        "id": 2,
+        "headline": "Download your shows to watch offline.",
+        "desc": "Save your favorites easily and always have something to watch.",
+        "graphic": "./src/images/mobile-0819.jpg",
+        "graphic2": "./src/images/boxshot.png",
+        "gif": "./src/images/download-icon.gif",
+        "isLeft": true,
+        "hasOverlay": true
+    },
+    {
+        "id": 3,
+        "headline": "Watch everywhere.",
+        "desc": "Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV without paying more.",
+        "graphic": "./src/images/device-pile.png",
+        "video": "./src/videos/video-devices.mp4",
+        "videoType": 2,
+        "isLeft": false,
+        "hasOverlay": false
+    },
+    {
+        "id": 4,
+        "headline": "Create profiles for kids.",
+        "desc": "Send kids on adventures with their favorite characters in a space made just for them—free with your membership.",
+        "graphic": "./src/images/kids.png",
+        "isLeft": true,
+        "hasOverlay": false
+    }
+]

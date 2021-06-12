@@ -1,0 +1,70 @@
+[
+    {
+        "display": "FAQ",
+        "link": "https://help.netflix.com/support/412"
+    },
+    {
+        "display": "Help Center",
+        "link": "https://help.netflix.com/"
+    },
+    {
+        "display": "Account",
+        "link": "https://www.netflix.com/youraccount"
+    },
+    {
+        "display": "Media Center",
+        "link": "https://media.netflix.com/"
+    },
+    {
+        "display": "Investor Relations",
+        "link": "http://ir.netflix.com/"
+    },
+    {
+        "display": "Jobs",
+        "link": "https://jobs.netflix.com/jobs"
+    },
+    {
+        "display": "Redeem Gift Cards",
+        "link": "https://www.netflix.com/redeem"
+    },
+    {
+        "display": "Buy Gift Cards",
+        "link": "https://www.netflix.com/gift-cards"
+    },
+    {
+        "display": "Ways to Watch",
+        "link": "https://www.netflix.com/watch"
+    },
+    {
+        "display": "Terms of Use",
+        "link": "https://help.netflix.com/legal/termsofuse"
+    },
+    {
+        "display": "Privacy",
+        "link": "https://help.netflix.com/legal/privacy"
+    },
+    {
+        "display": "Cookie Preferences",
+        "link": "https://www.netflix.com/#"
+    },
+    {
+        "display": "Corporate Information",
+        "link": "https://help.netflix.com/legal/corpinfo"
+    },
+    {
+        "display": "Contact Us",
+        "link": "https://help.netflix.com/contactus"
+    },
+    {
+        "display": "Speed Test",
+        "link": "https://fast.com/"
+    },
+    {
+        "display": "Legal Notices",
+        "link": "https://help.netflix.com/legal/notices"
+    },
+    {
+        "display": "Netflix Originals",
+        "link": "https://www.netflix.com/browse/genre/839338"
+    }
+]

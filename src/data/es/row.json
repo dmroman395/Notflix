@@ -1,0 +1,40 @@
+[
+    {
+        "id": 1,
+        "headline": "Disfruta en tu TV.",
+        "desc": "Ve en smart TV, PlayStation, Xbox, Chromecast, Apple TV, reproductores de Blu-ray y más.",
+        "graphic": "./src/images/tv.png",
+        "video": "./src/videos/video-tv-0819.mp4",
+        "videoType": 1,
+        "isLeft": false,
+        "hasOverlay": false
+    },
+    {
+        "id": 2,
+        "headline": "Descarga tus series para verlas offline.",
+        "desc": "Guarda tu contenido favorito y ten siempre algo para ver.",
+        "graphic": "./src/images/mobile-0819.jpg",
+        "graphic2": "./src/images/boxshot.png",
+        "gif": "./src/images/download-icon.gif",
+        "isLeft": true,
+        "hasOverlay": true
+    },
+    {
+        "id": 3,
+        "headline": "Disfruta donde quieras.",
+        "desc": "Películas y series ilimitadas en tu teléfono, tablet, computadora y TV sin costo extra..",
+        "graphic": "./src/images/device-pile.png",
+        "video": "./src/videos/video-devices.mp4",
+        "videoType": 2,
+        "isLeft": false,
+        "hasOverlay": false
+    },
+    {
+        "id": 4,
+        "headline": "Crea perfiles para niños.",
+        "desc": "Los niños vivirán aventuras con sus personajes favoritos en un espacio diseñado exclusivamente para ellos, sin costo con tu membresía.",
+        "graphic": "./src/images/ninos.png",
+        "isLeft": true,
+        "hasOverlay": false
+    }
+]

@@ -1,0 +1,168 @@
+.form-container {
+  max-width: 460px;
+  background-color: rgba(0, 0, 0, 0.75);
+  margin: 0 auto;
+  margin-bottom: 100px;
+  padding: 60px 75px 30px 75px;
+  border-radius: 4px;
+}
+
+.form-container .signIn-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-container .signIn-form h1 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.form-container .signIn-form input {
+  background-color: #333;
+  padding: 20px 10px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  margin: 7px 0;
+  color: white;
+}
+
+.form-container .signIn-form input::-webkit-input-placeholder {
+  font-size: 1em;
+}
+
+.form-container .signIn-form input:-moz-placeholder {
+  font-size: 1em;
+}
+
+.form-container .signIn-form input::-moz-placeholder {
+  font-size: 1em;
+}
+
+.form-container .signIn-form button {
+  margin: 30px 0 7px 0;
+  padding: 15px 0;
+  background-color: #e50914;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.form-container .signIn-form button:hover {
+  cursor: pointer;
+}
+
+.form-container .signIn-form .bottom-form {
+  color: #b3b3b3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 13px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form-container .signIn-form .bottom-form .check-rem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form-container .signIn-form .bottom-form .check-rem input {
+  margin-right: 3px;
+}
+
+.form-container .signIn-form .bottom-form a {
+  text-decoration: none;
+  color: #b3b3b3;
+}
+
+.form-container .signIn-form .bottom-form a:hover {
+  text-decoration: underline;
+}
+
+.form-container .container-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.form-container .container-bottom .fb-login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #737373;
+  margin: 15px 0;
+}
+
+.form-container .container-bottom .fb-login p {
+  font-size: 13px;
+}
+
+.form-container .container-bottom .fb-login #fb-logo {
+  height: 20px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.form-container .container-bottom p {
+  color: #737373;
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.form-container .container-bottom p .signUp {
+  color: white;
+  text-decoration: none;
+}
+
+.form-container .container-bottom p .signUp:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.form-container .container-bottom p .link {
+  color: #0080ff;
+  text-decoration: none;
+}
+
+.form-container .container-bottom p .link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.form-container .container-bottom .lighter {
+  color: #8c8c8c;
+  font-size: 13px;
+}
+
+.form-container .container-bottom .moreinfo {
+  opacity: 0;
+  -webkit-transition: all ease-in-out 200ms;
+  transition: all ease-in-out 200ms;
+}
+/*# sourceMappingURL=signInForm.css.map */

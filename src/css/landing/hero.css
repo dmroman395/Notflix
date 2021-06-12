@@ -1,0 +1,120 @@
+.hero {
+  background-size: cover;
+  height: 775px;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.hero .overlay {
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0.9)), color-stop(60%, rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.85)));
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0.85) 100%);
+  height: 100%;
+}
+
+.hero .overlay .top-bar {
+  width: 100%;
+  padding: 30px 55px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.hero .overlay .top-bar #logo {
+  height: auto;
+  width: 140px;
+}
+
+.hero .overlay .top-bar .lang-signin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  gap: 30px;
+}
+
+.hero .overlay .top-bar .lang-signin select {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid #aaa;
+  color: #fff;
+  font-size: 0.875rem;
+  max-height: 39px;
+  padding: 10px;
+}
+
+.hero .overlay .top-bar .lang-signin .button {
+  background-color: #e50914;
+  padding: 10px 17px;
+  border-radius: 3px;
+  color: #ffffff;
+  text-decoration: none;
+  line-height: 11px;
+}
+
+.hero .overlay .top-bar .lang-signin .sign-in {
+  max-height: 32px;
+}
+
+.hero .overlay .main-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 50px 200px;
+  margin: 100px 200px;
+  text-align: center;
+}
+
+.hero .overlay .main-content h1 {
+  font-size: 64px;
+  max-width: 800px;
+}
+
+.hero .overlay .main-content h3 {
+  font-size: 26px;
+  margin: 20px;
+  font-weight: normal;
+}
+
+.hero .overlay .main-content .signup {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.en {
+  background-image: url("../../images/hero.jpg");
+}
+
+.es {
+  background-image: url("../../images/heroe.jpg");
+}
+/*# sourceMappingURL=hero.css.map */

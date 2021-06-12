@@ -1,0 +1,68 @@
+.accordianRow {
+  width: 800px;
+  margin: 10px 0;
+}
+
+.accordianRow .question {
+  background-color: #303030;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px 25px;
+  width: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.accordianRow .question h1 {
+  font-size: 26px;
+  font-weight: normal;
+}
+
+.accordianRow .question .icon {
+  height: 26px;
+  width: auto;
+}
+
+.accordianRow .question .rotated {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.accordianRow .question:hover {
+  cursor: pointer;
+}
+
+.accordianRow .answer {
+  -webkit-transition: all ease-in-out 2s;
+  transition: all ease-in-out 2s;
+  background-color: #303030;
+  border-top: 1px solid black;
+  -webkit-transition: all ease-in-out 150ms;
+  transition: all ease-in-out 150ms;
+}
+
+.accordianRow .answer p {
+  font-size: 26px;
+  font-weight: normal;
+  white-space: pre-line;
+  padding: 20px 25px;
+}
+
+.accordianRow .closed {
+  max-height: 0;
+  overflow: hidden;
+}
+
+.accordianRow .expanded {
+  max-height: 400px;
+  overflow: hidden;
+}
+/*# sourceMappingURL=accordianRow.css.map */

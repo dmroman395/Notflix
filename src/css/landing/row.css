@@ -1,0 +1,160 @@
+.row {
+  background-color: black;
+  color: #ffffff;
+  border-top: 8px solid #222;
+  padding: 70px 45px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-height: 475px;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.row .container {
+  max-width: 1100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.row .container img {
+  max-width: 500px;
+}
+
+.row .container .overlayContainer {
+  background-image: url(../../images/mobile-0819.jpg);
+  background-size: cover;
+  width: 500px;
+  height: 375px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.row .container .overlayContainer .overlay {
+  position: relative;
+  bottom: 25px;
+  left: 100px;
+  width: 320px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: black;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  padding: 10px;
+}
+
+.row .container .overlayContainer .overlay img {
+  max-width: 57px;
+}
+
+.row .container .overlayContainer .overlay .overlayText {
+  margin-right: 30px;
+}
+
+.row .container .overlayContainer .overlay .overlayText .white {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.row .container .overlayContainer .overlay .overlayText .blue {
+  color: #0071eb;
+  font-size: 14px;
+}
+
+.row .container .video1 {
+  height: 450px;
+  width: 575px;
+  background-image: url(../../images/tv.png);
+  background-size: contain;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 30px;
+}
+
+.row .container .video1 .vidOverlay {
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0, 0, 0, 0)), color-stop(90%, rgba(0, 0, 0, 0.25)));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.25) 90%);
+  width: 100%;
+  height: 100%;
+}
+
+.row .container .video1 .vidOverlay video {
+  height: auto;
+  width: 73%;
+  position: relative;
+  top: 90px;
+  left: 76px;
+  z-index: -1;
+}
+
+.row .container .video2 {
+  height: 350px;
+  width: 475px;
+  background-image: url(../../images/device-pile.png);
+  background-size: contain;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.row .container .video2 video {
+  height: auto;
+  width: 300px;
+  position: relative;
+  bottom: 60px;
+  right: 6px;
+  z-index: -1;
+}
+
+.row .container .text h1 {
+  font-size: 3.125rem;
+  line-height: 1.1;
+  max-width: 590px;
+}
+
+.row .container .text h3 {
+  max-width: 550px;
+  font-size: 26px;
+  font-weight: normal;
+  margin-top: 15px;
+}
+/*# sourceMappingURL=row.css.map */
