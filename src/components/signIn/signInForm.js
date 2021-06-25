@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import signIn from '../../contexts/signIn'
+import React from 'react'
+import { useAuth } from '../../contexts/authContext'
 
 import FBLogo from '../../images/fblogo.png'
 import '../../css/signIn/signInForm.css'
@@ -8,10 +8,12 @@ function SignInForm({
     lang,
     formData,
     setFormData,
-    setIsSignedIn,
-    setCurrentUser,
     setNewUser,
+    loading,
+    setIsSignedIn,
 }) {
+    const { userSignIn, currentUser } = useAuth()
+
     let signin
     let email
     let password
@@ -80,15 +82,37 @@ function SignInForm({
         moreInfo.style.opacity = '1'
     }
 
-    const userSignIn = (e) => {
+    const signIn = async (e) => {
         e.preventDefault()
-        signIn(formData.email, formData.password)
-        // setIsSignedIn(true)
+
+        try {
+            await userSignIn(formData.email, formData.password)
+            setIsSignedIn(true)
+            console.log(currentUser)
+        } catch (err) {
+            const code = err.code
+            switch (code) {
+                case 'auth/invalid-email':
+                    alert('This email address is invalid.')
+                    break
+                case 'auth/user-disabled':
+                    alert('This account has been disabled.')
+                    break
+                case 'auth/user-not-found':
+                    alert('No account exists with this email address.')
+                    break
+                case 'auth/wrong-password':
+                    alert('Password is wrong. Please try again.')
+                    break
+                default:
+                    break
+            }
+        }
     }
 
     return (
         <div className="form-container">
-            <form className="signIn-form" onSubmit={userSignIn}>
+            <form className="signIn-form" onSubmit={signIn}>
                 <h1>{signin}</h1>
                 <input
                     type="email"
@@ -104,7 +128,7 @@ function SignInForm({
                         setFormData({ ...formData, password: e.target.value })
                     }}
                 />
-                <button>{signin}</button>
+                <button disabled={loading}>{signin}</button>
                 <div className="bottom-form">
                     <div className="check-rem">
                         <input type="checkbox" defaultChecked="true" />

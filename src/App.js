@@ -8,22 +8,19 @@ import './css/app/App.css'
 export function App() {
     const [lang, setLang] = useState('English')
     const [isSignedIn, setIsSignedIn] = useState(false)
-    const [currentUser, setCurrentUser] = useState({})
 
     return (
         <AuthProvider>
-            <div>
-                {isSignedIn ? (
-                    <Main currentUser={currentUser} />
+            <Main lang={lang} />
+            {/* {isSignedIn ? (
+                    
                 ) : (
                     <SignInPage
                         lang={lang}
                         setLang={setLang}
-                        setCurrentUser={setCurrentUser}
                         setIsSignedIn={setIsSignedIn}
                     />
-                )}
-            </div>
+                )} */}
         </AuthProvider>
     )
 }

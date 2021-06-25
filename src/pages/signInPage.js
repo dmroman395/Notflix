@@ -8,10 +8,10 @@ import SignUpForm from '../components/signIn/signUpForm'
 
 import '../css/signIn/signIn.css'
 
-function SignInPage({ lang, setLang, setCurrentUser, setIsSignedIn }) {
+function SignInPage({ lang, setLang, setIsSignedIn }) {
     const [formData, setFormData] = useState({})
     const [newUser, setNewUser] = useState(false)
-    const [loading, setLoading] = useState('')
+    const [loading, setLoading] = useState(false)
 
     let signin
     let hero
@@ -30,26 +30,27 @@ function SignInPage({ lang, setLang, setCurrentUser, setIsSignedIn }) {
                 <div className="logo-bar">
                     <img id="logo" src={logo} alt="logo"></img>
                 </div>
-                {/* {newUser ? ( */}
-                <SignUpForm
-                    lang={lang}
-                    formData={formData}
-                    setFormData={setFormData}
-                    setIsSignedIn={setIsSignedIn}
-                    setNewUser={setNewUser}
-                    loading={loading}
-                    setLoading={setLoading}
-                />
-                {/* ) : (
+                {newUser ? (
+                    <SignUpForm
+                        lang={lang}
+                        formData={formData}
+                        setFormData={setFormData}
+                        setIsSignedIn={setIsSignedIn}
+                        setNewUser={setNewUser}
+                        loading={loading}
+                        setLoading={setLoading}
+                    />
+                ) : (
                     <SignInForm
                         lang={lang}
                         formData={formData}
                         setFormData={setFormData}
-                        setCurrentUser={setCurrentUser}
                         setIsSignedIn={setIsSignedIn}
                         setNewUser={setNewUser}
+                        loading={loading}
+                        setLoading={setLoading}
                     />
-                )} */}
+                )}
 
                 {lang === 'English' ? (
                     <Footer

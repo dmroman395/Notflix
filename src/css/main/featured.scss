@@ -1,0 +1,22 @@
+.featured {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 200px 50px 100px 50px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+    .content {
+        max-width: 45%;
+        h1 {
+            color: #fff;
+            font-size: 54px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            color: #fff;
+            font-size: 1.4vw;
+            font-weight: normal;
+        }
+    }
+}

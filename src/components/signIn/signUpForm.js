@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useAuth } from '../../contexts/authContext'
 
 import '../../css/signIn/signInForm.css'
@@ -8,12 +8,11 @@ function SignUpForm({
     lang,
     formData,
     setFormData,
-    setIsSignedIn,
     setNewUser,
     loading,
-    setLoading,
+    setIsSignedIn,
 }) {
-    const { newUserSignUp } = useAuth()
+    const { newUserSignUp, currentUser } = useAuth()
 
     let signUp
     let email
@@ -24,8 +23,9 @@ function SignUpForm({
     const createUser = async (e) => {
         e.preventDefault()
         try {
-            setLoading(true)
             await newUserSignUp(formData.email, formData.password)
+            setIsSignedIn(true)
+            console.log(currentUser)
         } catch (err) {
             const code = err.code
             switch (code) {
@@ -41,7 +41,6 @@ function SignUpForm({
                     break
             }
         }
-        setLoading(false)
     }
 
     const showSignInForm = () => {

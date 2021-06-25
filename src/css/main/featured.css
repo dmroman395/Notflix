@@ -1,0 +1,35 @@
+.featured {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 200px 50px 100px 50px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+}
+
+.featured .content {
+  max-width: 45%;
+}
+
+.featured .content h1 {
+  color: #fff;
+  font-size: 54px;
+  margin-bottom: 20px;
+}
+
+.featured .content h3 {
+  color: #fff;
+  font-size: 1.4vw;
+  font-weight: normal;
+}
+/*# sourceMappingURL=featured.css.map */

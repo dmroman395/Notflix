@@ -8,15 +8,20 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-    const [currentUser, setCurrentUser] = useState()
+    const [currentUser, setCurrentUser] = useState({})
+    const [loading, setLoading] = useState(true)
 
     function newUserSignUp(email, password) {
         return auth.createUserWithEmailAndPassword(email, password)
+    }
+    function userSignIn(email, password) {
+        return auth.signInWithEmailAndPassword(email, password)
     }
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
             setCurrentUser(user)
+            setLoading(false)
         })
         return unsubscribe
     }, [])
@@ -24,7 +29,12 @@ export function AuthProvider({ children }) {
     const value = {
         currentUser,
         newUserSignUp,
+        userSignIn,
     }
 
-    return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
+    return (
+        <AuthContext.Provider value={value}>
+            {!loading && children}
+        </AuthContext.Provider>
+    )
 }
