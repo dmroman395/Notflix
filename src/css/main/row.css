@@ -1,0 +1,45 @@
+.movie-row {
+  overflow: hidden;
+}
+
+.movie-row .arrow-container {
+  padding-left: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  position: absolute;
+}
+
+.movie-row .arrow-container .arrow {
+  height: 175px;
+  width: 50px;
+  left: 50px;
+  z-index: 5;
+}
+
+.movie-row .arrow-container .arrow:hover {
+  cursor: pointer;
+  background-color: red;
+}
+
+.movie-row .movies {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-column-gap: 5px;
+          column-gap: 5px;
+  position: relative;
+}
+/*# sourceMappingURL=row.css.map */

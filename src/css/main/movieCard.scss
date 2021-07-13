@@ -1,0 +1,18 @@
+.movie-card-container {
+    .movie-card {
+        height: 175px;
+        width: 310px;
+        border-radius: 3px;
+        display: flex;
+        padding: 20px;
+        align-items: flex-end;
+        h1 {
+            color: white;
+            font-size: 1.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
+        }
+    }
+    .movie-card:hover {
+        cursor: pointer;
+    }
+}

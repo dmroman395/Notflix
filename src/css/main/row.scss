@@ -1,0 +1,28 @@
+.movie-row {
+    overflow: hidden;
+    .arrow-container {
+        padding-left: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        position: absolute;
+        .arrow {
+            height: 175px;
+            width: 50px;
+            left: 50px;
+            z-index: 5;
+        }
+        .arrow:hover {
+            cursor: pointer;
+            // background-color: rgba(20, 20, 20, 0.5);
+            background-color: red;
+        }
+    }
+    .movies {
+        display: flex;
+        flex-direction: row;
+        column-gap: 5px;
+        position: relative;
+    }
+}

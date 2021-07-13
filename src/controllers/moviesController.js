@@ -29,3 +29,33 @@ export async function getTrending(language) {
     )
     return trendingList
 }
+
+export async function getPopular(language) {
+    let lang
+
+    if (language.lang === 'English') {
+        lang = 'en'
+    } else {
+        lang = 'es'
+    }
+
+    const popularList = await axios.get(
+        `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}`
+    )
+    return popularList
+}
+
+export async function getMovieDetails(language, id) {
+    let lang
+
+    if (language.lang === 'English') {
+        lang = 'en'
+    } else {
+        lang = 'es'
+    }
+
+    const movieDetails = await axios.get(
+        `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}`
+    )
+    return movieDetails
+}

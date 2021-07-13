@@ -8,7 +8,12 @@ function Featured({ lang, movie }) {
             className="featured"
             style={{
                 backgroundSize: 'cover',
-                backgroundImage: `url(https://image.tmdb.org/t/p/original/${backdrop_path})`,
+                backgroundImage: `linear-gradient(
+                    to top,
+                    rgba(20,20,20, 1) 1%, 
+                    rgba(0, 0, 0, 0) 50%
+                ),
+                url(https://image.tmdb.org/t/p/original/${backdrop_path})`,
                 backgroundPosition: 'center center',
             }}
         >
