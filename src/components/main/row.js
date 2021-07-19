@@ -11,7 +11,9 @@ function SampleNextArrow(props) {
     <div
       className={'arrow right'}
       onClick={onClick}
-    />
+    >
+    <img src={rightArrow}></img>
+  </div>
   );
 }
 
@@ -21,7 +23,9 @@ function SamplePrevArrow(props) {
     <div
       className={'arrow left'}
       onClick={onClick}
-    />
+    >
+      <img src={leftArrow}></img>
+    </div>
   );
 }
 
@@ -49,9 +53,13 @@ export default class Row extends Component {
             })
 
     return (
+      <div className='row-container'>
+        <h1>Trending Now</h1>
         <Slider {...settings}>
          {row}
         </Slider>
+      </div>
+        
     );
   }
 }

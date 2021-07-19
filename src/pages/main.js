@@ -75,6 +75,8 @@ function Main(lang) {
 
     return (
         <div className="main">
+            <Header/>
+            <Featured lang={lang} movie={featuredMovie}/>
             <Row
                 arr={popularMovies}
                 getMovieDetails={getMovieDetails}

@@ -1,37 +1,52 @@
-.slick-slider {
-    width: 99vw;
+.row-container {
+    padding: 0 50px;
+    color: #FBFBFB;
     overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    .slick-list {
-        width: 100vw;
-        .slick-track {
-            display: flex;
-            flex-direction: row;
-            .slick-slide {
-                width: 300px;
+    h1 {
+        margin-bottom: 10px;
+    }
+    .slick-slider {
+        width: 99vw;
+        display: flex;
+        flex-direction: row;
+        .slick-list {
+            width: 100vw;
+            .slick-track {
+                display: flex;
+                flex-direction: row;
+                .slick-slide {
+                    width: 100px;
+                }
             }
         }
-    }
-    .arrow  {
-        height: 175px;
-        width: 50px;
-        z-index: 5;
-        position: absolute;
-        right: 0%;
-        display: inline-block;
-    }
-    .right {
-        right: 0%;
-        
-    }
-    .left {
-        left: 0%; 
-    }
-    .arrow:hover {
-        cursor: pointer;
-        // background-color: rgba(20, 20, 20, 0.5);
-        background-color: red;
-    }
+        .arrow  {
+            height: 175px;
+            width: 50px;
+            z-index: 5;
+            position: absolute;
+            right: 0%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+                height: 35px;
+                width: auto;
+                display: none;
+            }
+        }
+        .right {
+            right: 0%;
+            
+        }
+        .left {
+            left: 0%; 
+        }
+        .arrow:hover {
+            cursor: pointer;
+            background-color: rgba(20, 20, 20, 0.5);
+            img {
+                display: inline-block;
+            }
+        }
+    }    
 }
-
