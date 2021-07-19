@@ -11,16 +11,7 @@ export function App() {
 
     return (
         <AuthProvider>
-            <Main lang={lang} />
-            {/* {isSignedIn ? (
-                    
-                ) : (
-                    <SignInPage
-                        lang={lang}
-                        setLang={setLang}
-                        setIsSignedIn={setIsSignedIn}
-                    />
-                )} */}
+            <Main lang={lang}/>
         </AuthProvider>
     )
 }

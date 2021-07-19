@@ -1,27 +1,57 @@
-import React from 'react'
 import '../../css/main/row.css'
 import MovieCard from './movieCard'
+import React, { Component } from "react";
+import Slider from "react-slick";
+import leftArrow from '../../images/left-arrow-angle.png'
+import rightArrow from '../../images/right-arrow-angle.png'
 
-function Row({ arr, lang, getMovieDetails }) {
-    const row = arr.map((movie, i) => {
-        return (
-            <MovieCard
-                lang={lang}
-                movie={movie}
-                getMovieDetails={getMovieDetails}
-                key={i}
-            />
-        )
-    })
-    return (
-        <div className="movie-row">
-            <div className="arrow-container">
-                <div className="arrow"></div>
-                <div className="arrow"></div>
-            </div>
-            <div className="movies">{row}</div>
-        </div>
-    )
+function SampleNextArrow(props) {
+  const { onClick } = props;
+  return (
+    <div
+      className={'arrow right'}
+      onClick={onClick}
+    />
+  );
 }
 
-export default Row
+function SamplePrevArrow(props) {
+  const { onClick } = props;
+  return (
+    <div
+      className={'arrow left'}
+      onClick={onClick}
+    />
+  );
+}
+
+export default class Row extends Component {
+  render() {
+    const settings = {
+      dots: false,
+      infinite: true,
+      slidesToShow: 6,
+      slidesToScroll: 6,
+      nextArrow: <SampleNextArrow />,
+      prevArrow: <SamplePrevArrow />,
+      speed: 800
+    };
+
+    const row = this.props.arr.map((movie, i) => {
+                return (
+                    <MovieCard
+                        lang={this.props.lang}
+                        movie={movie}
+                        getMovieDetails={this.props.getMovieDetails}
+                        key={i}
+                    />
+                )
+            })
+
+    return (
+        <Slider {...settings}>
+         {row}
+        </Slider>
+    );
+  }
+}

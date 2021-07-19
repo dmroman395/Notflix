@@ -1,9 +1,6 @@
-.movie-row {
+.slick-slider {
+  width: 99vw;
   overflow: hidden;
-}
-
-.movie-row .arrow-container {
-  padding-left: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11,35 +8,45 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 100%;
-  position: absolute;
 }
 
-.movie-row .arrow-container .arrow {
+.slick-slider .slick-list {
+  width: 100vw;
+}
+
+.slick-slider .slick-list .slick-track {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.slick-slider .slick-list .slick-track .slick-slide {
+  width: 300px;
+}
+
+.slick-slider .arrow {
   height: 175px;
   width: 50px;
-  left: 50px;
   z-index: 5;
+  position: absolute;
+  right: 0%;
+  display: inline-block;
 }
 
-.movie-row .arrow-container .arrow:hover {
+.slick-slider .right {
+  right: 0%;
+}
+
+.slick-slider .left {
+  left: 0%;
+}
+
+.slick-slider .arrow:hover {
   cursor: pointer;
   background-color: red;
-}
-
-.movie-row .movies {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-column-gap: 5px;
-          column-gap: 5px;
-  position: relative;
 }
 /*# sourceMappingURL=row.css.map */
