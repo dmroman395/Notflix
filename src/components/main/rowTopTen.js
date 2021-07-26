@@ -1,5 +1,5 @@
 import '../../css/main/row.css'
-import MovieCard from './movieCard'
+import MovieCardTopTen from './movieCardTopTen'
 import React, { Component } from "react";
 import Slider from "react-slick";
 import leftArrow from '../../images/left-arrow-angle.png'
@@ -29,7 +29,7 @@ function SamplePrevArrow(props) {
   );
 }
 
-export default class Row extends Component {
+export default class RowTopTen extends Component {
   render() {
     const settings = {
       dots: false,
@@ -39,15 +39,17 @@ export default class Row extends Component {
       nextArrow: <SampleNextArrow />,
       prevArrow: <SamplePrevArrow />,
       speed: 800,
+      easing: 'ease-out'
     };
 
-    const row = this.props.arr.map((movie, i) => {
+    const row = this.props.arr.slice(0,10).map((movie, i) => {
                 return (
-                    <MovieCard
+                    <MovieCardTopTen
                         lang={this.props.lang}
                         movie={movie}
                         getMovieDetails={this.props.getMovieDetails}
                         key={i}
+                        index={i}
                     />
                 )
             })

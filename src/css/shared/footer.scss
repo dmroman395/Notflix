@@ -77,3 +77,43 @@
         }
     }
 }
+
+.footer3 {
+    background-color: #141414;
+    color: #757575;
+    padding: 0 400px 50px 500px;
+    h5 {
+        font-size: 16px;
+        margin-bottom: 30px;
+        font-weight: normal;
+    }
+    a {
+        text-decoration: none;
+        color: #757575;
+    }
+    a:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    .footer-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        list-style: none;
+        row-gap: 15px;
+        font-size: 13px;
+        margin-bottom: 30px;
+    }
+    .lang-signin {
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        gap: 30px;
+        select {
+            background-color: #141414;
+            border: 1px solid #aaa;
+            color: #fff;
+            font-size: 0.875rem;
+            padding: 10px;
+        }
+    }
+}

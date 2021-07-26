@@ -2,14 +2,21 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 310px;
+}
+
+.movie-card-container h1 {
+  color: white;
+  font-size: 1.5em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
 }
 
 .movie-card-container .movie-card {
   height: 175px;
-  width: 310px;
+  width: 100%;
   border-radius: 3px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -20,13 +27,45 @@
           align-items: flex-end;
 }
 
-.movie-card-container .movie-card h1 {
-  color: white;
-  font-size: 1.5em;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
-}
-
 .movie-card-container .movie-card:hover {
   cursor: pointer;
+}
+
+.movie-card-container .movie-poster {
+  width: 100%;
+  height: 500px;
+  border-radius: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.movie-card-container .number {
+  font-size: 19.1rem;
+  line-height: 14.5rem;
+  color: black;
+  -webkit-text-stroke: 5px #595959;
+  text-shadow: none;
+  position: relative;
+  left: 36px;
+  z-index: -1;
+  max-width: 20%;
+}
+
+.movie-card-container .movie-ten {
+  width: 50%;
+  height: 225px;
+  border-radius: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 /*# sourceMappingURL=movieCard.css.map */

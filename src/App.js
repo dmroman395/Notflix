@@ -11,7 +11,7 @@ export function App() {
 
     return (
         <AuthProvider>
-            <Main lang={lang}/>
+            <Main lang={lang} setLang={setLang}/>
         </AuthProvider>
     )
 }

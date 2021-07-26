@@ -1,5 +1,6 @@
 .row-container {
     padding: 0 50px;
+    margin-bottom: 65px; 
     color: #FBFBFB;
     overflow: hidden;
     h1 {
@@ -15,7 +16,7 @@
                 display: flex;
                 flex-direction: row;
                 .slick-slide {
-                    width: 100px;
+                    max-width: 320px;
                 }
             }
         }
@@ -32,6 +33,28 @@
                 height: 35px;
                 width: auto;
                 display: none;
+            }
+        }
+        .arrow-poster  {
+            height: 500px;
+            width: 50px;
+            z-index: 5;
+            position: absolute;
+            right: 0%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+                height: 35px;
+                width: auto;
+                display: none;
+            }
+        }
+        .arrow-poster:hover {
+            cursor: pointer;
+            background-color: rgba(20, 20, 20, 0.5);
+            img {
+                display: inline-block;
             }
         }
         .right {

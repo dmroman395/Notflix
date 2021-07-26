@@ -1,4 +1,7 @@
 .main {
-    height: 200vh;
     background-color: #141414;
+    .rows-container {
+        position: relative;
+        bottom: 105px;
+    }
 }

@@ -103,4 +103,57 @@
   font-size: 0.875rem;
   padding: 10px;
 }
+
+.footer3 {
+  background-color: #141414;
+  color: #757575;
+  padding: 0 400px 50px 500px;
+}
+
+.footer3 h5 {
+  font-size: 16px;
+  margin-bottom: 30px;
+  font-weight: normal;
+}
+
+.footer3 a {
+  text-decoration: none;
+  color: #757575;
+}
+
+.footer3 a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.footer3 .footer-list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  list-style: none;
+  row-gap: 15px;
+  font-size: 13px;
+  margin-bottom: 30px;
+}
+
+.footer3 .lang-signin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  gap: 30px;
+}
+
+.footer3 .lang-signin select {
+  background-color: #141414;
+  border: 1px solid #aaa;
+  color: #fff;
+  font-size: 0.875rem;
+  padding: 10px;
+}
 /*# sourceMappingURL=footer.css.map */

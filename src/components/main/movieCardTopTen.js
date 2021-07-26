@@ -2,17 +2,18 @@ import React from 'react'
 import '../../css/main/movieCard.css'
 import logo from '../../images/logo-short.jpg'
 
-function MovieCard({ movie, getMovieDetails, lang }) {
-    const { backdrop_path, id, title } = movie
+function MovieCardTopTen({ movie, getMovieDetails, lang, index }) {
+    const {  poster_path, id } = movie
     let details
     let imagePath
 
-    if (backdrop_path === null) {
+    if (poster_path === null) {
         imagePath = logo
     }
     else {
-        imagePath = `https://image.tmdb.org/t/p/w400${backdrop_path}`
+        imagePath = `https://image.tmdb.org/t/p/w400${poster_path}`
     }
+
 
     async function loadDetails() {
         details = await getMovieDetails(lang, id)
@@ -20,8 +21,9 @@ function MovieCard({ movie, getMovieDetails, lang }) {
 
     return (
         <div className="movie-card-container">
+            <h1 className='number'>{index + 1}</h1>
             <div
-                className="movie-card"
+                className="movie-ten"
                 style={{
                     backgroundSize: 'cover',
                     backgroundImage: `
@@ -29,10 +31,9 @@ function MovieCard({ movie, getMovieDetails, lang }) {
                     backgroundPosition: 'center',
                 }}
             >
-                <h1>{title}</h1>
             </div>
         </div>
     )
 }
 
-export default MovieCard
+export default MovieCardTopTen
