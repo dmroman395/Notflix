@@ -2,6 +2,7 @@ import '../../css/main/row.css'
 import MovieCard from './movieCard'
 import React, { Component } from "react";
 import Slider from "react-slick";
+import exploreArrow from '../../images/right-chevron-thick.png'
 import leftArrow from '../../images/left-arrow-angle.png'
 import rightArrow from '../../images/right-arrow-angle.png'
 
@@ -54,7 +55,11 @@ export default class Row extends Component {
 
     return (
       <div className='row-container'>
-        <h1>{this.props.headline}</h1>
+        <div className='row-header'>
+          <h1>{this.props.headline}</h1>
+          <span>Explore All</span>
+          <img src={exploreArrow}></img>
+        </div>
         <Slider {...settings}>
          {row}
         </Slider>

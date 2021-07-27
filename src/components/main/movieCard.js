@@ -1,8 +1,11 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import '../../css/main/movieCard.css'
 import logo from '../../images/logo-short.jpg'
+import MovieCardHover from './movieCardHover'
 
 function MovieCard({ movie, getMovieDetails, lang }) {
+    const [movieDetails, setMovieDetails] = useState({})
+
     const { backdrop_path, id, title } = movie
     let details
     let imagePath
@@ -16,22 +19,36 @@ function MovieCard({ movie, getMovieDetails, lang }) {
 
     async function loadDetails() {
         details = await getMovieDetails(lang, id)
+        setMovieDetails(details.data)
     }
 
-    return (
-        <div className="movie-card-container">
+    function handleOut() {
+        setMovieDetails({})
+    }
+
+    const movieCard = 
+        <div className="movie-card-container" onMouseOver={loadDetails} onMouseOut={handleOut}>
             <div
                 className="movie-card"
                 style={{
                     backgroundSize: 'cover',
                     backgroundImage: `
-            url(${imagePath})`,
+                url(${imagePath})`,
                     backgroundPosition: 'center',
                 }}
             >
                 <h1>{title}</h1>
             </div>
         </div>
+
+    return (
+        <div>
+            {Object.keys(movieDetails).length > 0 ? null: movieCard}
+            <div className='movie-card-hover-container'>
+                {Object.keys(movieDetails).length > 0 ? <MovieCardHover movie={movieDetails} setMovieDetails={setMovieDetails}/>:null}
+            </div>
+        </div>
+        
     )
 }
 

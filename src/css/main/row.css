@@ -1,12 +1,54 @@
 .row-container {
   padding: 0 50px;
   margin-bottom: 65px;
-  color: #FBFBFB;
+  color: #e5e5e5;
   overflow: hidden;
 }
 
 .row-container h1 {
   margin-bottom: 10px;
+}
+
+.row-container .row-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.row-container .row-header span {
+  font-weight: bold;
+  opacity: 0;
+  position: relative;
+  -webkit-transition: all ease-in-out 600ms;
+  transition: all ease-in-out 600ms;
+}
+
+.row-container .row-header img {
+  position: relative;
+  right: 85px;
+  opacity: 0;
+  -webkit-transition: all linear 250ms;
+  transition: all linear 250ms;
+}
+
+.row-container .row-header:hover {
+  cursor: pointer;
+}
+
+.row-container .row-header:hover span {
+  opacity: 1;
+  -webkit-transform: translateX(20px);
+          transform: translateX(20px);
+}
+
+.row-container .row-header:hover img {
+  opacity: 1;
+  -webkit-transform: translateX(105px);
+          transform: translateX(105px);
 }
 
 .row-container .slick-slider {
@@ -61,6 +103,15 @@
   display: none;
 }
 
+.row-container .slick-slider .arrow:hover {
+  cursor: pointer;
+  background-color: rgba(20, 20, 20, 0.5);
+}
+
+.row-container .slick-slider .arrow:hover img {
+  display: inline-block;
+}
+
 .row-container .slick-slider .arrow-poster {
   height: 500px;
   width: 50px;
@@ -93,20 +144,43 @@
   display: inline-block;
 }
 
+.row-container .slick-slider .arrow-ten {
+  height: 225px;
+  width: 50px;
+  z-index: 5;
+  position: absolute;
+  right: 0%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.row-container .slick-slider .arrow-ten img {
+  height: 35px;
+  width: auto;
+  display: none;
+}
+
+.row-container .slick-slider .arrow-ten:hover {
+  cursor: pointer;
+  background-color: rgba(20, 20, 20, 0.5);
+}
+
+.row-container .slick-slider .arrow-ten:hover img {
+  display: inline-block;
+}
+
 .row-container .slick-slider .right {
   right: 0%;
 }
 
 .row-container .slick-slider .left {
   left: 0%;
-}
-
-.row-container .slick-slider .arrow:hover {
-  cursor: pointer;
-  background-color: rgba(20, 20, 20, 0.5);
-}
-
-.row-container .slick-slider .arrow:hover img {
-  display: inline-block;
 }
 /*# sourceMappingURL=row.css.map */

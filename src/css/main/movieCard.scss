@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     width: 310px;
+    // overflow: hidden;
     h1 {
         color: white;
         font-size: 1.5em;
@@ -14,10 +15,6 @@
         display: flex;
         padding: 20px;
         align-items: flex-end;
-        
-    }
-    .movie-card:hover {
-        cursor: pointer;
     }
     .movie-poster {
         width: 100%;
@@ -38,6 +35,12 @@
         z-index: -1;
         max-width: 20%;
     }
+    .ten {
+        font-size: 15rem;
+        line-height: 14.5rem;
+        left: -5px;
+        letter-spacing: -37px;
+    }
     .movie-ten {
         width: 50%;
         height: 225px;
@@ -46,4 +49,40 @@
         padding: 20px;
         align-items: flex-end;
     }
+}
+.movie-card-container:hover {
+    cursor: pointer;
+}
+
+.movie-card-hover-container {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    .movie-card-hover {
+        width: 400px;
+        height: 400px;
+        .movie-card {
+            height: 225px;
+            width: 100%;
+            border-radius: 3px;
+            display: flex;
+            padding: 20px;
+            align-items: flex-end;
+        }
+        .bottom-half {
+            display: flex;
+            flex-direction: column;
+            .icon-row {
+                display: flex;
+                justify-content: space-between;
+                .icons {
+                    display: flex;
+                }
+            }
+        }
+    }
+}
+
+.movie-card-hover-container:hover {
+    cursor: pointer;
 }

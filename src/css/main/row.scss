@@ -1,10 +1,38 @@
 .row-container {
     padding: 0 50px;
     margin-bottom: 65px; 
-    color: #FBFBFB;
+    color: #e5e5e5;
     overflow: hidden;
     h1 {
         margin-bottom: 10px;
+    }
+    .row-header {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        span {
+            font-weight: bold;
+            opacity: 0;
+            position: relative;
+            transition: all ease-in-out 600ms;
+        }
+        img {
+            position: relative;
+            right: 85px;
+            opacity: 0;
+            transition: all linear 250ms;
+        }
+    }
+    .row-header:hover {
+        cursor: pointer;
+        span {
+            opacity: 1;
+            transform: translateX(20px);
+        }
+        img {
+            opacity: 1;
+            transform: translateX(105px);
+        }
     }
     .slick-slider {
         width: 99vw;
@@ -35,6 +63,13 @@
                 display: none;
             }
         }
+        .arrow:hover {
+            cursor: pointer;
+            background-color: rgba(20, 20, 20, 0.5);
+            img {
+                display: inline-block;
+            }
+        }
         .arrow-poster  {
             height: 500px;
             width: 50px;
@@ -57,19 +92,34 @@
                 display: inline-block;
             }
         }
+        .arrow-ten  {
+            height: 225px;
+            width: 50px;
+            z-index: 5;
+            position: absolute;
+            right: 0%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+                height: 35px;
+                width: auto;
+                display: none;
+            }
+        }
+        .arrow-ten:hover {
+            cursor: pointer;
+            background-color: rgba(20, 20, 20, 0.5);
+            img {
+                display: inline-block;
+            }
+        }
         .right {
             right: 0%;
             
         }
         .left {
             left: 0%; 
-        }
-        .arrow:hover {
-            cursor: pointer;
-            background-color: rgba(20, 20, 20, 0.5);
-            img {
-                display: inline-block;
-            }
         }
     }    
 }

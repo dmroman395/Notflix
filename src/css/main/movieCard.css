@@ -27,10 +27,6 @@
           align-items: flex-end;
 }
 
-.movie-card-container .movie-card:hover {
-  cursor: pointer;
-}
-
 .movie-card-container .movie-poster {
   width: 100%;
   height: 500px;
@@ -56,6 +52,13 @@
   max-width: 20%;
 }
 
+.movie-card-container .ten {
+  font-size: 15rem;
+  line-height: 14.5rem;
+  left: -5px;
+  letter-spacing: -37px;
+}
+
 .movie-card-container .movie-ten {
   width: 50%;
   height: 225px;
@@ -67,5 +70,66 @@
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+}
+
+.movie-card-container:hover {
+  cursor: pointer;
+}
+
+.movie-card-hover-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+}
+
+.movie-card-hover-container .movie-card-hover {
+  width: 400px;
+  height: 400px;
+}
+
+.movie-card-hover-container .movie-card-hover .movie-card {
+  height: 225px;
+  width: 100%;
+  border-radius: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.movie-card-hover-container .movie-card-hover .bottom-half {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.movie-card-hover-container .movie-card-hover .bottom-half .icon-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.movie-card-hover-container .movie-card-hover .bottom-half .icon-row .icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.movie-card-hover-container:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=movieCard.css.map */

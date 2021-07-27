@@ -2,6 +2,7 @@ import '../../css/main/row.css'
 import MovieCardTopTen from './movieCardTopTen'
 import React, { Component } from "react";
 import Slider from "react-slick";
+import exploreArrow from '../../images/right-chevron-thick.png'
 import leftArrow from '../../images/left-arrow-angle.png'
 import rightArrow from '../../images/right-arrow-angle.png'
 
@@ -9,7 +10,7 @@ function SampleNextArrow(props) {
   const { onClick } = props;
   return (
     <div
-      className={'arrow right'}
+      className={'arrow-ten right'}
       onClick={onClick}
     >
     <img src={rightArrow}></img>
@@ -21,7 +22,7 @@ function SamplePrevArrow(props) {
   const { onClick } = props;
   return (
     <div
-      className={'arrow left'}
+      className={'arrow-ten left'}
       onClick={onClick}
     >
       <img src={leftArrow}></img>
@@ -56,7 +57,11 @@ export default class RowTopTen extends Component {
 
     return (
       <div className='row-container'>
-        <h1>{this.props.headline}</h1>
+        <div className='row-header'>
+          <h1>{this.props.headline}</h1>
+          <span>Explore All</span>
+          <img src={exploreArrow}></img>
+        </div>
         <Slider {...settings}>
          {row}
         </Slider>

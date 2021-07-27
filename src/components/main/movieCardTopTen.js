@@ -21,7 +21,7 @@ function MovieCardTopTen({ movie, getMovieDetails, lang, index }) {
 
     return (
         <div className="movie-card-container">
-            <h1 className='number'>{index + 1}</h1>
+            {index + 1 === 10 ? <h1 className='number ten'>{index + 1}</h1>:<h1 className='number'>{index + 1}</h1>}
             <div
                 className="movie-ten"
                 style={{
