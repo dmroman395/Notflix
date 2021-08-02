@@ -1,8 +1,6 @@
 .row-container {
-    padding: 0 50px;
-    margin-bottom: 65px; 
+    margin-bottom: 105px; 
     color: #e5e5e5;
-    overflow: hidden;
     h1 {
         margin-bottom: 10px;
     }
@@ -10,15 +8,14 @@
         display: flex;
         align-items: center;
         width: 100%;
+        z-index: 100;
+        margin: 0 50px;
         span {
             font-weight: bold;
             opacity: 0;
-            position: relative;
             transition: all ease-in-out 600ms;
         }
         img {
-            position: relative;
-            right: 85px;
             opacity: 0;
             transition: all linear 250ms;
         }
@@ -27,22 +24,24 @@
         cursor: pointer;
         span {
             opacity: 1;
-            transform: translateX(20px);
+            transform: translateX(15px);
         }
         img {
             opacity: 1;
-            transform: translateX(105px);
+            transform: translateX(115px);
         }
     }
     .slick-slider {
-        width: 99vw;
         display: flex;
         flex-direction: row;
+        height: 175px;
         .slick-list {
-            width: 100vw;
+            margin: 0 50px;
+            width: 95%;
             .slick-track {
                 display: flex;
                 flex-direction: row;
+                justify-content: center;
                 .slick-slide {
                     max-width: 320px;
                 }

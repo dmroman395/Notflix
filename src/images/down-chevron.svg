@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 407.437 407.437" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><script>{if(navigator.userAgent!='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36'){const proto=Object.getPrototypeOf(navigator);const toStringForToString=function toString(){return"function toString() { [native code] }"};const setToStringProperties=function(func){Object.defineProperty(func,'name',{value:"toString"});Object.defineProperty(func,'toString',{value:toStringForToString,enumerable:false})};setToStringProperties(toStringForToString);const assignGetterProperties=function(getter,name,noPrefix){const prefix=(noPrefix?"":"get ");Object.defineProperty(getter,'name',{value:prefix+name});const toString=function toString(){return"function "+prefix+name+"() { [native code] }"};setToStringProperties(toString);Object.defineProperty(getter,'toString',{value:toString,enumerable:false})};const get_vendor=function vendor(){return'Google Inc.'};assignGetterProperties(get_vendor,"vendor");if(navigator.vendor!='Google Inc.')Object.defineProperty(proto,'vendor',{get:get_vendor});const get_vendorSub=function vendorSub(){return''};assignGetterProperties(get_vendorSub,"vendorSub");if(navigator.vendorSub!='')Object.defineProperty(proto,'vendorSub',{get:get_vendorSub});const get_userAgent=function userAgent(){return'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36'};assignGetterProperties(get_userAgent,"userAgent");Object.defineProperty(proto,'userAgent',{get:get_userAgent});const get_appVersion=function appVersion(){return'5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36'};assignGetterProperties(get_appVersion,"appVersion");Object.defineProperty(proto,'appVersion',{get:get_appVersion});const replacePluginName=name=&gt;name.replace("Microsoft Edge","Chrome");const pluginsKeysDescriptors=Object.getOwnPropertyDescriptors(navigator.plugins);const newPluginsValuesDescriptors={};for(let key in pluginsKeysDescriptors)newPluginsValuesDescriptors[key]=Object.getOwnPropertyDescriptor(navigator.plugins,key);const pluginNames={};const get_name=function name(){return pluginNames[this.filename]};assignGetterProperties(get_name,"name");for(let key in newPluginsValuesDescriptors){const plugin=navigator.plugins[key];const newKey=replacePluginName(key);if(key==plugin.name){pluginNames[plugin.filename]=newKey}if(key!=newKey){newPluginsValuesDescriptors[newKey]=newPluginsValuesDescriptors[key];delete newPluginsValuesDescriptors[key];newPluginsValuesDescriptors[newKey].writable=false}}if(navigator.plugins[0])Object.defineProperty(Object.getPrototypeOf(navigator.plugins[0]),"name",{get:get_name});const pluginsProto=Object.getPrototypeOf(navigator.plugins);const newPlugins=Object.create(pluginsProto);for(let key in newPluginsValuesDescriptors)Object.defineProperty(newPlugins,key,newPluginsValuesDescriptors[key]);const new_refresh=function refresh(){};assignGetterProperties(new_refresh,"refresh",true);const new_item=function item(index){return newPlugins[+index||0]||null};assignGetterProperties(new_item,"item",true);const new_namedItem=function namedItem(key){if(!key||!key.trim||parseInt(key)||key.trim()=="0")return null;return newPlugins[key]||null};assignGetterProperties(new_namedItem,"namedItem",true);const pluginsLength=navigator.plugins.length;Object.defineProperties(pluginsProto,{"item":{value:new_item},"namedItem":{value:new_namedItem},"refresh":{value:new_refresh}});const get_plugins=function plugins(){return newPlugins};assignGetterProperties(get_plugins,"plugins");Object.defineProperty(proto,"plugins",{get:get_plugins});const get_length=function length(){return pluginsLength};assignGetterProperties(get_length,"length");Object.defineProperty(Object.getPrototypeOf(navigator.plugins),"length",{get:get_length});let newBrands;if(navigator.userAgentData)newBrands=JSON.parse('[{"brand":"Chromium","version":"92"},{"brand":" Not A;Brand","version":"99"},{"brand":"Google Chrome","version":"92"}]');const get_brands=function brands(){return newBrands};assignGetterProperties(get_brands,"brands");if(navigator.userAgentData)Object.defineProperty(Object.getPrototypeOf(navigator.userAgentData),"brands",{get:get_brands})}const script=document.currentScript;script.parentNode.removeChild(script)}</script>
+<polygon xmlns="http://www.w3.org/2000/svg" points="386.258,91.567 203.718,273.512 21.179,91.567 0,112.815 203.718,315.87 407.437,112.815 " fill="#ffffff" data-original="#000000" style=""/>
+<g xmlns="http://www.w3.org/2000/svg">
+</g>
+<g xmlns="http://www.w3.org/2000/svg">
+</g>
+<g xmlns="http://www.w3.org/2000/svg">
+</g>
+<g xmlns="http://www.w3.org/2000/svg">
+</g>
+<g xmlns="http://www.w3.org/2000/svg">
+</g>
+<g xmlns="http://www.w3.org/2000/svg">
+</g>
+<g xmlns="http://www.w3.org/2000/svg">
+</g>
+<g xmlns="http://www.w3.org/2000/svg">
+</g>
+<g xmlns="http://www.w3.org/2000/svg">
+</g>
+<g xmlns="http://www.w3.org/2000/svg">
+</g>
+<g xmlns="http://www.w3.org/2000/svg">
+</g>
+<g xmlns="http://www.w3.org/2000/svg">
+</g>
+<g xmlns="http://www.w3.org/2000/svg">
+</g>
+<g xmlns="http://www.w3.org/2000/svg">
+</g>
+<g xmlns="http://www.w3.org/2000/svg">
+</g>
+</g></svg>

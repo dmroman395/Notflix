@@ -121,7 +121,20 @@ function Main(lang, setLang) {
         loadHorror()
         loadNowPlaying()
         loadTopRated()
+        applyClass()
     }, [])
+
+    function applyClass() {
+        const movieCardContainers = document.querySelectorAll('.movie')
+
+        if (movieCardContainers.length === 0) {
+            setTimeout(applyClass, 1)
+        } else {
+            movieCardContainers.forEach(movie => {
+                movie.parentNode.classList.add('movie-container')
+            })
+        }
+    }
 
     return (
         <div className="main">

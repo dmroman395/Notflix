@@ -24,12 +24,19 @@ module.exports = {
                 use: ['style-loader', 'css-loader', 'sass-loader'],
             },
             {
-                test: /\.(png|jpg|gif|svg|ico|mp4)$/,
+                test: /\.(png|jpg|gif|ico|mp4)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'file-loader',
                 },
             },
+            {
+                test: /\.svg$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: '@svgr/webpack',
+                }
+            }
         ],
     },
     devtool: 'source-map',

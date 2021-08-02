@@ -1,36 +1,203 @@
-.movie-card-container {
+.movie-container {
+  position: absolute;
+  overflow: visible;
+  z-index: 9;
+  -webkit-transition: z-index linear 1ms 500ms, -webkit-transform ease-out 200ms;
+  transition: z-index linear 1ms 500ms, -webkit-transform ease-out 200ms;
+  transition: transform ease-out 200ms, z-index linear 1ms 500ms;
+  transition: transform ease-out 200ms, z-index linear 1ms 500ms, -webkit-transform ease-out 200ms;
+  height: 300px;
+}
+
+.movie-container .movie {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 290px;
+  border-radius: 3px;
+  overflow: hidden;
+  -webkit-transition: all ease-out 1ms;
+  transition: all ease-out 1ms;
+}
+
+.movie-container .movie #title {
+  color: white;
+  font-size: 1.5em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
+}
+
+.movie-container .movie .movie-card {
+  height: 60%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-transition: height ease-out 1ms;
+  transition: height ease-out 1ms;
+}
+
+.movie-container .movie .bottom-half {
+  opacity: 0;
+  -webkit-transition: all ease-out 100ms;
+  transition: all ease-out 100ms;
+  height: 40%;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px;
+  background-color: #141414;
+}
+
+.movie-container .movie .bottom-half .icon-row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 310px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.movie-card-container h1 {
-  color: white;
-  font-size: 1.5em;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
-}
-
-.movie-card-container .movie-card {
-  height: 175px;
-  width: 100%;
-  border-radius: 3px;
+.movie-container .movie .bottom-half .icon-row .icons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 20px;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
 }
 
-.movie-card-container .movie-poster {
+.movie-container .movie .bottom-half .icon-row .icons .bubble-container {
+  position: absolute;
+}
+
+.movie-container .movie .bottom-half .icon-row .icons .bubble-container .bubble {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 5px;
+  z-index: 500 !important;
+  min-width: 80px;
+  min-height: 35px;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  background-image: url("../../images/bubble.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
+  bottom: 40px;
+  right: 22px;
+}
+
+.movie-container .movie .bottom-half .icon-row .bubble-container {
+  position: absolute;
+}
+
+.movie-container .movie .bottom-half .icon-row .bubble-container .bubble {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 5px;
+  border-radius: 5px;
+  z-index: 500 !important;
+  min-width: 80px;
+  min-height: 35px;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  background-image: url("../../images/bubble.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
+  bottom: 40px;
+  right: 22px;
+}
+
+.movie-container .movie .bottom-half .icon-row .icon-circle {
+  position: relative;
+  height: 30px;
+  width: 30px;
+  margin: 0 2px;
+  padding: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 100%;
+  border: 2px solid #666666;
+  z-index: 15;
+}
+
+.movie-container .movie .bottom-half .icon-row .icon-circle #card-icon {
+  height: 15px;
+  width: auto;
+}
+
+.movie-container .movie .bottom-half .icon-row .icon-circle:hover {
+  border-color: white;
+}
+
+.movie-container .movie .bottom-half .icon-row .icon-circle-play {
+  height: 30px;
+  width: 30px;
+  margin: 0 1px;
+  padding-left: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 100%;
+  background-color: white;
+}
+
+.movie-container .movie .bottom-half .icon-row .icon-circle-play #card-icon {
+  height: 15px;
+  width: auto;
+}
+
+.movie-container .movie .bottom-half .icon-row .icon-circle-play:hover {
+  background-color: #ebebeb;
+}
+
+.movie-container .movie .movie-poster {
   width: 100%;
   height: 500px;
-  border-radius: 3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -40,7 +207,7 @@
           align-items: flex-end;
 }
 
-.movie-card-container .number {
+.movie-container .movie .number {
   font-size: 19.1rem;
   line-height: 14.5rem;
   color: black;
@@ -52,17 +219,16 @@
   max-width: 20%;
 }
 
-.movie-card-container .ten {
+.movie-container .movie .ten {
   font-size: 15rem;
   line-height: 14.5rem;
   left: -5px;
   letter-spacing: -37px;
 }
 
-.movie-card-container .movie-ten {
+.movie-container .movie .movie-ten {
   width: 50%;
   height: 225px;
-  border-radius: 3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -72,64 +238,33 @@
           align-items: flex-end;
 }
 
-.movie-card-container:hover {
+.movie-container:hover {
   cursor: pointer;
+  -webkit-transform: scale(130%) translateY(-50px);
+          transform: scale(130%) translateY(-50px);
+  height: 300px;
+  z-index: 10;
+  -webkit-transition: all ease-out 200ms 500ms;
+  transition: all ease-out 200ms 500ms;
 }
 
-.movie-card-hover-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: absolute;
+.movie-container:hover .movie {
+  height: 100%;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 3px 8px black;
+          box-shadow: 0px 3px 8px black;
+  -webkit-transition: all ease-out 200ms 500ms;
+  transition: all ease-out 200ms 500ms;
 }
 
-.movie-card-hover-container .movie-card-hover {
-  width: 400px;
-  height: 400px;
+.movie-container:hover .movie .movie-card {
+  -webkit-transition: all ease-out 200ms 500ms;
+  transition: all ease-out 200ms 500ms;
 }
 
-.movie-card-hover-container .movie-card-hover .movie-card {
-  height: 225px;
-  width: 100%;
-  border-radius: 3px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 20px;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-}
-
-.movie-card-hover-container .movie-card-hover .bottom-half {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.movie-card-hover-container .movie-card-hover .bottom-half .icon-row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.movie-card-hover-container .movie-card-hover .bottom-half .icon-row .icons {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.movie-card-hover-container:hover {
-  cursor: pointer;
+.movie-container:hover .movie .bottom-half {
+  opacity: 1;
+  -webkit-transition: all ease-out 200ms 500ms;
+  transition: all ease-out 200ms 500ms;
 }
 /*# sourceMappingURL=movieCard.css.map */
