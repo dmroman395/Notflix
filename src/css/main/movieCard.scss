@@ -42,47 +42,58 @@
                     display: flex;
                     .bubble-container {
                         position: absolute;
-                        .bubble {
-                            display: flex;
-                            justify-content: center;
-                            padding-top: 5px;
-                            z-index: 500 !important;
-                            min-width: 80px;
-                            min-height: 35px;
-                            width: min-content;
-                            background-image: url('../../images/bubble.png');
-                            background-size: cover;
-                            background-position: center;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        width: 35px;
+                        bottom: 100px;
+                        z-index: 20;
+                        .bubble-text {
+                           width: max-content;
+                           padding: 5px 10px;
+                           background-color: #D5D5D5;
+                           border-radius: 3px;
+                           color: black;
+                           font-weight: bold;
+                           font-size: 1em;
+                        }
+                        #triangle {
                             position: relative;
-                            font-size: 15px;
-                            font-weight: bold;
-                            color: black;
-                            bottom: 40px;
-                            right: 22px;
+                            bottom: 7px;
+                            height: 15px;
+                            width: 20px
                         }
                     }
                 }
                 .bubble-container {
+                    animation: fade 250ms;
+                    opacity: 1;
                     position: absolute;
-                    .bubble {
-                        display: flex;
-                        justify-content: center;
-                        padding-top: 5px;
-                        border-radius: 5px;
-                        z-index: 500 !important;
-                        min-width: 80px;
-                        min-height: 35px;
-                        width: min-content;
-                        background-image: url('../../images/bubble.png');
-                        background-size: cover;
-                        background-position: center;
-                        position: relative;
-                        font-size: 15px;
-                        font-weight: bold;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 35px;
+                    bottom: 100px;
+                    z-index: 20;
+                    .bubble-text {
+	                    width: max-content;
+                        padding: 5px 10px;
+                        background-color: #D5D5D5;
+                        border-radius: 3px;
                         color: black;
-                        bottom: 40px;
-                        right: 22px;
+                        font-weight: bold;
+                        font-size: 1em;
                     }
+                    #triangle {
+                        position: relative;
+                        bottom: 7px;
+                        height: 15px;
+                        width: 20px
+                    }
+                }
+                @keyframes fade {
+                    from {opacity: 0}
+                    to {opacity: 1}
                 }
                 
                 .icon-circle {
@@ -122,6 +133,28 @@
                 }
                 .icon-circle-play:hover {
                     background-color: darken(white,8%);
+                }
+            }
+            .match-row {
+                font-size: .80em;
+                font-weight: bold;
+                color: darken(white, 15%);
+                display: flex;
+                align-items: center;
+                margin: 10px 0;
+                .match {
+                    color: #46d369;
+                }
+                .runtime {
+                    margin: 0 10px;
+                }
+                .hd {
+                    text-align: center;
+                    font-size: .65em;
+                    padding: 0 .4em;
+                    border-radius: 3px;
+                    border: solid 1px darken(white, 15%);
+                    white-space: nowrap;
                 }
             }
         }

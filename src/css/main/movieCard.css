@@ -82,61 +82,95 @@
 
 .movie-container .movie .bottom-half .icon-row .icons .bubble-container {
   position: absolute;
-}
-
-.movie-container .movie .bottom-half .icon-row .icons .bubble-container .bubble {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding-top: 5px;
-  z-index: 500 !important;
-  min-width: 80px;
-  min-height: 35px;
-  width: -webkit-min-content;
-  width: -moz-min-content;
-  width: min-content;
-  background-image: url("../../images/bubble.png");
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  font-size: 15px;
-  font-weight: bold;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 35px;
+  bottom: 100px;
+  z-index: 20;
+}
+
+.movie-container .movie .bottom-half .icon-row .icons .bubble-container .bubble-text {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 5px 10px;
+  background-color: #D5D5D5;
+  border-radius: 3px;
   color: black;
-  bottom: 40px;
-  right: 22px;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.movie-container .movie .bottom-half .icon-row .icons .bubble-container #triangle {
+  position: relative;
+  bottom: 7px;
+  height: 15px;
+  width: 20px;
 }
 
 .movie-container .movie .bottom-half .icon-row .bubble-container {
+  -webkit-animation: fade 250ms;
+          animation: fade 250ms;
+  opacity: 1;
   position: absolute;
-}
-
-.movie-container .movie .bottom-half .icon-row .bubble-container .bubble {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding-top: 5px;
-  border-radius: 5px;
-  z-index: 500 !important;
-  min-width: 80px;
-  min-height: 35px;
-  width: -webkit-min-content;
-  width: -moz-min-content;
-  width: min-content;
-  background-image: url("../../images/bubble.png");
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  font-size: 15px;
-  font-weight: bold;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 35px;
+  bottom: 100px;
+  z-index: 20;
+}
+
+.movie-container .movie .bottom-half .icon-row .bubble-container .bubble-text {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 5px 10px;
+  background-color: #D5D5D5;
+  border-radius: 3px;
   color: black;
-  bottom: 40px;
-  right: 22px;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.movie-container .movie .bottom-half .icon-row .bubble-container #triangle {
+  position: relative;
+  bottom: 7px;
+  height: 15px;
+  width: 20px;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .movie-container .movie .bottom-half .icon-row .icon-circle {
@@ -193,6 +227,36 @@
 
 .movie-container .movie .bottom-half .icon-row .icon-circle-play:hover {
   background-color: #ebebeb;
+}
+
+.movie-container .movie .bottom-half .match-row {
+  font-size: .80em;
+  font-weight: bold;
+  color: #d9d9d9;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px 0;
+}
+
+.movie-container .movie .bottom-half .match-row .match {
+  color: #46d369;
+}
+
+.movie-container .movie .bottom-half .match-row .runtime {
+  margin: 0 10px;
+}
+
+.movie-container .movie .bottom-half .match-row .hd {
+  text-align: center;
+  font-size: .65em;
+  padding: 0 .4em;
+  border-radius: 3px;
+  border: solid 1px #d9d9d9;
+  white-space: nowrap;
 }
 
 .movie-container .movie .movie-poster {

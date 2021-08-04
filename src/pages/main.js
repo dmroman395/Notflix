@@ -20,6 +20,7 @@ const {
     getTopRated,
     getPopular,
     getMovieDetails,
+    getGenres
 } = require('../controllers/moviesController')
 
 function Main(lang, setLang) {
@@ -113,6 +114,16 @@ function Main(lang, setLang) {
         })
     }
 
+    async function loadGenres() {
+        if (window.localStorage.length === 0) {
+            await getGenres(lang).then(data => {
+                data.data.genres.forEach(genre => {
+                    window.localStorage.setItem(genre.id, genre.name)
+                })
+            })
+        }
+    }
+
     useEffect(() => {
         loadTrending()
         loadPopular()
@@ -121,6 +132,7 @@ function Main(lang, setLang) {
         loadHorror()
         loadNowPlaying()
         loadTopRated()
+        loadGenres()
         applyClass()
     }, [])
 

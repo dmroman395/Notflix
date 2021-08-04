@@ -119,3 +119,18 @@ export async function getMovieDetails(language, id) {
     )
     return movieDetails
 }
+
+export async function getGenres(language) {
+    let lang
+
+    if (language.lang === 'English') {
+        lang = 'en'
+    } else {
+        lang = 'es'
+    }
+
+    const popularList = await axios.get(
+        `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}`
+    )
+    return popularList
+}
