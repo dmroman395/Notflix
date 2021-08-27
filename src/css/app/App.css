@@ -5,4 +5,31 @@
           box-sizing: border-box;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
+* body::-webkit-scrollbar {
+  width: 14px;
+  /* width of the entire scrollbar */
+}
+
+* body::-webkit-scrollbar-track {
+  background: black;
+  /* color of the tracking area */
+}
+
+* body::-webkit-scrollbar-thumb {
+  background-color: #e50419;
+  /* color of the scroll thumb */
+  border-radius: 20px;
+  /* roundness of the scroll thumb */
+  border: 3px solid black;
+  /* creates padding around scroll thumb */
+}
+
+*::-moz-selection {
+  background: none;
+}
+
+*::selection {
+  background: none;
+}
 /*# sourceMappingURL=App.css.map */

@@ -34,7 +34,10 @@ module.exports = {
                 test: /\.svg$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: '@svgr/webpack',
+                    loader: 'svg-url-loader',
+                    options: {
+                        limit: 10000
+                    }
                 }
             }
         ],

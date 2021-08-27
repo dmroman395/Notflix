@@ -23,6 +23,7 @@
             display: flex;
             padding: 20px;
             align-items: flex-end;
+            border-radius: 3px;
             transition: height ease-out 1ms;
         }
         .bottom-half {
@@ -40,6 +41,10 @@
                 align-items: center;
                 .icons {
                     display: flex;
+                    .icon-circle svg {
+                        height: 15px;
+                        width: auto;
+                    }
                     .bubble-container {
                         position: absolute;
                         display: flex;
@@ -109,7 +114,7 @@
                     border: 2px solid lighten(#595959,5%);
                     z-index: 15;
                     #card-icon{
-                        height: 15px;
+                        height: 17px;
                         width: auto;
                     }
                 }
@@ -155,6 +160,22 @@
                     border-radius: 3px;
                     border: solid 1px darken(white, 15%);
                     white-space: nowrap;
+                }
+            }
+            .genre-list-container {
+                display: flex;
+                justify-content: space-between;
+                width: 20%;
+                white-space: nowrap;
+                align-items: center;
+                font-size: .8em;
+                font-weight: normal;
+                .dot {
+                    margin: 0 5px;
+                    color: darken(darkgray,15%);
+                }
+                span:last-child {
+                    display: none;
                 }
             }
         }
@@ -206,6 +227,7 @@
         transition: all ease-out 200ms 500ms;
         .movie-card {
             transition: all ease-out 200ms 500ms;
+            border-radius: 0px;
         }
         .bottom-half {
             opacity: 1;

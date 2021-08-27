@@ -1,28 +1,27 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
+import MovieCardIcon from './movieCardButton'
+
 import '../../css/main/movieCard.css'
+
 import logo from '../../images/logo-short.jpg'
-import triangle from '../../images/triangle.png'
-import Check from '../../images/check.svg'
-import Add from '../../images/add.svg'
-import ThumbsUp from '../../images/thumbs-up.svg'
-import ThumbsDown from '../../images/thumbs-down.svg'
-import ThumbsUpFilled from '../../images/thumbs-up-filled.svg'
-import ThumbsDownFilled from '../../images/thumbs-down-filled.svg'
-import DownArrow from '../../images/down-chevron.svg'
-import Play from '../../images/play-button.svg'
+import check from '../../images/check.png'
+import plus from '../../images/plus.png'
+import thumbsUp from '../../images/like.png'
+import thumbsDown from '../../images/dislike.png'
+import thumbsUpFilled from '../../images/like-filled.png'
+import thumbsDownFilled from '../../images/dislike-filled.png'
+// import DownArrow from '../../images/down-chevron.svg'
+// import Play from '../../images/play-button.svg'
 
 
 function MovieCard({ movie, getMovieDetails, lang }) {
     const [hover, setHover] = useState(false)
-    const [removeHover, setRemoveHover] = useState(false)
-    const [addHover, setAddHover] = useState(false)
-    const [likeHover, setLikeHover] = useState(false)
-    const [dislikeHover, setDislikeHover] = useState(false)
-    const [moreInfoHover, setMoreInfoHover] = useState(false)
     const [movieDetails, setMovieDetails] = useState({})
 
     const { backdrop_path, id, title, vote_average, genre_ids } = movie
+    const {runtime} = movieDetails
 
+    let play
     let remove
     let add
     let like
@@ -30,6 +29,9 @@ function MovieCard({ movie, getMovieDetails, lang }) {
     let moreInfo
     let details
     let imagePath
+
+    const hours = Math.floor(runtime/60)
+    const minutes = runtime % 60
 
     const match = vote_average * 10
 
@@ -41,12 +43,14 @@ function MovieCard({ movie, getMovieDetails, lang }) {
     }
 
     if (lang.lang === 'English') {
+        play = 'Play'
         remove = 'Remove from My List'
         add = 'Add to My List'
         like = 'I like this'
         dislike = 'Not for me'
         moreInfo = 'More info'
     } else {
+        play = 'Reproducir'
         remove = 'Quitar de Mi Lista'
         add = 'Agregar a Mi Lista'
         like = 'Me gusta esto'
@@ -54,54 +58,41 @@ function MovieCard({ movie, getMovieDetails, lang }) {
         moreInfo = 'Más información'
     }
 
-    function handleRemoveHover(e) {
-        if (e.type === 'mouseenter') {
-            setRemoveHover(true)
-        } else {
-            setRemoveHover(false)
-        }
-    }
+    const genreList = genre_ids.map((genre, i) => {
+        if (i < 3) {
+            const genreName = window.localStorage.getItem(genre)
+            return (
+                <React.Fragment>
+                     <p>{genreName}</p><span className='dot'>&#8226;</span>
+                </React.Fragment>
+            )
+        } 
+    })
 
-    function handleAddHover(e) {
-        if (e.type === 'mouseenter') {
-            setAddHover(true)
-        } else {
-            setAddHover(false)
-        }
-    }
+    function handlePlay() {
+        const titleSplit = title.split(' ')
+        let queryString='https://www.netflix.com/search?q='
 
-    function handleLikeHover(e) {
-        if (e.type === 'mouseenter') {
-            setLikeHover(true)
-        } else {
-            setLikeHover(false)
-        }
-    }
+        titleSplit.forEach(item => {
+            queryString = queryString + `${item}%20`
+        })
 
-    function handleDislikeHover(e) {
-        if (e.type === 'mouseenter') {
-            setDislikeHover(true)
-        } else {
-            setDislikeHover(false)
-        }
+        window.open(queryString, '_blank')
     }
 
     function handleMoreInfoHover(e) {
         if (e.type === 'mouseenter') {
             setMoreInfoHover(true)
-            console.log('enter')
         } else {
             setMoreInfoHover(false)
-            console.log('leave')
         }
     }
 
     async function loadDetails() {
         if (Object.keys(movieDetails).length === 0) {
-            // details = await getMovieDetails(lang, id)
-            // setMovieDetails(details.data)
+            details = await getMovieDetails(lang, id)
+            setMovieDetails(details.data)
         }
-        
         setHover(true)
     }
 
@@ -110,79 +101,32 @@ function MovieCard({ movie, getMovieDetails, lang }) {
         setHover(false)
     }
 
-    const removeBubble = 
-        <div className='bubble-container'>
-            <div className='bubble-text'>{remove}</div>
-            <img id='triangle' src={triangle}></img>
-        </div>
-
-    const addBubble = 
-        <div className='bubble-container'>
-            <div className='bubble-text'>{add}</div>
-            <img id='triangle' src={triangle}></img>
-        </div>
-
-    const likeBubble = 
-        <div className='bubble-container'>
-            <div className='bubble-text'>{like}</div>
-            <img id='triangle' src={triangle}></img>
-        </div>
-
-    const dislikeBubble = 
-        <div className='bubble-container'>
-            <div className='bubble-text'>{dislike}</div>
-            <img id='triangle' src={triangle}></img>
-        </div>
-
-    const moreInfoBubble = 
-        <div className='bubble-container'>
-            <div className='bubble-text'>{moreInfo}</div>
-            <img id='triangle' src={triangle}></img>
-        </div>
-
     const bottomHalf = 
             <div className='bottom-half'>
                 <div className='icon-row'>
                     <div className='icons'>
-                        <div className='icon-circle-play'><Play id ='card-icon'/></div>
-                            <div onMouseEnter={e => handleRemoveHover(e)} onMouseLeave={e => handleRemoveHover(e)}>
-                                {removeHover? removeBubble: null}
-                                <div className='icon-circle' ><Check id='card-icon'/></div> 
-                            </div>
-                            <div onMouseEnter={e => handleAddHover(e)} onMouseLeave={e => handleAddHover(e)}>
-                                {addHover? addBubble: null}
-                                <div className='icon-circle' ><Add id='card-icon' /></div>
-                            </div>    
-                            <div onMouseEnter={e => handleLikeHover(e)} onMouseLeave={e => handleLikeHover(e)}>
-                                {likeHover? likeBubble: null}
-                                <div className='icon-circle' ><ThumbsUp id='card-icon' /></div>
-                            </div>
-                            <div onMouseEnter={e => handleDislikeHover(e)} onMouseLeave={e => handleDislikeHover(e)}>   
-                                {dislikeHover? dislikeBubble: null} 
-                                <div className='icon-circle' ><ThumbsDown id='card-icon'/></div>
-                            </div>
+                        <MovieCardIcon icon={plus} iconFilled={check} text={add}/>
+                        <MovieCardIcon icon={thumbsUp} iconFilled={thumbsUpFilled} text={like}/>
+                        <MovieCardIcon icon={thumbsDown} iconFilled={thumbsDownFilled} text={dislike}/>
                         </div>
-                    <div onMouseEnter={e => handleMoreInfoHover(e)} onMouseLeave={e => handleMoreInfoHover(e)}>
-                        {moreInfoHover? moreInfoBubble: null}
-                        <div className='icon-circle'><DownArrow id='card-icon' /></div>
+                    <div>
                     </div>
                 </div>
                 <div className='match-row'>
                     <span className='match'>{`${match}% Match`}</span>
-                    <span className='runtime'>Runtime</span>
+                    <span className='runtime'>{`${hours}h ${minutes}m`}</span>
                     <span className='hd'>HD</span>
                 </div>
-                <div>Genres</div>
+                <div className='genre-list-container'>{genreList}</div>
             </div>
-        
+
     return (
         <div className="movie" onMouseOver={loadDetails} onMouseLeave={handleOut}>
             <div
                 className="movie-card"
                 style={{
                     backgroundSize: 'cover',
-                    backgroundImage: `
-                url(${imagePath})`,
+                    backgroundImage: `url(${imagePath})`,
                     backgroundPosition: 'center',
                 }}
             >
@@ -190,7 +134,6 @@ function MovieCard({ movie, getMovieDetails, lang }) {
             </div>
             {bottomHalf}
         </div>
-        
     )
 }
 

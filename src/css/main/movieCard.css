@@ -41,6 +41,7 @@
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+  border-radius: 3px;
   -webkit-transition: height ease-out 1ms;
   transition: height ease-out 1ms;
 }
@@ -78,6 +79,11 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.movie-container .movie .bottom-half .icon-row .icons .icon-circle svg {
+  height: 15px;
+  width: auto;
 }
 
 .movie-container .movie .bottom-half .icon-row .icons .bubble-container {
@@ -194,7 +200,7 @@
 }
 
 .movie-container .movie .bottom-half .icon-row .icon-circle #card-icon {
-  height: 15px;
+  height: 17px;
   width: auto;
 }
 
@@ -257,6 +263,31 @@
   border-radius: 3px;
   border: solid 1px #d9d9d9;
   white-space: nowrap;
+}
+
+.movie-container .movie .bottom-half .genre-list-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 20%;
+  white-space: nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: .8em;
+  font-weight: normal;
+}
+
+.movie-container .movie .bottom-half .genre-list-container .dot {
+  margin: 0 5px;
+  color: #838383;
+}
+
+.movie-container .movie .bottom-half .genre-list-container span:last-child {
+  display: none;
 }
 
 .movie-container .movie .movie-poster {
@@ -324,6 +355,7 @@
 .movie-container:hover .movie .movie-card {
   -webkit-transition: all ease-out 200ms 500ms;
   transition: all ease-out 200ms 500ms;
+  border-radius: 0px;
 }
 
 .movie-container:hover .movie .bottom-half {
