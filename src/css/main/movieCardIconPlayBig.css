@@ -1,0 +1,32 @@
+.icon-container {
+  position: relative;
+}
+
+.icon-container .icon-circle-play-big {
+  text-shadow: none;
+  padding: 15px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 3px;
+  background-color: white;
+  color: black;
+  font-weight: 600;
+  font-size: 1.5em;
+  margin-right: 10px;
+}
+
+.icon-container .icon-circle-play-big .card-icon {
+  height: 20px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.icon-container .icon-circle-play-big:hover {
+  background-color: #ebebeb;
+  cursor: pointer;
+}
+/*# sourceMappingURL=movieCardIconPlayBig.css.map */

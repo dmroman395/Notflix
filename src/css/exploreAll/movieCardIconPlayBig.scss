@@ -1,0 +1,24 @@
+.icon-container {
+    position: relative;
+    .icon-circle-play-big {
+        text-shadow: none;
+        padding: 15px 30px;
+        display: flex;
+        align-items: center;
+        border-radius: 3px;
+        background-color: white;
+        color: black;
+        font-weight: 600;
+        font-size: 1.5em;
+        margin-right: 10px;
+        .card-icon{
+            height: 20px;
+            width: auto;
+            margin-right: 10px;
+        }
+    }
+    .icon-circle-play-big:hover {
+        background-color: darken(white,8%);
+        cursor: pointer;
+    }
+}

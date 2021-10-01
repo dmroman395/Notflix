@@ -4,7 +4,7 @@ import '../../css/shared/footer.css'
 function Footer({ lang, setLang, data, style }) {
     let questions
 
-    if (lang === 'English') {
+    if (lang.lang == 'English') {
         questions = 'Questions? Call '
     } else {
         questions = '¿Preguntas? Llama al '
@@ -20,9 +20,9 @@ function Footer({ lang, setLang, data, style }) {
 
     const changeLang = () => {
         if (lang === 'English') {
-            setLang('Spanish')
-        } else {
             setLang('English')
+        } else {
+            setLang('Spanish')
         }
     }
 

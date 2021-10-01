@@ -1,0 +1,229 @@
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0, .3);
+    z-index: 60;
+    display: flex;
+    justify-content: center;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    opacity: 0;
+    transition: all 200ms ease-out;
+    .moreInfo-container {
+        transition: all 200ms ease-out;
+        opacity: 0;
+        max-width: 900px;
+        height: min-content;
+        margin: 100px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 5px;
+        overflow: hidden;
+        color: #fff;
+        background-color: rgba(20,20,20, 1);
+        .moreInfo-featured {
+            height: 500px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .cancel-container {
+                display: flex;
+                justify-content: flex-end;
+                padding: 15px;
+                .cancel {
+                    padding: 2px;
+                    border-radius: 100%;
+                    background-color: rgba(20,20,20, 1);
+                    height: 35px;
+                    width: 35px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img {
+                        height: 50%;
+                        width: auto;
+                    }
+                }
+                .cancel:hover {
+                    cursor: pointer;
+                }
+            }
+            .content {
+                padding: 40px 40px;
+                h1 {
+                    font-size: 2.7em;
+                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.85);
+                    margin-bottom: 20px;
+                }
+                .icon-row {
+                    display: flex;
+                    flex-direction: row;
+                    position: relative;
+                    .icon-container {
+                        position: relative;
+                        display: flex;
+                        justify-content: center;
+                        .icon-circle-play-big {
+                            text-shadow: none;
+                            padding: 9px 27px;
+                            display: flex;
+                            align-items: center;
+                            border-radius: 3px;
+                            background-color: white;
+                            color: black;
+                            font-weight: 600;
+                            font-size: 1.1em;
+                            margin-right: 10px;
+                            .card-icon{
+                                height: 20px;
+                                width: auto;
+                                margin-right: 10px;
+                            }
+                        }
+                        .icon-circle-play-big:hover {
+                            background-color: darken(white,8%);
+                            cursor: pointer;
+                        }
+                        .bubble-container {
+                            animation: fade 250ms;
+                            opacity: 1;
+                            position: absolute;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            width: 35px;
+                            bottom: 40px;
+                            z-index: 20;
+                            .bubble-text {
+                                width: max-content;
+                                padding: 5px 10px;
+                                background-color: #D5D5D5;
+                                border-radius: 3px;
+                                color: black;
+                                font-weight: bold;
+                                font-size: 1em;
+                            }
+                            #triangle {
+                                position: relative;
+                                bottom: 7px;
+                                height: 15px;
+                                width: 20px
+                            }
+                        }
+                        @keyframes fade {
+                            from {opacity: 0}
+                            to {opacity: 1}
+                        }
+                        .icon-circle {
+                            position: relative;
+                            height: 40px;
+                            width: 40px;
+                            margin: 0 2px;
+                            padding: 3px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            border-radius: 100%;
+                            border: 2px solid lighten(#595959,5%);
+                            z-index: 15;
+                            .card-icon{
+                                height: 17px;
+                                width: auto;
+                            }
+                        }
+                        .icon-circle:hover {
+                            border-color: white;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+        .moreInfo-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 0 40px;
+            p {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                margin-bottom: 20px;
+                .match {
+                    color: #46d369;
+                    font-weight: 600;
+                }
+                .hd {
+                    text-align: center;
+                    font-size: .65em;
+                    padding: 0 .4em;
+                    border-radius: 3px;
+                    border: solid 1px darken(white, 15%);
+                    white-space: nowrap;
+                }
+            }
+            p * {
+                margin: 0 3px;
+            }
+            h3 {
+                margin-bottom: 60px;
+                font-weight: 500;
+            }
+            .similarMovies {
+                h1 {
+                    font-size: 1.55em;
+                    margin-bottom: 20px;
+                }
+                .similarMovies-grid {
+                    overflow: hidden;
+                    max-height: 1000px;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+                    gap: 15px;
+                    position: relative;
+                    transition: all 300ms ease-out;
+                }
+            }
+            .expand-container {
+                width: 100%;
+                height: 90px;
+                border-bottom: 2px solid #404040;
+                position: relative;
+                bottom: 90px;
+                display: flex;
+                justify-content: center;
+                background-image: linear-gradient(to top,#181818 0,rgba(24,24,24,.7) 20%,rgba(24,24,24,.4) 30%,transparent 50%);
+                .expand {
+                    z-index: 60;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    bottom: -17px;
+                    border-radius: 100%;
+                    width: 35px;
+                    height: 35px;
+                    background-color: rgba(20,20,20, .35);
+                    border: 2px solid lighten(#404040,30%);
+                    img {
+                        position: relative;
+                        height: 40%;
+                        width: auto;
+                    }
+                }
+                .rotated {
+                    transform: rotate(180deg);
+                }
+                .expand:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+.overlay::-webkit-scrollbar {
+    display: none;
+}

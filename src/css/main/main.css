@@ -1,6 +1,9 @@
 .main {
   background-color: #141414;
   overflow-x: hidden;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .main .rows-container {

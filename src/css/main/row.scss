@@ -34,7 +34,7 @@
     .slick-slider {
         display: flex;
         flex-direction: row;
-        height: 175px;
+        height: 185px;
         .slick-list {
             margin: 0 50px;
             width: 95%;
@@ -48,8 +48,8 @@
             }
         }
         .arrow  {
-            height: 175px;
-            width: 50px;
+            height: 185px;
+            width: 45px;
             z-index: 5;
             position: absolute;
             right: 0%;
@@ -69,44 +69,103 @@
                 display: inline-block;
             }
         }
-        .arrow-poster  {
-            height: 500px;
+        .right {
+            right: 0%;
+            
+        }
+        .left {
+            left: 0%; 
+        }
+    }
+    .arrow-ten  {
+        height: 300px;
+        width: 50px;
+        z-index: 5;
+        position: absolute;
+        right: 0%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            height: 35px;
+            width: auto;
+            display: none;
+        }
+    }
+    .arrow-ten:hover {
+        cursor: pointer;
+        background-color: rgba(20, 20, 20, 0.5);
+        img {
+            display: inline-block;
+        }
+    }
+}
+
+.poster-row-container {
+    margin-bottom: 105px; 
+    color: #e5e5e5;
+    height: 500px;
+    h1 {
+        margin-bottom: 10px;
+    }
+    .row-header {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        z-index: 100;
+        margin: 0 50px;
+        span {
+            font-weight: bold;
+            opacity: 0;
+            transition: all ease-in-out 600ms;
+        }
+        img {
+            opacity: 0;
+            transition: all linear 250ms;
+        }
+    }
+    .row-header:hover {
+        cursor: pointer;
+        span {
+            opacity: 1;
+            transform: translateX(15px);
+        }
+        img {
+            opacity: 1;
+            transform: translateX(115px);
+        }
+    }
+    .slick-slider {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        .slick-list {
+            margin: 0 50px;
+            width: 95%;
+            .slick-track {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                .slick-slide {
+                    max-width: 320px;
+                }
+            }
+        }
+        .arrow  {
+            height: 100%;
             width: 50px;
             z-index: 5;
             position: absolute;
-            right: 0%;
             display: flex;
             justify-content: center;
             align-items: center;
             img {
-                height: 35px;
+                height: 75px;
                 width: auto;
                 display: none;
             }
         }
-        .arrow-poster:hover {
-            cursor: pointer;
-            background-color: rgba(20, 20, 20, 0.5);
-            img {
-                display: inline-block;
-            }
-        }
-        .arrow-ten  {
-            height: 225px;
-            width: 50px;
-            z-index: 5;
-            position: absolute;
-            right: 0%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            img {
-                height: 35px;
-                width: auto;
-                display: none;
-            }
-        }
-        .arrow-ten:hover {
+        .arrow:hover {
             cursor: pointer;
             background-color: rgba(20, 20, 20, 0.5);
             img {
@@ -121,4 +180,27 @@
             left: 0%; 
         }
     }    
+    .arrow-poster  {
+        height: 500px;
+        width: 50px;
+        z-index: 5;
+        position: absolute;
+        right: 0%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            height: 35px;
+            width: auto;
+            display: none;
+        }
+    }
+    .arrow-poster:hover {
+        cursor: pointer;
+        background-color: rgba(20, 20, 20, 0.5);
+        img {
+            display: inline-block;
+        }
+    }
 }
+

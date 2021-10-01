@@ -1,0 +1,23 @@
+.exploreAll {
+    background-color: #141414;
+    height: fit-content;
+    color: white;
+    .content {
+        position: relative;
+        top: 50px;
+        margin-bottom: 100px;
+        padding: 50px 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        .genre {
+            font-weight: lighter;
+            margin-bottom: 75px;
+        }
+        .movies-grid {
+            display: grid;
+            height: 100%;
+            grid-template-columns: repeat(6, 1fr);
+        }
+    }    
+}

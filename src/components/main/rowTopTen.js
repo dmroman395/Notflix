@@ -59,8 +59,8 @@ export default class RowTopTen extends Component {
       <div className='row-container'>
         <div className='row-header'>
           <h1>{this.props.headline}</h1>
-          <span>Explore All</span>
           <img src={exploreArrow}></img>
+          <span>Explore All</span>
         </div>
         <Slider {...settings}>
          {row}

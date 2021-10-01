@@ -32,4 +32,11 @@
   font-size: 1.4vw;
   font-weight: normal;
 }
+
+.featured .content .buttons {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
 /*# sourceMappingURL=featured.css.map */

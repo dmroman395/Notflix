@@ -10,6 +10,7 @@ import RowNotflix from '../components/main/rowNotflix'
 import RowTopTen from '../components/main/rowTopTen'
 import Footer from '../components/shared/footer'
 import axios from 'axios'
+import MoreInfo from '../components/main/moreInfo'
 
 const {
     getTrending,
@@ -20,10 +21,12 @@ const {
     getTopRated,
     getPopular,
     getMovieDetails,
+    getSimilarMovies,
     getGenres
 } = require('../controllers/moviesController')
 
-function Main(lang, setLang) {
+function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, setExploreMovies, setSelectedGenre}) {
+    const [movieDetails, setMovieDetails] = useState({})
     const [actionMovies, setActionMovies] = useState([])
     const [comedyMovies, setComedyMovies] = useState([])
     const [horrorMovies, setHorrorMovies] = useState([])
@@ -124,6 +127,7 @@ function Main(lang, setLang) {
         }
     }
 
+
     useEffect(() => {
         loadTrending()
         loadPopular()
@@ -149,69 +153,107 @@ function Main(lang, setLang) {
     }
 
     return (
-        <div className="main">
+        <div className='main'>
+            {Object.keys(selectedMovie).length === 0  ? 
+                null
+                : 
+                <MoreInfo movie={selectedMovie} similarMovies={similarMovies} lang={lang} setSelectedMovie={setSelectedMovie}/>
+            }
             <Header/>
-            <Featured lang={lang} movie={featuredMovie}/>
+            <Featured lang={lang} movie={featuredMovie} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies}/>
             <div className='rows-container'>
                 <Row
                     arr={popularMovies}
                     getMovieDetails={getMovieDetails}
                     lang={lang}
                     headline={'Popular on Notflix'}
+                    selectedMovie={selectedMovie}
+                    setSelectedMovie={setSelectedMovie}
+                    similarMovies={similarMovies}
+                    setSimilarMovies={setSimilarMovies}
+                    setExploreMovies={setExploreMovies}
+                    setSelectedGenre={setSelectedGenre}
                 />
                 <Row
                     arr={trendingMovies}
                     getMovieDetails={getMovieDetails}
                     lang={lang}
                     headline={'Trending Now'}
+                    selectedMovie={selectedMovie}
+                    setSelectedMovie={setSelectedMovie}
+                    similarMovies={similarMovies}
+                    setSimilarMovies={setSimilarMovies}
+                    setExploreMovies={setExploreMovies}
+                    setSelectedGenre={setSelectedGenre}
                 />
                 
                 <Row
                     arr={actionMovies}
                     getMovieDetails={getMovieDetails}
                     lang={lang}
-                    headline={'Action & Adevnture'}
+                    headline={'Action & Adventure'}
+                    selectedMovie={selectedMovie}
+                    setSelectedMovie={setSelectedMovie}
+                    similarMovies={similarMovies}
+                    setSimilarMovies={setSimilarMovies}
+                    setExploreMovies={setExploreMovies}
+                    setSelectedGenre={setSelectedGenre}
                 />
                 <RowNotflix
                     arr={topRatedMovies}
                     getMovieDetails={getMovieDetails}
                     lang={lang}
                     headline={'Only on Notflix'}
+                    setExploreMovies={setExploreMovies}
+                    setSelectedGenre={setSelectedGenre}
                 />
                 <RowTopTen
                     arr={nowPlayingMovies}
                     getMovieDetails={getMovieDetails}
                     lang={lang}
                     headline={'Top 10 in the U.S. Today'}
+                    setExploreMovies={setExploreMovies}
+                    setSelectedGenre={setSelectedGenre}
                 />
                 <Row
                     arr={comedyMovies}
                     getMovieDetails={getMovieDetails}
                     lang={lang}
                     headline={'Comedy'}
+                    selectedMovie={selectedMovie}
+                    setSelectedMovie={setSelectedMovie}
+                    similarMovies={similarMovies}
+                    setSimilarMovies={setSimilarMovies}
+                    setExploreMovies={setExploreMovies}
+                    setSelectedGenre={setSelectedGenre}
                 />
                 <Row
                     arr={horrorMovies}
                     getMovieDetails={getMovieDetails}
                     lang={lang}
                     headline={'Horror'}
+                    selectedMovie={selectedMovie}
+                    setSelectedMovie={setSelectedMovie}
+                    similarMovies={similarMovies}
+                    setSimilarMovies={setSimilarMovies}
+                    setExploreMovies={setExploreMovies}
+                    setSelectedGenre={setSelectedGenre}
                 />
             </div>
-            {lang === 'English' ? (
+            {lang === 'English' ? 
                     <Footer
                         lang={lang}
                         setLang={setLang}
                         data={footerDataEn}
                         style={'footer3'}
                     />
-                ) : (
+                 : 
                     <Footer
                         lang={lang}
                         setLang={setLang}
                         data={footerDataEs}
                         style={'footer3'}
                     />
-                )
             }
         </div>
     )

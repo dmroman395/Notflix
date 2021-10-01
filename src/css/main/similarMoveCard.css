@@ -1,0 +1,158 @@
+.similarMovie {
+  width: 100%;
+  background-color: #2f2f2f;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.similarMovie .banner {
+  height: 140px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 10px;
+}
+
+.similarMovie .banner h5 {
+  font-size: 1em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.85);
+}
+
+.similarMovie .info {
+  padding: 20px 15px 30px 15px;
+}
+
+.similarMovie .info .info-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.similarMovie .info .info-top .match-year {
+  font-weight: 600;
+}
+
+.similarMovie .info .info-top .match-year .match {
+  color: #46d369;
+  margin-bottom: 5px;
+}
+
+.similarMovie .info .info-top .icon-container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.similarMovie .info .info-top .icon-container .icon-circle {
+  position: relative;
+  height: 35px;
+  width: 35px;
+  margin: 0 2px;
+  padding: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 100%;
+  border: 2px solid #666666;
+  z-index: 15;
+}
+
+.similarMovie .info .info-top .icon-container .icon-circle .card-icon {
+  height: 12px;
+  width: auto;
+}
+
+.similarMovie .info .info-top .icon-container .icon-circle:hover {
+  border-color: white;
+}
+
+.similarMovie .info .info-top .icon-container .bubble-container {
+  -webkit-animation: fade 250ms;
+          animation: fade 250ms;
+  opacity: 1;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 35px;
+  bottom: 60px;
+  z-index: 5000;
+}
+
+.similarMovie .info .info-top .icon-container .bubble-container .bubble-text {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 5px 10px;
+  background-color: #D5D5D5;
+  border-radius: 3px;
+  color: black;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.similarMovie .info .info-top .icon-container .bubble-container #triangle {
+  position: relative;
+  bottom: 7px;
+  height: 15px;
+  width: 20px;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.similarMovie .info .info-bottom {
+  font-size: .90em;
+  font-weight: 500;
+  color: #d2d2d2;
+  line-height: 17px;
+}
+
+.similarMovie:hover {
+  cursor: pointer;
+}
+/*# sourceMappingURL=similarMoveCard.css.map */

@@ -1,7 +1,11 @@
 import React from 'react'
 import '../../css/main/featured.css'
+import MovieCardIconPlayBig from './movieCardIconPlayBig'
+import MovieCardIconInfoBig from './movieCardIconInfoBig'
+import playButton from '../../images/play-button.png'
+import info from '../../images/info.png'
 
-function Featured({ lang, movie }) {
+function Featured({ lang, movie, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies }) {
     const { backdrop_path, title, id, overview } = movie
     return (
         <div
@@ -20,6 +24,10 @@ function Featured({ lang, movie }) {
             <div className="content">
                 <h1>{title}</h1>
                 <h3>{overview}</h3>
+                <div className='buttons'>
+                    <MovieCardIconPlayBig icon={playButton} title={title} lang={lang}/>
+                    <MovieCardIconInfoBig icon={info} movie={movie} lang={lang} setSelectedMovie={setSelectedMovie} selectedMovie={selectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies} id={id} />
+                </div>
             </div>
         </div>
     )

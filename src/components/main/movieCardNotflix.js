@@ -19,13 +19,17 @@ function MovieCardNotflix({ movie, getMovieDetails, lang }) {
     }
 
     return (
-        <div className="movie-card-container">
+        <div className="movie-container">
             <div
                 className="movie-poster"
                 style={{
                     backgroundSize: 'cover',
-                    backgroundImage: `
-            url(${imagePath})`,
+                    backgroundImage: `linear-gradient(
+                        to top,
+                        rgba(20,20,20, .9) 1%, 
+                        rgba(0, 0, 0, 0) 30%
+                    ),
+                    url(${imagePath})`,
                     backgroundPosition: 'center',
                 }}
             >

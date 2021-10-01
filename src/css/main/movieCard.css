@@ -7,9 +7,11 @@
   transition: transform ease-out 200ms, z-index linear 1ms 500ms;
   transition: transform ease-out 200ms, z-index linear 1ms 500ms, -webkit-transform ease-out 200ms;
   height: 300px;
+  border-radius: 3px;
 }
 
 .movie-container .movie {
+  position: relative;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -19,16 +21,8 @@
       -ms-flex-direction: column;
           flex-direction: column;
   width: 290px;
-  border-radius: 3px;
-  overflow: hidden;
   -webkit-transition: all ease-out 1ms;
   transition: all ease-out 1ms;
-}
-
-.movie-container .movie #title {
-  color: white;
-  font-size: 1.5em;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
 }
 
 .movie-container .movie .movie-card {
@@ -37,13 +31,20 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 20px;
+  padding: 15px;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
   border-radius: 3px;
   -webkit-transition: height ease-out 1ms;
   transition: height ease-out 1ms;
+  overflow: hidden;
+}
+
+.movie-container .movie .movie-card #title {
+  color: white;
+  font-size: 1.5em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
 }
 
 .movie-container .movie .bottom-half {
@@ -51,7 +52,6 @@
   -webkit-transition: all ease-out 100ms;
   transition: all ease-out 100ms;
   height: 40%;
-  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -81,48 +81,16 @@
   display: flex;
 }
 
-.movie-container .movie .bottom-half .icon-row .icons .icon-circle svg {
-  height: 15px;
-  width: auto;
-}
-
-.movie-container .movie .bottom-half .icon-row .icons .bubble-container {
-  position: absolute;
+.movie-container .movie .bottom-half .icon-row .icons .icon-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 35px;
-  bottom: 100px;
-  z-index: 20;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.movie-container .movie .bottom-half .icon-row .icons .bubble-container .bubble-text {
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  padding: 5px 10px;
-  background-color: #D5D5D5;
-  border-radius: 3px;
-  color: black;
-  font-weight: bold;
-  font-size: 1em;
-}
-
-.movie-container .movie .bottom-half .icon-row .icons .bubble-container #triangle {
-  position: relative;
-  bottom: 7px;
-  height: 15px;
-  width: 20px;
-}
-
-.movie-container .movie .bottom-half .icon-row .bubble-container {
+.movie-container .movie .bottom-half .icon-row .icons .icon-container .bubble-container {
   -webkit-animation: fade 250ms;
           animation: fade 250ms;
   opacity: 1;
@@ -138,11 +106,11 @@
       -ms-flex-align: center;
           align-items: center;
   width: 35px;
-  bottom: 100px;
-  z-index: 20;
+  bottom: 30px;
+  z-index: 200;
 }
 
-.movie-container .movie .bottom-half .icon-row .bubble-container .bubble-text {
+.movie-container .movie .bottom-half .icon-row .icons .icon-container .bubble-container .bubble-text {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -154,7 +122,7 @@
   font-size: 1em;
 }
 
-.movie-container .movie .bottom-half .icon-row .bubble-container #triangle {
+.movie-container .movie .bottom-half .icon-row .icons .icon-container .bubble-container #triangle {
   position: relative;
   bottom: 7px;
   height: 15px;
@@ -179,7 +147,7 @@
   }
 }
 
-.movie-container .movie .bottom-half .icon-row .icon-circle {
+.movie-container .movie .bottom-half .icon-row .icons .icon-container .icon-circle {
   position: relative;
   height: 30px;
   width: 30px;
@@ -199,16 +167,16 @@
   z-index: 15;
 }
 
-.movie-container .movie .bottom-half .icon-row .icon-circle #card-icon {
+.movie-container .movie .bottom-half .icon-row .icons .icon-container .icon-circle .card-icon {
   height: 17px;
   width: auto;
 }
 
-.movie-container .movie .bottom-half .icon-row .icon-circle:hover {
+.movie-container .movie .bottom-half .icon-row .icons .icon-container .icon-circle:hover {
   border-color: white;
 }
 
-.movie-container .movie .bottom-half .icon-row .icon-circle-play {
+.movie-container .movie .bottom-half .icon-row .icons .icon-container .icon-circle-play {
   height: 30px;
   width: 30px;
   margin: 0 1px;
@@ -226,12 +194,12 @@
   background-color: white;
 }
 
-.movie-container .movie .bottom-half .icon-row .icon-circle-play #card-icon {
+.movie-container .movie .bottom-half .icon-row .icons .icon-container .icon-circle-play .card-icon {
   height: 15px;
   width: auto;
 }
 
-.movie-container .movie .bottom-half .icon-row .icon-circle-play:hover {
+.movie-container .movie .bottom-half .icon-row .icons .icon-container .icon-circle-play:hover {
   background-color: #ebebeb;
 }
 
@@ -290,8 +258,8 @@
   display: none;
 }
 
-.movie-container .movie .movie-poster {
-  width: 100%;
+.movie-container .movie-poster {
+  width: 290px;
   height: 500px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -300,37 +268,89 @@
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+  border-radius: 3px;
 }
 
-.movie-container .movie .number {
+.movie-ten-container {
+  position: absolute;
+  overflow: visible;
+  z-index: 9;
+  -webkit-transition: z-index linear 1ms 500ms, -webkit-transform ease-out 200ms;
+  transition: z-index linear 1ms 500ms, -webkit-transform ease-out 200ms;
+  transition: transform ease-out 200ms, z-index linear 1ms 500ms;
+  transition: transform ease-out 200ms, z-index linear 1ms 500ms, -webkit-transform ease-out 200ms;
+  height: 300px;
+  width: 290px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.movie-ten-container .number {
   font-size: 19.1rem;
   line-height: 14.5rem;
   color: black;
   -webkit-text-stroke: 5px #595959;
   text-shadow: none;
   position: relative;
-  left: 36px;
+  left: 27px;
+  top: 9px;
   z-index: -1;
   max-width: 20%;
 }
 
-.movie-container .movie .ten {
+.movie-ten-container .ten {
   font-size: 15rem;
   line-height: 14.5rem;
   left: -5px;
   letter-spacing: -37px;
 }
 
-.movie-container .movie .movie-ten {
+.movie-ten-container .movie-ten {
   width: 50%;
   height: 225px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   padding: 20px;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+}
+
+.movie-poster-container {
+  position: absolute;
+  overflow: visible;
+  z-index: 9;
+  -webkit-transition: z-index linear 1ms 500ms, -webkit-transform ease-out 200ms;
+  transition: z-index linear 1ms 500ms, -webkit-transform ease-out 200ms;
+  transition: transform ease-out 200ms, z-index linear 1ms 500ms;
+  transition: transform ease-out 200ms, z-index linear 1ms 500ms, -webkit-transform ease-out 200ms;
+  width: 290px;
+}
+
+.movie-ten-container:hover {
+  cursor: pointer;
+  -webkit-transform: scale(130%) translateY(-50px);
+          transform: scale(130%) translateY(-50px);
+  height: 300px;
+  z-index: 10;
+  -webkit-transition: all ease-out 200ms 500ms;
+  transition: all ease-out 200ms 500ms;
+}
+
+.movie-ten-container:hover .movie-ten {
+  height: 100%;
+  width: 200%;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 3px 8px black;
+          box-shadow: 0px 3px 8px black;
+  -webkit-transition: all ease-out 200ms 500ms;
+  transition: all ease-out 200ms 500ms;
 }
 
 .movie-container:hover {
@@ -355,7 +375,7 @@
 .movie-container:hover .movie .movie-card {
   -webkit-transition: all ease-out 200ms 500ms;
   transition: all ease-out 200ms 500ms;
-  border-radius: 0px;
+  border-radius: 3px;
 }
 
 .movie-container:hover .movie .bottom-half {

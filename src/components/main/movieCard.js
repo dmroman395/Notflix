@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import MovieCardIcon from './movieCardButton'
+import MovieCardIcon from '../../components/main/movieCardIcon'
 
 import '../../css/main/movieCard.css'
 
@@ -10,11 +10,16 @@ import thumbsUp from '../../images/like.png'
 import thumbsDown from '../../images/dislike.png'
 import thumbsUpFilled from '../../images/like-filled.png'
 import thumbsDownFilled from '../../images/dislike-filled.png'
-// import DownArrow from '../../images/down-chevron.svg'
-// import Play from '../../images/play-button.svg'
+import downArrow from '../../images/down-chevron.png'
+import playButton from '../../images/play-button.png'
+
+const {
+    getMovieDetails,
+    getSimilarMovies,
+} = require('../../controllers/moviesController')
 
 
-function MovieCard({ movie, getMovieDetails, lang }) {
+function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies }) {
     const [hover, setHover] = useState(false)
     const [movieDetails, setMovieDetails] = useState({})
 
@@ -27,7 +32,6 @@ function MovieCard({ movie, getMovieDetails, lang }) {
     let like
     let dislike
     let moreInfo
-    let details
     let imagePath
 
     const hours = Math.floor(runtime/60)
@@ -90,10 +94,23 @@ function MovieCard({ movie, getMovieDetails, lang }) {
 
     async function loadDetails() {
         if (Object.keys(movieDetails).length === 0) {
-            details = await getMovieDetails(lang, id)
+            const details = await getMovieDetails(lang, id)
             setMovieDetails(details.data)
         }
         setHover(true)
+    }
+
+    async function loadSimilar() {
+        if (Object.keys(similarMovies).length === 0) {
+            const data = await getSimilarMovies(lang, id)
+            const movies = data.data.results
+            setSimilarMovies(movies)
+        }
+    }
+
+    function handleMovieCardHover() {
+        loadDetails();
+        loadSimilar();
     }
 
     function handleOut() {
@@ -105,11 +122,14 @@ function MovieCard({ movie, getMovieDetails, lang }) {
             <div className='bottom-half'>
                 <div className='icon-row'>
                     <div className='icons'>
+                        <MovieCardIcon icon={playButton} text={play} func={handlePlay}/>
                         <MovieCardIcon icon={plus} iconFilled={check} text={add}/>
                         <MovieCardIcon icon={thumbsUp} iconFilled={thumbsUpFilled} text={like}/>
                         <MovieCardIcon icon={thumbsDown} iconFilled={thumbsDownFilled} text={dislike}/>
-                        </div>
-                    <div>
+                    </div>
+                    <div className='icons'>
+                        <MovieCardIcon icon={downArrow} text={moreInfo} selectedMovie={selectedMovie}
+                        setSelectedMovie={setSelectedMovie} movie={movie} id={'moreInfo'} runtime={runtime}/>
                     </div>
                 </div>
                 <div className='match-row'>
@@ -121,7 +141,7 @@ function MovieCard({ movie, getMovieDetails, lang }) {
             </div>
 
     return (
-        <div className="movie" onMouseOver={loadDetails} onMouseLeave={handleOut}>
+        <div className="movie" onMouseOver={handleMovieCardHover} onMouseLeave={handleOut}>
             <div
                 className="movie-card"
                 style={{

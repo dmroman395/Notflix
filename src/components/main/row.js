@@ -49,14 +49,29 @@ export default class Row extends Component {
                         movie={movie}
                         getMovieDetails={this.props.getMovieDetails}
                         key={i}
+                        selectedMovie={this.props.selectedMovie}
+                        setSelectedMovie={this.props.setSelectedMovie}
+                        similarMovies={this.props.similarMovies}
+                        setSimilarMovies={this.props.setSimilarMovies}
+
                     />
                 )
             })
+    const setGenre = this.props.setSelectedGenre
+    const headline = this.props.headline
+    const setExploreAll = this.props.setExploreMovies
+    const currentMovies = this.props.arr
 
+    function handleExploreAll() {
+      setGenre(headline)
+      setExploreAll(currentMovies)
+      window.scroll(0,0)
+    }
+    
     return (
       <div className='row-container'>
-        <div className='row-header'>
-          <h1>{this.props.headline}</h1>
+        <div className='row-header' onClick={handleExploreAll}>
+          <h1>{headline}</h1>
           <img src={exploreArrow}></img>
           <span>Explore All</span>
         </div>
