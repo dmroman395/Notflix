@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useAuth } from '../../contexts/authContext'
+import { auth } from '../../firebase'
 
 import FBLogo from '../../images/fblogo.png'
 import '../../css/signIn/signInForm.css'
@@ -10,9 +11,13 @@ function SignInForm({
     setFormData,
     setNewUser,
     loading,
-    setIsSignedIn,
+    setWatchList
 }) {
-    const { userSignIn, currentUser } = useAuth()
+    const [errorMessage, setErrorMessage] = useState('')
+
+    const { userSignIn } = useAuth()
+
+    const {getUserWatchList} = require('../../firebase')
 
     let signin
     let email
@@ -84,36 +89,41 @@ function SignInForm({
 
     const signIn = async (e) => {
         e.preventDefault()
-
         try {
-            await userSignIn(formData.email, formData.password)
-            setIsSignedIn(true)
-            console.log(currentUser)
+            await userSignIn(auth, formData.email, formData.password)
         } catch (err) {
             const code = err.code
             switch (code) {
                 case 'auth/invalid-email':
-                    alert('This email address is invalid.')
+                    setErrorMessage('This email address is invalid.')
                     break
                 case 'auth/user-disabled':
-                    alert('This account has been disabled.')
+                    setErrorMessage('This account has been disabled.')
                     break
                 case 'auth/user-not-found':
-                    alert('No account exists with this email address.')
+                    setErrorMessage('No account exists with this email address.')
                     break
                 case 'auth/wrong-password':
-                    alert('Password is wrong. Please try again.')
+                    setErrorMessage('Password is wrong. Please try again.')
                     break
+                // case 'auth/email-already-exists':
+                //     alert('An account with this email address already exists. Please sign in instead.')
+                //     break
                 default:
                     break
             }
         }
     }
 
+    const errMsg = <div className='error'>
+        <p>{errorMessage}</p>
+    </div>
+
     return (
         <div className="form-container">
             <form className="signIn-form" onSubmit={signIn}>
                 <h1>{signin}</h1>
+                {errorMessage.length > 0 ? errMsg : null}
                 <input
                     type="email"
                     placeholder={email}

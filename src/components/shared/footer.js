@@ -1,10 +1,11 @@
 import React from 'react'
+import LanguagePicker from '../shared/languagePicker'
 import '../../css/shared/footer.css'
 
 function Footer({ lang, setLang, data, style }) {
     let questions
 
-    if (lang.lang == 'English') {
+    if (lang == 'English') {
         questions = 'Questions? Call '
     } else {
         questions = '¿Preguntas? Llama al '
@@ -36,24 +37,7 @@ function Footer({ lang, setLang, data, style }) {
                 <ul className="footer-list">{list}</ul>
             </div>
             <div className="lang-signin">
-                <select value={lang} onChange={changeLang}>
-                    <option
-                        lang="en"
-                        value="English"
-                        data-language="en"
-                        data-country="US"
-                    >
-                        English
-                    </option>
-                    <option
-                        lang="es"
-                        value="Spanish"
-                        data-language="es"
-                        data-country="US"
-                    >
-                        Español
-                    </option>
-                </select>
+                <LanguagePicker lang={lang} setLang={setLang} />
             </div>
         </div>
     )

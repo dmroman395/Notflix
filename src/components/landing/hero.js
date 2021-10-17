@@ -4,7 +4,7 @@ import LanguagePicker from '../shared/languagePicker'
 import logo from '../../images/Logo.png'
 import '../../css/landing/hero.css'
 
-function Hero({ lang, setLang }) {
+function Hero({ lang, setLang, sendToSignIn }) {
     let h1
     let h3
     let sign
@@ -22,19 +22,23 @@ function Hero({ lang, setLang }) {
         hero = 'es'
     }
 
+    function signIn() {
+        sendToSignIn()
+    }
+
     return (
         <div className={`hero ${hero}`}>
-            <div className="overlay">
+            <div className="hero-overlay">
                 <div className="top-bar">
                     <img id="logo" src={logo} alt="logo"></img>
                     <div className="lang-signin">
                         <LanguagePicker lang={lang} setLang={setLang} />
-                        <a
+                        <button
                             className="button sign-in"
-                            href="https://notflix.dev/login"
+                            onClick={signIn}
                         >
                             {sign}
-                        </a>
+                        </button>
                     </div>
                 </div>
                 <div className="main-content">

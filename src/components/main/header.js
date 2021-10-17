@@ -1,4 +1,5 @@
 import React from 'react'
+import { useAuth } from '../../contexts/authContext'
 import logo from '../../images/Logo.png'
 import searchIcon from '../../images/search.png'
 import '../../css/main/header.css'
@@ -41,6 +42,13 @@ const debounce = (fn) => {
   storeScroll();
 
 function Header() {
+
+    const { userSignOut } = useAuth()
+
+    function signOut() {
+        userSignOut()
+    }
+
     return (
         <div className="header">
             <div className="header-left">
@@ -67,7 +75,7 @@ function Header() {
                 <img src={searchIcon} id="search"></img>
                 <a href="">DVD</a>
                 <p>BELL ICON HERE</p>
-                <p>Sign Out</p>
+                <button onClick={signOut}>Sign Out</button>
             </div>
         </div>
     )

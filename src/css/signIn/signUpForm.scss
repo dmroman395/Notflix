@@ -13,6 +13,17 @@
             color: white;
             margin-bottom: 20px;
         }
+        .error {
+            font-size: .85rem;
+            background-color: #f8d7da;
+            border-color: #f5c2c7;
+            padding: 1rem;
+            border-radius: .25rem;
+            p {
+                color: #842029;
+                margin-top: 0;
+            }
+        }
         input {
             background-color: #333;
             padding: 20px 10px;

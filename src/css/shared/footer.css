@@ -1,26 +1,26 @@
-.footer {
+.footer1 {
   background-color: black;
   color: #757575;
   padding: 75px 400px 20px 500px;
 }
 
-.footer h5 {
+.footer1 h5 {
   font-size: 16px;
   margin-bottom: 30px;
   font-weight: normal;
 }
 
-.footer a {
+.footer1 a {
   text-decoration: none;
   color: #757575;
 }
 
-.footer a:hover {
+.footer1 a:hover {
   cursor: pointer;
   text-decoration: underline;
 }
 
-.footer .footer-list {
+.footer1 .footer-list {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[4];
@@ -31,7 +31,7 @@
   margin-bottom: 30px;
 }
 
-.footer .lang-signin {
+.footer1 .lang-signin {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -43,7 +43,7 @@
   gap: 30px;
 }
 
-.footer .lang-signin select {
+.footer1 .lang-signin select {
   background: rgba(0, 0, 0, 0.4);
   border: 1px solid #aaa;
   color: #fff;

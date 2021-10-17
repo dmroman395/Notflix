@@ -31,7 +31,7 @@ function MiniFeatured({ movie, lang, setSelectedMovie}) {
         imagePath = `https://image.tmdb.org/t/p/original/${backdrop_path}`
     }
 
-    if (lang.lang === 'English') {
+    if (lang === 'English') {
         play = 'Play'
         remove = 'Remove from My List'
         add = 'Add to My List'
@@ -79,7 +79,7 @@ function MiniFeatured({ movie, lang, setSelectedMovie}) {
                 <h1>{title}</h1>
                 <div className='icon-row'>
                     <MovieCardIconPlayBig icon={playButton} text={play} title={title} lang={lang}/>
-                    <MovieCardIcon icon={plus} iconFilled={check} text={add}/>
+                    <MovieCardIcon icon={plus} iconFilled={check} text={add} id={'add'} movie={movie}/>
                     <MovieCardIcon icon={thumbsUp} iconFilled={thumbsUpFilled} text={like}/>
                     <MovieCardIcon icon={thumbsDown} iconFilled={thumbsDownFilled} text={dislike}/>
                 </div>

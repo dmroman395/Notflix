@@ -3,7 +3,7 @@
     height: 775px;
     color: #ffffff;
     overflow: hidden;
-    .overlay {
+    .hero-overlay {
         background-image: linear-gradient(
             to top,
             rgba(0, 0, 0, 0.9) 0,
@@ -38,9 +38,14 @@
                     background-color: #e50914;
                     padding: 10px 17px;
                     border-radius: 3px;
+                    font-size: 1rem;
+                    border: none;
                     color: #ffffff;
                     text-decoration: none;
                     line-height: 11px;
+                }
+                .button:hover {
+                    cursor: pointer;
                 }
                 .sign-in {
                     max-height: 32px;

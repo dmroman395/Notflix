@@ -3,6 +3,7 @@
     height: fit-content;
     color: white;
     .content {
+        animation: fade 500ms;
         position: relative;
         top: 50px;
         margin-bottom: 100px;
@@ -20,4 +21,9 @@
             grid-template-columns: repeat(6, 1fr);
         }
     }    
+} 
+
+@keyframes fade {
+    from {opacity: 0}
+    to {opacity: 1}
 }

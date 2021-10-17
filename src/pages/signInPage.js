@@ -8,7 +8,7 @@ import SignUpForm from '../components/signIn/signUpForm'
 
 import '../css/signIn/signIn.css'
 
-function SignInPage({ lang, setLang, setIsSignedIn }) {
+function SignInPage({ lang, setLang }) {
     const [formData, setFormData] = useState({})
     const [newUser, setNewUser] = useState(false)
     const [loading, setLoading] = useState(false)
@@ -35,7 +35,6 @@ function SignInPage({ lang, setLang, setIsSignedIn }) {
                         lang={lang}
                         formData={formData}
                         setFormData={setFormData}
-                        setIsSignedIn={setIsSignedIn}
                         setNewUser={setNewUser}
                         loading={loading}
                         setLoading={setLoading}
@@ -45,7 +44,6 @@ function SignInPage({ lang, setLang, setIsSignedIn }) {
                         lang={lang}
                         formData={formData}
                         setFormData={setFormData}
-                        setIsSignedIn={setIsSignedIn}
                         setNewUser={setNewUser}
                         loading={loading}
                         setLoading={setLoading}

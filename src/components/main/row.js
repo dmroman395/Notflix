@@ -53,10 +53,12 @@ export default class Row extends Component {
                         setSelectedMovie={this.props.setSelectedMovie}
                         similarMovies={this.props.similarMovies}
                         setSimilarMovies={this.props.setSimilarMovies}
-
+                        watchList={this.props.watchList} 
+                        setWatchlist={this.props.setWatchlist}
                     />
                 )
             })
+            
     const setGenre = this.props.setSelectedGenre
     const headline = this.props.headline
     const setExploreAll = this.props.setExploreMovies

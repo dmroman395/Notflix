@@ -33,7 +33,7 @@ function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, sim
 
     return (
         <div className='exploreAll'>
-            <Header/>
+            <Header />
             <div className='content'>
                 <h1 className='genre'>{selectedGenre}</h1>
                 {Object.keys(selectedMovie).length === 0  ? 

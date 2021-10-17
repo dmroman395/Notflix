@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useAuth } from '../../contexts/authContext'
+import { auth } from '../../firebase'
 
 import '../../css/signIn/signInForm.css'
 import '../../css/signIn/signUpForm.css'
@@ -9,10 +10,11 @@ function SignUpForm({
     formData,
     setFormData,
     setNewUser,
-    loading,
-    setIsSignedIn,
+    loading
 }) {
-    const { newUserSignUp, currentUser } = useAuth()
+
+    const [errorMessage, setErrorMessage] = useState('')
+    const { newUserSignUp } = useAuth()
 
     let signUp
     let email
@@ -23,19 +25,15 @@ function SignUpForm({
     const createUser = async (e) => {
         e.preventDefault()
         try {
-            await newUserSignUp(formData.email, formData.password)
-            setIsSignedIn(true)
-            console.log(currentUser)
+            await newUserSignUp(auth, formData.email, formData.password)
         } catch (err) {
             const code = err.code
             switch (code) {
                 case 'auth/email-already-in-use':
-                    alert(
-                        'An account with this email address already exists. Please use another.'
-                    )
+                    setErrorMessage('An account with this email address already exists. Please use another email or sign in.')
                     break
                 case 'auth/invalid-email':
-                    alert('This email address is invalid.')
+                    setErrorMessage('This email address is invalid.')
                     break
                 default:
                     break
@@ -61,10 +59,15 @@ function SignUpForm({
         account2 = 'Inicia tu sesión ahora.'
     }
 
+    const errMsg = <div className='error'>
+    <p>{errorMessage}</p>
+</div>
+
     return (
         <div className="form-container2">
             <form className="signUp-form" onSubmit={createUser}>
                 <h1>{signUp}</h1>
+                {errorMessage.length > 0 ? errMsg : null}
                 <input
                     type="email"
                     placeholder={email}

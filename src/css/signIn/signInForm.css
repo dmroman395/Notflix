@@ -23,6 +23,15 @@
   margin-bottom: 20px;
 }
 
+.form-container .signIn-form .error {
+  font-size: .85rem;
+  color: #842029;
+  background-color: #f8d7da;
+  border-color: #f5c2c7;
+  padding: 1rem;
+  border-radius: .25rem;
+}
+
 .form-container .signIn-form input {
   background-color: #333;
   padding: 20px 10px;

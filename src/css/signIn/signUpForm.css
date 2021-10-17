@@ -23,6 +23,19 @@
   margin-bottom: 20px;
 }
 
+.form-container2 .signUp-form .error {
+  font-size: .85rem;
+  background-color: #f8d7da;
+  border-color: #f5c2c7;
+  padding: 1rem;
+  border-radius: .25rem;
+}
+
+.form-container2 .signUp-form .error p {
+  color: #842029;
+  margin-top: 0;
+}
+
 .form-container2 .signUp-form input {
   background-color: #333;
   padding: 20px 10px;

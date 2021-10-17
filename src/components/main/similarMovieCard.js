@@ -14,7 +14,7 @@ function SimilarMovieCard({movie, lang, key}) {
     let imagePath
     let shortOverview
 
-    if (lang.lang === 'English') {
+    if (lang === 'English') {
         add = 'Add to My List'
     } else {
         add = 'Agregar a Mi Lista'

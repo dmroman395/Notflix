@@ -4,6 +4,14 @@ import '../../css/main/movieCardIconPlayBig.css'
 
 function MovieCardIconPlayBig({icon, title, lang}) {
 
+    let playText
+
+    if (lang === 'English') {
+        playText = 'Play'
+    } else {
+        playText = 'Reproducir'
+    }
+
     function handleClick() {
         const titleSplit = title.split(' ')
         let queryString='https://www.netflix.com/search?q='
@@ -17,7 +25,7 @@ function MovieCardIconPlayBig({icon, title, lang}) {
 
     return(
         <div onClick={handleClick} className='icon-container'>
-            <div className='icon-circle-play-big'><img src={icon} className='card-icon'/> Play
+            <div className='icon-circle-play-big'><img src={icon} className='card-icon'/>{playText}
             </div>
         </div>
     )

@@ -3,7 +3,7 @@ import axios from 'axios'
 export async function getTrending(language) {
     let lang
 
-    if (language.lang === 'English') {
+    if (language === 'English') {
         lang = 'en'
     } else {
         lang = 'es'
@@ -18,7 +18,7 @@ export async function getTrending(language) {
 export async function getAction(language) {
     let lang
 
-    if (language.lang === 'English') {
+    if (language === 'English') {
         lang = 'en'
     } else {
         lang = 'es'
@@ -33,7 +33,7 @@ export async function getAction(language) {
 export async function getComedy(language) {
     let lang
 
-    if (language.lang === 'English') {
+    if (language === 'English') {
         lang = 'en'
     } else {
         lang = 'es'
@@ -48,7 +48,7 @@ export async function getComedy(language) {
 export async function getHorror(language) {
     let lang
 
-    if (language.lang === 'English') {
+    if (language === 'English') {
         lang = 'en'
     } else {
         lang = 'es'
@@ -63,7 +63,7 @@ export async function getHorror(language) {
 export async function getTopRated(language) {
     let lang
 
-    if (language.lang === 'English') {
+    if (language === 'English') {
         lang = 'en'
     } else {
         lang = 'es'
@@ -78,7 +78,7 @@ export async function getTopRated(language) {
 export async function getNowPlaying(language) {
     let lang
 
-    if (language.lang === 'English') {
+    if (language === 'English') {
         lang = 'en'
     } else {
         lang = 'es'
@@ -93,7 +93,7 @@ export async function getNowPlaying(language) {
 export async function getPopular(language) {
     let lang
 
-    if (language.lang === 'English') {
+    if (language === 'English') {
         lang = 'en'
     } else {
         lang = 'es'
@@ -108,7 +108,7 @@ export async function getPopular(language) {
 export async function getMovieDetails(language, id) {
     let lang
 
-    if (language.lang === 'English') {
+    if (language === 'English') {
         lang = 'en'
     } else {
         lang = 'es'
@@ -123,7 +123,7 @@ export async function getMovieDetails(language, id) {
 export async function getSimilarMovies(language, id) {
     let lang
 
-    if (language.lang === 'English') {
+    if (language === 'English') {
         lang = 'en'
     } else {
         lang = 'es'
@@ -138,7 +138,7 @@ export async function getSimilarMovies(language, id) {
 export async function getGenres(language) {
     let lang
 
-    if (language.lang === 'English') {
+    if (language === 'English') {
         lang = 'en'
     } else {
         lang = 'es'

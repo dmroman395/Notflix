@@ -14,7 +14,7 @@ function MovieCardIconInfoBig({icon, movie, lang, selectedMovie, setSelectedMovi
 
     let infoText;
 
-    if (lang.lang === 'English') {
+    if (lang === 'English') {
         infoText = 'More Info'
     } else {
         infoText = 'Más Info'

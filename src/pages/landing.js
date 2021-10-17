@@ -13,7 +13,7 @@ import rowDataEn from '../data/en/row.json'
 import rowDataEs from '../data/es/row.json'
 import '../css/landing/faq.css'
 
-function LandingPage({ lang, setLang }) {
+function LandingPage({ lang, setLang, sendToSignIn} ) {
     let FAQ
 
     if (lang === 'English') {
@@ -24,7 +24,7 @@ function LandingPage({ lang, setLang }) {
 
     return (
         <div className="landing">
-            <Hero lang={lang} setLang={setLang} />
+            <Hero lang={lang} setLang={setLang} sendToSignIn={sendToSignIn} />
             {lang === 'English' ? (
                 <RowContainer rowsInfo={rowDataEn} lang={lang} />
             ) : (

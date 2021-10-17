@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import MovieCardIcon from '../../components/main/movieCardIcon'
 
 import '../../css/main/movieCard.css'
@@ -19,9 +19,10 @@ const {
 } = require('../../controllers/moviesController')
 
 
-function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies }) {
+function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, watchList, setWatchList }) {
     const [hover, setHover] = useState(false)
     const [movieDetails, setMovieDetails] = useState({})
+    const [isInList, setIsInList] = useState(false)
 
     const { backdrop_path, id, title, vote_average, genre_ids } = movie
     const {runtime} = movieDetails
@@ -46,7 +47,7 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, similarMovies
         imagePath = `https://image.tmdb.org/t/p/w400${backdrop_path}`
     }
 
-    if (lang.lang === 'English') {
+    if (lang === 'English') {
         play = 'Play'
         remove = 'Remove from My List'
         add = 'Add to My List'
@@ -66,7 +67,7 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, similarMovies
         if (i < 3) {
             const genreName = window.localStorage.getItem(genre)
             return (
-                <React.Fragment>
+                <React.Fragment key={i}>
                      <p>{genreName}</p><span className='dot'>&#8226;</span>
                 </React.Fragment>
             )
@@ -118,12 +119,20 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, similarMovies
         setHover(false)
     }
 
+    // useEffect(() => {
+    //     for (let item of watchList) {
+    //         if (item.id == movie.id) {
+    //             setIsInList(true)
+    //         }
+    //     }
+    // },[])
+
     const bottomHalf = 
             <div className='bottom-half'>
                 <div className='icon-row'>
                     <div className='icons'>
                         <MovieCardIcon icon={playButton} text={play} func={handlePlay}/>
-                        <MovieCardIcon icon={plus} iconFilled={check} text={add}/>
+                        {isInList ? <MovieCardIcon icon={plus} iconFilled={check} text={remove} id={'remove'} movie={movie}/> :  <MovieCardIcon icon={plus} iconFilled={check} text={add} id={'add'} movie={movie}/>}
                         <MovieCardIcon icon={thumbsUp} iconFilled={thumbsUpFilled} text={like}/>
                         <MovieCardIcon icon={thumbsDown} iconFilled={thumbsDownFilled} text={dislike}/>
                     </div>

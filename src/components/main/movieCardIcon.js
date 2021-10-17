@@ -1,9 +1,13 @@
 import React, {useState} from 'react'
+import { useAuth } from '../../contexts/authContext'
 import triangle from '../../images/triangle.png'
 
 function MovieCardIcon({icon, iconFilled, text, func, id, selectedMovie,setSelectedMovie, movie, runtime}) {
     const [iconState, setIconState] = useState(true)
     const [iconHover, setIconHover] = useState(false)
+    const { currentUser } = useAuth()
+
+    const { handleWatchList } = require('../../firebase')
 
     function handleMoreInfo() {
         if (Object.keys(selectedMovie).length === 0) {
@@ -20,6 +24,14 @@ function MovieCardIcon({icon, iconFilled, text, func, id, selectedMovie,setSelec
         switch(e.target.id) {
             case 'moreInfo':
                 handleMoreInfo()
+                break;
+            case 'add':
+                handleWatchList(movie, currentUser.uid,'add')
+                setIconState(!iconState)
+                break;
+            case 'remove':
+                handleWatchList(movie, currentUser.uid,'remove')
+                setIconState(!iconState)
                 break;
             default:
                 setIconState(!iconState)

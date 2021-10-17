@@ -5,13 +5,13 @@
   overflow: hidden;
 }
 
-.hero .overlay {
+.hero .hero-overlay {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0.9)), color-stop(60%, rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.85)));
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0.85) 100%);
   height: 100%;
 }
 
-.hero .overlay .top-bar {
+.hero .hero-overlay .top-bar {
   width: 100%;
   padding: 30px 55px;
   display: -webkit-box;
@@ -24,12 +24,12 @@
       align-content: center;
 }
 
-.hero .overlay .top-bar #logo {
+.hero .hero-overlay .top-bar #logo {
   height: auto;
   width: 140px;
 }
 
-.hero .overlay .top-bar .lang-signin {
+.hero .hero-overlay .top-bar .lang-signin {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -41,7 +41,7 @@
   gap: 30px;
 }
 
-.hero .overlay .top-bar .lang-signin select {
+.hero .hero-overlay .top-bar .lang-signin select {
   background: rgba(0, 0, 0, 0.4);
   border: 1px solid #aaa;
   color: #fff;
@@ -50,20 +50,26 @@
   padding: 10px;
 }
 
-.hero .overlay .top-bar .lang-signin .button {
+.hero .hero-overlay .top-bar .lang-signin .button {
   background-color: #e50914;
   padding: 10px 17px;
   border-radius: 3px;
+  font-size: 1rem;
+  border: none;
   color: #ffffff;
   text-decoration: none;
   line-height: 11px;
 }
 
-.hero .overlay .top-bar .lang-signin .sign-in {
+.hero .hero-overlay .top-bar .lang-signin .button:hover {
+  cursor: pointer;
+}
+
+.hero .hero-overlay .top-bar .lang-signin .sign-in {
   max-height: 32px;
 }
 
-.hero .overlay .main-content {
+.hero .hero-overlay .main-content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -82,18 +88,18 @@
   text-align: center;
 }
 
-.hero .overlay .main-content h1 {
+.hero .hero-overlay .main-content h1 {
   font-size: 64px;
   max-width: 800px;
 }
 
-.hero .overlay .main-content h3 {
+.hero .hero-overlay .main-content h3 {
   font-size: 26px;
   margin: 20px;
   font-weight: normal;
 }
 
-.hero .overlay .main-content .signup {
+.hero .hero-overlay .main-content .signup {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;

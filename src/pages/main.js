@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState} from 'react'
 import { useAuth } from '../contexts/authContext'
 import '../css/main/main.css'
 import footerDataEn from '../data/en/footerSignIn.json'
@@ -25,7 +25,9 @@ const {
     getGenres
 } = require('../controllers/moviesController')
 
-function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, setExploreMovies, setSelectedGenre}) {
+const {getUserWatchList} = require('../firebase')
+
+function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, setExploreMovies, setSelectedGenre }) {
     const [movieDetails, setMovieDetails] = useState({})
     const [actionMovies, setActionMovies] = useState([])
     const [comedyMovies, setComedyMovies] = useState([])
@@ -35,6 +37,8 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
     const [featuredMovie, setFeaturedMovie] = useState({})
     const [trendingMovies, setTrendingMovies] = useState([])
     const [popularMovies, setPopularMovies] = useState([])
+    const [watchList, setWatchlist] = useState([])
+
     const { currentUser } = useAuth()
 
     async function loadTrending() {
@@ -127,17 +131,29 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
         }
     }
 
+    async function loadWatchlist() {
+        const data = await getUserWatchList(currentUser.uid)
+
+        await setWatchlist(data.movies)
+
+        await console.log(data.movies.length)
+    }
+
+    async function loadMovies() {
+        await loadTrending()
+        await loadPopular()
+        await loadAction()
+        await loadComedy()
+        await loadHorror()
+        await loadNowPlaying()
+        await loadTopRated()
+        await loadGenres()
+        await loadWatchlist()
+        await applyClass()
+    }
 
     useEffect(() => {
-        loadTrending()
-        loadPopular()
-        loadAction()
-        loadComedy()
-        loadHorror()
-        loadNowPlaying()
-        loadTopRated()
-        loadGenres()
-        applyClass()
+        loadMovies()
     }, [])
 
     function applyClass() {
@@ -157,11 +173,29 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
             {Object.keys(selectedMovie).length === 0  ? 
                 null
                 : 
-                <MoreInfo movie={selectedMovie} similarMovies={similarMovies} lang={lang} setSelectedMovie={setSelectedMovie}/>
+                <MoreInfo movie={selectedMovie} similarMovies={similarMovies} lang={lang} setSelectedMovie={setSelectedMovie} watchList={watchList} setWatchlist={setWatchlist}/>
             }
             <Header/>
-            <Featured lang={lang} movie={featuredMovie} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies}/>
+            <Featured lang={lang} movie={featuredMovie} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies} watchList={watchList} setWatchlist={setWatchlist}/>
             <div className='rows-container'>
+                {
+                    watchList.length > 0 ?
+                    <Row
+                    arr={watchList}
+                    getMovieDetails={getMovieDetails}
+                    lang={lang}
+                    headline={'My List'}
+                    selectedMovie={selectedMovie}
+                    setSelectedMovie={setSelectedMovie}
+                    similarMovies={similarMovies}
+                    setSimilarMovies={setSimilarMovies}
+                    setExploreMovies={setExploreMovies}
+                    setSelectedGenre={setSelectedGenre}
+                    watchList={watchList} 
+                    setWatchlist={setWatchlist}
+                /> :
+                null
+                }
                 <Row
                     arr={popularMovies}
                     getMovieDetails={getMovieDetails}
@@ -173,6 +207,8 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
                     setSimilarMovies={setSimilarMovies}
                     setExploreMovies={setExploreMovies}
                     setSelectedGenre={setSelectedGenre}
+                    watchList={watchList} 
+                    setWatchlist={setWatchlist}
                 />
                 <Row
                     arr={trendingMovies}
@@ -185,6 +221,8 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
                     setSimilarMovies={setSimilarMovies}
                     setExploreMovies={setExploreMovies}
                     setSelectedGenre={setSelectedGenre}
+                    watchList={watchList} 
+                    setWatchlist={setWatchlist}
                 />
                 
                 <Row
@@ -198,6 +236,8 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
                     setSimilarMovies={setSimilarMovies}
                     setExploreMovies={setExploreMovies}
                     setSelectedGenre={setSelectedGenre}
+                    watchList={watchList} 
+                    setWatchlist={setWatchlist}
                 />
                 <RowNotflix
                     arr={topRatedMovies}
@@ -206,6 +246,8 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
                     headline={'Only on Notflix'}
                     setExploreMovies={setExploreMovies}
                     setSelectedGenre={setSelectedGenre}
+                    watchList={watchList} 
+                    setWatchlist={setWatchlist}
                 />
                 <RowTopTen
                     arr={nowPlayingMovies}
@@ -214,6 +256,8 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
                     headline={'Top 10 in the U.S. Today'}
                     setExploreMovies={setExploreMovies}
                     setSelectedGenre={setSelectedGenre}
+                    watchList={watchList} 
+                    setWatchlist={setWatchlist}
                 />
                 <Row
                     arr={comedyMovies}
@@ -226,6 +270,8 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
                     setSimilarMovies={setSimilarMovies}
                     setExploreMovies={setExploreMovies}
                     setSelectedGenre={setSelectedGenre}
+                    watchList={watchList} 
+                    setWatchlist={setWatchlist}
                 />
                 <Row
                     arr={horrorMovies}
@@ -238,6 +284,8 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
                     setSimilarMovies={setSimilarMovies}
                     setExploreMovies={setExploreMovies}
                     setSelectedGenre={setSelectedGenre}
+                    watchList={watchList} 
+                    setWatchlist={setWatchlist}
                 />
             </div>
             {lang === 'English' ? 
