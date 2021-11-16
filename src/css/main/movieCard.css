@@ -2,12 +2,13 @@
   position: absolute;
   overflow: visible;
   z-index: 9;
-  -webkit-transition: z-index linear 1ms 500ms, -webkit-transform ease-out 200ms;
-  transition: z-index linear 1ms 500ms, -webkit-transform ease-out 200ms;
-  transition: transform ease-out 200ms, z-index linear 1ms 500ms;
-  transition: transform ease-out 200ms, z-index linear 1ms 500ms, -webkit-transform ease-out 200ms;
+  -webkit-transition: z-index linear 1ms 500ms, opacity ease-in-out 300ms, -webkit-transform ease-out 200ms;
+  transition: z-index linear 1ms 500ms, opacity ease-in-out 300ms, -webkit-transform ease-out 200ms;
+  transition: transform ease-out 200ms, z-index linear 1ms 500ms, opacity ease-in-out 300ms;
+  transition: transform ease-out 200ms, z-index linear 1ms 500ms, opacity ease-in-out 300ms, -webkit-transform ease-out 200ms;
   height: 300px;
   border-radius: 3px;
+  opacity: 0;
 }
 
 .movie-container .movie {

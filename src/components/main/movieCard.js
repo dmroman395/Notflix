@@ -19,10 +19,12 @@ const {
 } = require('../../controllers/moviesController')
 
 
-function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, watchList, setWatchList }) {
+function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, watchlist, setWatchlist}) {
     const [hover, setHover] = useState(false)
     const [movieDetails, setMovieDetails] = useState({})
     const [isInList, setIsInList] = useState(false)
+    const [liked, setLiked] = useState(false)
+    const [disliked, setDisliked] = useState(false)
 
     const { backdrop_path, id, title, vote_average, genre_ids } = movie
     const {runtime} = movieDetails
@@ -93,6 +95,22 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, similarMovies
         }
     }
 
+    function handleIconState(e) {
+        const type = e.target.id
+        console.log(type)
+
+        // switch(type) {
+        //     case 'like':
+        //         setLiked(!liked)
+        //         break;
+        //     case 'dislike':
+        //         setDisliked(!disliked)
+        //         break;
+        //     default:
+        //         break;
+        // }
+    }
+
     async function loadDetails() {
         if (Object.keys(movieDetails).length === 0) {
             const details = await getMovieDetails(lang, id)
@@ -102,11 +120,9 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, similarMovies
     }
 
     async function loadSimilar() {
-        if (Object.keys(similarMovies).length === 0) {
             const data = await getSimilarMovies(lang, id)
             const movies = data.data.results
             setSimilarMovies(movies)
-        }
     }
 
     function handleMovieCardHover() {
@@ -115,26 +131,35 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, similarMovies
     }
 
     function handleOut() {
-        // setMovieDetails({})
         setHover(false)
     }
 
-    // useEffect(() => {
-    //     for (let item of watchList) {
-    //         if (item.id == movie.id) {
-    //             setIsInList(true)
-    //         }
-    //     }
-    // },[])
+    function fadeIn(num) {
+        const movieElm = document.getElementById(`${num}`)
+        movieElm.style.opacity = '1'
+    }
+
+    useEffect(() => {
+        if (watchlist) {
+            for (let item of watchlist) {
+                if (item.id == movie.id) {
+                    setIsInList(true)
+                }
+            }
+        }
+        fadeIn(randInt)
+    },[watchlist])
+
+    const randInt = Math.floor(Math.random()*100000)
 
     const bottomHalf = 
             <div className='bottom-half'>
                 <div className='icon-row'>
                     <div className='icons'>
                         <MovieCardIcon icon={playButton} text={play} func={handlePlay}/>
-                        {isInList ? <MovieCardIcon icon={plus} iconFilled={check} text={remove} id={'remove'} movie={movie}/> :  <MovieCardIcon icon={plus} iconFilled={check} text={add} id={'add'} movie={movie}/>}
-                        <MovieCardIcon icon={thumbsUp} iconFilled={thumbsUpFilled} text={like}/>
-                        <MovieCardIcon icon={thumbsDown} iconFilled={thumbsDownFilled} text={dislike}/>
+                        {isInList ? <MovieCardIcon icon={check} text={remove} id={'remove'} movie={movie} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchlist={watchlist} /> :  <MovieCardIcon icon={plus} text={add} id={'add'} movie={movie} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchlist={watchlist}/>}
+                        {liked ? <MovieCardIcon icon={thumbsUpFilled} text={like} id={'like'} liked={liked} setLiked={setLiked}/> : <MovieCardIcon icon={thumbsUp} text={like} liked={liked} setLiked={setLiked} id={'like'}/> }
+                        {disliked ? <MovieCardIcon icon={thumbsDownFilled} text={dislike} id={'dislike'} disliked={disliked} setDisliked={setDisliked}/> : <MovieCardIcon icon={thumbsDown} text={dislike} id={'dislike'} disliked={disliked} setDisliked={setDisliked}/> }
                     </div>
                     <div className='icons'>
                         <MovieCardIcon icon={downArrow} text={moreInfo} selectedMovie={selectedMovie}
@@ -148,9 +173,9 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, similarMovies
                 </div>
                 <div className='genre-list-container'>{genreList}</div>
             </div>
-
     return (
-        <div className="movie" onMouseOver={handleMovieCardHover} onMouseLeave={handleOut}>
+        <div className='movie-container' id={`${randInt}`}>
+            <div className="movie" onMouseOver={handleMovieCardHover} onMouseLeave={handleOut}>
             <div
                 className="movie-card"
                 style={{
@@ -163,6 +188,8 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, similarMovies
             </div>
             {bottomHalf}
         </div>
+        </div>
+        
     )
 }
 

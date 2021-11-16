@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import '../../css/main/featured.css'
 import MovieCardIcon from './movieCardIcon'
 import MovieCardIconPlayBig from './movieCardIconPlayBig'
@@ -13,7 +13,10 @@ import thumbsUpFilled from '../../images/like-filled.png'
 import thumbsDownFilled from '../../images/dislike-filled.png'
 import playButton from '../../images/play-button.png'
 
-function MiniFeatured({ movie, lang, setSelectedMovie}) {
+function MiniFeatured({ movie, lang, setSelectedMovie, watchlist, setWatchlist, isInList, setIsInList}) {
+    const [liked, setLiked] = useState(false)
+    const [disliked, setDisliked] = useState(false)
+
     const { backdrop_path, title } = movie
 
     let play
@@ -31,7 +34,7 @@ function MiniFeatured({ movie, lang, setSelectedMovie}) {
         imagePath = `https://image.tmdb.org/t/p/original/${backdrop_path}`
     }
 
-    if (lang.lang === 'English') {
+    if (lang === 'English') {
         play = 'Play'
         remove = 'Remove from My List'
         add = 'Add to My List'
@@ -56,6 +59,32 @@ function MiniFeatured({ movie, lang, setSelectedMovie}) {
         overlay.addEventListener('transitionend', () => setSelectedMovie(reset))
     }
 
+    function handleIconState(e) {
+        const type = e.target.id
+
+        switch(type) {
+            case 'like':
+                setLiked(!liked)
+                break;
+            case 'dislike':
+                setDisliked(!disliked)
+                break;
+            default:
+                break;
+        }
+
+    }
+
+    useEffect(() => {
+        if (watchlist) {
+            for (let item of watchlist) {
+                if (item.id == movie.id) {
+                    setIsInList(true)
+                }
+            }
+        }
+    },[watchlist])
+
     return (
         <div
             className="moreInfo-featured"
@@ -79,9 +108,9 @@ function MiniFeatured({ movie, lang, setSelectedMovie}) {
                 <h1>{title}</h1>
                 <div className='icon-row'>
                     <MovieCardIconPlayBig icon={playButton} text={play} title={title} lang={lang}/>
-                    <MovieCardIcon icon={plus} iconFilled={check} text={add}/>
-                    <MovieCardIcon icon={thumbsUp} iconFilled={thumbsUpFilled} text={like}/>
-                    <MovieCardIcon icon={thumbsDown} iconFilled={thumbsDownFilled} text={dislike}/>
+                    {isInList ? <MovieCardIcon icon={check} text={remove} id={'remove'} movie={movie} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchlist={watchlist} /> : <MovieCardIcon icon={plus} text={add} id={'add'} movie={movie} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchlist={watchlist}/> }
+                    {liked ? <MovieCardIcon icon={thumbsUpFilled} text={like} id={'like'} liked={liked} setLiked={setLiked}/> : <MovieCardIcon icon={thumbsUp} text={like} liked={liked} setLiked={setLiked} id={'like'}/> }
+                    {disliked ? <MovieCardIcon icon={thumbsDownFilled} text={dislike} id={'dislike'} disliked={disliked} setDisliked={setDisliked}/> : <MovieCardIcon icon={thumbsDown} text={dislike} id={'dislike'} disliked={disliked} setDisliked={setDisliked}/> }
                 </div>
                 
             </div>

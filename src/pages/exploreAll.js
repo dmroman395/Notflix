@@ -7,7 +7,7 @@ import MovieCard from "../components/exploreAll/movieCard"
 import MoreInfo from '../components/exploreAll/moreInfo'
 import '../css/exploreAll/exploreAll.css'
 
-function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, selectedGenre}) {
+function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, selectedGenre, watchlist, setWatchlist}) {
 
     const {
         getMovieDetails
@@ -15,7 +15,7 @@ function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, sim
 
     const allMovies = movies.map((movie, i) => {
         return (
-            <div className='movie-container2'>
+            <div>
                 <MovieCard
                     lang={lang}
                     movie={movie}
@@ -33,14 +33,14 @@ function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, sim
 
     return (
         <div className='exploreAll'>
-            <Header />
-            <div className='content'>
-                <h1 className='genre'>{selectedGenre}</h1>
                 {Object.keys(selectedMovie).length === 0  ? 
                     null
                     : 
-                    <MoreInfo movie={selectedMovie} similarMovies={similarMovies} lang={lang} setSelectedMovie={setSelectedMovie}/>
+                    <MoreInfo movie={selectedMovie} similarMovies={similarMovies} lang={lang} setSelectedMovie={setSelectedMovie} watchlist={watchlist} setWatchlist={setWatchlist}/>
                 }
+            <Header />
+            <div className='content'>
+                <h1 className='genre'>{selectedGenre}</h1>
                 <div className='movies-grid'>
                     {allMovies}
                 </div>

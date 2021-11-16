@@ -31,18 +31,38 @@ function SamplePrevArrow(props) {
 }
 
 export default class Row extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {}
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    return [...props.arr]
+    }
+
   render() {
+
+    let numMovies
+
+    if (this.props.arr.length < 6 ) {
+      numMovies = this.props.arr.length
+    } else {
+      numMovies = 6
+    }
+
     const settings = {
       dots: false,
       infinite: true,
-      slidesToShow: 6,
-      slidesToScroll: 6,
+      slidesToShow: numMovies,
+      slidesToScroll: numMovies,
       nextArrow: <SampleNextArrow />,
       prevArrow: <SamplePrevArrow />,
-      speed: 800,
+      speed: 800
     };
 
     const row = this.props.arr.map((movie, i) => {
+
+      const randInt = Math.floor(Math.random()*100000)
                 return (
                     <MovieCard
                         lang={this.props.lang}
@@ -53,8 +73,9 @@ export default class Row extends Component {
                         setSelectedMovie={this.props.setSelectedMovie}
                         similarMovies={this.props.similarMovies}
                         setSimilarMovies={this.props.setSimilarMovies}
-                        watchList={this.props.watchList} 
+                        watchlist={this.props.watchlist} 
                         setWatchlist={this.props.setWatchlist}
+                        randId={randInt}
                     />
                 )
             })

@@ -13,6 +13,7 @@ function App() {
     const [similarMovies, setSimilarMovies] = useState([])
     const [exploreMovies, setExploreMovies] = useState([])
     const [selectedGenre, setSelectedGenre] = useState([])
+    const [watchlist, setWatchlist] = useState([])
 
     const { currentUser } = useAuth()
 
@@ -24,9 +25,9 @@ function App() {
      <React.Fragment>
         {exploreMovies.length === 0 ?
             <Main lang={lang} setLang={setLang} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies}
-            setExploreMovies={setExploreMovies} setSelectedGenre={setSelectedGenre} />
+            setExploreMovies={setExploreMovies} setSelectedGenre={setSelectedGenre} watchlist={watchlist} setWatchlist={setWatchlist} />
             :
-            <ExploreAll movies={exploreMovies} setExploreMovies={setExploreMovies} lang={lang} setLang={setLang} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies} selectedGenre={selectedGenre} />
+            <ExploreAll movies={exploreMovies} setExploreMovies={setExploreMovies} lang={lang} setLang={setLang} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies} selectedGenre={selectedGenre} watchlist={watchlist} setWatchlist={setWatchlist} />
         }
     </React.Fragment>
 

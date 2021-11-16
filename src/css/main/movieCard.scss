@@ -2,9 +2,10 @@
     position: absolute;
     overflow: visible;
     z-index: 9;
-    transition: transform ease-out 200ms, z-index linear 1ms 500ms;
+    transition: transform ease-out 200ms, z-index linear 1ms 500ms, opacity ease-in-out 300ms;
     height: 300px;
     border-radius: 3px;
+    opacity: 0;
     .movie {
         position: relative;
         height: 100%;

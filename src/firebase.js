@@ -19,58 +19,63 @@ export async function getUserWatchList(userId) {
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
             const data = docSnap.data()
-            return data
-          } else {
-              const data = {
-                  movies: []
-              }
-            const newWatchList = await setDoc(doc(db, "UserWatchLists", userId), data)
-            return newWatchList
-        }
+            return data.movies
+          } 
 }
 
 async function addToWatchList(movie, userId) {
-    const data = await getUserWatchList(userId)
-    if (data == undefined) {
+    const initialData = await getUserWatchList(userId)
+    if (initialData == undefined) {
         const newList = {
             movies: [movie]
         }
         await setDoc(doc(db,'UserWatchLists', userId), newList)
+        const finalData = await getUserWatchList(userId)
+        return finalData
     } else {
-        const newData =  [...data.movies, movie]
+        const newData =  [...initialData, movie]
         const newDoc = {
             movies: newData
         }
         await setDoc(doc(db,'UserWatchLists', userId), newDoc)
+        const finalData = await getUserWatchList(userId)
+        return finalData
     }
 }
 
 async function removeFromWatchList(movie, userId) {
-    const data = await getUserWatchList(userId)
+    const initialData = await getUserWatchList(userId)
     let index;
-    for (let [i,item] of data.movies.entries()) {
-        if (item.id == movie.id)
-        index = i
-    }
-    const newMovies = data.movies.splice(index,1)
+
+    initialData.forEach((item, i) => {
+        if (item.id === movie.id) {
+            index = i
+        } 
+    })
+
+    initialData.splice(index,1)
 
     const newData = {
-        movies: newMovies
+        movies: initialData
     }
     await setDoc(doc(db,'UserWatchLists', userId), newData)
+    const finalData = await getUserWatchList(userId)
+    return finalData
 }
 
 export async function handleWatchList(movie, userId, type) {
+    let data;
     switch(type) {
         case 'add':
-            addToWatchList(movie, userId)
+            data = await addToWatchList(movie, userId)
             break;
         case 'remove':
-            removeFromWatchList(movie, userId)
+            data = await removeFromWatchList(movie, userId)
             break;
         default:
             break;
     }
+    return data
 }
 
 export const auth = getAuth()

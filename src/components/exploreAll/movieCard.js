@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import MovieCardIcon from './movieCardIcon'
 
 import '../../css/exploreAll/movieCard.css'
@@ -19,9 +19,12 @@ const {
 } = require('../../controllers/moviesController')
 
 
-function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies }) {
+function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, watchlist, setWatchlist, randId }) {
     const [hover, setHover] = useState(false)
     const [movieDetails, setMovieDetails] = useState({})
+    const [isInList, setIsInList] = useState(false)
+    const [liked, setLiked] = useState(false)
+    const [disliked, setDisliked] = useState(false)
 
     const { backdrop_path, id, title, vote_average, genre_ids } = movie
     const {runtime} = movieDetails
@@ -37,7 +40,7 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, similarMovies
     const hours = Math.floor(runtime/60)
     const minutes = runtime % 60
 
-    const match = Math.round(vote_average * 10)
+    const match = vote_average * 10
 
     if (backdrop_path === null) {
         imagePath = logo
@@ -46,7 +49,7 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, similarMovies
         imagePath = `https://image.tmdb.org/t/p/w400${backdrop_path}`
     }
 
-    if (lang.lang === 'English') {
+    if (lang === 'English') {
         play = 'Play'
         remove = 'Remove from My List'
         add = 'Add to My List'
@@ -66,7 +69,7 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, similarMovies
         if (i < 3) {
             const genreName = window.localStorage.getItem(genre)
             return (
-                <React.Fragment>
+                <React.Fragment key={i}>
                      <p>{genreName}</p><span className='dot'>&#8226;</span>
                 </React.Fragment>
             )
@@ -101,11 +104,9 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, similarMovies
     }
 
     async function loadSimilar() {
-        if (Object.keys(similarMovies).length === 0) {
             const data = await getSimilarMovies(lang, id)
             const movies = data.data.results
             setSimilarMovies(movies)
-        }
     }
 
     function handleMovieCardHover() {
@@ -114,18 +115,35 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, similarMovies
     }
 
     function handleOut() {
-        // setMovieDetails({})
         setHover(false)
     }
+
+    function fadeIn(num) {
+        const movieElm = document.getElementById(`${num}`)
+        movieElm.style.opacity = '1'
+    }
+
+    useEffect(() => {
+        if (watchlist) {
+            for (let item of watchlist) {
+                if (item.id == movie.id) {
+                    setIsInList(true)
+                }
+            }
+        }
+        fadeIn(randInt)
+    },[watchlist])
+
+    const randInt = Math.floor(Math.random()*100000)
 
     const bottomHalf = 
             <div className='bottom-half'>
                 <div className='icon-row'>
                     <div className='icons'>
                         <MovieCardIcon icon={playButton} text={play} func={handlePlay}/>
-                        <MovieCardIcon icon={plus} iconFilled={check} text={add}/>
-                        <MovieCardIcon icon={thumbsUp} iconFilled={thumbsUpFilled} text={like}/>
-                        <MovieCardIcon icon={thumbsDown} iconFilled={thumbsDownFilled} text={dislike}/>
+                        {isInList ? <MovieCardIcon icon={check} text={remove} id={'remove'} movie={movie} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchlist={watchlist} /> :  <MovieCardIcon icon={plus} text={add} id={'add'} movie={movie} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchlist={watchlist}/>}
+                        {liked ? <MovieCardIcon icon={thumbsUpFilled} text={like} id={'like'} liked={liked} setLiked={setLiked}/> : <MovieCardIcon icon={thumbsUp} text={like} liked={liked} setLiked={setLiked} id={'like'}/> }
+                        {disliked ? <MovieCardIcon icon={thumbsDownFilled} text={dislike} id={'dislike'} disliked={disliked} setDisliked={setDisliked}/> : <MovieCardIcon icon={thumbsDown} text={dislike} id={'dislike'} disliked={disliked} setDisliked={setDisliked}/> }
                     </div>
                     <div className='icons'>
                         <MovieCardIcon icon={downArrow} text={moreInfo} selectedMovie={selectedMovie}
@@ -139,9 +157,9 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, similarMovies
                 </div>
                 <div className='genre-list-container'>{genreList}</div>
             </div>
-
     return (
-        <div className="movie" onMouseOver={handleMovieCardHover} onMouseLeave={handleOut}>
+        <div className='movie-container2' id={`${randInt}`}>
+            <div className="movie" onMouseOver={handleMovieCardHover} onMouseLeave={handleOut}>
             <div
                 className="movie-card"
                 style={{
@@ -154,6 +172,8 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, similarMovies
             </div>
             {bottomHalf}
         </div>
+        </div>
+        
     )
 }
 

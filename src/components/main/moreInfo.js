@@ -4,8 +4,9 @@ import SimilarMovieCard from './similarMovieCard'
 import '../../css/main/moreInfo.css'
 import downArrow from '../../images/down-chevron.png'
 
-function MoreInfo({movie, similarMovies, lang, setSelectedMovie}) {
+function MoreInfo({movie, similarMovies, lang, setSelectedMovie, watchList, setWatchlist}) {
     const [listExpanded, setListExpanded] = useState(false)
+    const [isInList, setIsInList] = useState(false)
 
     const { backdrop_path, id, title, vote_average, runtime, genres, overview, release_date } = movie
 
@@ -42,7 +43,7 @@ function MoreInfo({movie, similarMovies, lang, setSelectedMovie}) {
     }
 
     const similarMovieList = similarMovies.map((movie, i) => {
-        return <SimilarMovieCard movie={movie} lang={lang} key={i}/>
+        return <SimilarMovieCard movie={movie} lang={lang} key={i} watchList={watchList} setWatchlist={setWatchlist} />
     })
 
     function handleList() {
@@ -67,7 +68,7 @@ function MoreInfo({movie, similarMovies, lang, setSelectedMovie}) {
          <div className='overlay'>
                 <div className='moreInfo-container'>
                     <div className='moreInfo-featured'>
-                        <MiniFeatured movie={movie} lang={lang} setSelectedMovie={setSelectedMovie} />
+                        <MiniFeatured movie={movie} lang={lang} setSelectedMovie={setSelectedMovie} watchList={watchList} setWatchlist={setWatchlist} isInList={isInList} setIsInList={setIsInList}/>
                     </div>
                     <div className='moreInfo-info'>
                         <p>

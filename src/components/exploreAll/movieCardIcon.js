@@ -1,9 +1,12 @@
 import React, {useState} from 'react'
+import { useAuth } from '../../contexts/authContext'
 import triangle from '../../images/triangle.png'
 
-function MovieCardIcon({icon, iconFilled, text, func, id, selectedMovie,setSelectedMovie, movie, runtime}) {
-    const [iconState, setIconState] = useState(true)
+function MovieCardIcon({icon, text, func, id, selectedMovie,setSelectedMovie, movie, runtime, setWatchlist, setIsInList, liked, setLiked, disliked, setDisliked }) {
     const [iconHover, setIconHover] = useState(false)
+    const { currentUser } = useAuth()
+
+    const { handleWatchList } = require('../../firebase')
 
     function handleMoreInfo() {
         if (Object.keys(selectedMovie).length === 0) {
@@ -15,14 +18,32 @@ function MovieCardIcon({icon, iconFilled, text, func, id, selectedMovie,setSelec
         }
     }
 
-    function handleIconClick(e) {
+    async function handleWatchListState(type) {
+        const data = await handleWatchList(movie, currentUser.uid,type)
+        await setWatchlist(data)
+    }
+
+   async function handleIconClick(e) {
         e.stopPropagation();
         switch(e.target.id) {
             case 'moreInfo':
                 handleMoreInfo()
                 break;
+            case 'like':
+                setLiked(!liked)
+                break;
+            case 'dislike':
+                setDisliked(!disliked)
+                break;
+            case 'add':
+                handleWatchListState('add')
+                setIsInList(true)
+                break;
+            case 'remove':
+                handleWatchListState('remove')
+                setIsInList(false)
+                break;
             default:
-                setIconState(!iconState)
                 break;
         }
     }
@@ -35,6 +56,7 @@ function MovieCardIcon({icon, iconFilled, text, func, id, selectedMovie,setSelec
         }
     }
 
+
     const bubble = 
     <div className='bubble-container'>
         <div className='bubble-text'>{text}</div>
@@ -43,7 +65,7 @@ function MovieCardIcon({icon, iconFilled, text, func, id, selectedMovie,setSelec
 
     if (func) {
         return(
-            <div onMouseEnter={e => handleIconHover(e)} onMouseLeave={e => handleIconHover(e)} onClick={func} className='icon-container'>
+            <div onMouseEnter={e => handleIconHover(e)} onMouseLeave={e => handleIconHover(e)} onClick={func}className='icon-container'>
                 {iconHover? bubble: null}
                 <div className='icon-circle-play'><img src={icon} className='card-icon' id={id}/>
                 </div>
@@ -52,13 +74,11 @@ function MovieCardIcon({icon, iconFilled, text, func, id, selectedMovie,setSelec
     } else {
         return(
             <div onMouseEnter={e => handleIconHover(e)} onMouseLeave={e => handleIconHover(e)} onClick={e => handleIconClick(e)} className='icon-container'>
-                {iconHover? bubble: null}
-                <div className='icon-circle'>{iconState ? <img src={icon} onClick={handleIconClick} className='card-icon' id={id}/> : <img src={iconFilled} onClick={handleIconClick} className='card-icon' id={id}/>}</div>
+                {iconHover ? bubble: null}
+                <div className='icon-circle'><img src={icon} onClick={handleIconClick} className='card-icon' id={id}/></div>
             </div>
         )
     }
-
-    
 }
 
 export default MovieCardIcon
