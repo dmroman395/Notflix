@@ -15,6 +15,20 @@ function App() {
     const [selectedGenre, setSelectedGenre] = useState([])
     const [watchlist, setWatchlist] = useState([])
 
+    const {
+        getTrending,
+        getAction,
+        getComedy,
+        getHorror,
+        getNowPlaying,
+        getTopRated,
+        getPopular,
+        getMovieDetails,
+        getSimilarMovies,
+        getGenres,
+        getMovies
+    } = require('./controllers/moviesController')
+
     const { currentUser } = useAuth()
 
     const sendToSignIn = () => {
@@ -25,9 +39,9 @@ function App() {
      <React.Fragment>
         {exploreMovies.length === 0 ?
             <Main lang={lang} setLang={setLang} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies}
-            setExploreMovies={setExploreMovies} setSelectedGenre={setSelectedGenre} watchlist={watchlist} setWatchlist={setWatchlist} />
+            setExploreMovies={setExploreMovies} setSelectedGenre={setSelectedGenre} watchlist={watchlist} setWatchlist={setWatchlist} getTrending={getTrending} getAction={getAction} getComedy={getComedy} getHorror={getHorror} getNowPlaying={getNowPlaying} getTopRated={getTopRated} getPopular={getPopular} getMovieDetails={getMovieDetails} getSimilarMovies={getSimilarMovies} getGenres={getGenres} />
             :
-            <ExploreAll movies={exploreMovies} setExploreMovies={setExploreMovies} lang={lang} setLang={setLang} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies} selectedGenre={selectedGenre} watchlist={watchlist} setWatchlist={setWatchlist} />
+            <ExploreAll movies={exploreMovies} setExploreMovies={setExploreMovies} lang={lang} setLang={setLang} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies} selectedGenre={selectedGenre} watchlist={watchlist} setWatchlist={setWatchlist} getMovies={getMovies} />
         }
     </React.Fragment>
 

@@ -139,7 +139,7 @@ function MovieCardNotflix({ movie, getMovieDetails, getSimilarMovies, selectedMo
                     backgroundSize: 'cover',
                     backgroundImage: `linear-gradient(
                         to top,
-                        rgba(20,20,20, .97) 1%, 
+                        rgba(20,20,20, .9) 1%, 
                         rgba(0, 0, 0, .20) 50%
                     ),
                     url(${imagePath})`,

@@ -12,22 +12,23 @@ import Footer from '../components/shared/footer'
 import axios from 'axios'
 import MoreInfo from '../components/main/moreInfo'
 
-const {
-    getTrending,
-    getAction,
-    getComedy,
-    getHorror,
-    getNowPlaying,
-    getTopRated,
-    getPopular,
-    getMovieDetails,
-    getSimilarMovies,
-    getGenres
-} = require('../controllers/moviesController')
+// const {
+//     getTrending,
+//     getAction,
+//     getComedy,
+//     getHorror,
+//     getNowPlaying,
+//     getTopRated,
+//     getPopular,
+//     getMovieDetails,
+//     getSimilarMovies,
+//     getGenres
+// } = require('../controllers/moviesController')
 
 const {getUserWatchList} = require('../controllers/userListController')
 
-function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, setExploreMovies, setSelectedGenre, watchlist, setWatchlist }) {
+function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, setExploreMovies, setSelectedGenre, watchlist, setWatchlist, getTrending, getAction, getComedy, getHorror, getNowPlaying, getTopRated, getPopular, getMovieDetails, getSimilarMovies, getGenres, getMovies }) {
+
     const [movieDetails, setMovieDetails] = useState({})
     const [actionMovies, setActionMovies] = useState([])
     const [comedyMovies, setComedyMovies] = useState([])
