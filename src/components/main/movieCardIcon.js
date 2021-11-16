@@ -6,7 +6,7 @@ function MovieCardIcon({icon, text, func, id, selectedMovie,setSelectedMovie, mo
     const [iconHover, setIconHover] = useState(false)
     const { currentUser } = useAuth()
 
-    const { handleWatchList } = require('../../firebase')
+    const { handleWatchList } = require('../../controllers/userListController')
 
     function handleMoreInfo() {
         if (Object.keys(selectedMovie).length === 0) {

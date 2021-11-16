@@ -49,14 +49,31 @@ export default class RowNotflix extends Component {
                         lang={this.props.lang}
                         movie={movie}
                         getMovieDetails={this.props.getMovieDetails}
+                        getSimilarMovies={this.props.getSimilarMovies}
+                        setSimilarMovies={this.props.setSimilarMovies}
+                        selectedMovie={this.props.selectedMovie}
+                        setSelectedMovie={this.props.setSelectedMovie}
+                        watchlist={this.props.watchlist}
+                        setWatchlist={this.props.setWatchlist}
                         key={i}
                     />
                 )
             })
 
+    const setGenre = this.props.setSelectedGenre
+    const headline = this.props.headline
+    const setExploreAll = this.props.setExploreMovies
+    const currentMovies = this.props.arr
+
+    function handleExploreAll() {
+      setGenre(headline)
+      setExploreAll(currentMovies)
+      window.scroll(0,0)
+    }
+
     return (
       <div className='poster-row-container'>
-        <div className='row-header'>
+        <div className='row-header' onClick={handleExploreAll}>
           <h1>{this.props.headline}</h1>
           <img src={exploreArrow}></img>
           <span>Explore All</span>

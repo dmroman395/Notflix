@@ -19,7 +19,7 @@ const {
 } = require('../../controllers/moviesController')
 
 
-function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, watchlist, setWatchlist}) {
+function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, setSimilarMovies, watchlist, setWatchlist}) {
     const [hover, setHover] = useState(false)
     const [movieDetails, setMovieDetails] = useState({})
     const [isInList, setIsInList] = useState(false)
@@ -175,7 +175,7 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, similarMovies
             </div>
     return (
         <div className='movie-container' id={`${randInt}`}>
-            <div className="movie" onMouseOver={handleMovieCardHover} onMouseLeave={handleOut}>
+            <div className="movie" onMouseEnter={handleMovieCardHover} onMouseLeave={handleOut}>
             <div
                 className="movie-card"
                 style={{

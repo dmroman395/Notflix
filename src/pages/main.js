@@ -25,7 +25,7 @@ const {
     getGenres
 } = require('../controllers/moviesController')
 
-const {getUserWatchList} = require('../firebase')
+const {getUserWatchList} = require('../controllers/userListController')
 
 function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, setExploreMovies, setSelectedGenre, watchlist, setWatchlist }) {
     const [movieDetails, setMovieDetails] = useState({})
@@ -226,12 +226,16 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
                 <RowNotflix
                     arr={topRatedMovies}
                     getMovieDetails={getMovieDetails}
+                    getSimilarMovies={getSimilarMovies}
+                    setSimilarMovies={setSimilarMovies}
                     lang={lang}
                     headline={'Only on Notflix'}
                     setExploreMovies={setExploreMovies}
                     setSelectedGenre={setSelectedGenre}
                     watchlist={watchlist} 
                     setWatchlist={setWatchlist}
+                    selectedMovie={selectedMovie}
+                    setSelectedMovie={setSelectedMovie}
                 />
                 <RowTopTen
                     arr={nowPlayingMovies}
