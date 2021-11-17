@@ -165,32 +165,32 @@ export async function getMovies(language, type, page, limit, id) {
                 `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&page=${page}&total_results=${limit}`
             )
             return trendingList
-        case 'action':
+        case 'Action & Adventure':
             const actionMoviesList = await axios.get(
                 `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=28%2C12&with_watch_monetization_types=flatrate`
             )
             return actionMoviesList
-        case 'comedy':
+        case 'Comedy':
             const comedyMoviesList = await axios.get(
                 `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=35&with_watch_monetization_types=flatrate`
             )
             return comedyMoviesList
-        case 'horror':
+        case 'Horror':
             const horrorMoviesList = await axios.get(
                 `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=27&with_watch_monetization_types=flatrate`
             )
             return horrorMoviesList
-        case 'top rated':
+        case 'Only on Notflix':
             const topRatedMoviesList = await axios.get(
                 `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&page=${page}`
             )
             return topRatedMoviesList
-        case 'now playing':
+        case 'Top 10 in the U.S. Today':
             const nowPlayingMoviesList = await axios.get(
                 `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&page=${page}`
             )
             return nowPlayingMoviesList
-        case 'popular':
+        case 'Popular on Notflix':
             const popularList = await axios.get(
                 `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&page=${page}`
             )

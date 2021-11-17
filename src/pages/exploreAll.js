@@ -9,7 +9,6 @@ import '../css/exploreAll/exploreAll.css'
 
 function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, selectedGenre, watchlist, setWatchlist, setExploreMovies, getMovies}) {
     const [pageCount, setPageCount] = useState(2)
-    const [allMovies, setAllMovies] = useState(movies)
 
     let currentPosition
 
@@ -34,30 +33,28 @@ function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, sim
         )
     })
 
-    // async function loadMore () {
-    //     const movieList = await getMovies(lang, selectedGenre, pageCount, 10)
-    //     const newCount = pageCount + 1
-    //     setPageCount(newCount)
-    //     let newList = [...allMovies]
-    //     for (let movie of movieList.data.results) {
-    //         newList.push(movie)
-    //     }
-    //     setAllMovies(newList)        
-    // }
+    async function loadMore () {
+        const movieList = await getMovies(lang, selectedGenre, pageCount, 1)
+        const newCount = pageCount + 1
+        setPageCount(newCount)
+        let newList = [...movies]
+        for (let movie of movieList.data.results) {
+            newList.push(movie)
+        }
+        setExploreMovies(newList)        
+    }
 
-    // window.addEventListener('scroll', () => {
-    //     const {
-    //         scrollTop,
-    //         scrollHeight,
-    //         clientHeight
-    //     } = document.documentElement;
+    window.onscroll = () => {
+        const {
+            scrollTop,
+            scrollHeight,
+            clientHeight
+        } = document.documentElement;
     
-    //     if (scrollTop + clientHeight >= scrollHeight - 5) {
-    //         loadMore()
-    //     }
-    // }, {
-    //     passive: true
-    // });
+        if (scrollTop + clientHeight >= scrollHeight - 5) {
+            loadMore()
+        }
+    }
 
     return (
         <div className='exploreAll'>
