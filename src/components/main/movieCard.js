@@ -87,30 +87,6 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, setSimilarMov
         window.open(queryString, '_blank')
     }
 
-    function handleMoreInfoHover(e) {
-        if (e.type === 'mouseenter') {
-            setMoreInfoHover(true)
-        } else {
-            setMoreInfoHover(false)
-        }
-    }
-
-    function handleIconState(e) {
-        const type = e.target.id
-        console.log(type)
-
-        // switch(type) {
-        //     case 'like':
-        //         setLiked(!liked)
-        //         break;
-        //     case 'dislike':
-        //         setDisliked(!disliked)
-        //         break;
-        //     default:
-        //         break;
-        // }
-    }
-
     async function loadDetails() {
         if (Object.keys(movieDetails).length === 0) {
             const details = await getMovieDetails(lang, id)
@@ -157,7 +133,7 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, setSimilarMov
                 <div className='icon-row'>
                     <div className='icons'>
                         <MovieCardIcon icon={playButton} text={play} func={handlePlay}/>
-                        {isInList ? <MovieCardIcon icon={check} text={remove} id={'remove'} movie={movie} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchlist={watchlist} /> :  <MovieCardIcon icon={plus} text={add} id={'add'} movie={movie} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchlist={watchlist}/>}
+                        {isInList ? <MovieCardIcon icon={check} text={remove} id={'remove'} randInt={randInt} movie={movie} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchlist={watchlist} /> :  <MovieCardIcon icon={plus} text={add} id={'add'} movie={movie} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchlist={watchlist}/>}
                         {liked ? <MovieCardIcon icon={thumbsUpFilled} text={like} id={'like'} liked={liked} setLiked={setLiked}/> : <MovieCardIcon icon={thumbsUp} text={like} liked={liked} setLiked={setLiked} id={'like'}/> }
                         {disliked ? <MovieCardIcon icon={thumbsDownFilled} text={dislike} id={'dislike'} disliked={disliked} setDisliked={setDisliked}/> : <MovieCardIcon icon={thumbsDown} text={dislike} id={'dislike'} disliked={disliked} setDisliked={setDisliked}/> }
                     </div>

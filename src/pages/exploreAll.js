@@ -10,8 +10,6 @@ import '../css/exploreAll/exploreAll.css'
 function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, selectedGenre, watchlist, setWatchlist, setExploreMovies, getMovies}) {
     const [pageCount, setPageCount] = useState(2)
 
-    let currentPosition
-
     const {
         getMovieDetails
     } = require('../controllers/moviesController')
@@ -28,6 +26,7 @@ function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, sim
                     setSelectedMovie={setSelectedMovie}
                     similarMovies={similarMovies}
                     setSimilarMovies={setSimilarMovies}
+                    movies={movies}
                 />
             </div>
         )
@@ -51,7 +50,7 @@ function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, sim
             clientHeight
         } = document.documentElement;
     
-        if (scrollTop + clientHeight >= scrollHeight - 5) {
+        if (scrollTop + clientHeight >= scrollHeight - 75) {
             loadMore()
         }
     }

@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { useAuth } from '../../contexts/authContext'
 import triangle from '../../images/triangle.png'
 
-function MovieCardIcon({icon, text, func, id, selectedMovie,setSelectedMovie, movie, runtime, setWatchlist, setIsInList, liked, setLiked, disliked, setDisliked }) {
+function MovieCardIcon({icon, text, func, id, selectedMovie,setSelectedMovie, movie, runtime, setWatchlist, setIsInList, liked, setLiked, disliked, setDisliked, randInt }) {
     const [iconHover, setIconHover] = useState(false)
     const { currentUser } = useAuth()
 
@@ -40,6 +40,9 @@ function MovieCardIcon({icon, text, func, id, selectedMovie,setSelectedMovie, mo
                 setIsInList(true)
                 break;
             case 'remove':
+                const movieElm = document.getElementById(`${randInt}`)
+                movieElm.classList.remove('fadein')
+                movieElm.classList.add('fadeout')
                 handleWatchListState('remove')
                 setIsInList(false)
                 break;

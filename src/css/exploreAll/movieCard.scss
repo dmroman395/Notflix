@@ -2,8 +2,9 @@
     overflow: visible;
     z-index: 9;
     transition: transform ease-out 200ms, z-index linear 1ms 500ms;
-    height: 300px;
+    height: 300px; 
     border-radius: 3px;
+    opacity: 0;
     .movie {
         position: relative;
         height: 100%;
@@ -155,6 +156,34 @@
             }
         }
     }
+}
+
+.fadein {
+    animation: fadein .3s linear forwards;
+}
+
+@-webkit-keyframes fadein {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+    
+@keyframes fadein {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.fadeout {
+    animation: fadeout .3s linear forwards;
+}
+
+@-webkit-keyframes fadeout {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+    
+@keyframes fadeout {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 .movie-container2:hover {
