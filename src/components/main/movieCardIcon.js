@@ -40,9 +40,6 @@ function MovieCardIcon({icon, text, func, id, selectedMovie,setSelectedMovie, mo
                 setIsInList(true)
                 break;
             case 'remove':
-                const movieElm = document.getElementById(`${randInt}`)
-                movieElm.classList.remove('fadein')
-                movieElm.classList.add('fadeout')
                 handleWatchListState('remove')
                 setIsInList(false)
                 break;

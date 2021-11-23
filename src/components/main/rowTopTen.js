@@ -51,13 +51,32 @@ export default class RowTopTen extends Component {
                         getMovieDetails={this.props.getMovieDetails}
                         key={i}
                         index={i}
+                        selectedMovie={this.props.selectedMovie}
+                        setSelectedMovie={this.props.setSelectedMovie}
+                        similarMovies={this.props.similarMovies}
+                        setSimilarMovies={this.props.setSimilarMovies}
+                        watchlist={this.props.watchlist} 
+                        setWatchlist={this.props.setWatchlist}
                     />
                 )
             })
 
+    const setGenre = this.props.setSelectedGenre
+    const headline = this.props.headline
+    const setExploreAll = this.props.setExploreMovies
+    const currentMovies = this.props.arr
+    const setExploreEmpty = this.props.setIsExploreEmpty
+
+    function handleExploreAll() {
+      setGenre(headline)
+      setExploreAll(currentMovies)
+      setExploreEmpty(false)
+      window.scroll(0,0)
+    }
+
     return (
       <div className='row-container'>
-        <div className='row-header'>
+        <div className='row-header'  onClick={handleExploreAll}>
           <h1>{this.props.headline}</h1>
           <img src={exploreArrow}></img>
           <span>Explore All</span>

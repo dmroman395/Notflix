@@ -64,10 +64,12 @@ export default class RowNotflix extends Component {
     const headline = this.props.headline
     const setExploreAll = this.props.setExploreMovies
     const currentMovies = this.props.arr
+    const setExploreEmpty = this.props.setIsExploreEmpty
 
     function handleExploreAll() {
       setGenre(headline)
       setExploreAll(currentMovies)
+      setExploreEmpty(false)
       window.scroll(0,0)
     }
 

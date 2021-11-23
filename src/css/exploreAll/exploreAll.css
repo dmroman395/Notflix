@@ -48,6 +48,14 @@
       grid-template-columns: repeat(6, 1fr);
 }
 
+.exploreAll .content .movies-grid .empty-list {
+  margin-top: 50px;
+  grid-column: 1 / -1;
+  text-align: center;
+  -webkit-animation: fade 200ms;
+          animation: fade 200ms;
+}
+
 @-webkit-keyframes fade {
   from {
     opacity: 0;

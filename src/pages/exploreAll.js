@@ -7,7 +7,7 @@ import MovieCard from "../components/exploreAll/movieCard"
 import MoreInfo from '../components/exploreAll/moreInfo'
 import '../css/exploreAll/exploreAll.css'
 
-function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, selectedGenre, watchlist, setWatchlist, setExploreMovies, getMovies}) {
+function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, selectedGenre, watchlist, setWatchlist, setExploreMovies, getMovies, setSelectedGenre, setIsExploreEmpty}) {
     const [pageCount, setPageCount] = useState(2)
 
     const {
@@ -26,7 +26,10 @@ function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, sim
                     setSelectedMovie={setSelectedMovie}
                     similarMovies={similarMovies}
                     setSimilarMovies={setSimilarMovies}
+                    watchlist={watchlist}
+                    setWatchlist={setWatchlist}
                     movies={movies}
+                    setExploreMovies={setExploreMovies}
                 />
             </div>
         )
@@ -62,11 +65,11 @@ function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, sim
                     : 
                     <MoreInfo movie={selectedMovie} similarMovies={similarMovies} lang={lang} setSelectedMovie={setSelectedMovie} watchlist={watchlist} setWatchlist={setWatchlist}/>
                 }
-            <Header />
+            <Header setExploreMovies={setExploreMovies} lang={lang} setSelectedGenre={setSelectedGenre} watchlist={watchlist} setIsExploreEmpty={setIsExploreEmpty}/>
             <div className='content'>
                 <h1 className='genre'>{selectedGenre}</h1>
                 <div className='movies-grid'>
-                    {moviesMap}
+                    {movies.length > 0 ? moviesMap : <h1 className='empty-list'>Looks like you don't have any movies in your watchlist</h1>}
                 </div>
             </div>
             {lang.lang === 'English' ? 

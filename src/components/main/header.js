@@ -41,12 +41,42 @@ const debounce = (fn) => {
   // Update scroll position for first time
   storeScroll();
 
-function Header() {
+function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExploreEmpty}) {
 
     const { userSignOut } = useAuth()
+    const { getMovies } = require ('../../controllers/moviesController')
 
     function signOut() {
         userSignOut()
+    }
+
+    async function handleMovies() {
+        const data = await getMovies(lang,'Movies', 1)
+        const movies = data.data.results
+        setIsExploreEmpty(false)
+        setSelectedGenre('Movies')
+        setExploreMovies(movies)
+        window.scroll(0,0)
+    }
+
+    function handleMyMovies() {
+        if (watchlist === undefined) {
+            setIsExploreEmpty(false)
+            setSelectedGenre('My List')
+        } else {
+            setIsExploreEmpty(false)
+            setExploreMovies(watchlist)
+            setSelectedGenre('My List')
+            window.scroll(0,0)
+        }
+        
+    }
+
+    function clearExploreMovies() {
+        const reset = []
+        setIsExploreEmpty(true)
+        setExploreMovies(reset)
+        window.scroll(0,0)
     }
 
     return (
@@ -54,20 +84,20 @@ function Header() {
             <div className="header-left">
                 <img src={logo} id="logo"></img>
                 <ul>
-                    <li>
-                        <a href="">Home</a>
+                    <li onClick={clearExploreMovies}>
+                        <p>Home</p>
                     </li>
                     <li>
-                        <a href="">TV Shows</a>
+                        <p>TV Shows</p>
+                    </li>
+                    <li onClick={handleMovies}>
+                        <p>Movies</p>
                     </li>
                     <li>
-                        <a href="">Movies</a>
+                        <p>New & Popular</p>
                     </li>
-                    <li>
-                        <a href="">New & Popular</a>
-                    </li>
-                    <li>
-                        <a href="">My List</a>
+                    <li onClick={handleMyMovies}>
+                        <p>My List</p>
                     </li>
                 </ul>
             </div>

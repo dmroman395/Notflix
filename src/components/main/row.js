@@ -62,7 +62,6 @@ export default class Row extends Component {
 
     const row = this.props.arr.map((movie, i) => {
 
-      const randInt = Math.floor(Math.random()*100000)
                 return (
                     <MovieCard
                         lang={this.props.lang}
@@ -75,7 +74,7 @@ export default class Row extends Component {
                         setSimilarMovies={this.props.setSimilarMovies}
                         watchlist={this.props.watchlist} 
                         setWatchlist={this.props.setWatchlist}
-                        randId={randInt}
+                        type={''}
                     />
                 )
             })
@@ -84,10 +83,12 @@ export default class Row extends Component {
     const headline = this.props.headline
     const setExploreAll = this.props.setExploreMovies
     const currentMovies = this.props.arr
+    const setExploreEmpty = this.props.setIsExploreEmpty
 
     function handleExploreAll() {
       setGenre(headline)
       setExploreAll(currentMovies)
+      setExploreEmpty(false)
       window.scroll(0,0)
     }
     

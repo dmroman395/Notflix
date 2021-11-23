@@ -2,11 +2,11 @@ import React, {useState} from 'react'
 import { useAuth } from '../../contexts/authContext'
 import triangle from '../../images/triangle.png'
 
-function MovieCardIcon({icon, text, func, id, selectedMovie,setSelectedMovie, movie, runtime, setWatchlist, setIsInList, liked, setLiked, disliked, setDisliked, randInt }) {
+function MovieCardIcon({icon, text, func, id, selectedMovie, setSelectedMovie, movie, runtime, watchlist, setWatchlist, setIsInList, liked, setLiked, disliked, setDisliked, setExploreMovies, randInt }) {
     const [iconHover, setIconHover] = useState(false)
     const { currentUser } = useAuth()
 
-    const { handleWatchList } = require('../../firebase')
+    const { handleWatchList } = require('../../controllers/userListController')
 
     function handleMoreInfo() {
         if (Object.keys(selectedMovie).length === 0) {
@@ -45,6 +45,10 @@ function MovieCardIcon({icon, text, func, id, selectedMovie,setSelectedMovie, mo
                 movieElm.classList.add('fadeout')
                 handleWatchListState('remove')
                 setIsInList(false)
+                if (watchlist.length === 1) {
+                    const reset = []
+                    setExploreMovies(reset)
+                }
                 break;
             default:
                 break;

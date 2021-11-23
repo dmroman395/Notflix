@@ -58,10 +58,14 @@ html:not([data-scroll='0']) .header {
   margin: 0 7px;
 }
 
-.header .header-left ul li a {
+.header .header-left ul li p {
   font-size: 14px;
   color: #e5e5e5e5;
   text-decoration: none;
+}
+
+.header .header-left ul li:hover {
+  cursor: pointer;
 }
 
 .header .header-right {

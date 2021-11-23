@@ -34,11 +34,14 @@ html:not([data-scroll='0']) {
             li {
                 list-style: none;
                 margin: 0 7px;
-                a {
+                p {
                     font-size: 14px;
                     color: #e5e5e5e5;
                     text-decoration: none;
                 }
+            }
+            li:hover {
+                cursor: pointer;
             }
         }
     }

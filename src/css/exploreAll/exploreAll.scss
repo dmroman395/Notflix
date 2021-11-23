@@ -23,6 +23,12 @@
             display: grid;
             height: 100%;
             grid-template-columns: repeat(6, 1fr);
+            .empty-list {
+                margin-top: 50px;
+                grid-column: 1 / -1;
+                text-align: center;
+                animation: fade 200ms;
+            }
         }
     }    
 } 

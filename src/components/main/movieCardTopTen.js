@@ -1,11 +1,13 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import '../../css/main/movieCard.css'
 import logo from '../../images/logo-short.jpg'
 import MovieCard from './movieCard'
 
-function MovieCardTopTen({ movie, getMovieDetails, lang, index }) {
-    const {hover, setHover} = useState(false)
-    const {  poster_path, id } = movie
+function MovieCardTopTen({ movie, getMovieDetails, lang, index, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, watchlist, setWatchlist }) {
+    const [hover, setHover] = useState(false)
+    const [movieDetails, setMovieDetails] = useState({})
+    const { poster_path, id } = movie
+
     let details
     let imagePath
 
@@ -17,37 +19,67 @@ function MovieCardTopTen({ movie, getMovieDetails, lang, index }) {
     }
 
     async function loadDetails() {
-        details = await getMovieDetails(lang, id)
+        if (Object.keys(movieDetails).length === 0) {
+            const details = await getMovieDetails(lang, id)
+            setMovieDetails(details.data)
+        }
     }
 
-    // function handleHover(e) {
-    //     switch(e.type) {
-    //         case 'mouseenter':
-    //             console.log('testinnnnnnnngggggggg')
-    //             setHover(true)
-    //             break;
-    //         case 'mouiseexit':
-    //             setHover(false)
-    //             break;
-    //         default:
-    //             break;
-    //     }
-    // }
+    async function handleHover(e) {
+        switch(e.type) {
+            case 'mouseenter':
+                await loadDetails()
+                setHover(true)
+                break;
+            case 'mouseleave':
+                setHover(false)
+                break;
+            default:
+                break;
+        }
+    }
+
+    let numberTen
+
+    if (index + 1 === 10) {
+        numberTen = <h1 className='number ten'>{index + 1}</h1>
+    } else {
+        numberTen = <h1 className='number'>{index + 1}</h1>
+    }
+
+    // useEffect(() => {
+    //     loadDetails()
+    // },[])
 
     return (
-        <div className="movie-ten-container"> 
-        {/* {hover ? <MovieCard movie={movie} lang={lang}/> : ( */}
-                {index + 1 === 10 ? <h1 className='number ten'>{index + 1}</h1>:<h1 className='number'>{index + 1}</h1>}
-                <div
-                    className="movie-ten"
-                    style={{
-                        backgroundSize: 'cover',
-                        backgroundImage: `
-                url(${imagePath})`,
-                        backgroundPosition: 'center',
-                    }}
-                >
-                </div>
+        <div className="movie-ten-container" onMouseEnter={e => handleHover(e)} onMouseLeave={e => handleHover(e)}> 
+        {hover ? <MovieCard 
+                        lang={lang}
+                        movie={movieDetails}
+                        getMovieDetails={getMovieDetails}
+                        selectedMovie={selectedMovie}
+                        setSelectedMovie={setSelectedMovie}
+                        similarMovies={similarMovies}
+                        setSimilarMovies={setSimilarMovies}
+                        watchlist={watchlist} 
+                        setWatchlist={setWatchlist}
+                        type={'v2'}
+                        /> 
+                : 
+                <React.Fragment>
+                    {numberTen}
+                    <div
+                        className="movie-ten"
+                        style={{
+                            backgroundSize: 'cover',
+                            backgroundImage: `url(${imagePath})`,
+                            backgroundPosition: 'center',
+                        }}
+                    >
+                    </div>
+                </React.Fragment>
+        }
+
         </div>
     )
 }

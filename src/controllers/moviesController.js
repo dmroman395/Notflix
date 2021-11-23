@@ -150,6 +150,26 @@ export async function getGenres(language) {
     return popularList
 }
 
+export async function getRandomMovies(language, page) {
+    let lang
+
+    if (language === 'English') {
+        lang = 'en'
+    } else {
+        lang = 'es'
+    }
+
+    const randomList = await axios.get(
+        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_watch_monetization_types=flatrate`
+    )
+    return randomList
+
+}
+
+export async function getLatest(language, page) {
+
+}
+
 export async function getMovies(language, type, page, limit, id) {
     let lang
 
@@ -205,5 +225,10 @@ export async function getMovies(language, type, page, limit, id) {
                 `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&page=${page}`
             )
             return similarMovies
+        case 'Movies':
+            const randomList = await axios.get(
+                `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_watch_monetization_types=flatrate`
+            )
+            return randomList
     }
 }
