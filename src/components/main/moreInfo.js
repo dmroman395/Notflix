@@ -62,13 +62,25 @@ function MoreInfo({movie, similarMovies, lang, setSelectedMovie, watchList, setW
         }
     }
 
+    function handleCancel(e) {
+        e.stopPropagation()
+        const reset = {}
+        document.body.style.overflowY = 'scroll'
+        document.body.style.position = '';
+        document.body.style.top = '';
+        const moreInfoContainer = document.querySelector('.moreInfo-container')
+        moreInfoContainer.style.opacity = '0'
+        const overlay = document.querySelector('.overlay')
+        overlay.addEventListener('transitionend', () => setSelectedMovie(reset))
+    }
+
     useEffect(handleScroll,[])
 
     return (
          <div className='overlay'>
                 <div className='moreInfo-container'>
                     <div className='moreInfo-featured'>
-                        <MiniFeatured movie={movie} lang={lang} setSelectedMovie={setSelectedMovie} watchList={watchList} setWatchlist={setWatchlist} isInList={isInList} setIsInList={setIsInList}/>
+                        <MiniFeatured movie={movie} lang={lang} watchList={watchList} setWatchlist={setWatchlist} isInList={isInList} setIsInList={setIsInList} cancel={handleCancel}/>
                     </div>
                     <div className='moreInfo-info'>
                         <p>

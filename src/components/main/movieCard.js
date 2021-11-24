@@ -19,8 +19,7 @@ const {
 } = require('../../controllers/moviesController')
 
 
-function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, setSimilarMovies, watchlist, setWatchlist, type}) {
-    const [hover, setHover] = useState(false)
+function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, setSimilarMovies, watchlist, setWatchlist, type, runtime2}) {
     const [movieDetails, setMovieDetails] = useState({})
     const [isInList, setIsInList] = useState(false)
     const [liked, setLiked] = useState(false)
@@ -37,8 +36,8 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, setSimilarMov
     let moreInfo
     let imagePath
 
-    const hours = Math.floor(runtime/60)
-    const minutes = runtime % 60
+    const hours = Math.floor(runtime2 ? runtime2/60 : runtime/60)
+    const minutes = (runtime2 ? runtime2 : runtime) % 60
 
     const match = vote_average * 10
 
@@ -92,7 +91,6 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, setSimilarMov
             const details = await getMovieDetails(lang, id)
             setMovieDetails(details.data)
         }
-        setHover(true)
     }
 
     async function loadSimilar() {
@@ -104,10 +102,6 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, setSimilarMov
     function handleMovieCardHover() {
         loadDetails();
         loadSimilar();
-    }
-
-    function handleOut() {
-        setHover(false)
     }
 
     function fadeIn(num) {
@@ -139,7 +133,7 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, setSimilarMov
                     </div>
                     <div className='icons'>
                         <MovieCardIcon icon={downArrow} text={moreInfo} selectedMovie={selectedMovie}
-                        setSelectedMovie={setSelectedMovie} movie={movie} id={'moreInfo'} runtime={runtime}/>
+                        setSelectedMovie={setSelectedMovie} movie={movie} id={'moreInfo'} runtime={runtime2 ? runtime2 : runtime}/>
                     </div>
                 </div>
                 <div className='match-row'>
@@ -151,7 +145,7 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, setSimilarMov
             </div>
     return (
         <div className={`movie-container${type}`} id={`${randInt}`}>
-            <div className="movie" onMouseEnter={handleMovieCardHover} onMouseLeave={handleOut}>
+            <div className="movie" onMouseEnter={handleMovieCardHover}>
             <div
                 className="movie-card"
                 style={{

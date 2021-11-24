@@ -1,4 +1,4 @@
-import '../../css/main/row.css'
+import '../../css/exploreAll/row.css'
 import MovieCard from './movieCard'
 import React, { Component } from "react";
 import Slider from "react-slick";

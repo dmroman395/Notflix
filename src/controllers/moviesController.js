@@ -166,8 +166,19 @@ export async function getRandomMovies(language, page) {
 
 }
 
-export async function getLatest(language, page) {
+export async function getUpcoming(language, page) {
+    let lang
 
+    if (language === 'English') {
+        lang = 'en'
+    } else {
+        lang = 'es'
+    }
+
+    const upcomingList = await axios.get(
+        `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&page=${page}`
+    )
+    return upcomingList
 }
 
 export async function getMovies(language, type, page, limit, id) {
@@ -230,5 +241,15 @@ export async function getMovies(language, type, page, limit, id) {
                 `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_watch_monetization_types=flatrate`
             )
             return randomList
+        case 'Coming This Week':
+            const upcomingList = await axios.get(
+                `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&page=${page}`
+            )
+            return upcomingList
+        case 'New on Notflix':
+            const newList = await axios.get(
+                `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}}&sort_by=release_date.desc&include_adult=false&include_video=false&page=${page}`
+            )
+            return newList
     }
 }

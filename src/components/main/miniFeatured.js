@@ -5,7 +5,7 @@ import MovieCardIconPlayBig from './movieCardIconPlayBig'
 
 import logo from '../../images/logo-short.jpg'
 import check from '../../images/check.png'
-import cancel from '../../images/cancel.png'
+import close from '../../images/cancel.png'
 import plus from '../../images/plus.png'
 import thumbsUp from '../../images/like.png'
 import thumbsDown from '../../images/dislike.png'
@@ -13,7 +13,7 @@ import thumbsUpFilled from '../../images/like-filled.png'
 import thumbsDownFilled from '../../images/dislike-filled.png'
 import playButton from '../../images/play-button.png'
 
-function MiniFeatured({ movie, lang, setSelectedMovie, watchList, setWatchlist, isInList, setIsInList}) {
+function MiniFeatured({ movie, lang, watchList, setWatchlist, isInList, setIsInList, cancel}) {
     const [liked, setLiked] = useState(false)
     const [disliked, setDisliked] = useState(false)
 
@@ -46,17 +46,6 @@ function MiniFeatured({ movie, lang, setSelectedMovie, watchList, setWatchlist, 
         add = 'Agregar a Mi Lista'
         like = 'Me gusta esto'
         dislike = 'No es para mí'
-    }
-
-    function handleCancel() {
-        const reset = {}
-        document.body.style.overflowY = 'scroll'
-        document.body.style.position = '';
-        document.body.style.top = '';
-        const moreInfoContainer = document.querySelector('.moreInfo-container')
-        moreInfoContainer.style.opacity = '0'
-        const overlay = document.querySelector('.overlay')
-        overlay.addEventListener('transitionend', () => setSelectedMovie(reset))
     }
 
     function handleIconState(e) {
@@ -100,8 +89,8 @@ function MiniFeatured({ movie, lang, setSelectedMovie, watchList, setWatchlist, 
             }}
         >
             <div className='cancel-container'>
-                <div className='cancel' onClick={handleCancel}>
-                    <img src={cancel}></img>
+                <div className='cancel' onClick={e => cancel(e)}>
+                    <img src={close}></img>
                 </div>
             </div>
             <div className="content">

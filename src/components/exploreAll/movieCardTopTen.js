@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react'
-import '../../css/main/movieCard.css'
+import React, {useState} from 'react'
+import '../../css/exploreAll/movieCard.css'
 import logo from '../../images/logo-short.jpg'
 import MovieCard from './movieCard'
 

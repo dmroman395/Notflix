@@ -6,6 +6,7 @@
     justify-content: space-between;
     height: fit-content;
     color: white;
+    overflow-x: hidden;
     .content {
         animation: fade 500ms;
         position: relative;

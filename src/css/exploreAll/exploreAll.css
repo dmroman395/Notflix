@@ -15,6 +15,7 @@
   height: -moz-fit-content;
   height: fit-content;
   color: white;
+  overflow-x: hidden;
 }
 
 .exploreAll .content {

@@ -27,13 +27,12 @@ import MoreInfo from '../components/main/moreInfo'
 
 const {getUserWatchList} = require('../controllers/userListController')
 
-function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, setExploreMovies, setSelectedGenre, watchlist, setWatchlist, getTrending, getAction, getComedy, getHorror, getNowPlaying, getTopRated, getPopular, getMovieDetails, getSimilarMovies, getGenres, getMovies, isExploreEmpty, setIsExploreEmpty }) {
+function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, setExploreMovies, setSelectedGenre, watchlist, setWatchlist, getTrending, getAction, getComedy, getHorror, getNowPlaying, getTopRated, getPopular, getMovieDetails, getSimilarMovies, getGenres, getMovies, isExploreEmpty, setIsExploreEmpty, isNewPopular, setIsNewPopular, nowPlayingMovies, setNowPlayingMovies }) {
 
     const [movieDetails, setMovieDetails] = useState({})
     const [actionMovies, setActionMovies] = useState([])
     const [comedyMovies, setComedyMovies] = useState([])
     const [horrorMovies, setHorrorMovies] = useState([])
-    const [nowPlayingMovies, setNowPlayingMovies] = useState([])
     const [topRatedMovies, setTopRatedMovies] = useState([])
     const [featuredMovie, setFeaturedMovie] = useState({})
     const [trendingMovies, setTrendingMovies] = useState([])
@@ -160,8 +159,8 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
                 : 
                 <MoreInfo movie={selectedMovie} similarMovies={similarMovies} lang={lang} setSelectedMovie={setSelectedMovie} watchlist={watchlist} setWatchlist={setWatchlist}/>
             }
-            <Header setExploreMovies={setExploreMovies} lang={lang} setSelectedGenre={setSelectedGenre} watchlist={watchlist} setIsExploreEmpty={setIsExploreEmpty} isExploreEmpty={isExploreEmpty}/>
-            <Featured lang={lang} movie={featuredMovie} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies} watchlist={watchlist} setWatchlist={setWatchlist}/>
+            <Header setExploreMovies={setExploreMovies} lang={lang} setSelectedGenre={setSelectedGenre} watchlist={watchlist} setIsExploreEmpty={setIsExploreEmpty} isExploreEmpty={isExploreEmpty} isNewPopular={isNewPopular} setIsNewPopular={setIsNewPopular}/>
+            <Featured lang={lang} movie={featuredMovie} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies} watchlist={watchlist} setWatchlist={setWatchlist} setLang={setLang} nowPlayingMovies={nowPlayingMovies}/>
             <div className='rows-container'>
                 {
                    (watchlist && watchlist.length != 0) ?
@@ -179,6 +178,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
                     watchlist={watchlist} 
                     setWatchlist={setWatchlist}
                     setIsExploreEmpty={setIsExploreEmpty}
+                    setIsNewPopular={setIsNewPopular}
                 /> :
                 null
                 }
@@ -196,6 +196,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
                     watchlist={watchlist} 
                     setWatchlist={setWatchlist}
                     setIsExploreEmpty={setIsExploreEmpty}
+                    setIsNewPopular={setIsNewPopular}
                 />
                 <Row
                     arr={trendingMovies}
@@ -211,6 +212,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
                     watchlist={watchlist} 
                     setWatchlist={setWatchlist}
                     setIsExploreEmpty={setIsExploreEmpty}
+                    setIsNewPopular={setIsNewPopular}
                 />
                 
                 <Row
@@ -227,6 +229,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
                     watchlist={watchlist} 
                     setWatchlist={setWatchlist}
                     setIsExploreEmpty={setIsExploreEmpty}
+                    setIsNewPopular={setIsNewPopular}
                 />
                 <RowNotflix
                     arr={topRatedMovies}
@@ -242,6 +245,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
                     selectedMovie={selectedMovie}
                     setSelectedMovie={setSelectedMovie}
                     setIsExploreEmpty={setIsExploreEmpty}
+                    setIsNewPopular={setIsNewPopular}
                 />
                 <RowTopTen
                     arr={nowPlayingMovies}
@@ -257,6 +261,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
                     similarMovies={similarMovies}
                     setSimilarMovies={setSimilarMovies}
                     setIsExploreEmpty={setIsExploreEmpty}
+                    setIsNewPopular={setIsNewPopular}
                 />
                 <Row
                     arr={comedyMovies}
@@ -272,6 +277,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
                     watchlist={watchlist} 
                     setWatchlist={setWatchlist}
                     setIsExploreEmpty={setIsExploreEmpty}
+                    setIsNewPopular={setIsNewPopular}
                 />
                 <Row
                     arr={horrorMovies}
@@ -287,6 +293,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
                     watchlist={watchlist} 
                     setWatchlist={setWatchlist}
                     setIsExploreEmpty={setIsExploreEmpty}
+                    setIsNewPopular={setIsNewPopular}
                 />
             </div>
             {lang === 'English' ? 

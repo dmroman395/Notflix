@@ -66,11 +66,13 @@ export default class RowTopTen extends Component {
     const setExploreAll = this.props.setExploreMovies
     const currentMovies = this.props.arr
     const setExploreEmpty = this.props.setIsExploreEmpty
+    const setIsNewPopular = this.props.setIsNewPopular
 
     function handleExploreAll() {
       setGenre(headline)
       setExploreAll(currentMovies)
       setExploreEmpty(false)
+      setIsNewPopular(false)
       window.scroll(0,0)
     }
 

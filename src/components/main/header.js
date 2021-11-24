@@ -41,7 +41,7 @@ const debounce = (fn) => {
   // Update scroll position for first time
   storeScroll();
 
-function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExploreEmpty}) {
+function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExploreEmpty, isNewPopular, setIsNewPopular}) {
 
     const { userSignOut } = useAuth()
     const { getMovies } = require ('../../controllers/moviesController')
@@ -54,6 +54,7 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
         const data = await getMovies(lang,'Movies', 1)
         const movies = data.data.results
         setIsExploreEmpty(false)
+        setIsNewPopular(false)
         setSelectedGenre('Movies')
         setExploreMovies(movies)
         window.scroll(0,0)
@@ -63,10 +64,12 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
         if (watchlist === undefined) {
             setIsExploreEmpty(false)
             setSelectedGenre('My List')
+            setIsNewPopular(false)
         } else {
             setIsExploreEmpty(false)
             setExploreMovies(watchlist)
             setSelectedGenre('My List')
+            setIsNewPopular(false)
             window.scroll(0,0)
         }
         
@@ -75,7 +78,14 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
     function clearExploreMovies() {
         const reset = []
         setIsExploreEmpty(true)
+        setIsNewPopular(false)
         setExploreMovies(reset)
+        window.scroll(0,0)
+    }
+
+    function handleNewPopular() {
+        setIsNewPopular(true)
+        setIsExploreEmpty(false)
         window.scroll(0,0)
     }
 
@@ -93,7 +103,7 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
                     <li onClick={handleMovies}>
                         <p>Movies</p>
                     </li>
-                    <li>
+                    <li onClick={handleNewPopular}>
                         <p>New & Popular</p>
                     </li>
                     <li onClick={handleMyMovies}>

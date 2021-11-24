@@ -1,0 +1,307 @@
+.row-container {
+  margin-bottom: 105px;
+  color: #e5e5e5;
+}
+
+.row-container h1 {
+  margin-bottom: 10px;
+}
+
+.row-container .row-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  z-index: 100;
+  margin: 0 50px;
+}
+
+.row-container .row-header span {
+  font-weight: bold;
+  opacity: 0;
+  -webkit-transition: all ease-in-out 600ms;
+  transition: all ease-in-out 600ms;
+}
+
+.row-container .row-header img {
+  opacity: 0;
+  -webkit-transition: all linear 250ms;
+  transition: all linear 250ms;
+}
+
+.row-container .row-header:hover {
+  cursor: pointer;
+}
+
+.row-container .row-header:hover span {
+  opacity: 1;
+  -webkit-transform: translateX(15px);
+          transform: translateX(15px);
+}
+
+.row-container .row-header:hover img {
+  opacity: 1;
+  -webkit-transform: translateX(115px);
+          transform: translateX(115px);
+}
+
+.row-container .slick-slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 185px;
+}
+
+.row-container .slick-slider .slick-list {
+  margin: 0 50px;
+  width: 95%;
+}
+
+.row-container .slick-slider .slick-list .slick-track {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.row-container .slick-slider .slick-list .slick-track .slick-slide {
+  max-width: 320px;
+}
+
+.row-container .slick-slider .arrow {
+  height: 185px;
+  width: 45px;
+  z-index: 5;
+  position: absolute;
+  right: 0%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.row-container .slick-slider .arrow img {
+  height: 35px;
+  width: auto;
+  display: none;
+}
+
+.row-container .slick-slider .arrow:hover {
+  cursor: pointer;
+  background-color: rgba(20, 20, 20, 0.5);
+}
+
+.row-container .slick-slider .arrow:hover img {
+  display: inline-block;
+}
+
+.row-container .slick-slider .right {
+  right: 0%;
+}
+
+.row-container .slick-slider .left {
+  left: 0%;
+}
+
+.row-container .arrow-ten {
+  height: 300px;
+  width: 50px;
+  z-index: 5;
+  position: absolute;
+  right: 0%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.row-container .arrow-ten img {
+  height: 35px;
+  width: auto;
+  display: none;
+}
+
+.row-container .arrow-ten:hover {
+  cursor: pointer;
+  background-color: rgba(20, 20, 20, 0.5);
+}
+
+.row-container .arrow-ten:hover img {
+  display: inline-block;
+}
+
+.poster-row-container {
+  margin-bottom: 105px;
+  color: #e5e5e5;
+  height: 500px;
+}
+
+.poster-row-container h1 {
+  margin-bottom: 10px;
+}
+
+.poster-row-container .row-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  z-index: 100;
+  margin: 0 50px;
+}
+
+.poster-row-container .row-header span {
+  font-weight: bold;
+  opacity: 0;
+  -webkit-transition: all ease-in-out 600ms;
+  transition: all ease-in-out 600ms;
+}
+
+.poster-row-container .row-header img {
+  opacity: 0;
+  -webkit-transition: all linear 250ms;
+  transition: all linear 250ms;
+}
+
+.poster-row-container .row-header:hover {
+  cursor: pointer;
+}
+
+.poster-row-container .row-header:hover span {
+  opacity: 1;
+  -webkit-transform: translateX(15px);
+          transform: translateX(15px);
+}
+
+.poster-row-container .row-header:hover img {
+  opacity: 1;
+  -webkit-transform: translateX(115px);
+          transform: translateX(115px);
+}
+
+.poster-row-container .slick-slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 100%;
+}
+
+.poster-row-container .slick-slider .slick-list {
+  margin: 0 50px;
+  width: 95%;
+}
+
+.poster-row-container .slick-slider .slick-list .slick-track {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.poster-row-container .slick-slider .slick-list .slick-track .slick-slide {
+  max-width: 320px;
+}
+
+.poster-row-container .slick-slider .arrow {
+  height: 100%;
+  width: 50px;
+  z-index: 5;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.poster-row-container .slick-slider .arrow img {
+  height: 75px;
+  width: auto;
+  display: none;
+}
+
+.poster-row-container .slick-slider .arrow:hover {
+  cursor: pointer;
+  background-color: rgba(20, 20, 20, 0.5);
+}
+
+.poster-row-container .slick-slider .arrow:hover img {
+  display: inline-block;
+}
+
+.poster-row-container .slick-slider .right {
+  right: 0%;
+}
+
+.poster-row-container .slick-slider .left {
+  left: 0%;
+}
+
+.poster-row-container .arrow-poster {
+  height: 500px;
+  width: 50px;
+  z-index: 5;
+  position: absolute;
+  right: 0%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.poster-row-container .arrow-poster img {
+  height: 35px;
+  width: auto;
+  display: none;
+}
+
+.poster-row-container .arrow-poster:hover {
+  cursor: pointer;
+  background-color: rgba(20, 20, 20, 0.5);
+}
+
+.poster-row-container .arrow-poster:hover img {
+  display: inline-block;
+}
+/*# sourceMappingURL=row.css.map */
