@@ -1,4 +1,4 @@
-import '../../css/main/row.css'
+import '../../css/shared/row.css'
 import MovieCardNotflix from './movieCardNotflix'
 import React, { Component } from "react";
 import Slider from "react-slick";

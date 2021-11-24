@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
-import Row from "./row";
-import RowTopTen from "./rowTopTen";
-import MoreInfo from "./moreInfo";
+import Row from "../shared/row";
+import RowTopTen from "../shared/rowTopTen";
+import MoreInfo from "../shared/moreInfo";
 
 function NewPopular({lang, nowPlayingMovies, getMovieDetails, setExploreMovies, setSelectedGenre, watchlist, setWatchlist, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, setIsExploreEmpty, isExploreEmpty, setIsNewPopular}) {
     const [upcomingMovies, setUpcomingMovies] = useState([])

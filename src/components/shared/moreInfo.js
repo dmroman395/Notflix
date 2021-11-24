@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import MiniFeatured from './miniFeatured'
 import SimilarMovieCard from './similarMovieCard'
-import '../../css/main/moreInfo.css'
+import '../../css/shared/moreInfo.css'
 import downArrow from '../../images/down-chevron.png'
 
 function MoreInfo({movie, similarMovies, lang, setSelectedMovie, watchList, setWatchlist}) {

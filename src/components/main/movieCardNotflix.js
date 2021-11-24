@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
-import MovieCardIcon from '../../components/main/movieCardIcon'
+import MovieCardIcon from '../shared/movieCardIcon'
 
-import '../../css/main/movieCard.css'
+import '../../css/shared/movieCard.css'
 
 import logo from '../../images/logo-short.jpg'
 import check from '../../images/check.png'

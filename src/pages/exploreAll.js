@@ -1,10 +1,10 @@
 import React, {useState} from "react"
 import footerDataEn from '../data/en/footerSignIn.json'
 import footerDataEs from '../data/es/footerSignIn.json'
-import Header from '../components/main/header'
+import Header from '../components/shared/header'
 import Footer from '../components/shared/footer'
-import MovieCard from "../components/exploreAll/movieCard"
-import MoreInfo from '../components/exploreAll/moreInfo'
+import MovieCard from "../components/shared/movieCard"
+import MoreInfo from '../components/shared/moreInfo'
 import NewPopular from "../components/exploreAll/newPopular"
 import '../css/exploreAll/exploreAll.css'
 

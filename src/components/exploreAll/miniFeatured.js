@@ -13,7 +13,7 @@ import thumbsUpFilled from '../../images/like-filled.png'
 import thumbsDownFilled from '../../images/dislike-filled.png'
 import playButton from '../../images/play-button.png'
 
-function MiniFeatured({ movie, lang, setSelectedMovie, watchlist, setWatchlist, isInList, setIsInList}) {
+function MiniFeatured({ movie, lang, setSelectedMovie, watchlist, setWatchlist, isInList, setIsInList, cancel}) {
     const [liked, setLiked] = useState(false)
     const [disliked, setDisliked] = useState(false)
 

@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import triangle from '../../images/triangle.png'
-import '../../css/main/movieCardIconPlayBig.css'
+import '../../css/shared/movieCardIconPlayBig.css'
 
 function MovieCardIconPlayBig({icon, title, lang}) {
 

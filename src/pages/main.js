@@ -3,14 +3,14 @@ import { useAuth } from '../contexts/authContext'
 import '../css/main/main.css'
 import footerDataEn from '../data/en/footerSignIn.json'
 import footerDataEs from '../data/es/footerSignIn.json'
-import Header from '../components/main/header'
+import Header from '../components/shared/header'
 import Featured from '../components/main/featured'
-import Row from '../components/main/row'
+import Row from '../components/shared/row'
 import RowNotflix from '../components/main/rowNotflix'
-import RowTopTen from '../components/main/rowTopTen'
+import RowTopTen from '../components/shared/rowTopTen'
 import Footer from '../components/shared/footer'
 import axios from 'axios'
-import MoreInfo from '../components/main/moreInfo'
+import MoreInfo from '../components/shared/moreInfo'
 
 // const {
 //     getTrending,

@@ -2,7 +2,7 @@ import React from 'react'
 import { useAuth } from '../../contexts/authContext'
 import logo from '../../images/Logo.png'
 import searchIcon from '../../images/search.png'
-import '../../css/main/header.css'
+import '../../css/shared/header.css'
 
 // The debounce function receives our function as a parameter
 const debounce = (fn) => {
