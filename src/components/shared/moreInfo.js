@@ -4,7 +4,7 @@ import SimilarMovieCard from './similarMovieCard'
 import '../../css/shared/moreInfo.css'
 import downArrow from '../../images/down-chevron.png'
 
-function MoreInfo({movie, similarMovies, lang, setSelectedMovie, watchList, setWatchlist}) {
+function MoreInfo({movie, similarMovies, lang, setSelectedMovie, watchList, setWatchlist, setExploreMovies, exploreMovies}) {
     const [listExpanded, setListExpanded] = useState(false)
     const [isInList, setIsInList] = useState(false)
 
@@ -43,7 +43,7 @@ function MoreInfo({movie, similarMovies, lang, setSelectedMovie, watchList, setW
     }
 
     const similarMovieList = similarMovies.map((movie, i) => {
-        return <SimilarMovieCard movie={movie} lang={lang} key={i} watchList={watchList} setWatchlist={setWatchlist} />
+        return <SimilarMovieCard movie={movie} lang={lang} key={i} watchList={watchList} setWatchlist={setWatchlist} setExploreMovies={setExploreMovies} exploreMovies={exploreMovies} />
     })
 
     function handleList() {
@@ -74,7 +74,21 @@ function MoreInfo({movie, similarMovies, lang, setSelectedMovie, watchList, setW
         overlay.addEventListener('transitionend', () => setSelectedMovie(reset))
     }
 
-    useEffect(handleScroll,[])
+    useEffect(() => {
+        handleScroll()
+        if (watchList) {
+            for (let item of watchList) {
+                console.log(item)
+                if (item.id == movie.id) {
+                    setIsInList(true)
+                }
+            }
+        }
+    },[])
+
+    // useEffect(() => {
+       
+    // },[])
 
     return (
          <div className='overlay'>

@@ -9,21 +9,7 @@ import Row from '../components/shared/row'
 import RowNotflix from '../components/main/rowNotflix'
 import RowTopTen from '../components/shared/rowTopTen'
 import Footer from '../components/shared/footer'
-import axios from 'axios'
 import MoreInfo from '../components/shared/moreInfo'
-
-// const {
-//     getTrending,
-//     getAction,
-//     getComedy,
-//     getHorror,
-//     getNowPlaying,
-//     getTopRated,
-//     getPopular,
-//     getMovieDetails,
-//     getSimilarMovies,
-//     getGenres
-// } = require('../controllers/moviesController')
 
 const {getUserWatchList} = require('../controllers/userListController')
 

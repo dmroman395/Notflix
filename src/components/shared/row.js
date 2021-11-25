@@ -74,6 +74,8 @@ export default class Row extends Component {
                         setSimilarMovies={this.props.setSimilarMovies}
                         watchlist={this.props.watchlist} 
                         setWatchlist={this.props.setWatchlist}
+                        exploreMovies={this.props.exploreMovies}
+                        setExploreMovies={this.props.setExploreMovies}
                         type={''}
                     />
                 )

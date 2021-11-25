@@ -72,7 +72,6 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
             setIsNewPopular(false)
             window.scroll(0,0)
         }
-        
     }
 
     function clearExploreMovies() {

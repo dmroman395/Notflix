@@ -6,7 +6,7 @@ import plus from '../../images/plus.png'
 import check from '../../images/check.png'
 
 
-function SimilarMovieCard({movie, lang, key, watchList, setWatchlist }) {
+function SimilarMovieCard({movie, lang, key, watchList, setWatchlist, setExploreMovies, exploreMovies }) {
     const [isInList, setIsInList] = useState(false)
 
     const { backdrop_path, title, vote_average, overview, release_date } = movie

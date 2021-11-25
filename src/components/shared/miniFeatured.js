@@ -64,15 +64,7 @@ function MiniFeatured({ movie, lang, watchList, setWatchlist, isInList, setIsInL
 
     }
 
-    useEffect(() => {
-        if (watchList) {
-            for (let item of watchList) {
-                if (item.id == movie.id) {
-                    setIsInList(true)
-                }
-            }
-        }
-    },[watchList])
+
 
     return (
         <div

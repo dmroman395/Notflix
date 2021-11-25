@@ -1,6 +1,5 @@
 .exploreAll {
   background-color: #141414;
-  min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11,11 +10,9 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
   color: white;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
 .exploreAll .content {
@@ -44,9 +41,9 @@
 .exploreAll .content .movies-grid {
   display: -ms-grid;
   display: grid;
-  height: 100%;
   -ms-grid-columns: (1fr)[6];
       grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: auto;
 }
 
 .exploreAll .content .movies-grid .movie-container2 {

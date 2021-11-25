@@ -8,7 +8,7 @@ import MoreInfo from '../components/shared/moreInfo'
 import NewPopular from "../components/exploreAll/newPopular"
 import '../css/exploreAll/exploreAll.css'
 
-function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, selectedGenre, watchlist, setWatchlist, setExploreMovies, getMovies, setSelectedGenre, setIsExploreEmpty, isExploreEmpty, setIsNewPopular, isNewPopular, nowPlayingMovies}) {
+function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, selectedGenre, watchlist, setWatchlist, setExploreMovies, exploreMovies, getMovies, setSelectedGenre, setIsExploreEmpty, isExploreEmpty, setIsNewPopular, isNewPopular, nowPlayingMovies}) {
     const [pageCount, setPageCount] = useState(2)
 
     const {
@@ -17,7 +17,6 @@ function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, sim
 
     const moviesMap = movies.map((movie, i) => {
         return (
-            <div>
                 <MovieCard
                     lang={lang}
                     movie={movie}
@@ -31,8 +30,10 @@ function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, sim
                     setWatchlist={setWatchlist}
                     movies={movies}
                     setExploreMovies={setExploreMovies}
+                    exploreMovies={movies}
+                    type={'2'}
                 />
-            </div>
+                
         )
     })
 
@@ -64,7 +65,7 @@ function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, sim
     if (isNewPopular) {
         content =
             <div className='content'>
-                <NewPopular lang={lang} nowPlayingMovies={nowPlayingMovies} getMovieDetails={getMovieDetails} setExploreMovies={setExploreMovies} setSelectedGenre={setSelectedGenre} watchlist={watchlist} setWatchlist={setWatchlist} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies} setIsExploreEmpty={setIsExploreEmpty} isExploreEmpty={isExploreEmpty} setIsNewPopular={setIsNewPopular}/>
+                <NewPopular lang={lang} nowPlayingMovies={nowPlayingMovies} getMovieDetails={getMovieDetails} setExploreMovies={setExploreMovies} setSelectedGenre={setSelectedGenre} watchlist={watchlist} setWatchlist={setWatchlist} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies} setIsExploreEmpty={setIsExploreEmpty} isExploreEmpty={isExploreEmpty} setIsNewPopular={setIsNewPopular} exploreMovies={exploreMovies}/>
             </div>
     } else {
         content = 
