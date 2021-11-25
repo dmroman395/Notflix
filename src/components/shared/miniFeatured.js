@@ -13,7 +13,7 @@ import thumbsUpFilled from '../../images/like-filled.png'
 import thumbsDownFilled from '../../images/dislike-filled.png'
 import playButton from '../../images/play-button.png'
 
-function MiniFeatured({ movie, lang, watchList, setWatchlist, isInList, setIsInList, cancel}) {
+function MiniFeatured({ movie, lang, watchlist, setWatchlist, isInList, setIsInList, exploreMovies, setExploreMovies, cancel}) {
     const [liked, setLiked] = useState(false)
     const [disliked, setDisliked] = useState(false)
 
@@ -64,7 +64,15 @@ function MiniFeatured({ movie, lang, watchList, setWatchlist, isInList, setIsInL
 
     }
 
-
+    useEffect(() => {
+        if (watchlist) {
+            for (let item of watchlist) {
+                if (item.id == movie.id) {
+                    setIsInList(true)
+                }
+            }
+        }
+    },[watchlist])
 
     return (
         <div
@@ -89,7 +97,7 @@ function MiniFeatured({ movie, lang, watchList, setWatchlist, isInList, setIsInL
                 <h1>{title}</h1>
                 <div className='icon-row'>
                     <MovieCardIconPlayBig icon={playButton} text={play} title={title} lang={lang}/>
-                    {isInList ? <MovieCardIcon icon={check} text={remove} id={'remove'} movie={movie} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchList={watchList} /> : <MovieCardIcon icon={plus} text={add} id={'add'} movie={movie} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchList={watchList}/> }
+                    {isInList ? <MovieCardIcon icon={check} text={remove} id={'remove'} movie={movie} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchlist={watchlist} setExploreMovies={setExploreMovies} exploreMovies={exploreMovies} /> : <MovieCardIcon icon={plus} text={add} id={'add'} movie={movie} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchlist={watchlist}/> }
                     {liked ? <MovieCardIcon icon={thumbsUpFilled} text={like} id={'like'} liked={liked} setLiked={setLiked}/> : <MovieCardIcon icon={thumbsUp} text={like} liked={liked} setLiked={setLiked} id={'like'}/> }
                     {disliked ? <MovieCardIcon icon={thumbsDownFilled} text={dislike} id={'dislike'} disliked={disliked} setDisliked={setDisliked}/> : <MovieCardIcon icon={thumbsDown} text={dislike} id={'dislike'} disliked={disliked} setDisliked={setDisliked}/> }
                 </div>

@@ -4,7 +4,7 @@ import SimilarMovieCard from './similarMovieCard'
 import '../../css/shared/moreInfo.css'
 import downArrow from '../../images/down-chevron.png'
 
-function MoreInfo({movie, similarMovies, lang, setSelectedMovie, watchList, setWatchlist, setExploreMovies, exploreMovies}) {
+function MoreInfo({movie, similarMovies, lang, setSelectedMovie, watchlist, setWatchlist, setExploreMovies, exploreMovies}) {
     const [listExpanded, setListExpanded] = useState(false)
     const [isInList, setIsInList] = useState(false)
 
@@ -43,7 +43,7 @@ function MoreInfo({movie, similarMovies, lang, setSelectedMovie, watchList, setW
     }
 
     const similarMovieList = similarMovies.map((movie, i) => {
-        return <SimilarMovieCard movie={movie} lang={lang} key={i} watchList={watchList} setWatchlist={setWatchlist} setExploreMovies={setExploreMovies} exploreMovies={exploreMovies} />
+        return <SimilarMovieCard movie={movie} lang={lang} key={i} watchlist={watchlist} setWatchlist={setWatchlist} setExploreMovies={setExploreMovies} exploreMovies={exploreMovies} />
     })
 
     function handleList() {
@@ -74,27 +74,13 @@ function MoreInfo({movie, similarMovies, lang, setSelectedMovie, watchList, setW
         overlay.addEventListener('transitionend', () => setSelectedMovie(reset))
     }
 
-    useEffect(() => {
-        handleScroll()
-        if (watchList) {
-            for (let item of watchList) {
-                console.log(item)
-                if (item.id == movie.id) {
-                    setIsInList(true)
-                }
-            }
-        }
-    },[])
-
-    // useEffect(() => {
-       
-    // },[])
+    useEffect(handleScroll,[])
 
     return (
          <div className='overlay'>
                 <div className='moreInfo-container'>
                     <div className='moreInfo-featured'>
-                        <MiniFeatured movie={movie} lang={lang} watchList={watchList} setWatchlist={setWatchlist} isInList={isInList} setIsInList={setIsInList} cancel={handleCancel}/>
+                        <MiniFeatured movie={movie} lang={lang} watchlist={watchlist} setWatchlist={setWatchlist} isInList={isInList} setIsInList={setIsInList} cancel={handleCancel} setExploreMovies={setExploreMovies} exploreMovies={exploreMovies}/>
                     </div>
                     <div className='moreInfo-info'>
                         <p>

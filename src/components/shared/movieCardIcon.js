@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { useAuth } from '../../contexts/authContext'
 import triangle from '../../images/triangle.png'
 
-function MovieCardIcon({icon, text, func, id, selectedMovie,setSelectedMovie, movie, runtime, setWatchlist, setIsInList, liked, setLiked, disliked, setDisliked, setExploreMovies, exploreMovies }) {
+function MovieCardIcon({icon, text, func, id, selectedMovie,setSelectedMovie, movie, runtime, setWatchlist, watchlist, setIsInList, liked, setLiked, disliked, setDisliked, setExploreMovies, exploreMovies }) {
     const [iconHover, setIconHover] = useState(false)
     const { currentUser } = useAuth()
 
@@ -16,6 +16,13 @@ function MovieCardIcon({icon, text, func, id, selectedMovie,setSelectedMovie, mo
             }
             setSelectedMovie(modMovie)
         }
+        if (watchlist) {
+            for (let item of watchlist) {
+                if (item.id == movie.id) {
+                    setIsInList(true)
+                }
+            }
+        }
     }
 
     async function handleWatchListState(type) {
@@ -24,12 +31,14 @@ function MovieCardIcon({icon, text, func, id, selectedMovie,setSelectedMovie, mo
     }
 
     function handleExploreMovies() {
-        exploreMovies.forEach((exploreMovie, i) => {
-            if (movie.id === exploreMovie.id ) {
-                 exploreMovies.splice(i, 1)
-            }
-        })
-        setExploreMovies(exploreMovies)
+        if (exploreMovies) {
+            exploreMovies.forEach((exploreMovie, i) => {
+                if (movie.id === exploreMovie.id ) {
+                     exploreMovies.splice(i, 1)
+                }
+            })
+            setExploreMovies(exploreMovies)
+        }
     }
 
    async function handleIconClick(e) {
@@ -49,8 +58,8 @@ function MovieCardIcon({icon, text, func, id, selectedMovie,setSelectedMovie, mo
                 setIsInList(true)
                 break;
             case 'remove':
-                handleWatchListState('remove')
                 handleExploreMovies()
+                handleWatchListState('remove')
                 setIsInList(false)
                 break;
             default:
