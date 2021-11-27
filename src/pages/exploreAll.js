@@ -82,7 +82,7 @@ function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, sim
                 {Object.keys(selectedMovie).length === 0  ? 
                     null
                     : 
-                    <MoreInfo movie={selectedMovie} similarMovies={similarMovies} lang={lang} setSelectedMovie={setSelectedMovie} watchlist={watchlist} setWatchlist={setWatchlist} setExploreMovies={setExploreMovies}/>
+                    <MoreInfo movie={selectedMovie} similarMovies={similarMovies} lang={lang} setSelectedMovie={setSelectedMovie} watchlist={watchlist} setWatchlist={setWatchlist} setExploreMovies={setExploreMovies} exploreMovies={exploreMovies}/>
                 }
             <Header setExploreMovies={setExploreMovies} lang={lang} setSelectedGenre={setSelectedGenre} watchlist={watchlist} setIsExploreEmpty={setIsExploreEmpty} setIsNewPopular={setIsNewPopular}/>
             {content}
