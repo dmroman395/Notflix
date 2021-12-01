@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useAuth } from './contexts/authContext'
 import LandingPage from './pages/landing'
 import SignInPage from './pages/signInPage'
+import Header from './components/shared/header'
 import Main from './pages/main'
 import ExploreAll from './pages/exploreAll'
 import './css/app/App.css'
@@ -41,10 +42,18 @@ function App() {
     const mainApp =
      <React.Fragment>
         { isExploreEmpty ?
-            <Main lang={lang} setLang={setLang} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies}
-            setExploreMovies={setExploreMovies} setSelectedGenre={setSelectedGenre} watchlist={watchlist} setWatchlist={setWatchlist} getTrending={getTrending} getAction={getAction} getComedy={getComedy} getHorror={getHorror} getNowPlaying={getNowPlaying} getTopRated={getTopRated} getPopular={getPopular} getMovieDetails={getMovieDetails} getSimilarMovies={getSimilarMovies} getGenres={getGenres} isExploreEmpty={isExploreEmpty} setIsExploreEmpty={setIsExploreEmpty} isNewPopular={isNewPopular} setIsNewPopular={setIsNewPopular} nowPlayingMovies={nowPlayingMovies} setNowPlayingMovies={setNowPlayingMovies} />
+            <React.Fragment>
+                <Header setExploreMovies={setExploreMovies} lang={lang} setSelectedGenre={setSelectedGenre} watchlist={watchlist} setIsExploreEmpty={setIsExploreEmpty} isExploreEmpty={isExploreEmpty} isNewPopular={isNewPopular} setIsNewPopular={setIsNewPopular}/>
+                <Main lang={lang} setLang={setLang} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies}
+                setExploreMovies={setExploreMovies} setSelectedGenre={setSelectedGenre} watchlist={watchlist} setWatchlist={setWatchlist} getTrending={getTrending} getAction={getAction} getComedy={getComedy} getHorror={getHorror} getNowPlaying={getNowPlaying} getTopRated={getTopRated} getPopular={getPopular} getMovieDetails={getMovieDetails} getSimilarMovies={getSimilarMovies} getGenres={getGenres} isExploreEmpty={isExploreEmpty} setIsExploreEmpty={setIsExploreEmpty} isNewPopular={isNewPopular} setIsNewPopular={setIsNewPopular} nowPlayingMovies={nowPlayingMovies} setNowPlayingMovies={setNowPlayingMovies} />
+            </React.Fragment>
+            
             :
-            <ExploreAll movies={exploreMovies} exploreMovies={exploreMovies} setExploreMovies={setExploreMovies} lang={lang} setLang={setLang} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies} selectedGenre={selectedGenre}setSelectedGenre={setSelectedGenre} watchlist={watchlist} setWatchlist={setWatchlist} getMovies={getMovies} isExploreEmpty={isExploreEmpty} setIsExploreEmpty={setIsExploreEmpty} isNewPopular={isNewPopular} setIsNewPopular={setIsNewPopular} nowPlayingMovies={nowPlayingMovies} />
+            <React.Fragment>
+                <Header setExploreMovies={setExploreMovies} lang={lang} setSelectedGenre={setSelectedGenre} watchlist={watchlist} setIsExploreEmpty={setIsExploreEmpty} isExploreEmpty={isExploreEmpty} isNewPopular={isNewPopular} setIsNewPopular={setIsNewPopular}/>
+                <ExploreAll movies={exploreMovies} exploreMovies={exploreMovies} setExploreMovies={setExploreMovies} lang={lang} setLang={setLang} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies} selectedGenre={selectedGenre}setSelectedGenre={setSelectedGenre} watchlist={watchlist} setWatchlist={setWatchlist} getMovies={getMovies} isExploreEmpty={isExploreEmpty} setIsExploreEmpty={setIsExploreEmpty} isNewPopular={isNewPopular} setIsNewPopular={setIsNewPopular} nowPlayingMovies={nowPlayingMovies} />
+            </React.Fragment>
+            
         }
     </React.Fragment>
 

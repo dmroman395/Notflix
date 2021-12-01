@@ -64,7 +64,7 @@ function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, sim
 
     if (isNewPopular) {
         content =
-            <div className='content'>
+            <div className='content2'>
                 <NewPopular lang={lang} nowPlayingMovies={nowPlayingMovies} getMovieDetails={getMovieDetails} setExploreMovies={setExploreMovies} setSelectedGenre={setSelectedGenre} watchlist={watchlist} setWatchlist={setWatchlist} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies} setIsExploreEmpty={setIsExploreEmpty} isExploreEmpty={isExploreEmpty} setIsNewPopular={setIsNewPopular} exploreMovies={exploreMovies}/>
             </div>
     } else {
@@ -84,7 +84,7 @@ function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, sim
                     : 
                     <MoreInfo movie={selectedMovie} similarMovies={similarMovies} lang={lang} setSelectedMovie={setSelectedMovie} watchlist={watchlist} setWatchlist={setWatchlist} setExploreMovies={setExploreMovies} exploreMovies={exploreMovies}/>
                 }
-            <Header setExploreMovies={setExploreMovies} lang={lang} setSelectedGenre={setSelectedGenre} watchlist={watchlist} setIsExploreEmpty={setIsExploreEmpty} setIsNewPopular={setIsNewPopular}/>
+            {/* <Header setExploreMovies={setExploreMovies} lang={lang} setSelectedGenre={setSelectedGenre} watchlist={watchlist} setIsExploreEmpty={setIsExploreEmpty} setIsNewPopular={setIsNewPopular}/> */}
             {content}
             {lang.lang === 'English' ? 
                     <Footer

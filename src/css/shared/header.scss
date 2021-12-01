@@ -51,5 +51,55 @@ html:not([data-scroll='0']) {
         flex-direction: row;
         font-size: 14px;
         color: #e5e5e5e5;
+        gap: 15px;
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+            border: 0px solid white;
+            transition-delay: 200ms;
+            .cancel {
+                img {
+                    height: 15px;
+                    width: auto;
+                    opacity: 0;
+                }
+            }
+            button {
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+            }
+            input {
+                transition: width 200ms ease-out;
+                background-color: transparent;
+                outline: none;
+                width: 0px;
+                border: none;
+                color: white;
+            }
+        }
+
+        .search-bar:focus-within {
+            border: 1px solid white;
+            background-color: rgba(0, 0, 0, 0.7);
+            transition-delay: 0ms;
+            input {
+                width: 200px;
+            }
+            input::-webkit-input-placeholder {
+                color: gray;
+                }
+
+            input::-moz-placeholder {
+                color: gray;  
+            }
+                
+            input:-ms-input-placeholder {  
+                color: gray;      
+            }
+        }
     }
 }

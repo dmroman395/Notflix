@@ -239,7 +239,242 @@
                 animation: fade 200ms;
             }
         }
-    }    
+    }
+
+    .content2 {
+        animation: fade 500ms;
+        position: relative;
+        top: 50px;
+        margin-bottom: 100px;
+        padding: 50px 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        .genre {
+            font-weight: lighter;
+            margin-bottom: 75px;
+        }
+        .movies-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-auto-rows: auto;
+            .movie-container2 {
+                overflow: visible;
+                z-index: 9;
+                transition: transform ease-out 200ms, z-index linear 1ms 500ms;
+                height: 300px; 
+                border-radius: 3px;
+                opacity: 0;
+                .movie {
+                    position: relative;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    width: 98%;
+                    transition: all ease-out 1ms;
+                    .movie-card {
+                        height: 60%;
+                        width: 100%;
+                        display: flex;
+                        padding: 15px;
+                        align-items: flex-end;
+                        border-radius: 3px;
+                        transition: height ease-out 1ms;
+                        overflow: hidden;
+                        #title {
+                            color: white;
+                            font-size: 1.5em;
+                            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
+                        }
+                    }
+                    .bottom-half {
+                        opacity: 0;
+                        transition: all ease-out 100ms;
+                        height: 40%;
+                        display: flex;
+                        flex-direction: column;
+                        padding: 20px;
+                        background-color: #141414;
+                        .icon-row {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            .icons {
+                                display: flex;
+                                .icon-container {
+                                    display: flex;
+                                    justify-content: center;
+                                    .bubble-container {
+                                        animation: fade 250ms;
+                                        opacity: 1;
+                                        position: absolute;
+                                        display: flex;
+                                        flex-direction: column;
+                                        align-items: center;
+                                        width: 35px;
+                                        bottom: 30px;
+                                        z-index: 200;
+                                        .bubble-text {
+                                            width: max-content;
+                                            padding: 5px 10px;
+                                            background-color: #D5D5D5;
+                                            border-radius: 3px;
+                                            color: black;
+                                            font-weight: bold;
+                                            font-size: 1em;
+                                        }
+                                        #triangle {
+                                            position: relative;
+                                            bottom: 7px;
+                                            height: 15px;
+                                            width: 20px
+                                        }
+                                    }
+                                    @keyframes fade {
+                                        from {opacity: 0}
+                                        to {opacity: 1}
+                                    }
+                                    
+                                    .icon-circle {
+                                        position: relative;
+                                        height: 30px;
+                                        width: 30px;
+                                        margin: 0 2px;
+                                        padding: 3px;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        border-radius: 100%;
+                                        border: 2px solid lighten(#595959,5%);
+                                        z-index: 15;
+                                        .card-icon{
+                                            height: 17px;
+                                            width: auto;
+                                        }
+                                    }
+                                    .icon-circle:hover {
+                                        border-color: white;
+                                    }
+                                    .icon-circle-play {
+                                        height: 30px;
+                                        width: 30px;
+                                        margin: 0 1px;
+                                        padding-left: 2px;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        border-radius: 100%;
+                                        background-color: white;
+                                        .card-icon{
+                                            height: 15px;
+                                            width: auto;
+                                        }
+                                    }
+                                    .icon-circle-play:hover {
+                                        background-color: darken(white,8%);
+                                    }
+                                }
+                            }
+                        }
+                        .match-row {
+                            font-size: .80em;
+                            font-weight: bold;
+                            color: darken(white, 15%);
+                            display: flex;
+                            align-items: center;
+                            margin: 10px 0;
+                            .match {
+                                color: #46d369;
+                            }
+                            .runtime {
+                                margin: 0 10px;
+                            }
+                            .hd {
+                                text-align: center;
+                                font-size: .65em;
+                                padding: 0 .4em;
+                                border-radius: 3px;
+                                border: solid 1px darken(white, 15%);
+                                white-space: nowrap;
+                            }
+                        }
+                        .genre-list-container {
+                            display: flex;
+                            justify-content: space-between;
+                            width: 20%;
+                            white-space: nowrap;
+                            align-items: center;
+                            font-size: .8em;
+                            font-weight: normal;
+                            .dot {
+                                margin: 0 5px;
+                                color: darken(darkgray,15%);
+                            }
+                            span:last-child {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            .fadein {
+                animation: fadein .3s linear forwards;
+            }
+            
+            @-webkit-keyframes fadein {
+                0% { opacity: 0; }
+                100% { opacity: 1; }
+            }
+                
+            @keyframes fadein {
+                0% { opacity: 0; }
+                100% { opacity: 1; }
+            }
+            
+            .fadeout {
+                animation: fadeout .3s linear forwards;
+            }
+            
+            @-webkit-keyframes fadeout {
+                0% { opacity: 1; }
+                100% { opacity: 0; }
+            }
+                
+            @keyframes fadeout {
+                0% { opacity: 1; }
+                100% { opacity: 0; }
+            }
+            
+            .movie-container2:hover {
+                cursor: pointer;
+                transform: scale(130%) translateY(-50px);
+                height: 300px;
+                z-index: 12;
+                transition: all ease-out 200ms 500ms;
+                .movie {
+                    height: 100%;
+                    border-radius: 5px;
+                    box-shadow: 0px 3px 8px black;
+                    transition: all ease-out 200ms 500ms;
+                    .movie-card {
+                        transition: all ease-out 200ms 500ms;
+                        border-radius: 3px;
+                    }
+                    .bottom-half {
+                        opacity: 1;
+                        transition: all ease-out 200ms 500ms;
+                    }
+                }
+            }
+            .empty-list {
+                margin-top: 50px;
+                grid-column: 1 / -1;
+                text-align: center;
+                animation: fade 200ms;
+            }
+        }
+    }        
 } 
 
 @keyframes fade {

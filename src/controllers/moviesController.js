@@ -253,3 +253,21 @@ export async function getMovies(language, type, page, limit, id) {
             return newList
     }
 }
+
+export async function search(language, query, page) {
+    let lang
+
+    if (language === 'English') {
+        lang = 'en'
+    } else {
+        lang = 'es'
+    }
+
+    const finalQuery = query.replace(' ','%20')
+    
+    const searchResults = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&query=${finalQuery}&page=${page}&include_adult=false`)
+
+    console.log(searchResults)
+
+    return searchResults
+}

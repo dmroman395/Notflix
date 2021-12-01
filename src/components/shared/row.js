@@ -76,11 +76,12 @@ export default class Row extends Component {
                         setWatchlist={this.props.setWatchlist}
                         exploreMovies={this.props.exploreMovies}
                         setExploreMovies={this.props.setExploreMovies}
-                        type={''}
+                        type={this.props.type ? this.props.type : ''}
                     />
                 )
             })
-            
+    
+    const type = this.props.type
     const setGenre = this.props.setSelectedGenre
     const headline = this.props.headline
     const setExploreAll = this.props.setExploreMovies

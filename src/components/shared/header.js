@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useAuth } from '../../contexts/authContext'
 import logo from '../../images/Logo.png'
 import searchIcon from '../../images/search.png'
+import cancel from '../../images/cancel.png'
 import '../../css/shared/header.css'
 
 // The debounce function receives our function as a parameter
@@ -42,9 +43,11 @@ const debounce = (fn) => {
   storeScroll();
 
 function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExploreEmpty, isNewPopular, setIsNewPopular}) {
+    const [query, setQuery] = useState('')
 
     const { userSignOut } = useAuth()
     const { getMovies } = require ('../../controllers/moviesController')
+    const { search } = require('../../controllers/moviesController')
 
     function signOut() {
         userSignOut()
@@ -88,6 +91,39 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
         window.scroll(0,0)
     }
 
+    function handleCancel(e) {
+        e.preventDefault()
+        const search = document.querySelector('#search')
+        const cancel = document.querySelector('.cancel > img')
+        
+        search.value = '';
+        cancel.style.opacity = '0'
+
+        const reset = []
+        setExploreMovies(reset)
+        setIsExploreEmpty(true)
+    }
+
+    async function handleSearch(e) {
+        e.stopPropagation()
+        const val = e.target.value
+        const cancel = document.querySelector('.cancel > img')
+
+        if (val.length) {
+            cancel.style.opacity = '1'
+            const data = await search(lang, val, 1)
+
+            setIsNewPopular(false)
+            setExploreMovies(data.data.results)
+            setIsExploreEmpty(false)
+        } else {
+            cancel.style.opacity = '0'
+            const reset = []
+            setExploreMovies(reset)
+            setIsExploreEmpty(true)
+        }        
+    }
+
     return (
         <div className="header">
             <div className="header-left">
@@ -111,7 +147,11 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
                 </ul>
             </div>
             <div className="header-right">
-                <img src={searchIcon} id="search"></img>
+                <form className='search-bar'>
+                    <button type='button'><img src={searchIcon} ></img></button>
+                    <input type='text' placeholder='Search...' onChange={e => handleSearch(e)} id='search'></input>
+                    <button className='cancel' onClick={e => handleCancel(e)} ><img src={cancel} ></img></button>
+                </form>
                 <a href="">DVD</a>
                 <p>BELL ICON HERE</p>
                 <button onClick={signOut}>Sign Out</button>

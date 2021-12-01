@@ -81,5 +81,66 @@ html:not([data-scroll='0']) .header {
           flex-direction: row;
   font-size: 14px;
   color: #e5e5e5e5;
+  gap: 15px;
+}
+
+.header .header-right .search-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 5px;
+  border: 0px solid white;
+  -webkit-transition-delay: 200ms;
+          transition-delay: 200ms;
+}
+
+.header .header-right .search-bar .cancel img {
+  height: 15px;
+  width: auto;
+  opacity: 0;
+}
+
+.header .header-right .search-bar button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.header .header-right .search-bar input {
+  -webkit-transition: width 200ms ease-out;
+  transition: width 200ms ease-out;
+  background-color: transparent;
+  outline: none;
+  width: 0px;
+  border: none;
+  color: white;
+}
+
+.header .header-right .search-bar:focus-within {
+  border: 1px solid white;
+  background-color: rgba(0, 0, 0, 0.7);
+  -webkit-transition-delay: 0ms;
+          transition-delay: 0ms;
+}
+
+.header .header-right .search-bar:focus-within input {
+  width: 200px;
+}
+
+.header .header-right .search-bar:focus-within input::-webkit-input-placeholder {
+  color: gray;
+}
+
+.header .header-right .search-bar:focus-within input::-moz-placeholder {
+  color: gray;
+}
+
+.header .header-right .search-bar:focus-within input:-ms-input-placeholder {
+  color: gray;
 }
 /*# sourceMappingURL=header.css.map */
