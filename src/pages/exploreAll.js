@@ -8,7 +8,7 @@ import MoreInfo from '../components/shared/moreInfo'
 import NewPopular from "../components/exploreAll/newPopular"
 import '../css/exploreAll/exploreAll.css'
 
-function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, selectedGenre, watchlist, setWatchlist, setExploreMovies, exploreMovies, getMovies, setSelectedGenre, setIsExploreEmpty, isExploreEmpty, setIsNewPopular, isNewPopular, nowPlayingMovies}) {
+function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, selectedGenre, watchlist, setWatchlist, setExploreMovies, exploreMovies, getMovies, setSelectedGenre, setIsExploreEmpty, isExploreEmpty, setIsNewPopular, isNewPopular, nowPlayingMovies, isSearch}) {
     const [pageCount, setPageCount] = useState(2)
 
     const {
@@ -38,7 +38,15 @@ function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, sim
     })
 
     async function loadMore () {
-        const movieList = await getMovies(lang, selectedGenre, pageCount, 1)
+        const search = document.querySelector('#search')
+        let movieList
+
+        if (search.value) {
+            movieList = await getMovies(lang, selectedGenre, pageCount, 1, 1, search.value)
+        } else {
+            movieList = await getMovies(lang, selectedGenre, pageCount, 1)
+        }
+        
         const newCount = pageCount + 1
         setPageCount(newCount)
         let newList = [...movies]
@@ -61,6 +69,14 @@ function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, sim
     }
 
     let content
+    let message
+
+    if (isSearch) {
+        const searchVal = document.querySelector('#search')
+        message = `Your search for "${searchVal.value}" did not have any matches`
+    } else {
+        message = "Looks like you don't have any movies in your watchlist"
+    }
 
     if (isNewPopular) {
         content =
@@ -72,7 +88,7 @@ function ExploreAll({movies, lang, setLang, selectedMovie, setSelectedMovie, sim
             <div className='content'>
                 <h1 className='genre'>{selectedGenre}</h1>
                 <div className='movies-grid'>
-                    {movies.length > 0 ? moviesMap : <h1 className='empty-list'>Looks like you don't have any movies in your watchlist</h1>}
+                    {movies.length > 0 ? moviesMap : <h1 className='empty-list'>{message}</h1>}
                 </div>
             </div>
     }

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { useAuth } from '../../contexts/authContext'
 import logo from '../../images/Logo.png'
 import searchIcon from '../../images/search.png'
@@ -42,8 +42,7 @@ const debounce = (fn) => {
   // Update scroll position for first time
   storeScroll();
 
-function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExploreEmpty, isNewPopular, setIsNewPopular}) {
-    const [query, setQuery] = useState('')
+function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExploreEmpty, setIsNewPopular, isSearch, setIsSearch}) {
 
     const { userSignOut } = useAuth()
     const { getMovies } = require ('../../controllers/moviesController')
@@ -116,11 +115,14 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
             setIsNewPopular(false)
             setExploreMovies(data.data.results)
             setIsExploreEmpty(false)
+            setIsSearch(true)
+            setSelectedGenre(`Search results`)
         } else {
             cancel.style.opacity = '0'
             const reset = []
             setExploreMovies(reset)
             setIsExploreEmpty(true)
+            setIsSearch(false)
         }        
     }
 

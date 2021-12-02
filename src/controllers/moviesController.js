@@ -181,7 +181,7 @@ export async function getUpcoming(language, page) {
     return upcomingList
 }
 
-export async function getMovies(language, type, page, limit, id) {
+export async function getMovies(language, type, page, limit, id, query) {
     let lang
 
     if (language === 'English') {
@@ -251,6 +251,12 @@ export async function getMovies(language, type, page, limit, id) {
                 `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}}&sort_by=release_date.desc&include_adult=false&include_video=false&page=${page}`
             )
             return newList
+        case 'Search results':
+            const finalQuery = query.replace(' ','%20')
+            
+            const searchResults = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&query=${finalQuery}&page=${page}&include_adult=false`)
+
+            return searchResults
     }
 }
 
@@ -266,8 +272,6 @@ export async function search(language, query, page) {
     const finalQuery = query.replace(' ','%20')
     
     const searchResults = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&query=${finalQuery}&page=${page}&include_adult=false`)
-
-    console.log(searchResults)
 
     return searchResults
 }

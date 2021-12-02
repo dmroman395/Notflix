@@ -100,7 +100,7 @@ html:not([data-scroll='0']) .header {
 }
 
 .header .header-right .search-bar .cancel img {
-  height: 15px;
+  height: 0px;
   width: auto;
   opacity: 0;
 }
@@ -126,6 +126,10 @@ html:not([data-scroll='0']) .header {
   background-color: rgba(0, 0, 0, 0.7);
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
+}
+
+.header .header-right .search-bar:focus-within .cancel img {
+  height: 15px;
 }
 
 .header .header-right .search-bar:focus-within input {
