@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import MovieCardIcon from './movieCardIcon'
+import ContentCardIcon from './contentCardIcon'
 
 import '../../css/shared/movieCard.css'
 
@@ -19,14 +19,14 @@ const {
 } = require('../../controllers/moviesController')
 
 
-function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, setSimilarMovies, watchlist, setWatchlist, type, runtime2, setExploreMovies, exploreMovies}) {
-    const [movieDetails, setMovieDetails] = useState({})
+function ContentCard({ data, lang, selectedMovie, setSelectedMovie, setSimilarMovies, watchlist, setWatchlist, type, runtime2, setExploreMovies, exploreMovies, contentType}) {
+    const [dataDetails, setMovieDetails] = useState({})
     const [isInList, setIsInList] = useState(false)
     const [liked, setLiked] = useState(false)
     const [disliked, setDisliked] = useState(false)
 
-    const { backdrop_path, id, title, vote_average, genre_ids } = movie
-    const {runtime} = movieDetails
+    const { backdrop_path, id, title, vote_average, genre_ids } = data
+    const {runtime} = dataDetails
 
     let play
     let remove
@@ -35,6 +35,7 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, setSimilarMov
     let dislike
     let moreInfo
     let imagePath
+    let seasonText
 
     const hours = Math.floor(runtime2 ? runtime2/60 : runtime/60)
     const minutes = (runtime2 ? runtime2 : runtime) % 60
@@ -87,16 +88,16 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, setSimilarMov
     }
 
     async function loadDetails() {
-        if (Object.keys(movieDetails).length === 0) {
+        if (Object.keys(dataDetails).length === 0) {
             const details = await getMovieDetails(lang, id)
             setMovieDetails(details.data)
         }
     }
 
     async function loadSimilar() {
-            const data = await getSimilarMovies(lang, id)
-            const movies = data.data.results
-            setSimilarMovies(movies)
+            const result = await getSimilarMovies(lang, id)
+            const results = result.data.results
+            setSimilarMovies(results)
     }
 
     function handleMovieCardHover() {
@@ -105,14 +106,14 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, setSimilarMov
     }
 
     function fadeIn(num) {
-        const movieElm = document.getElementById(`${num}`)
-        movieElm.style.opacity = '1'
+        const dataElm = document.getElementById(`${num}`)
+        dataElm.style.opacity = '1'
     }
 
     useEffect(() => {
         if (watchlist) {
             for (let item of watchlist) {
-                if (item.id == movie.id) {
+                if (item.id == data.id) {
                     setIsInList(true)
                 }
             }
@@ -122,32 +123,41 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, setSimilarMov
 
     const randInt = Math.floor(Math.random()*100000)
 
+    if (contentType === 'tv') { 
+        if(data.seasons.length > 1) {
+            seasonText = `${data.seasons.length} Seasons`
+        }
+        else {
+            seasonText = `1 Season`
+        }
+    }
+
     const bottomHalf = 
             <div className='bottom-half'>
                 <div className='icon-row'>
                     <div className='icons'>
-                        <MovieCardIcon icon={playButton} text={play} func={handlePlay}/>
-                        {isInList ? <MovieCardIcon icon={check} text={remove} id={'remove'} randInt={randInt} movie={movie} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchlist={watchlist} setExploreMovies={setExploreMovies} exploreMovies={exploreMovies}/> :  <MovieCardIcon icon={plus} text={add} id={'add'} movie={movie} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchlist={watchlist}/>}
-                        {liked ? <MovieCardIcon icon={thumbsUpFilled} text={like} id={'like'} liked={liked} setLiked={setLiked}/> : <MovieCardIcon icon={thumbsUp} text={like} liked={liked} setLiked={setLiked} id={'like'}/> }
-                        {disliked ? <MovieCardIcon icon={thumbsDownFilled} text={dislike} id={'dislike'} disliked={disliked} setDisliked={setDisliked}/> : <MovieCardIcon icon={thumbsDown} text={dislike} id={'dislike'} disliked={disliked} setDisliked={setDisliked}/> }
+                        <ContentCardIcon icon={playButton} text={play} func={handlePlay}/>
+                        {isInList ? <ContentCardIcon icon={check} text={remove} id={'remove'} randInt={randInt} data={data} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchlist={watchlist} setExploreMovies={setExploreMovies} exploreMovies={exploreMovies}/> :  <ContentCardIcon icon={plus} text={add} id={'add'} data={data} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchlist={watchlist}/>}
+                        {liked ? <ContentCardIcon icon={thumbsUpFilled} text={like} id={'like'} liked={liked} setLiked={setLiked}/> : <ContentCardIcon icon={thumbsUp} text={like} liked={liked} setLiked={setLiked} id={'like'}/> }
+                        {disliked ? <ContentCardIcon icon={thumbsDownFilled} text={dislike} id={'dislike'} disliked={disliked} setDisliked={setDisliked}/> : <ContentCardIcon icon={thumbsDown} text={dislike} id={'dislike'} disliked={disliked} setDisliked={setDisliked}/> }
                     </div>
                     <div className='icons'>
-                        <MovieCardIcon icon={downArrow} text={moreInfo} selectedMovie={selectedMovie}
-                        setSelectedMovie={setSelectedMovie} movie={movie} id={'moreInfo'} runtime={runtime2 ? runtime2 : runtime}/>
+                        <ContentCardIcon icon={downArrow} text={moreInfo} selectedMovie={selectedMovie}
+                        setSelectedMovie={setSelectedMovie} data={data} id={'moreInfo'} runtime={runtime2 ? runtime2 : runtime}/>
                     </div>
                 </div>
                 <div className='match-row'>
                     <span className='match'>{`${match}% Match`}</span>
-                    <span className='runtime'>{`${hours}h ${minutes}m`}</span>
+                    <span className='runtime'>{contentType ===' tv' ? seasonText :`${hours}h ${minutes}m`}</span>
                     <span className='hd'>HD</span>
                 </div>
                 <div className='genre-list-container'>{genreList}</div>
             </div>
     return (
-        <div className={`movie-container${type}`} id={`${randInt}`}>
-            <div className="movie" onMouseEnter={handleMovieCardHover}>
+        <div className={`content-container${type}`} id={`${randInt}`}>
+            <div className="content" onMouseEnter={handleMovieCardHover}>
             <div
-                className="movie-card"
+                className="content-card"
                 style={{
                     backgroundSize: 'cover',
                     backgroundImage: `url(${imagePath})`,
@@ -163,4 +173,4 @@ function MovieCard({ movie, lang, selectedMovie, setSelectedMovie, setSimilarMov
     )
 }
 
-export default MovieCard
+export default ContentCard

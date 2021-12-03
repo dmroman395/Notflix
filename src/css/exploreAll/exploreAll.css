@@ -15,7 +15,7 @@
   min-height: 100vh;
 }
 
-.exploreAll .content {
+.exploreAll .exploreContent {
   -webkit-animation: fade 500ms;
           animation: fade 500ms;
   position: relative;
@@ -33,12 +33,12 @@
       justify-content: space-around;
 }
 
-.exploreAll .content .genre {
+.exploreAll .exploreContent .genre {
   font-weight: lighter;
   margin-bottom: 75px;
 }
 
-.exploreAll .content .movies-grid {
+.exploreAll .exploreContent .movies-grid {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[6];
@@ -46,7 +46,7 @@
   grid-auto-rows: auto;
 }
 
-.exploreAll .content .movies-grid .movie-container2 {
+.exploreAll .exploreContent .movies-grid .content-container2 {
   overflow: visible;
   z-index: 9;
   -webkit-transition: z-index linear 1ms 500ms, -webkit-transform ease-out 200ms;
@@ -58,7 +58,7 @@
   opacity: 0;
 }
 
-.exploreAll .content .movies-grid .movie-container2 .movie {
+.exploreAll .exploreContent .movies-grid .content-container2 .content {
   position: relative;
   height: 100%;
   display: -webkit-box;
@@ -73,7 +73,7 @@
   transition: all ease-out 1ms;
 }
 
-.exploreAll .content .movies-grid .movie-container2 .movie .movie-card {
+.exploreAll .exploreContent .movies-grid .content-container2 .content .content-card {
   height: 60%;
   width: 100%;
   display: -webkit-box;
@@ -89,13 +89,13 @@
   overflow: hidden;
 }
 
-.exploreAll .content .movies-grid .movie-container2 .movie .movie-card #title {
+.exploreAll .exploreContent .movies-grid .content-container2 .content .content-card #title {
   color: white;
   font-size: 1.5em;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
 }
 
-.exploreAll .content .movies-grid .movie-container2 .movie .bottom-half {
+.exploreAll .exploreContent .movies-grid .content-container2 .content .bottom-half {
   opacity: 0;
   -webkit-transition: all ease-out 100ms;
   transition: all ease-out 100ms;
@@ -111,7 +111,7 @@
   background-color: #141414;
 }
 
-.exploreAll .content .movies-grid .movie-container2 .movie .bottom-half .icon-row {
+.exploreAll .exploreContent .movies-grid .content-container2 .content .bottom-half .icon-row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -123,13 +123,13 @@
           align-items: center;
 }
 
-.exploreAll .content .movies-grid .movie-container2 .movie .bottom-half .icon-row .icons {
+.exploreAll .exploreContent .movies-grid .content-container2 .content .bottom-half .icon-row .icons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.exploreAll .content .movies-grid .movie-container2 .movie .bottom-half .icon-row .icons .icon-container {
+.exploreAll .exploreContent .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -138,7 +138,7 @@
           justify-content: center;
 }
 
-.exploreAll .content .movies-grid .movie-container2 .movie .bottom-half .icon-row .icons .icon-container .bubble-container {
+.exploreAll .exploreContent .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .bubble-container {
   -webkit-animation: fade 250ms;
           animation: fade 250ms;
   opacity: 1;
@@ -158,7 +158,7 @@
   z-index: 200;
 }
 
-.exploreAll .content .movies-grid .movie-container2 .movie .bottom-half .icon-row .icons .icon-container .bubble-container .bubble-text {
+.exploreAll .exploreContent .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .bubble-container .bubble-text {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -170,7 +170,7 @@
   font-size: 1em;
 }
 
-.exploreAll .content .movies-grid .movie-container2 .movie .bottom-half .icon-row .icons .icon-container .bubble-container #triangle {
+.exploreAll .exploreContent .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .bubble-container #triangle {
   position: relative;
   bottom: 7px;
   height: 15px;
@@ -195,7 +195,7 @@
   }
 }
 
-.exploreAll .content .movies-grid .movie-container2 .movie .bottom-half .icon-row .icons .icon-container .icon-circle {
+.exploreAll .exploreContent .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .icon-circle {
   position: relative;
   height: 30px;
   width: 30px;
@@ -215,16 +215,16 @@
   z-index: 15;
 }
 
-.exploreAll .content .movies-grid .movie-container2 .movie .bottom-half .icon-row .icons .icon-container .icon-circle .card-icon {
+.exploreAll .exploreContent .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .icon-circle .card-icon {
   height: 17px;
   width: auto;
 }
 
-.exploreAll .content .movies-grid .movie-container2 .movie .bottom-half .icon-row .icons .icon-container .icon-circle:hover {
+.exploreAll .exploreContent .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .icon-circle:hover {
   border-color: white;
 }
 
-.exploreAll .content .movies-grid .movie-container2 .movie .bottom-half .icon-row .icons .icon-container .icon-circle-play {
+.exploreAll .exploreContent .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .icon-circle-play {
   height: 30px;
   width: 30px;
   margin: 0 1px;
@@ -242,16 +242,16 @@
   background-color: white;
 }
 
-.exploreAll .content .movies-grid .movie-container2 .movie .bottom-half .icon-row .icons .icon-container .icon-circle-play .card-icon {
+.exploreAll .exploreContent .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .icon-circle-play .card-icon {
   height: 15px;
   width: auto;
 }
 
-.exploreAll .content .movies-grid .movie-container2 .movie .bottom-half .icon-row .icons .icon-container .icon-circle-play:hover {
+.exploreAll .exploreContent .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .icon-circle-play:hover {
   background-color: #ebebeb;
 }
 
-.exploreAll .content .movies-grid .movie-container2 .movie .bottom-half .match-row {
+.exploreAll .exploreContent .movies-grid .content-container2 .content .bottom-half .match-row {
   font-size: .80em;
   font-weight: bold;
   color: #d9d9d9;
@@ -264,15 +264,15 @@
   margin: 10px 0;
 }
 
-.exploreAll .content .movies-grid .movie-container2 .movie .bottom-half .match-row .match {
+.exploreAll .exploreContent .movies-grid .content-container2 .content .bottom-half .match-row .match {
   color: #46d369;
 }
 
-.exploreAll .content .movies-grid .movie-container2 .movie .bottom-half .match-row .runtime {
+.exploreAll .exploreContent .movies-grid .content-container2 .content .bottom-half .match-row .runtime {
   margin: 0 10px;
 }
 
-.exploreAll .content .movies-grid .movie-container2 .movie .bottom-half .match-row .hd {
+.exploreAll .exploreContent .movies-grid .content-container2 .content .bottom-half .match-row .hd {
   text-align: center;
   font-size: .65em;
   padding: 0 .4em;
@@ -281,7 +281,7 @@
   white-space: nowrap;
 }
 
-.exploreAll .content .movies-grid .movie-container2 .movie .bottom-half .genre-list-container {
+.exploreAll .exploreContent .movies-grid .content-container2 .content .bottom-half .genre-list-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -297,16 +297,16 @@
   font-weight: normal;
 }
 
-.exploreAll .content .movies-grid .movie-container2 .movie .bottom-half .genre-list-container .dot {
+.exploreAll .exploreContent .movies-grid .content-container2 .content .bottom-half .genre-list-container .dot {
   margin: 0 5px;
   color: #838383;
 }
 
-.exploreAll .content .movies-grid .movie-container2 .movie .bottom-half .genre-list-container span:last-child {
+.exploreAll .exploreContent .movies-grid .content-container2 .content .bottom-half .genre-list-container span:last-child {
   display: none;
 }
 
-.exploreAll .content .movies-grid .fadein {
+.exploreAll .exploreContent .movies-grid .fadein {
   -webkit-animation: fadein .3s linear forwards;
           animation: fadein .3s linear forwards;
 }
@@ -329,7 +329,7 @@
   }
 }
 
-.exploreAll .content .movies-grid .fadeout {
+.exploreAll .exploreContent .movies-grid .fadeout {
   -webkit-animation: fadeout .3s linear forwards;
           animation: fadeout .3s linear forwards;
 }
@@ -352,7 +352,7 @@
   }
 }
 
-.exploreAll .content .movies-grid .movie-container2:hover {
+.exploreAll .exploreContent .movies-grid .content-container2:hover {
   cursor: pointer;
   -webkit-transform: scale(130%) translateY(-50px);
           transform: scale(130%) translateY(-50px);
@@ -362,7 +362,7 @@
   transition: all ease-out 200ms 500ms;
 }
 
-.exploreAll .content .movies-grid .movie-container2:hover .movie {
+.exploreAll .exploreContent .movies-grid .content-container2:hover .content {
   height: 100%;
   border-radius: 5px;
   -webkit-box-shadow: 0px 3px 8px black;
@@ -371,19 +371,19 @@
   transition: all ease-out 200ms 500ms;
 }
 
-.exploreAll .content .movies-grid .movie-container2:hover .movie .movie-card {
+.exploreAll .exploreContent .movies-grid .content-container2:hover .content .content-card {
   -webkit-transition: all ease-out 200ms 500ms;
   transition: all ease-out 200ms 500ms;
   border-radius: 3px;
 }
 
-.exploreAll .content .movies-grid .movie-container2:hover .movie .bottom-half {
+.exploreAll .exploreContent .movies-grid .content-container2:hover .content .bottom-half {
   opacity: 1;
   -webkit-transition: all ease-out 200ms 500ms;
   transition: all ease-out 200ms 500ms;
 }
 
-.exploreAll .content .movies-grid .empty-list {
+.exploreAll .exploreContent .movies-grid .empty-list {
   margin-top: 50px;
   grid-column: 1 / -1;
   text-align: center;
@@ -391,7 +391,7 @@
           animation: fade 200ms;
 }
 
-.exploreAll .content2 {
+.exploreAll .exploreContent2 {
   -webkit-animation: fade 500ms;
           animation: fade 500ms;
   position: relative;
@@ -409,12 +409,12 @@
       justify-content: space-around;
 }
 
-.exploreAll .content2 .genre {
+.exploreAll .exploreContent2 .genre {
   font-weight: lighter;
   margin-bottom: 75px;
 }
 
-.exploreAll .content2 .movies-grid {
+.exploreAll .exploreContent2 .movies-grid {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[6];
@@ -422,7 +422,7 @@
   grid-auto-rows: auto;
 }
 
-.exploreAll .content2 .movies-grid .movie-container2 {
+.exploreAll .exploreContent2 .movies-grid .content-container2 {
   overflow: visible;
   z-index: 9;
   -webkit-transition: z-index linear 1ms 500ms, -webkit-transform ease-out 200ms;
@@ -434,7 +434,7 @@
   opacity: 0;
 }
 
-.exploreAll .content2 .movies-grid .movie-container2 .movie {
+.exploreAll .exploreContent2 .movies-grid .content-container2 .content {
   position: relative;
   height: 100%;
   display: -webkit-box;
@@ -449,7 +449,7 @@
   transition: all ease-out 1ms;
 }
 
-.exploreAll .content2 .movies-grid .movie-container2 .movie .movie-card {
+.exploreAll .exploreContent2 .movies-grid .content-container2 .content .content-card {
   height: 60%;
   width: 100%;
   display: -webkit-box;
@@ -465,13 +465,13 @@
   overflow: hidden;
 }
 
-.exploreAll .content2 .movies-grid .movie-container2 .movie .movie-card #title {
+.exploreAll .exploreContent2 .movies-grid .content-container2 .content .content-card #title {
   color: white;
   font-size: 1.5em;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
 }
 
-.exploreAll .content2 .movies-grid .movie-container2 .movie .bottom-half {
+.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half {
   opacity: 0;
   -webkit-transition: all ease-out 100ms;
   transition: all ease-out 100ms;
@@ -487,7 +487,7 @@
   background-color: #141414;
 }
 
-.exploreAll .content2 .movies-grid .movie-container2 .movie .bottom-half .icon-row {
+.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .icon-row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -499,13 +499,13 @@
           align-items: center;
 }
 
-.exploreAll .content2 .movies-grid .movie-container2 .movie .bottom-half .icon-row .icons {
+.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .icon-row .icons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.exploreAll .content2 .movies-grid .movie-container2 .movie .bottom-half .icon-row .icons .icon-container {
+.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -514,7 +514,7 @@
           justify-content: center;
 }
 
-.exploreAll .content2 .movies-grid .movie-container2 .movie .bottom-half .icon-row .icons .icon-container .bubble-container {
+.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .bubble-container {
   -webkit-animation: fade 250ms;
           animation: fade 250ms;
   opacity: 1;
@@ -534,7 +534,7 @@
   z-index: 200;
 }
 
-.exploreAll .content2 .movies-grid .movie-container2 .movie .bottom-half .icon-row .icons .icon-container .bubble-container .bubble-text {
+.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .bubble-container .bubble-text {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -546,7 +546,7 @@
   font-size: 1em;
 }
 
-.exploreAll .content2 .movies-grid .movie-container2 .movie .bottom-half .icon-row .icons .icon-container .bubble-container #triangle {
+.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .bubble-container #triangle {
   position: relative;
   bottom: 7px;
   height: 15px;
@@ -562,7 +562,7 @@
   }
 }
 
-.exploreAll .content2 .movies-grid .movie-container2 .movie .bottom-half .icon-row .icons .icon-container .icon-circle {
+.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .icon-circle {
   position: relative;
   height: 30px;
   width: 30px;
@@ -582,16 +582,16 @@
   z-index: 15;
 }
 
-.exploreAll .content2 .movies-grid .movie-container2 .movie .bottom-half .icon-row .icons .icon-container .icon-circle .card-icon {
+.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .icon-circle .card-icon {
   height: 17px;
   width: auto;
 }
 
-.exploreAll .content2 .movies-grid .movie-container2 .movie .bottom-half .icon-row .icons .icon-container .icon-circle:hover {
+.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .icon-circle:hover {
   border-color: white;
 }
 
-.exploreAll .content2 .movies-grid .movie-container2 .movie .bottom-half .icon-row .icons .icon-container .icon-circle-play {
+.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .icon-circle-play {
   height: 30px;
   width: 30px;
   margin: 0 1px;
@@ -609,16 +609,16 @@
   background-color: white;
 }
 
-.exploreAll .content2 .movies-grid .movie-container2 .movie .bottom-half .icon-row .icons .icon-container .icon-circle-play .card-icon {
+.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .icon-circle-play .card-icon {
   height: 15px;
   width: auto;
 }
 
-.exploreAll .content2 .movies-grid .movie-container2 .movie .bottom-half .icon-row .icons .icon-container .icon-circle-play:hover {
+.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .icon-circle-play:hover {
   background-color: #ebebeb;
 }
 
-.exploreAll .content2 .movies-grid .movie-container2 .movie .bottom-half .match-row {
+.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .match-row {
   font-size: .80em;
   font-weight: bold;
   color: #d9d9d9;
@@ -631,15 +631,15 @@
   margin: 10px 0;
 }
 
-.exploreAll .content2 .movies-grid .movie-container2 .movie .bottom-half .match-row .match {
+.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .match-row .match {
   color: #46d369;
 }
 
-.exploreAll .content2 .movies-grid .movie-container2 .movie .bottom-half .match-row .runtime {
+.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .match-row .runtime {
   margin: 0 10px;
 }
 
-.exploreAll .content2 .movies-grid .movie-container2 .movie .bottom-half .match-row .hd {
+.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .match-row .hd {
   text-align: center;
   font-size: .65em;
   padding: 0 .4em;
@@ -648,7 +648,7 @@
   white-space: nowrap;
 }
 
-.exploreAll .content2 .movies-grid .movie-container2 .movie .bottom-half .genre-list-container {
+.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .genre-list-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -664,16 +664,16 @@
   font-weight: normal;
 }
 
-.exploreAll .content2 .movies-grid .movie-container2 .movie .bottom-half .genre-list-container .dot {
+.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .genre-list-container .dot {
   margin: 0 5px;
   color: #838383;
 }
 
-.exploreAll .content2 .movies-grid .movie-container2 .movie .bottom-half .genre-list-container span:last-child {
+.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .genre-list-container span:last-child {
   display: none;
 }
 
-.exploreAll .content2 .movies-grid .fadein {
+.exploreAll .exploreContent2 .movies-grid .fadein {
   -webkit-animation: fadein .3s linear forwards;
           animation: fadein .3s linear forwards;
 }
@@ -696,7 +696,7 @@
   }
 }
 
-.exploreAll .content2 .movies-grid .fadeout {
+.exploreAll .exploreContent2 .movies-grid .fadeout {
   -webkit-animation: fadeout .3s linear forwards;
           animation: fadeout .3s linear forwards;
 }
@@ -719,7 +719,7 @@
   }
 }
 
-.exploreAll .content2 .movies-grid .movie-container2:hover {
+.exploreAll .exploreContent2 .movies-grid .content-container2:hover {
   cursor: pointer;
   -webkit-transform: scale(130%) translateY(-50px);
           transform: scale(130%) translateY(-50px);
@@ -729,7 +729,7 @@
   transition: all ease-out 200ms 500ms;
 }
 
-.exploreAll .content2 .movies-grid .movie-container2:hover .movie {
+.exploreAll .exploreContent2 .movies-grid .content-container2:hover .content {
   height: 100%;
   border-radius: 5px;
   -webkit-box-shadow: 0px 3px 8px black;
@@ -738,19 +738,19 @@
   transition: all ease-out 200ms 500ms;
 }
 
-.exploreAll .content2 .movies-grid .movie-container2:hover .movie .movie-card {
+.exploreAll .exploreContent2 .movies-grid .content-container2:hover .content .content-card {
   -webkit-transition: all ease-out 200ms 500ms;
   transition: all ease-out 200ms 500ms;
   border-radius: 3px;
 }
 
-.exploreAll .content2 .movies-grid .movie-container2:hover .movie .bottom-half {
+.exploreAll .exploreContent2 .movies-grid .content-container2:hover .content .bottom-half {
   opacity: 1;
   -webkit-transition: all ease-out 200ms 500ms;
   transition: all ease-out 200ms 500ms;
 }
 
-.exploreAll .content2 .movies-grid .empty-list {
+.exploreAll .exploreContent2 .movies-grid .empty-list {
   margin-top: 50px;
   grid-column: 1 / -1;
   text-align: center;

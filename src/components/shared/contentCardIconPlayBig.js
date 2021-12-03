@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import triangle from '../../images/triangle.png'
 import '../../css/shared/movieCardIconPlayBig.css'
 
-function MovieCardIconPlayBig({icon, title, lang}) {
+function ContentCardIconPlayBig({icon, title, lang}) {
 
     let playText
 
@@ -31,4 +31,4 @@ function MovieCardIconPlayBig({icon, title, lang}) {
     )
 }
 
-export default MovieCardIconPlayBig
+export default ContentCardIconPlayBig

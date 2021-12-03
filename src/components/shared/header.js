@@ -42,11 +42,12 @@ const debounce = (fn) => {
   // Update scroll position for first time
   storeScroll();
 
-function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExploreEmpty, setIsNewPopular, isSearch, setIsSearch}) {
+function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExploreEmpty, setIsNewPopular, isSearch, setIsSearch, setContentType}) {
 
     const { userSignOut } = useAuth()
     const { getMovies } = require ('../../controllers/moviesController')
     const { search } = require('../../controllers/moviesController')
+    const { getPopularTV, getTVShows } = require('../../controllers/tvShowsController')
 
     function signOut() {
         userSignOut()
@@ -59,6 +60,7 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
         setIsNewPopular(false)
         setSelectedGenre('Movies')
         setExploreMovies(movies)
+        setContentType('movie')
         window.scroll(0,0)
     }
 
@@ -67,11 +69,13 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
             setIsExploreEmpty(false)
             setSelectedGenre('My List')
             setIsNewPopular(false)
+            setContentType('movie')
         } else {
             setIsExploreEmpty(false)
             setExploreMovies(watchlist)
             setSelectedGenre('My List')
             setIsNewPopular(false)
+            setContentType('movie')
             window.scroll(0,0)
         }
     }
@@ -81,12 +85,14 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
         setIsExploreEmpty(true)
         setIsNewPopular(false)
         setExploreMovies(reset)
+        setContentType('movie')
         window.scroll(0,0)
     }
 
     function handleNewPopular() {
         setIsNewPopular(true)
         setIsExploreEmpty(false)
+        setContentType('movie')
         window.scroll(0,0)
     }
 
@@ -101,6 +107,7 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
         const reset = []
         setExploreMovies(reset)
         setIsExploreEmpty(true)
+        setContentType('movie')
     }
 
     async function handleSearch(e) {
@@ -117,13 +124,33 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
             setIsExploreEmpty(false)
             setIsSearch(true)
             setSelectedGenre(`Search results`)
+            setContentType('movie')
         } else {
             cancel.style.opacity = '0'
             const reset = []
             setExploreMovies(reset)
             setIsExploreEmpty(true)
             setIsSearch(false)
+            setContentType('movie')
         }        
+    }
+
+    async function handleTV() {
+        let results = []
+        const popularTv = await getPopularTV(lang, 1)
+
+        for (let show of popularTv.data.results) {
+            const data = await getTVShows(lang, show.id)
+
+            results.push(data)
+        }
+        console.log(results)
+        setContentType('tv')
+        setSelectedGenre('Popular TV Shows')
+        setIsNewPopular(false)
+        setExploreMovies(results)
+        setIsExploreEmpty(false)
+        window.scroll(0,0)
     }
 
     return (
@@ -134,7 +161,7 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
                     <li onClick={clearExploreMovies}>
                         <p>Home</p>
                     </li>
-                    <li>
+                    <li onClick={handleTV}>
                         <p>TV Shows</p>
                     </li>
                     <li onClick={handleMovies}>

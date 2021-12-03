@@ -1,5 +1,5 @@
 import '../../css/shared/row.css'
-import MovieCard from './movieCard'
+import ContentCard from './contentCard'
 import React, { Component } from "react";
 import Slider from "react-slick";
 import exploreArrow from '../../images/right-chevron-thick.png'
@@ -63,9 +63,9 @@ export default class Row extends Component {
     const row = this.props.arr.map((movie, i) => {
 
                 return (
-                    <MovieCard
+                    <ContentCard
                         lang={this.props.lang}
-                        movie={movie}
+                        data={movie}
                         getMovieDetails={this.props.getMovieDetails}
                         key={i}
                         selectedMovie={this.props.selectedMovie}
@@ -81,7 +81,6 @@ export default class Row extends Component {
                 )
             })
     
-    const type = this.props.type
     const setGenre = this.props.setSelectedGenre
     const headline = this.props.headline
     const setExploreAll = this.props.setExploreMovies

@@ -35,7 +35,7 @@ async function getEpisodesTV(lang, id, seasonNum, epNum) {
     return episodes
 }
 
-export function getAllTVInfo(language, id) {
+export async function getTVShows(language, id) {
     let lang
 
     let tvInfo = {}
@@ -47,38 +47,43 @@ export function getAllTVInfo(language, id) {
     }
 
     //Get details for show
-    const details = getDetailsTV(lang, id)
+    const details = await getDetailsTV(lang, id)
 
     //Insert data into tvInfo
     tvInfo = {
-        backdrop: details.backdrop_path,
-        tagline: details.tagline,
-        rating: details.vote_average
+        backdrop_path: details.data.backdrop_path,
+        overview: details.data.overview,
+        vote_average: details.data.vote_average,
+        id: details.data.id,
+        title: details.data.name,
+        genre_ids: details.data.genres
     }
 
     //Get ID for each season and push to seasonIds array
     let seasons = []
-    let seasonIds = []
-    let episodeIds = []
-    details.seasons.forEach(season => {
-        seasonIds.push(season.id)
+    let seasonNums = []
+
+    details.data.seasons.forEach(season => {
+        seasonNums.push(season.season_number)
     })
 
     //Use seasonIds array to get each season and episodeId for each episode in current season
-    for (let season of seasonIds) {
-        const data = getSeasonsTV(lang, id, season)
+    for (let season of seasonNums) {
+        const data = await getSeasonsTV(lang, id, season)
 
         const seasonDetails = {
-            name: data.name,
-            overview: data.overview,
+            name: data.data.name,
+            overview: data.data.overview,
+            id: data.data.id
         }
 
         seasons.push(seasonDetails)
-        for (let episode of data.episodes) {
-            episodeIds.push(episode.id)
-        }
     }
-    for (let episode of episodeIds) {
-        const data = getEpisodesTV()
+
+    tvInfo = {
+        ...tvInfo,
+        seasons
     }
+
+    return tvInfo
 }

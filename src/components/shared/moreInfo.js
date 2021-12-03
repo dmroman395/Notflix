@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from 'react'
 import MiniFeatured from './miniFeatured'
-import SimilarMovieCard from './similarMovieCard'
+import SimilarContentCard from './similarContentCard'
 import '../../css/shared/moreInfo.css'
 import downArrow from '../../images/down-chevron.png'
 
-function MoreInfo({movie, similarMovies, lang, setSelectedMovie, watchlist, setWatchlist, setExploreMovies, exploreMovies}) {
+function MoreInfo({data, similarMovies, lang, setSelectedMovie, watchlist, setWatchlist, setExploreMovies, exploreMovies}) {
     const [listExpanded, setListExpanded] = useState(false)
     const [isInList, setIsInList] = useState(false)
 
-    const { backdrop_path, id, title, vote_average, runtime, genres, overview, release_date } = movie
+    const { backdrop_path, id, title, vote_average, runtime, genres, overview, release_date } = data
 
     let play
     let remove
@@ -43,7 +43,7 @@ function MoreInfo({movie, similarMovies, lang, setSelectedMovie, watchlist, setW
     }
 
     const similarMovieList = similarMovies.map((movie, i) => {
-        return <SimilarMovieCard movie={movie} lang={lang} key={i} watchlist={watchlist} setWatchlist={setWatchlist} setExploreMovies={setExploreMovies} exploreMovies={exploreMovies} />
+        return <SimilarContentCard data={movie} lang={lang} key={i} watchlist={watchlist} setWatchlist={setWatchlist} setExploreMovies={setExploreMovies} exploreMovies={exploreMovies} />
     })
 
     function handleList() {
@@ -80,7 +80,7 @@ function MoreInfo({movie, similarMovies, lang, setSelectedMovie, watchlist, setW
          <div className='overlay'>
                 <div className='moreInfo-container'>
                     <div className='moreInfo-featured'>
-                        <MiniFeatured movie={movie} lang={lang} watchlist={watchlist} setWatchlist={setWatchlist} isInList={isInList} setIsInList={setIsInList} cancel={handleCancel} setExploreMovies={setExploreMovies} exploreMovies={exploreMovies}/>
+                        <MiniFeatured data={data} lang={lang} watchlist={watchlist} setWatchlist={setWatchlist} isInList={isInList} setIsInList={setIsInList} cancel={handleCancel} setExploreMovies={setExploreMovies} exploreMovies={exploreMovies}/>
                     </div>
                     <div className='moreInfo-info'>
                         <p>

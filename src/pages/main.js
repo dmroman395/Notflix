@@ -143,7 +143,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
             {Object.keys(selectedMovie).length === 0  ? 
                 null
                 : 
-                <MoreInfo movie={selectedMovie} similarMovies={similarMovies} lang={lang} setSelectedMovie={setSelectedMovie} watchlist={watchlist} setWatchlist={setWatchlist}/>
+                <MoreInfo data={selectedMovie} similarMovies={similarMovies} lang={lang} setSelectedMovie={setSelectedMovie} watchlist={watchlist} setWatchlist={setWatchlist}/>
             }
             {/* <Header setExploreMovies={setExploreMovies} lang={lang} setSelectedGenre={setSelectedGenre} watchlist={watchlist} setIsExploreEmpty={setIsExploreEmpty} isExploreEmpty={isExploreEmpty} isNewPopular={isNewPopular} setIsNewPopular={setIsNewPopular}/> */}
             <Featured lang={lang} movie={featuredMovie} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies} watchlist={watchlist} setWatchlist={setWatchlist} setLang={setLang} nowPlayingMovies={nowPlayingMovies}/>

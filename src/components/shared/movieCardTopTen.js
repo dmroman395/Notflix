@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import '../../css/shared/movieCard.css'
 import logo from '../../images/logo-short.jpg'
-import MovieCard from './movieCard'
+import MovieCard from './contentCard'
 
 function MovieCardTopTen({ movie, getMovieDetails, lang, index, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, watchlist, setWatchlist }) {
     const [hover, setHover] = useState(false)

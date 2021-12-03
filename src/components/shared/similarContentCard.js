@@ -1,15 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import '../../css/shared/similarMoveCard.css'
-import MovieCardIcon from './movieCardIcon'
+import MovieCardIcon from './contentCardIcon'
 import logo from '../../images/logo-short.jpg'
 import plus from '../../images/plus.png'
 import check from '../../images/check.png'
 
 
-function SimilarMovieCard({movie, lang, key, watchList, setWatchlist, setExploreMovies, exploreMovies }) {
+function SimilarContentCard({data, lang, key, watchList, setWatchlist, setExploreMovies, exploreMovies }) {
     const [isInList, setIsInList] = useState(false)
 
-    const { backdrop_path, title, vote_average, overview, release_date } = movie
+    const { backdrop_path, title, vote_average, overview, release_date } = data
 
     let remove
     let add
@@ -56,7 +56,7 @@ function SimilarMovieCard({movie, lang, key, watchList, setWatchlist, setExplore
     useEffect(() => {
         if (watchList) {
             for (let item of watchList) {
-                if (item.id == movie.id) {
+                if (item.id == data.id) {
                     setIsInList(true)
                 }
             }
@@ -82,7 +82,7 @@ function SimilarMovieCard({movie, lang, key, watchList, setWatchlist, setExplore
                             <p className='match'>{`${match}% Match`}</p>
                             <p className='runtime'>{year}</p>
                         </div>
-                        {isInList ? <MovieCardIcon icon={check} iconFilled={check} text={remove} id={'remove'} movie={movie} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchList={watchList} /> : <MovieCardIcon icon={plus} iconFilled={check} text={add} id={'add'} movie={movie} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchList={watchList}/> }
+                        {isInList ? <MovieCardIcon icon={check} iconFilled={check} text={remove} id={'remove'} data={data} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchList={watchList} /> : <MovieCardIcon icon={plus} iconFilled={check} text={add} id={'add'} data={data} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchList={watchList}/> }
                     </div>
                     <h6 className='info-bottom'>{shortOverview}</h6>
                 </div>
@@ -90,4 +90,4 @@ function SimilarMovieCard({movie, lang, key, watchList, setWatchlist, setExplore
     )
 }
 
-export default SimilarMovieCard
+export default SimilarContentCard

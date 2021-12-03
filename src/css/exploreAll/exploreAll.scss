@@ -6,7 +6,7 @@
     color: white;
     overflow-x: hidden;
     min-height: 100vh;
-    .content {
+    .exploreContent {
         animation: fade 500ms;
         position: relative;
         top: 50px;
@@ -23,21 +23,21 @@
             display: grid;
             grid-template-columns: repeat(6, 1fr);
             grid-auto-rows: auto;
-            .movie-container2 {
+            .content-container2 {
                 overflow: visible;
                 z-index: 9;
                 transition: transform ease-out 200ms, z-index linear 1ms 500ms;
                 height: 300px; 
                 border-radius: 3px;
                 opacity: 0;
-                .movie {
+                .content {
                     position: relative;
                     height: 100%;
                     display: flex;
                     flex-direction: column;
                     width: 98%;
                     transition: all ease-out 1ms;
-                    .movie-card {
+                    .content-card {
                         height: 60%;
                         width: 100%;
                         display: flex;
@@ -211,18 +211,18 @@
                 100% { opacity: 0; }
             }
             
-            .movie-container2:hover {
+            .content-container2:hover {
                 cursor: pointer;
                 transform: scale(130%) translateY(-50px);
                 height: 300px;
                 z-index: 12;
                 transition: all ease-out 200ms 500ms;
-                .movie {
+                .content {
                     height: 100%;
                     border-radius: 5px;
                     box-shadow: 0px 3px 8px black;
                     transition: all ease-out 200ms 500ms;
-                    .movie-card {
+                    .content-card {
                         transition: all ease-out 200ms 500ms;
                         border-radius: 3px;
                     }
@@ -241,7 +241,7 @@
         }
     }
 
-    .content2 {
+    .exploreContent2 {
         animation: fade 500ms;
         position: relative;
         top: 50px;
@@ -258,21 +258,21 @@
             display: grid;
             grid-template-columns: repeat(6, 1fr);
             grid-auto-rows: auto;
-            .movie-container2 {
+            .content-container2 {
                 overflow: visible;
                 z-index: 9;
                 transition: transform ease-out 200ms, z-index linear 1ms 500ms;
                 height: 300px; 
                 border-radius: 3px;
                 opacity: 0;
-                .movie {
+                .content {
                     position: relative;
                     height: 100%;
                     display: flex;
                     flex-direction: column;
                     width: 98%;
                     transition: all ease-out 1ms;
-                    .movie-card {
+                    .content-card {
                         height: 60%;
                         width: 100%;
                         display: flex;
@@ -446,18 +446,18 @@
                 100% { opacity: 0; }
             }
             
-            .movie-container2:hover {
+            .content-container2:hover {
                 cursor: pointer;
                 transform: scale(130%) translateY(-50px);
                 height: 300px;
                 z-index: 12;
                 transition: all ease-out 200ms 500ms;
-                .movie {
+                .content {
                     height: 100%;
                     border-radius: 5px;
                     box-shadow: 0px 3px 8px black;
                     transition: all ease-out 200ms 500ms;
-                    .movie-card {
+                    .content-card {
                         transition: all ease-out 200ms 500ms;
                         border-radius: 3px;
                     }

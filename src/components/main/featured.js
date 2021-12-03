@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../css/main/featured.css'
-import MovieCardIconPlayBig from '../shared/movieCardIconPlayBig'
+import MovieCardIconPlayBig from '../shared/contentCardIconPlayBig'
 import MovieCardIconInfoBig from './movieCardIconInfoBig'
 import playButton from '../../images/play-button.png'
 import info from '../../images/info.png'

@@ -1,4 +1,4 @@
-.movie-container {
+.content-container {
   position: absolute;
   overflow: visible;
   z-index: 9;
@@ -11,7 +11,7 @@
   opacity: 0;
 }
 
-.movie-container .movie {
+.content-container .content {
   position: relative;
   height: 100%;
   display: -webkit-box;
@@ -26,7 +26,7 @@
   transition: all ease-out 1ms;
 }
 
-.movie-container .movie .movie-card {
+.content-container .content .content-card {
   height: 60%;
   width: 100%;
   display: -webkit-box;
@@ -42,13 +42,13 @@
   overflow: hidden;
 }
 
-.movie-container .movie .movie-card #title {
+.content-container .content .content-card #title {
   color: white;
   font-size: 1.5em;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
 }
 
-.movie-container .movie .bottom-half {
+.content-container .content .bottom-half {
   opacity: 0;
   -webkit-transition: all ease-out 100ms;
   transition: all ease-out 100ms;
@@ -64,7 +64,7 @@
   background-color: #141414;
 }
 
-.movie-container .movie .bottom-half .icon-row {
+.content-container .content .bottom-half .icon-row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -76,13 +76,13 @@
           align-items: center;
 }
 
-.movie-container .movie .bottom-half .icon-row .icons {
+.content-container .content .bottom-half .icon-row .icons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.movie-container .movie .bottom-half .icon-row .icons .icon-container {
+.content-container .content .bottom-half .icon-row .icons .icon-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -91,7 +91,7 @@
           justify-content: center;
 }
 
-.movie-container .movie .bottom-half .icon-row .icons .icon-container .bubble-container {
+.content-container .content .bottom-half .icon-row .icons .icon-container .bubble-container {
   -webkit-animation: fade 250ms;
           animation: fade 250ms;
   opacity: 1;
@@ -111,7 +111,7 @@
   z-index: 200;
 }
 
-.movie-container .movie .bottom-half .icon-row .icons .icon-container .bubble-container .bubble-text {
+.content-container .content .bottom-half .icon-row .icons .icon-container .bubble-container .bubble-text {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -123,7 +123,7 @@
   font-size: 1em;
 }
 
-.movie-container .movie .bottom-half .icon-row .icons .icon-container .bubble-container #triangle {
+.content-container .content .bottom-half .icon-row .icons .icon-container .bubble-container #triangle {
   position: relative;
   bottom: 7px;
   height: 15px;
@@ -148,7 +148,7 @@
   }
 }
 
-.movie-container .movie .bottom-half .icon-row .icons .icon-container .icon-circle {
+.content-container .content .bottom-half .icon-row .icons .icon-container .icon-circle {
   position: relative;
   height: 30px;
   width: 30px;
@@ -168,16 +168,16 @@
   z-index: 15;
 }
 
-.movie-container .movie .bottom-half .icon-row .icons .icon-container .icon-circle .card-icon {
+.content-container .content .bottom-half .icon-row .icons .icon-container .icon-circle .card-icon {
   height: 17px;
   width: auto;
 }
 
-.movie-container .movie .bottom-half .icon-row .icons .icon-container .icon-circle:hover {
+.content-container .content .bottom-half .icon-row .icons .icon-container .icon-circle:hover {
   border-color: white;
 }
 
-.movie-container .movie .bottom-half .icon-row .icons .icon-container .icon-circle-play {
+.content-container .content .bottom-half .icon-row .icons .icon-container .icon-circle-play {
   height: 30px;
   width: 30px;
   margin: 0 1px;
@@ -195,16 +195,16 @@
   background-color: white;
 }
 
-.movie-container .movie .bottom-half .icon-row .icons .icon-container .icon-circle-play .card-icon {
+.content-container .content .bottom-half .icon-row .icons .icon-container .icon-circle-play .card-icon {
   height: 15px;
   width: auto;
 }
 
-.movie-container .movie .bottom-half .icon-row .icons .icon-container .icon-circle-play:hover {
+.content-container .content .bottom-half .icon-row .icons .icon-container .icon-circle-play:hover {
   background-color: #ebebeb;
 }
 
-.movie-container .movie .bottom-half .match-row {
+.content-container .content .bottom-half .match-row {
   font-size: .80em;
   font-weight: bold;
   color: #d9d9d9;
@@ -217,15 +217,15 @@
   margin: 10px 0;
 }
 
-.movie-container .movie .bottom-half .match-row .match {
+.content-container .content .bottom-half .match-row .match {
   color: #46d369;
 }
 
-.movie-container .movie .bottom-half .match-row .runtime {
+.content-container .content .bottom-half .match-row .runtime {
   margin: 0 10px;
 }
 
-.movie-container .movie .bottom-half .match-row .hd {
+.content-container .content .bottom-half .match-row .hd {
   text-align: center;
   font-size: .65em;
   padding: 0 .4em;
@@ -234,7 +234,7 @@
   white-space: nowrap;
 }
 
-.movie-container .movie .bottom-half .genre-list-container {
+.content-container .content .bottom-half .genre-list-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -250,16 +250,16 @@
   font-weight: normal;
 }
 
-.movie-container .movie .bottom-half .genre-list-container .dot {
+.content-container .content .bottom-half .genre-list-container .dot {
   margin: 0 5px;
   color: #838383;
 }
 
-.movie-container .movie .bottom-half .genre-list-container span:last-child {
+.content-container .content .bottom-half .genre-list-container span:last-child {
   display: none;
 }
 
-.movie-container:hover {
+.content-container:hover {
   cursor: pointer;
   -webkit-transform: scale(130%) translateY(-50px);
           transform: scale(130%) translateY(-50px);
@@ -269,7 +269,7 @@
   transition: all ease-out 200ms 500ms;
 }
 
-.movie-container:hover .movie {
+.content-container:hover .content {
   height: 100%;
   border-radius: 5px;
   -webkit-box-shadow: 0px 3px 8px black;
@@ -278,13 +278,13 @@
   transition: all ease-out 200ms 500ms;
 }
 
-.movie-container:hover .movie .movie-card {
+.content-container:hover .content .content-card {
   -webkit-transition: all ease-out 200ms 500ms;
   transition: all ease-out 200ms 500ms;
   border-radius: 3px;
 }
 
-.movie-container:hover .movie .bottom-half {
+.content-container:hover .content .bottom-half {
   opacity: 1;
   -webkit-transition: all ease-out 200ms 500ms;
   transition: all ease-out 200ms 500ms;

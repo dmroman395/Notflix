@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { useAuth } from '../../contexts/authContext'
 import triangle from '../../images/triangle.png'
 
-function MovieCardIcon({icon, text, func, id, selectedMovie,setSelectedMovie, movie, runtime, setWatchlist, watchlist, setIsInList, liked, setLiked, disliked, setDisliked, setExploreMovies, exploreMovies }) {
+function ContentCardIcon({icon, text, func, id, selectedMovie,setSelectedMovie, data, runtime, setWatchlist, watchlist, setIsInList, liked, setLiked, disliked, setDisliked, setExploreMovies, exploreMovies }) {
     const [iconHover, setIconHover] = useState(false)
     const { currentUser } = useAuth()
 
@@ -11,14 +11,14 @@ function MovieCardIcon({icon, text, func, id, selectedMovie,setSelectedMovie, mo
     function handleMoreInfo() {
         if (Object.keys(selectedMovie).length === 0) {
             const modMovie = {
-                ...movie,
+                ...data,
                 runtime
             }
             setSelectedMovie(modMovie)
         }
         if (watchlist) {
             for (let item of watchlist) {
-                if (item.id == movie.id) {
+                if (item.id == data.id) {
                     setIsInList(true)
                 }
             }
@@ -26,14 +26,14 @@ function MovieCardIcon({icon, text, func, id, selectedMovie,setSelectedMovie, mo
     }
 
     async function handleWatchListState(type) {
-        const data = await handleWatchList(movie, currentUser.uid,type)
-        await setWatchlist(data)
+        const result = await handleWatchList(data, currentUser.uid,type)
+        await setWatchlist(result)
     }
 
     function handleExploreMovies() {
         if (exploreMovies) {
             exploreMovies.forEach((exploreMovie, i) => {
-                if (movie.id === exploreMovie.id ) {
+                if (data.id === exploreMovie.id ) {
                      exploreMovies.splice(i, 1)
                 }
             })
@@ -99,4 +99,4 @@ function MovieCardIcon({icon, text, func, id, selectedMovie,setSelectedMovie, mo
     }
 }
 
-export default MovieCardIcon
+export default ContentCardIcon
