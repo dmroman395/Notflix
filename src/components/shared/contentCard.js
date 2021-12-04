@@ -18,6 +18,7 @@ const {
     getSimilarMovies,
 } = require('../../controllers/moviesController')
 
+const { getSimilarShows } = require('../../controllers/tvShowsController')
 
 function ContentCard({ data, lang, selectedMovie, setSelectedMovie, setSimilarMovies, watchlist, setWatchlist, type, runtime2, setExploreMovies, exploreMovies, contentType}) {
     const [dataDetails, setMovieDetails] = useState({})
@@ -95,9 +96,17 @@ function ContentCard({ data, lang, selectedMovie, setSelectedMovie, setSimilarMo
     }
 
     async function loadSimilar() {
+        if(contentType === 'movie') {
             const result = await getSimilarMovies(lang, id)
             const results = result.data.results
             setSimilarMovies(results)
+        } else {
+            const result = await getSimilarShows(lang, id)
+            const results = result.data.results
+            setSimilarMovies(results)
+            console.log('similar shows: ',results)
+        }
+
     }
 
     function handleMovieCardHover() {
@@ -148,7 +157,7 @@ function ContentCard({ data, lang, selectedMovie, setSelectedMovie, setSimilarMo
                 </div>
                 <div className='match-row'>
                     <span className='match'>{`${match}% Match`}</span>
-                    <span className='runtime'>{contentType ===' tv' ? seasonText :`${hours}h ${minutes}m`}</span>
+                    <span className='runtime'>{contentType === 'tv' ? seasonText :`${hours}h ${minutes}m`}</span>
                     <span className='hd'>HD</span>
                 </div>
                 <div className='genre-list-container'>{genreList}</div>

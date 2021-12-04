@@ -35,6 +35,21 @@ async function getEpisodesTV(lang, id, seasonNum, epNum) {
     return episodes
 }
 
+export async function getSimilarShows(language, id) {
+    let lang
+
+    if (language === 'English') {
+        lang = 'en'
+    } else {
+        lang = 'es'
+    }
+
+    const similarMovies = await axios.get(
+        `https://api.themoviedb.org/3/tv/${id}/similar?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}`
+    )
+    return similarMovies
+}
+
 export async function getTVShows(language, id) {
     let lang
 
@@ -56,7 +71,8 @@ export async function getTVShows(language, id) {
         vote_average: details.data.vote_average,
         id: details.data.id,
         title: details.data.name,
-        genre_ids: details.data.genres
+        genre_ids: details.data.genres,
+        release_date: details.data.first_air_date
     }
 
     //Get ID for each season and push to seasonIds array

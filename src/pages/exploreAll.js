@@ -31,7 +31,7 @@ function ExploreAll({data, lang, setLang, selectedMovie, setSelectedMovie, simil
                     setExploreMovies={setExploreMovies}
                     exploreMovies={data}
                     type={'2'}
-                    // contentType={contentType}
+                    contentType={contentType}
                 />
                 
         )

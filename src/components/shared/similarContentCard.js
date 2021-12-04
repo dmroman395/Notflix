@@ -9,7 +9,7 @@ import check from '../../images/check.png'
 function SimilarContentCard({data, lang, key, watchList, setWatchlist, setExploreMovies, exploreMovies }) {
     const [isInList, setIsInList] = useState(false)
 
-    const { backdrop_path, title, vote_average, overview, release_date } = data
+    const { backdrop_path, title, vote_average, overview, release_date, first_air_date } = data
 
     let remove
     let add
@@ -37,7 +37,7 @@ function SimilarContentCard({data, lang, key, watchList, setWatchlist, setExplor
         shortOverview = overview
     }
 
-    const year = release_date.substring(0,4)
+    const year = first_air_date ? first_air_date.substring(0,4) : release_date.substring(0,4)
 
     const match = Math.floor(vote_average * 10)
 

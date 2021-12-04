@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import '../../css/shared/movieCard.css'
 import logo from '../../images/logo-short.jpg'
-import MovieCard from './contentCard'
+import ContentCard from './contentCard'
 
 function MovieCardTopTen({ movie, getMovieDetails, lang, index, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, watchlist, setWatchlist }) {
     const [hover, setHover] = useState(false)
@@ -52,7 +52,7 @@ function MovieCardTopTen({ movie, getMovieDetails, lang, index, selectedMovie, s
 
     return (
         <div className="movie-ten-container" onMouseEnter={e => handleHover(e)} onMouseLeave={e => handleHover(e)}> 
-        {hover ? <MovieCard 
+        {hover ? <ContentCard 
                         lang={lang}
                         movie={movie}
                         getMovieDetails={getMovieDetails}

@@ -19,7 +19,7 @@ function App() {
     const [isExploreEmpty, setIsExploreEmpty] = useState(true)
     const [isNewPopular, setIsNewPopular] = useState(false)
     const [isSearch, setIsSearch] = useState(false)
-    const [contentType, setContentType] = useState('movie')
+    const [contentType, setContentType] = useState('tv')
 
     const {
         getTrending,
