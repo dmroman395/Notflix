@@ -15,11 +15,11 @@ function ExploreAll({data, lang, setLang, selectedMovie, setSelectedMovie, simil
         getMovieDetails
     } = require('../controllers/moviesController')
 
-    const moviesMap = data.map((movie, i) => {
+    const contentMap = data.map((content, i) => {
         return (
                 <ContentCard
                     lang={lang}
-                    data={movie}
+                    data={content}
                     getMovieDetails={getMovieDetails}
                     key={i}
                     selectedMovie={selectedMovie}
@@ -88,7 +88,7 @@ function ExploreAll({data, lang, setLang, selectedMovie, setSelectedMovie, simil
             <div className='exploreContent'>
                 <h1 className='genre'>{selectedGenre}</h1>
                 <div className='movies-grid'>
-                    {data.length > 0 ? moviesMap : <h1 className='empty-list'>{message}</h1>}
+                    {data.length > 0 ? contentMap : <h1 className='empty-list'>{message}</h1>}
                 </div>
             </div>
     }

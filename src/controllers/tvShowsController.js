@@ -14,11 +14,24 @@ export async function getPopularTV(language, page) {
     return popularList
 }
 
-async function getDetailsTV(lang,id) {
+export async function getShowDetails(lang,id,seasonNum) {
+    let tvInfo = {}
 
-    const details = await axios.get(`https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}`)
+    const details = await axios.get(`https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&append_to_response=season/${seasonNum}`)
 
-    return details
+    tvInfo = {
+        backdrop_path: details.data.backdrop_path,
+        overview: details.data.overview,
+        vote_average: details.data.vote_average,
+        id: details.data.id,
+        title: details.data.name,
+        genre_ids: details.data.genres,
+        release_date: details.data.first_air_date,
+        seasons: details.data.seasons,
+        [`season/${seasonNum}`] : details.data[`season/${seasonNum}`]
+    }
+
+    return tvInfo
 }
 
 async function getSeasonsTV(lang, id, seasonNum) {
@@ -50,6 +63,21 @@ export async function getSimilarShows(language, id) {
     return similarMovies
 }
 
+export async function getTVGenres(language) {
+    let lang
+
+    if (language === 'English') {
+        lang = 'en'
+    } else {
+        lang = 'es'
+    }
+
+    const genreList = await axios.get(
+        `https://api.themoviedb.org/3/genre/tv/list?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}`
+    )
+    return genreList
+}
+
 export async function getTVShows(language, id) {
     let lang
 
@@ -62,7 +90,7 @@ export async function getTVShows(language, id) {
     }
 
     //Get details for show
-    const details = await getDetailsTV(lang, id)
+    const details = await getShowDetails(lang, id)
 
     //Insert data into tvInfo
     tvInfo = {
@@ -73,32 +101,6 @@ export async function getTVShows(language, id) {
         title: details.data.name,
         genre_ids: details.data.genres,
         release_date: details.data.first_air_date
-    }
-
-    //Get ID for each season and push to seasonIds array
-    let seasons = []
-    let seasonNums = []
-
-    details.data.seasons.forEach(season => {
-        seasonNums.push(season.season_number)
-    })
-
-    //Use seasonIds array to get each season and episodeId for each episode in current season
-    for (let season of seasonNums) {
-        const data = await getSeasonsTV(lang, id, season)
-
-        const seasonDetails = {
-            name: data.data.name,
-            overview: data.data.overview,
-            id: data.data.id
-        }
-
-        seasons.push(seasonDetails)
-    }
-
-    tvInfo = {
-        ...tvInfo,
-        seasons
     }
 
     return tvInfo

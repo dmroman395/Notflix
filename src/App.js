@@ -19,7 +19,7 @@ function App() {
     const [isExploreEmpty, setIsExploreEmpty] = useState(true)
     const [isNewPopular, setIsNewPopular] = useState(false)
     const [isSearch, setIsSearch] = useState(false)
-    const [contentType, setContentType] = useState('tv')
+    const [contentType, setContentType] = useState('movie')
 
     const {
         getTrending,
@@ -31,9 +31,11 @@ function App() {
         getPopular,
         getMovieDetails,
         getSimilarMovies,
-        getGenres,
+        getMovieGenres,
         getMovies
     } = require('./controllers/moviesController')
+
+    const { getTVGenres } = require('./controllers/tvShowsController')
 
     const { currentUser } = useAuth()
 
@@ -47,7 +49,7 @@ function App() {
             <React.Fragment>
                 <Header setContentType={setContentType} setExploreMovies={setExploreMovies} lang={lang} setSelectedGenre={setSelectedGenre} watchlist={watchlist} setIsExploreEmpty={setIsExploreEmpty} isExploreEmpty={isExploreEmpty} setIsNewPopular={setIsNewPopular} isSearch={isSearch} setIsSearch={setIsSearch}/>
                 <Main lang={lang} setLang={setLang} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies}
-                setExploreMovies={setExploreMovies} setSelectedGenre={setSelectedGenre} watchlist={watchlist} setWatchlist={setWatchlist} getTrending={getTrending} getAction={getAction} getComedy={getComedy} getHorror={getHorror} getNowPlaying={getNowPlaying} getTopRated={getTopRated} getPopular={getPopular} getMovieDetails={getMovieDetails} getSimilarMovies={getSimilarMovies} getGenres={getGenres} isExploreEmpty={isExploreEmpty} setIsExploreEmpty={setIsExploreEmpty} isNewPopular={isNewPopular} setIsNewPopular={setIsNewPopular} nowPlayingMovies={nowPlayingMovies} setNowPlayingMovies={setNowPlayingMovies} />
+                setExploreMovies={setExploreMovies} setSelectedGenre={setSelectedGenre} watchlist={watchlist} setWatchlist={setWatchlist} getTrending={getTrending} getAction={getAction} getComedy={getComedy} getHorror={getHorror} getNowPlaying={getNowPlaying} getTopRated={getTopRated} getPopular={getPopular} getMovieDetails={getMovieDetails} getSimilarMovies={getSimilarMovies} getMovieGenres={getMovieGenres} getTVGenres={getTVGenres} isExploreEmpty={isExploreEmpty} setIsExploreEmpty={setIsExploreEmpty} isNewPopular={isNewPopular} setIsNewPopular={setIsNewPopular} nowPlayingMovies={nowPlayingMovies} setNowPlayingMovies={setNowPlayingMovies} />
             </React.Fragment>
             
             :

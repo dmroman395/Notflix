@@ -135,7 +135,7 @@ export async function getSimilarMovies(language, id) {
     return similarMovies
 }
 
-export async function getGenres(language) {
+export async function getMovieGenres(language) {
     let lang
 
     if (language === 'English') {
@@ -144,10 +144,10 @@ export async function getGenres(language) {
         lang = 'es'
     }
 
-    const popularList = await axios.get(
+    const genreList = await axios.get(
         `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}`
     )
-    return popularList
+    return genreList
 }
 
 export async function getRandomMovies(language, page) {

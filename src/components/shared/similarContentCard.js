@@ -9,7 +9,7 @@ import check from '../../images/check.png'
 function SimilarContentCard({data, lang, key, watchList, setWatchlist, setExploreMovies, exploreMovies }) {
     const [isInList, setIsInList] = useState(false)
 
-    const { backdrop_path, title, vote_average, overview, release_date, first_air_date } = data
+    const { backdrop_path, title, vote_average, overview, release_date, first_air_date, name } = data
 
     let remove
     let add
@@ -74,7 +74,7 @@ function SimilarContentCard({data, lang, key, watchList, setWatchlist, setExplor
                         backgroundImage: `url(${imagePath})`,
                         backgroundPosition: 'center',
                     }}>
-                        <h5>{title}</h5>
+                        <h5>{name ? name : title}</h5>
                 </div>
                 <div className='info'>
                     <div className='info-top'>

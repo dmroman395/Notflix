@@ -47,56 +47,56 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
     const { userSignOut } = useAuth()
     const { getMovies } = require ('../../controllers/moviesController')
     const { search } = require('../../controllers/moviesController')
-    const { getPopularTV, getTVShows } = require('../../controllers/tvShowsController')
+    const { getPopularTV, getShowDetails, getTVShows } = require('../../controllers/tvShowsController')
 
     function signOut() {
         userSignOut()
     }
 
     async function handleMovies() {
+        setContentType('movies')
         const data = await getMovies(lang,'Movies', 1)
         const movies = data.data.results
         setIsExploreEmpty(false)
         setIsNewPopular(false)
         setSelectedGenre('Movies')
         setExploreMovies(movies)
-        setContentType('movie')
         window.scroll(0,0)
     }
 
     function handleMyMovies() {
+        setContentType('movie')
         if (watchlist === undefined) {
             setIsExploreEmpty(false)
             setSelectedGenre('My List')
             setIsNewPopular(false)
-            setContentType('movie')
         } else {
             setIsExploreEmpty(false)
             setExploreMovies(watchlist)
             setSelectedGenre('My List')
             setIsNewPopular(false)
-            setContentType('movie')
             window.scroll(0,0)
         }
     }
 
     function clearExploreMovies() {
+        setContentType('movie')
         const reset = []
         setIsExploreEmpty(true)
         setIsNewPopular(false)
         setExploreMovies(reset)
-        setContentType('movie')
         window.scroll(0,0)
     }
 
     function handleNewPopular() {
+        setContentType('movie')
         setIsNewPopular(true)
         setIsExploreEmpty(false)
-        setContentType('movie')
         window.scroll(0,0)
     }
 
     function handleCancel(e) {
+        setContentType('movie')
         e.preventDefault()
         const search = document.querySelector('#search')
         const cancel = document.querySelector('.cancel > img')
@@ -107,10 +107,10 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
         const reset = []
         setExploreMovies(reset)
         setIsExploreEmpty(true)
-        setContentType('movie')
     }
 
     async function handleSearch(e) {
+        setContentType('movie')
         e.stopPropagation()
         const val = e.target.value
         const cancel = document.querySelector('.cancel > img')
@@ -124,14 +124,12 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
             setIsExploreEmpty(false)
             setIsSearch(true)
             setSelectedGenre(`Search results`)
-            setContentType('movie')
         } else {
             cancel.style.opacity = '0'
             const reset = []
             setExploreMovies(reset)
             setIsExploreEmpty(true)
             setIsSearch(false)
-            setContentType('movie')
         }        
     }
 
@@ -141,9 +139,14 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
         const popularTv = await getPopularTV(lang, 1)
 
         for (let show of popularTv.data.results) {
-            const data = await getTVShows(lang, show.id)
+            const data = await getShowDetails(lang, show.id ,1)
 
-            results.push(data)
+            const obj = {
+                ...data,
+                genre_ids: show.genre_ids
+            }
+
+            results.push(obj)
         }
         setExploreMovies(results)
         setSelectedGenre('Popular TV Shows')

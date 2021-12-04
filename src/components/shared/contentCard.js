@@ -18,7 +18,7 @@ const {
     getSimilarMovies,
 } = require('../../controllers/moviesController')
 
-const { getSimilarShows } = require('../../controllers/tvShowsController')
+const { getSimilarShows, getShowDetails } = require('../../controllers/tvShowsController')
 
 function ContentCard({ data, lang, selectedMovie, setSelectedMovie, setSimilarMovies, watchlist, setWatchlist, type, runtime2, setExploreMovies, exploreMovies, contentType}) {
     const [dataDetails, setMovieDetails] = useState({})
@@ -27,8 +27,8 @@ function ContentCard({ data, lang, selectedMovie, setSelectedMovie, setSimilarMo
     const [disliked, setDisliked] = useState(false)
 
     const { backdrop_path, id, title, vote_average, genre_ids } = data
-    const {runtime} = dataDetails
-
+    
+    let runtime
     let play
     let remove
     let add
@@ -37,6 +37,10 @@ function ContentCard({ data, lang, selectedMovie, setSelectedMovie, setSimilarMo
     let moreInfo
     let imagePath
     let seasonText
+
+    if (contentType === 'movie') {
+        runtime = dataDetails.runtime
+    } 
 
     const hours = Math.floor(runtime2 ? runtime2/60 : runtime/60)
     const minutes = (runtime2 ? runtime2 : runtime) % 60
@@ -89,9 +93,12 @@ function ContentCard({ data, lang, selectedMovie, setSelectedMovie, setSimilarMo
     }
 
     async function loadDetails() {
-        if (Object.keys(dataDetails).length === 0) {
+        if (Object.keys(dataDetails).length === 0 && contentType === 'movie') {
             const details = await getMovieDetails(lang, id)
             setMovieDetails(details.data)
+        } else if(Object.keys(dataDetails).length === 0 && contentType === 'tv') {
+            
+            setMovieDetails(data)
         }
     }
 
@@ -104,7 +111,6 @@ function ContentCard({ data, lang, selectedMovie, setSelectedMovie, setSimilarMo
             const result = await getSimilarShows(lang, id)
             const results = result.data.results
             setSimilarMovies(results)
-            console.log('similar shows: ',results)
         }
 
     }
@@ -112,6 +118,7 @@ function ContentCard({ data, lang, selectedMovie, setSelectedMovie, setSimilarMo
     function handleMovieCardHover() {
         loadDetails();
         loadSimilar();
+ 
     }
 
     function fadeIn(num) {
