@@ -97,7 +97,6 @@ function ContentCard({ data, lang, selectedMovie, setSelectedMovie, setSimilarMo
             const details = await getMovieDetails(lang, id)
             setMovieDetails(details.data)
         } else if(Object.keys(dataDetails).length === 0 && contentType === 'tv') {
-            
             setMovieDetails(data)
         }
     }
