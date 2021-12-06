@@ -98,7 +98,7 @@ function ExploreAll({data, lang, setLang, selectedMovie, setSelectedMovie, simil
                 {Object.keys(selectedMovie).length === 0  ? 
                     null
                     : 
-                    <MoreInfo data={selectedMovie} similarMovies={similarMovies} lang={lang} setSelectedMovie={setSelectedMovie} watchlist={watchlist} setWatchlist={setWatchlist} setExploreMovies={setExploreMovies} exploreMovies={exploreMovies}/>
+                    <MoreInfo data={selectedMovie} similarMovies={similarMovies} lang={lang} setSelectedMovie={setSelectedMovie} watchlist={watchlist} setWatchlist={setWatchlist} setExploreMovies={setExploreMovies} exploreMovies={exploreMovies} contentType={contentType}/>
                 }
             {content}
             {lang.lang === 'English' ? 

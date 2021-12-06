@@ -1,0 +1,11 @@
+.episodeCardList {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+    .episodeCardListHeader {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #404040;
+        padding-bottom: 10px;
+    }
+}

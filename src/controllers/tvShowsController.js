@@ -34,11 +34,11 @@ export async function getShowDetails(lang,id,seasonNum) {
     return tvInfo
 }
 
-async function getSeasonsTV(lang, id, seasonNum) {
+export async function getSeasonTV(lang, id, seasonNum) {
 
-    const seasons = await axios.get(`https://api.themoviedb.org/3/tv/${id}/season/${seasonNum}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}`)
+    const season = await axios.get(`https://api.themoviedb.org/3/tv/${id}/season/${seasonNum}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}`)
 
-    return seasons
+    return season
 }
 
 async function getEpisodesTV(lang, id, seasonNum, epNum) {

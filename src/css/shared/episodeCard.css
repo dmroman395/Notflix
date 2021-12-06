@@ -1,0 +1,56 @@
+.episodeCard {
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid #404040;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 30px 30px;
+  gap: 15px;
+  max-height: 130px;
+}
+
+.episodeCard #episodeNum {
+  font-size: 1.5em;
+  color: #d2d2d2;
+}
+
+.episodeCard .still {
+  overflow: hidden;
+  min-width: 20%;
+  max-width: 20%;
+}
+
+.episodeCard .still img {
+  border-radius: 3px;
+  height: auto;
+  width: 100%;
+}
+
+.episodeCard .episodeInfo {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.episodeCard .episodeInfo #episodeName {
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+.episodeCard .episodeInfo #episodeOverview {
+  font-size: 14px;
+  color: #d2d2d2;
+}
+/*# sourceMappingURL=episodeCard.css.map */

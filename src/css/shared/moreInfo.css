@@ -92,7 +92,7 @@
 }
 
 .overlay .moreInfo-container .moreInfo-featured .content {
-  padding: 40px 40px;
+  padding: 40px 50px;
 }
 
 .overlay .moreInfo-container .moreInfo-featured .content h1 {
@@ -248,7 +248,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 0 40px;
+  padding: 0 50px;
 }
 
 .overlay .moreInfo-container .moreInfo-info p {

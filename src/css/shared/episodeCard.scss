@@ -1,0 +1,37 @@
+.episodeCard {
+    border-radius: 5px;
+    display: flex;
+    border-bottom: 1px solid #404040;
+    align-items: center;
+    padding: 30px 30px;
+    gap: 15px;
+    max-height: 130px;
+    #episodeNum {
+        font-size: 1.5em;
+        color: #d2d2d2;
+    }
+    .still {
+        overflow: hidden;
+        min-width: 20%;
+        max-width: 20%;
+        img {
+            border-radius: 3px;
+            height: auto;
+            width: 100%;
+        }
+    }
+    .episodeInfo {
+        box-sizing: content-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        #episodeName {
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+        #episodeOverview {
+            font-size: 14px;
+            color: #d2d2d2;
+        }
+    }
+}
