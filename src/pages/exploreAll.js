@@ -15,6 +15,8 @@ function ExploreAll({data, lang, setLang, selectedMovie, setSelectedMovie, simil
         getMovieDetails
     } = require('../controllers/moviesController')
 
+    const { getPopularTV, getShowDetails, } = require('../controllers/tvShowsController')
+
     const contentMap = data.map((content, i) => {
         return (
                 <ContentCard
@@ -39,18 +41,40 @@ function ExploreAll({data, lang, setLang, selectedMovie, setSelectedMovie, simil
 
     async function loadMore () {
         const search = document.querySelector('#search')
-        let movieList
 
-        if (search.value) {
-            movieList = await getMovies(lang, selectedGenre, pageCount, 1, 1, search.value)
-        } else {
-            movieList = await getMovies(lang, selectedGenre, pageCount, 1)
-        }
+        let contentList = []
+
+        switch(contentType) {
+            case 'movie':
+                if (search.value) {
+                    contentList = await getMovies(lang, selectedGenre, pageCount, 1, 1, search.value)
+                } else {
+                   const test = await getMovies(lang, selectedGenre, pageCount, 1)
+                    console.log(test)
+                }
+                break;
+            case 'tv':
+                const popularTv = await getPopularTV(lang, pageCount)
+
+                for (let show of popularTv.data.results) {
+                    const data = await getShowDetails(lang, show.id, 1)
         
+                    const obj = {
+                        ...data,
+                        genre_ids: show.genre_ids
+                    }
+        
+                    contentList.push(obj)
+                }
+                break;
+            default:
+                break;
+        }
+
         const newCount = pageCount + 1
         setPageCount(newCount)
         let newList = [...data]
-        for (let movie of movieList.data.results) {
+        for (let movie of (contentType === 'tv' ? contentList : contentList.results)) {
             newList.push(movie)
         }
         setExploreMovies(newList)        
