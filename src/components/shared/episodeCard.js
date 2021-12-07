@@ -1,9 +1,25 @@
-import React from "react";
+import React, {useEffect} from "react";
 import logo from '../../images/logo-short.jpg'
 import '../../css/shared/episodeCard.css'
 
 function EpisodeCard({data}) {
     const {episode_number, still_path, name, overview} = data
+
+    let modOverview
+
+    if (overview.length > 250) {
+        modOverview = overview.substring(0, 250) + '...'
+    } else {
+        modOverview = overview
+    }
+
+    useEffect(() => {
+        const episodes = document.querySelectorAll('.episodeCard')
+        
+        for( let episode of episodes) {
+            episode.style.opacity = '1'
+        }
+    },[])
 
     return (
         <div className='episodeCard'>
@@ -16,7 +32,7 @@ function EpisodeCard({data}) {
             <div className='episodeInfo'>
                 <div>
                     <h4 id='episodeName'>{name}</h4>
-                    <p id='episodeOverview'>{overview}</p>
+                    <p id='episodeOverview'>{modOverview}</p>
                 </div>
             </div>
         </div>

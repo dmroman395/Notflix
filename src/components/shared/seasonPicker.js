@@ -1,4 +1,5 @@
 import React from "react";
+import '../../css/shared/seasonPicker.css'
 
 function SeasonPicker({seasons, setSeason, lang, showId}) {
 
@@ -11,12 +12,15 @@ function SeasonPicker({seasons, setSeason, lang, showId}) {
     }
 
     const optionMap = seasons.map(season => {
-        return(
-            <option value={`${season.season_number}`}>{`Season ${season.season_number}`}</option>
-        )
-    } )
+        if (season.season_number == 1) {
+            return <option value={`${season.season_number}`} selected >{`Season ${season.season_number}`}</option>
+        } else {
+            return <option value={`${season.season_number}`}>{`Season ${season.season_number}`}</option>
+        }
+    })
+
     return (
-        <select name='season' onChange={e => handleClick(e)}>
+        <select className='season' onChange={e => handleClick(e)}>
             {optionMap}
         </select>
     )
