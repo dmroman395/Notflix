@@ -54,7 +54,7 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
     }
 
     async function handleMovies() {
-        setContentType('movies')
+        setContentType('movie')
         const data = await getMovies(lang,'Movies', 1)
         const movies = data.data.results
         setIsExploreEmpty(false)

@@ -49,8 +49,7 @@ function ExploreAll({data, lang, setLang, selectedMovie, setSelectedMovie, simil
                 if (search.value) {
                     contentList = await getMovies(lang, selectedGenre, pageCount, 1, 1, search.value)
                 } else {
-                   const test = await getMovies(lang, selectedGenre, pageCount, 1)
-                    console.log(test)
+                    contentList = await getMovies(lang, selectedGenre, pageCount, 1)
                 }
                 break;
             case 'tv':
@@ -74,7 +73,7 @@ function ExploreAll({data, lang, setLang, selectedMovie, setSelectedMovie, simil
         const newCount = pageCount + 1
         setPageCount(newCount)
         let newList = [...data]
-        for (let movie of (contentType === 'tv' ? contentList : contentList.results)) {
+        for (let movie of (contentType === 'tv' ? contentList : contentList.data.results)) {
             newList.push(movie)
         }
         setExploreMovies(newList)        
