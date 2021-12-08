@@ -25,8 +25,8 @@ function ContentCardIcon({icon, text, func, id, selectedMovie,setSelectedMovie, 
         }
     }
 
-    async function handleWatchListState(type) {
-        const result = await handleWatchList(data, currentUser.uid,type)
+    async function handleWatchListState(type, contentType) {
+        const result = await handleWatchList(data, currentUser.uid, type, contentType)
         await setWatchlist(result)
     }
 
@@ -54,7 +54,7 @@ function ContentCardIcon({icon, text, func, id, selectedMovie,setSelectedMovie, 
                 setDisliked(!disliked)
                 break;
             case 'add':
-                handleWatchListState('add')
+                handleWatchListState('add', data.contentType)
                 setIsInList(true)
                 break;
             case 'remove':

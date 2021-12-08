@@ -38,15 +38,14 @@ function MovieCardIconInfoBig({icon, movie, lang, selectedMovie, setSelectedMovi
     async function loadDetails() {
         if (Object.keys(movieDetails).length === 0) {
             const details = await getMovieDetails(lang, id)
-            setMovieDetails(details.data)
+            setMovieDetails(details)
         }
     }
 
     async function loadSimilar() {
         if (Object.keys(similarMovies).length === 0) {
             const data = await getSimilarMovies(lang, id)
-            const movies = data.data.results
-            setSimilarMovies(movies)
+            setSimilarMovies(data)
         }
     }
 

@@ -29,7 +29,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
         const trending = []
 
         await getTrending(lang).then((movies) => {
-            movies.data.results.forEach((movie) => {
+            movies.forEach((movie) => {
                 trending.push(movie)
             })
         })
@@ -43,7 +43,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
         const popular = []
 
         await getPopular(lang).then((movies) => {
-            movies.data.results.forEach((movie) => {
+            movies.forEach((movie) => {
                 popular.push(movie)
             })
             setPopularMovies(popular)
@@ -54,7 +54,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
         const action = []
 
         await getAction(lang).then((movies) => {
-            movies.data.results.forEach((movie) => {
+            movies.forEach((movie) => {
                 action.push(movie)
             })
             setActionMovies(action)
@@ -65,7 +65,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
         const comedy = []
 
         await getComedy(lang).then((movies) => {
-            movies.data.results.forEach((movie) => {
+            movies.forEach((movie) => {
                 comedy.push(movie)
             })
             setComedyMovies(comedy)
@@ -76,7 +76,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
         const horror = []
 
         await getHorror(lang).then((movies) => {
-            movies.data.results.forEach((movie) => {
+            movies.forEach((movie) => {
                 horror.push(movie)
             })
             setHorrorMovies(horror)
@@ -87,7 +87,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
         const nowPlaying = []
 
         await getNowPlaying(lang).then((movies) => {
-            movies.data.results.forEach((movie) => {
+            movies.forEach((movie) => {
                 nowPlaying.push(movie)
             })
             setNowPlayingMovies(nowPlaying)
@@ -98,7 +98,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
         const topRated = []
 
         await getTopRated(lang).then((movies) => {
-            movies.data.results.forEach((movie) => {
+            movies.forEach((movie) => {
                 topRated.push(movie)
             })
             setTopRatedMovies(topRated)

@@ -5,12 +5,12 @@ import EpisodeCardList from './episodeCardList'
 import '../../css/shared/moreInfo.css'
 import downArrow from '../../images/down-chevron.png'
 
-function MoreInfo({data, similarMovies, lang, setSelectedMovie, watchlist, setWatchlist, setExploreMovies, exploreMovies, contentType}) {
+function MoreInfo({data, similarMovies, lang, setSelectedMovie, watchlist, setWatchlist, setExploreMovies, exploreMovies}) {
     const [listExpanded, setListExpanded] = useState(false)
     const [isInList, setIsInList] = useState(false)
-    const [season, setSeason] = useState(contentType == 'tv' ? data['season/1'].episodes : null)
+    const [season, setSeason] = useState(data.contentType == 'tv' ? data['season/1'].episodes : null)
 
-    const { backdrop_path, id, title, vote_average, runtime, genres, overview, release_date } = data
+    const { backdrop_path, id, title, vote_average, runtime, genres, overview, release_date, contentType } = data
 
     let play
     let remove

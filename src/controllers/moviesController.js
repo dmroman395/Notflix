@@ -3,6 +3,8 @@ import axios from 'axios'
 export async function getTrending(language) {
     let lang
 
+    let response = []
+
     if (language === 'English') {
         lang = 'en'
     } else {
@@ -12,11 +14,22 @@ export async function getTrending(language) {
     const trendingList = await axios.get(
         `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}`
     )
-    return trendingList
+    
+    for(let movie of trendingList.data.results) {
+        const modObj = {
+            ...movie,
+            contentType: 'movie'
+        }
+        response.push(modObj)
+    }
+
+    return response
 }
 
 export async function getAction(language) {
     let lang
+
+    let response = []
 
     if (language === 'English') {
         lang = 'en'
@@ -27,11 +40,22 @@ export async function getAction(language) {
     const actionMoviesList = await axios.get(
         `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=28%2C12&with_watch_monetization_types=flatrate`
     )
-    return actionMoviesList
+    
+    for(let movie of actionMoviesList.data.results) {
+        const modObj = {
+            ...movie,
+            contentType: 'movie'
+        }
+        response.push(modObj)
+    }
+
+    return response
 }
 
 export async function getComedy(language) {
     let lang
+
+    let response = []
 
     if (language === 'English') {
         lang = 'en'
@@ -42,11 +66,22 @@ export async function getComedy(language) {
     const comedyMoviesList = await axios.get(
         `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=35&with_watch_monetization_types=flatrate`
     )
-    return comedyMoviesList
+    
+    for(let movie of comedyMoviesList.data.results) {
+        const modObj = {
+            ...movie,
+            contentType: 'movie'
+        }
+        response.push(modObj)
+    }
+
+    return response
 }
 
 export async function getHorror(language) {
     let lang
+
+    let response = []
 
     if (language === 'English') {
         lang = 'en'
@@ -57,11 +92,22 @@ export async function getHorror(language) {
     const horrorMoviesList = await axios.get(
         `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=27&with_watch_monetization_types=flatrate`
     )
-    return horrorMoviesList
+    
+    for(let movie of horrorMoviesList.data.results) {
+        const modObj = {
+            ...movie,
+            contentType: 'movie'
+        }
+        response.push(modObj)
+    }
+
+    return response
 }
 
 export async function getTopRated(language) {
     let lang
+
+    let response = []
 
     if (language === 'English') {
         lang = 'en'
@@ -72,11 +118,22 @@ export async function getTopRated(language) {
     const topRatedMoviesList = await axios.get(
         `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&page=1`
     )
-    return topRatedMoviesList
+    
+    for(let movie of topRatedMoviesList.data.results) {
+        const modObj = {
+            ...movie,
+            contentType: 'movie'
+        }
+        response.push(modObj)
+    }
+
+    return response
 }
 
 export async function getNowPlaying(language) {
     let lang
+
+    let response = []
 
     if (language === 'English') {
         lang = 'en'
@@ -87,11 +144,22 @@ export async function getNowPlaying(language) {
     const nowPlayingMoviesList = await axios.get(
         `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&page=1`
     )
-    return nowPlayingMoviesList
+    
+    for(let movie of nowPlayingMoviesList.data.results) {
+        const modObj = {
+            ...movie,
+            contentType: 'movie'
+        }
+        response.push(modObj)
+    }
+
+    return response
 }
 
 export async function getPopular(language) {
     let lang
+
+    let response = []
 
     if (language === 'English') {
         lang = 'en'
@@ -102,7 +170,16 @@ export async function getPopular(language) {
     const popularList = await axios.get(
         `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&page=1`
     )
-    return popularList
+
+    for(let movie of popularList.data.results) {
+        const modObj = {
+            ...movie,
+            contentType: 'movie'
+        }
+        response.push(modObj)
+    }
+
+    return response
 }
 
 export async function getMovieDetails(language, id) {
@@ -117,11 +194,19 @@ export async function getMovieDetails(language, id) {
     const movieDetails = await axios.get(
         `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}`
     )
-    return movieDetails
+
+    const modObj = {
+        ...movieDetails.data,
+        contentType: 'movie'
+    }
+
+    return modObj
 }
 
 export async function getSimilarMovies(language, id) {
     let lang
+
+    let response = []
 
     if (language === 'English') {
         lang = 'en'
@@ -132,7 +217,16 @@ export async function getSimilarMovies(language, id) {
     const similarMovies = await axios.get(
         `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}`
     )
-    return similarMovies
+
+    for(let movie of similarMovies.data.results) {
+        const modObj = {
+            ...movie,
+            contentType: 'movie'
+        }
+        response.push(modObj)
+    }
+
+    return response
 }
 
 export async function getMovieGenres(language) {
@@ -153,6 +247,8 @@ export async function getMovieGenres(language) {
 export async function getRandomMovies(language, page) {
     let lang
 
+    let response = []
+
     if (language === 'English') {
         lang = 'en'
     } else {
@@ -162,12 +258,24 @@ export async function getRandomMovies(language, page) {
     const randomList = await axios.get(
         `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_watch_monetization_types=flatrate`
     )
-    return randomList
+
+    for(let movie of randomList.data.results) {
+        const modObj = {
+            ...movie,
+            contentType: 'movie'
+        }
+
+        response.push(modObj)
+    }
+
+    return response
 
 }
 
 export async function getUpcoming(language, page) {
     let lang
+
+    let response = []
 
     if (language === 'English') {
         lang = 'en'
@@ -178,7 +286,17 @@ export async function getUpcoming(language, page) {
     const upcomingList = await axios.get(
         `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&page=${page}`
     )
-    return upcomingList
+
+    for(let movie of upcomingList.data.results) {
+        const modObj = {
+            ...movie,
+            contentType: 'movie'
+        }
+
+        response.push(modObj)
+    }
+
+    return response
 }
 
 export async function getMovies(language, type, page, limit, id, query) {
@@ -263,6 +381,8 @@ export async function getMovies(language, type, page, limit, id, query) {
 export async function search(language, query, page) {
     let lang
 
+    let response = []
+
     if (language === 'English') {
         lang = 'en'
     } else {
@@ -273,5 +393,14 @@ export async function search(language, query, page) {
     
     const searchResults = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&query=${finalQuery}&page=${page}&include_adult=false`)
 
-    return searchResults
+    for(let movie of searchResults) {
+        const modObj = {
+            ...movie,
+            contentType: 'movie'
+        }
+
+        response.push(modObj)
+    }
+
+    return response
 }

@@ -20,13 +20,13 @@ const {
 
 const { getSimilarShows, getShowDetails } = require('../../controllers/tvShowsController')
 
-function ContentCard({ data, lang, selectedMovie, setSelectedMovie, setSimilarMovies, watchlist, setWatchlist, type, runtime2, setExploreMovies, exploreMovies, contentType}) {
+function ContentCard({ data, lang, selectedMovie, setSelectedMovie, setSimilarMovies, watchlist, setWatchlist, type, runtime2, setExploreMovies, exploreMovies}) {
     const [dataDetails, setMovieDetails] = useState({})
     const [isInList, setIsInList] = useState(false)
     const [liked, setLiked] = useState(false)
     const [disliked, setDisliked] = useState(false)
 
-    const { backdrop_path, id, title, vote_average, genre_ids } = data
+    const { backdrop_path, id, title, vote_average, genre_ids, contentType } = data
     
     let runtime
     let play
@@ -95,7 +95,7 @@ function ContentCard({ data, lang, selectedMovie, setSelectedMovie, setSimilarMo
     async function loadDetails() {
         if (Object.keys(dataDetails).length === 0 && contentType === 'movie') {
             const details = await getMovieDetails(lang, id)
-            setMovieDetails(details.data)
+            setMovieDetails(details)
         } else if(Object.keys(dataDetails).length === 0 && contentType === 'tv') {
             setMovieDetails(data)
         }
@@ -103,8 +103,7 @@ function ContentCard({ data, lang, selectedMovie, setSelectedMovie, setSimilarMo
 
     async function loadSimilar() {
         if(contentType === 'movie') {
-            const result = await getSimilarMovies(lang, id)
-            const results = result.data.results
+            const results = await getSimilarMovies(lang, id)
             setSimilarMovies(results)
         } else {
             const result = await getSimilarShows(lang, id)

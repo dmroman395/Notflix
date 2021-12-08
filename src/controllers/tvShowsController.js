@@ -20,6 +20,7 @@ export async function getShowDetails(lang,id,seasonNum) {
     const details = await axios.get(`https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&append_to_response=season/${seasonNum}`)
 
     tvInfo = {
+        contentType: 'tv',
         backdrop_path: details.data.backdrop_path,
         overview: details.data.overview,
         vote_average: details.data.vote_average,

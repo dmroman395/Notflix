@@ -68,7 +68,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 98%;
+  width: 290px;
   -webkit-transition: all ease-out 1ms;
   transition: all ease-out 1ms;
 }
