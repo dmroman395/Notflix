@@ -8,8 +8,11 @@ import check from '../../images/check.png'
 
 function SimilarContentCard({data, lang, key, watchList, setWatchlist, setExploreMovies, exploreMovies }) {
     const [isInList, setIsInList] = useState(false)
+    const [details, setDetails] = useState({})
 
-    const { backdrop_path, title, vote_average, overview, release_date, first_air_date, name } = data
+    const { getShowDetails } = require('../../controllers/tvShowsController')
+
+    const { backdrop_path, title, vote_average, overview, release_date, first_air_date, name, contentType, id } = data
 
     let remove
     let add
@@ -53,6 +56,13 @@ function SimilarContentCard({data, lang, key, watchList, setWatchlist, setExplor
         window.open(queryString, '_blank')
     }
 
+    async function loadDetails() {
+        if(contentType === 'tv') {
+            const showDetails = await getShowDetails(lang, id, 1)
+            setDetails(showDetails)
+        }
+    }
+
     useEffect(() => {
         if (watchList) {
             for (let item of watchList) {
@@ -66,7 +76,7 @@ function SimilarContentCard({data, lang, key, watchList, setWatchlist, setExplor
     const randInt = Math.floor(Math.random()*100000)
 
     return (
-            <div className='similarMovie' onClick={e => handleClick(e)} id={`${randInt}`}>
+            <div className='similarMovie' onClick={e => handleClick(e)} onMouseEnter={loadDetails} id={`${randInt}`}>
                 <div
                     className='banner' 
                     style={{
@@ -82,7 +92,7 @@ function SimilarContentCard({data, lang, key, watchList, setWatchlist, setExplor
                             <p className='match'>{`${match}% Match`}</p>
                             <p className='runtime'>{year}</p>
                         </div>
-                        {isInList ? <MovieCardIcon icon={check} iconFilled={check} text={remove} id={'remove'} data={data} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchList={watchList} /> : <MovieCardIcon icon={plus} iconFilled={check} text={add} id={'add'} data={data} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchList={watchList}/> }
+                        {isInList ? <MovieCardIcon icon={check} iconFilled={check} text={remove} id={'remove'} data={data} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchList={watchList} /> : <MovieCardIcon icon={plus} iconFilled={check} text={add} id={'add'} data={details} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchList={watchList}/> }
                     </div>
                     <h6 className='info-bottom'>{shortOverview}</h6>
                 </div>

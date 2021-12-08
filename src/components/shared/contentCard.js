@@ -26,7 +26,7 @@ function ContentCard({ data, lang, selectedMovie, setSelectedMovie, setSimilarMo
     const [liked, setLiked] = useState(false)
     const [disliked, setDisliked] = useState(false)
 
-    const { backdrop_path, id, title, vote_average, genre_ids, contentType } = data
+    const { backdrop_path, id, title, vote_average, genre_ids, contentType, seasons } = data
     
     let runtime
     let play
@@ -38,9 +38,7 @@ function ContentCard({ data, lang, selectedMovie, setSelectedMovie, setSimilarMo
     let imagePath
     let seasonText
 
-    if (contentType === 'movie') {
-        runtime = dataDetails.runtime
-    } 
+    if (contentType === 'movie') runtime = dataDetails.runtime 
 
     const hours = Math.floor(runtime2 ? runtime2/60 : runtime/60)
     const minutes = (runtime2 ? runtime2 : runtime) % 60
@@ -97,7 +95,8 @@ function ContentCard({ data, lang, selectedMovie, setSelectedMovie, setSimilarMo
             const details = await getMovieDetails(lang, id)
             setMovieDetails(details)
         } else if(Object.keys(dataDetails).length === 0 && contentType === 'tv') {
-            setMovieDetails(data)
+            const details = await getShowDetails(lang, id, 1)
+            setMovieDetails(details)
         }
     }
 
@@ -106,17 +105,14 @@ function ContentCard({ data, lang, selectedMovie, setSelectedMovie, setSimilarMo
             const results = await getSimilarMovies(lang, id)
             setSimilarMovies(results)
         } else {
-            const result = await getSimilarShows(lang, id)
-            const results = result.data.results
+            const results = await getSimilarShows(lang, id)
             setSimilarMovies(results)
         }
-
     }
 
     function handleMovieCardHover() {
         loadDetails();
         loadSimilar();
- 
     }
 
     function fadeIn(num) {
@@ -138,7 +134,7 @@ function ContentCard({ data, lang, selectedMovie, setSelectedMovie, setSimilarMo
     const randInt = Math.floor(Math.random()*100000)
 
     if (contentType === 'tv') { 
-        if(data.seasons.length > 1) {
+        if(seasons) {
             seasonText = `${data.seasons.length} Seasons`
         }
         else {
