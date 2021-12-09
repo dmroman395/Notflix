@@ -184,6 +184,7 @@ export async function getPopular(language) {
 
 export async function getMovieDetails(language, id) {
     let lang
+    let genres = []
 
     if (language === 'English') {
         lang = 'en'
@@ -195,8 +196,13 @@ export async function getMovieDetails(language, id) {
         `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}`
     )
 
+    for (let genre of movieDetails.data.genres) {
+        genres.push(genre.id)
+    }
+
     const modObj = {
         ...movieDetails.data,
+        genre_ids: genres,
         contentType: 'movie'
     }
 

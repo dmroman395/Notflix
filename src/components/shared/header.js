@@ -42,10 +42,10 @@ const debounce = (fn) => {
   // Update scroll position for first time
   storeScroll();
 
-function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExploreEmpty, setIsNewPopular, isSearch, setIsSearch, setContentType}) {
+function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExploreEmpty, setIsNewPopular, isSearch, setIsSearch, }) {
 
     const { userSignOut } = useAuth()
-    const { getMovies } = require ('../../controllers/moviesController')
+    const { getRandomMovies } = require ('../../controllers/moviesController')
     const { search } = require('../../controllers/moviesController')
     const { getPopularTV, getShowDetails, getTVShows } = require('../../controllers/tvShowsController')
 
@@ -54,18 +54,15 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
     }
 
     async function handleMovies() {
-        setContentType('movie')
-        const data = await getMovies(lang,'Movies', 1)
-        const movies = data.data.results
+        const data = await getRandomMovies(lang, 1)
         setIsExploreEmpty(false)
         setIsNewPopular(false)
         setSelectedGenre('Movies')
-        setExploreMovies(movies)
+        setExploreMovies(data)
         window.scroll(0,0)
     }
 
     function handleMyMovies() {
-        setContentType('movie')
         if (watchlist === undefined) {
             setIsExploreEmpty(false)
             setSelectedGenre('My List')
@@ -80,7 +77,6 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
     }
 
     function clearExploreMovies() {
-        setContentType('movie')
         const reset = []
         setIsExploreEmpty(true)
         setIsNewPopular(false)
@@ -89,14 +85,13 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
     }
 
     function handleNewPopular() {
-        setContentType('movie')
         setIsNewPopular(true)
         setIsExploreEmpty(false)
         window.scroll(0,0)
     }
 
     function handleCancel(e) {
-        setContentType('movie')
+        
         e.preventDefault()
         const search = document.querySelector('#search')
         const cancel = document.querySelector('.cancel > img')
@@ -110,7 +105,7 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
     }
 
     async function handleSearch(e) {
-        setContentType('movie')
+        
         e.stopPropagation()
         const val = e.target.value
         const cancel = document.querySelector('.cancel > img')
@@ -134,7 +129,6 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
     }
 
     async function handleTV() {
-        setContentType('tv')
         let results = []
         const popularTv = await getPopularTV(lang, 1)
 
@@ -143,9 +137,8 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
 
             const obj = {
                 ...data,
-                genre_ids: show.genre_ids
+                genre_ids: data.genre_ids
             }
-
             results.push(obj)
         }
         setExploreMovies(results)

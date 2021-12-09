@@ -4,6 +4,7 @@ import MovieCardIcon from './contentCardIcon'
 import logo from '../../images/logo-short.jpg'
 import plus from '../../images/plus.png'
 import check from '../../images/check.png'
+import { getMovieDetails } from '../../controllers/moviesController'
 
 
 function SimilarContentCard({data, lang, key, watchList, setWatchlist, setExploreMovies, exploreMovies }) {
@@ -11,6 +12,7 @@ function SimilarContentCard({data, lang, key, watchList, setWatchlist, setExplor
     const [details, setDetails] = useState({})
 
     const { getShowDetails } = require('../../controllers/tvShowsController')
+    const { getMovieDetails } = require('../../controllers/moviesController')
 
     const { backdrop_path, title, vote_average, overview, release_date, first_air_date, name, contentType, id } = data
 
@@ -60,6 +62,9 @@ function SimilarContentCard({data, lang, key, watchList, setWatchlist, setExplor
         if(contentType === 'tv') {
             const showDetails = await getShowDetails(lang, id, 1)
             setDetails(showDetails)
+        } else {
+            const movieDetails = await getMovieDetails(lang, id)
+            setDetails(movieDetails)
         }
     }
 

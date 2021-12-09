@@ -17,7 +17,11 @@ export async function getPopularTV(language, page) {
 export async function getShowDetails(lang,id,seasonNum) {
     let tvInfo = {}
 
+    let genres = []
+
     const details = await axios.get(`https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&append_to_response=season/${seasonNum}`)
+
+    for (let genre of details.data.genres) genres.push(genre.id)
 
     tvInfo = {
         contentType: 'tv',
@@ -26,7 +30,7 @@ export async function getShowDetails(lang,id,seasonNum) {
         vote_average: details.data.vote_average,
         id: details.data.id,
         title: details.data.name,
-        genre_ids: details.data.genres,
+        genre_ids: genres,
         release_date: details.data.first_air_date,
         seasons: details.data.seasons,
         [`season/${seasonNum}`] : details.data[`season/${seasonNum}`]
