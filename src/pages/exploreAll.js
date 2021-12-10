@@ -44,15 +44,15 @@ function ExploreAll({data, lang, setLang, selectedMovie, setSelectedMovie, simil
 
         let contentList = []
 
-        switch(contentType) {
-            case 'movie':
+        switch(selectedGenre) {
+            case 'Movies':
                 if (search.value) {
                     contentList = await getMovies(lang, selectedGenre, pageCount, 1, 1, search.value)
                 } else {
                     contentList = await getMovies(lang, selectedGenre, pageCount, 1)
                 }
                 break;
-            case 'tv':
+            case 'Popular TV Shows':
                 const popularTv = await getPopularTV(lang, pageCount)
 
                 for (let show of popularTv.data.results) {
@@ -73,7 +73,7 @@ function ExploreAll({data, lang, setLang, selectedMovie, setSelectedMovie, simil
         const newCount = pageCount + 1
         setPageCount(newCount)
         let newList = [...data]
-        for (let movie of (contentType === 'tv' ? contentList : contentList.data.results)) {
+        for (let movie of contentList) {
             newList.push(movie)
         }
         setExploreMovies(newList)        
