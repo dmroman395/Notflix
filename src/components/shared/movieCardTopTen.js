@@ -21,11 +21,9 @@ function MovieCardTopTen({ movie, getMovieDetails, lang, index, selectedMovie, s
     }
 
     async function loadDetails() {
-        if (Object.keys(movieDetails).length === 0) {
             const details = await getMovieDetails(lang, id)
-            setMovieDetails(details.data)
+            setMovieDetails(details)
             setHover(true)
-        }
     }
 
     async function handleHover(e) {

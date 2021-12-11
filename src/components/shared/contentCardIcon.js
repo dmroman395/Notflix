@@ -10,12 +10,15 @@ function ContentCardIcon({icon, text, func, id, selectedMovie,setSelectedMovie, 
 
     function handleMoreInfo() {
         if (Object.keys(selectedMovie).length === 0) {
-            const modMovie = {
-                ...data,
-                runtime
-            }
-            setSelectedMovie(modMovie)
+            
         }
+
+        const modMovie = {
+            ...data,
+            runtime
+        }
+        setSelectedMovie(modMovie)
+
         if (watchlist) {
             for (let item of watchlist) {
                 if (item.id == data.id) {

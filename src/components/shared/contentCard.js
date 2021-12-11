@@ -21,12 +21,12 @@ const {
 const { getSimilarShows, getShowDetails } = require('../../controllers/tvShowsController')
 
 function ContentCard({ data, lang, selectedMovie, setSelectedMovie, setSimilarMovies, watchlist, setWatchlist, type, runtime2, setExploreMovies, exploreMovies}) {
-    const [dataDetails, setMovieDetails] = useState({})
+    const [dataDetails, setMovieDetails] = useState({seasons: []})
     const [isInList, setIsInList] = useState(false)
     const [liked, setLiked] = useState(false)
     const [disliked, setDisliked] = useState(false)
 
-    const { backdrop_path, id, title, vote_average, genre_ids, contentType, seasons } = data
+    const { backdrop_path, id, title, vote_average, genre_ids, contentType, name } = data
     
     let runtime
     let play
@@ -91,10 +91,14 @@ function ContentCard({ data, lang, selectedMovie, setSelectedMovie, setSimilarMo
     }
 
     async function loadDetails() {
-        if (Object.keys(dataDetails).length === 0 && contentType === 'movie') {
+        if (contentType === 'movie') {
             const details = await getMovieDetails(lang, id)
-            setMovieDetails(details)
-        } else if(Object.keys(dataDetails).length === 0 && contentType === 'tv') {
+            const modObj ={
+                ...details,
+                seasons: []
+            }
+            setMovieDetails(modObj)
+        } else if(contentType === 'tv') {
             const details = await getShowDetails(lang, id, 1)
             setMovieDetails(details)
         }
@@ -131,16 +135,16 @@ function ContentCard({ data, lang, selectedMovie, setSelectedMovie, setSimilarMo
         fadeIn(randInt)
     },[watchlist])
 
-    const randInt = Math.floor(Math.random()*100000)
-
     if (contentType === 'tv') { 
-        if(seasons) {
-            seasonText = `${data.seasons.length} Seasons`
+        if(dataDetails.seasons.length > 1) {
+            seasonText = `${dataDetails.seasons.length} Seasons`
         }
         else {
             seasonText = `1 Season`
         }
     }
+
+    const randInt = Math.floor(Math.random()*100000)
 
     const bottomHalf = 
             <div className='bottom-half'>
@@ -153,7 +157,7 @@ function ContentCard({ data, lang, selectedMovie, setSelectedMovie, setSimilarMo
                     </div>
                     <div className='icons'>
                         <ContentCardIcon icon={downArrow} text={moreInfo} selectedMovie={selectedMovie}
-                        setSelectedMovie={setSelectedMovie} data={data} id={'moreInfo'} runtime={runtime2 ? runtime2 : runtime}/>
+                        setSelectedMovie={setSelectedMovie} data={dataDetails} id={'moreInfo'} runtime={runtime2 ? runtime2 : runtime}/>
                     </div>
                 </div>
                 <div className='match-row'>

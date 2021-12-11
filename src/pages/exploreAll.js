@@ -53,18 +53,7 @@ function ExploreAll({data, lang, setLang, selectedMovie, setSelectedMovie, simil
                 }
                 break;
             case 'Popular TV Shows':
-                const popularTv = await getPopularTV(lang, pageCount)
-
-                for (let show of popularTv.data.results) {
-                    const data = await getShowDetails(lang, show.id, 1)
-        
-                    const obj = {
-                        ...data,
-                        genre_ids: show.genre_ids
-                    }
-        
-                    contentList.push(obj)
-                }
+                contentList = await getPopularTV(lang, pageCount)
                 break;
             default:
                 break;

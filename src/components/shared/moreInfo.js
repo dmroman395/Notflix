@@ -8,7 +8,7 @@ import downArrow from '../../images/down-chevron.png'
 function MoreInfo({data, similarMovies, lang, setSelectedMovie, watchlist, setWatchlist, setExploreMovies, exploreMovies}) {
     const [listExpanded, setListExpanded] = useState(false)
     const [isInList, setIsInList] = useState(false)
-    const [season, setSeason] = useState(data.contentType == 'tv' ? data['season/1'].episodes : null)
+    const [season, setSeason] = useState(data.contentType == 'tv' ? data['season/1'].episodes: null)
 
     const { backdrop_path, id, title, vote_average, runtime, genres, overview, release_date, contentType } = data
 

@@ -129,19 +129,9 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
     }
 
     async function handleTV() {
-        let results = []
         const popularTv = await getPopularTV(lang, 1)
 
-        for (let show of popularTv.data.results) {
-            const data = await getShowDetails(lang, show.id ,1)
-
-            const obj = {
-                ...data,
-                genre_ids: data.genre_ids
-            }
-            results.push(obj)
-        }
-        setExploreMovies(results)
+        setExploreMovies(popularTv)
         setSelectedGenre('Popular TV Shows')
         setIsNewPopular(false)
         setIsExploreEmpty(false)

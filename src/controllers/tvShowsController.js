@@ -3,6 +3,8 @@ import axios from "axios";
 export async function getPopularTV(language, page) {
     let lang
 
+    let response = []
+
     if (language === 'English') {
         lang = 'en'
     } else {
@@ -11,7 +13,16 @@ export async function getPopularTV(language, page) {
 
     const popularList = await axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&page=${page}`)
 
-    return popularList
+    for(let show of popularList.data.results) {
+        const modObj = {
+            ...show,
+            contentType: 'tv',
+            title: show.name
+        }
+        response.push(modObj)
+    }
+
+    return response
 }
 
 export async function getShowDetails(lang,id,seasonNum) {

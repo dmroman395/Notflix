@@ -84,13 +84,12 @@ function MovieCardNotflix({ movie, getMovieDetails, getSimilarMovies, selectedMo
 
     async function loadDetails() {
             const details = await getMovieDetails(lang, id)
-            setMovieDetails(details.data)
+            setMovieDetails(details)
     }
 
     async function loadSimilar() {
             const data = await getSimilarMovies(lang, id)
-            const movies = data.data.results
-            setSimilarMovies(movies)
+            setSimilarMovies(data)
     }
 
     function handleHover() {

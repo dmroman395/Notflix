@@ -77,7 +77,6 @@ export default class Row extends Component {
                         exploreMovies={this.props.exploreMovies}
                         setExploreMovies={this.props.setExploreMovies}
                         type={this.props.type ? this.props.type : ''}
-                        contentType={'movie'}
                     />
                 )
             })
