@@ -2,17 +2,13 @@ import React, {useState} from 'react'
 import { useAuth } from '../../contexts/authContext'
 import triangle from '../../images/triangle.png'
 
-function ContentCardIcon({icon, text, func, id, selectedMovie,setSelectedMovie, data, runtime, setWatchlist, watchlist, setIsInList, liked, setLiked, disliked, setDisliked, setExploreMovies, exploreMovies }) {
+function ContentCardIcon({icon, text, func, id, selectedMovie, setSelectedMovie, data, runtime, setWatchlist, watchlist, setIsInList, liked, setLiked, disliked, setDisliked, setExploreMovies, exploreMovies }) {
     const [iconHover, setIconHover] = useState(false)
     const { currentUser } = useAuth()
 
     const { handleWatchList } = require('../../controllers/userListController')
 
     function handleMoreInfo() {
-        if (Object.keys(selectedMovie).length === 0) {
-            
-        }
-
         const modMovie = {
             ...data,
             runtime

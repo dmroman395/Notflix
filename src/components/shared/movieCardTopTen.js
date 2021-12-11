@@ -4,8 +4,8 @@ import logo from '../../images/logo-short.jpg'
 import ContentCard from './contentCard'
 
 function MovieCardTopTen({ movie, getMovieDetails, lang, index, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, watchlist, setWatchlist }) {
-    const [hover, setHover] = useState(false)
     const [movieDetails, setMovieDetails] = useState({})
+    const [hover, setHover] = useState(false)
 
     const { poster_path, id } = movie
     const { runtime } = movieDetails
@@ -30,7 +30,6 @@ function MovieCardTopTen({ movie, getMovieDetails, lang, index, selectedMovie, s
         switch(e.type) {
             case 'mouseenter':
                 await loadDetails()
-                setHover(true)
                 break;
             case 'mouseleave':
                 setHover(false)
@@ -52,7 +51,7 @@ function MovieCardTopTen({ movie, getMovieDetails, lang, index, selectedMovie, s
         <div className="movie-ten-container" onMouseEnter={e => handleHover(e)} onMouseLeave={e => handleHover(e)}> 
         {hover ? <ContentCard 
                         lang={lang}
-                        movie={movie}
+                        data={movieDetails}
                         getMovieDetails={getMovieDetails}
                         selectedMovie={selectedMovie}
                         setSelectedMovie={setSelectedMovie}
@@ -60,7 +59,7 @@ function MovieCardTopTen({ movie, getMovieDetails, lang, index, selectedMovie, s
                         setSimilarMovies={setSimilarMovies}
                         watchlist={watchlist} 
                         setWatchlist={setWatchlist}
-                        type={'v2'}
+                        type={''}
                         runtime2={runtime}
                         /> 
                 : 

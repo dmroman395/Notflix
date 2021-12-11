@@ -118,7 +118,7 @@ function MovieCardNotflix({ movie, getMovieDetails, getSimilarMovies, selectedMo
             </div>
             <div className='icons'>
                 <MovieCardIcon icon={downArrow} text={moreInfo} selectedMovie={selectedMovie}
-                setSelectedMovie={setSelectedMovie} movie={movie} id={'moreInfo'} runtime={runtime}/>
+                setSelectedMovie={setSelectedMovie} data={movieDetails} id={'moreInfo'} runtime={runtime}/>
             </div>
         </div>
         <div className='match-row'>

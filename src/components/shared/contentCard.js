@@ -26,7 +26,7 @@ function ContentCard({ data, lang, selectedMovie, setSelectedMovie, setSimilarMo
     const [liked, setLiked] = useState(false)
     const [disliked, setDisliked] = useState(false)
 
-    const { backdrop_path, id, title, vote_average, genre_ids, contentType, name } = data
+    const { backdrop_path, id, title, vote_average, genre_ids, contentType } = data
     
     let runtime
     let play
