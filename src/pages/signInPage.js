@@ -8,9 +8,9 @@ import SignUpForm from '../components/signIn/signUpForm'
 
 import '../css/signIn/signIn.css'
 
-function SignInPage({ lang, setLang }) {
+function SignInPage({ lang, setLang, needsSignIn }) {
     const [formData, setFormData] = useState({})
-    const [newUser, setNewUser] = useState(false)
+    const [newUser, setNewUser] = useState(needsSignIn.email ? true : false)
     const [loading, setLoading] = useState(false)
 
     let signin
@@ -38,6 +38,7 @@ function SignInPage({ lang, setLang }) {
                         setNewUser={setNewUser}
                         loading={loading}
                         setLoading={setLoading}
+                        needsSignIn={needsSignIn}
                     />
                 ) : (
                     <SignInForm

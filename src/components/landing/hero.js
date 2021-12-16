@@ -45,7 +45,7 @@ function Hero({ lang, setLang, sendToSignIn }) {
                     <h1>{h1}</h1>
                     <h3>{h3}</h3>
                     <div className="signup">
-                        <EmailSignUp lang={lang} />
+                        <EmailSignUp lang={lang} sendToSignIn={sendToSignIn}/>
                     </div>
                 </div>
             </div>

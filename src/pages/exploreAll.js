@@ -45,17 +45,14 @@ function ExploreAll({data, lang, setLang, selectedMovie, setSelectedMovie, simil
         let contentList = []
 
         switch(selectedGenre) {
-            case 'Movies':
-                if (search.value) {
-                    contentList = await getMovies(lang, selectedGenre, pageCount, 1, 1, search.value)
-                } else {
-                    contentList = await getMovies(lang, selectedGenre, pageCount, 1)
-                }
+            case 'Search results':
+                contentList = await getMovies(lang, selectedGenre, pageCount, 1, 1, search.value)
                 break;
             case 'Popular TV Shows':
                 contentList = await getPopularTV(lang, pageCount)
                 break;
             default:
+                contentList = await getMovies(lang, selectedGenre, pageCount, 1)
                 break;
         }
 

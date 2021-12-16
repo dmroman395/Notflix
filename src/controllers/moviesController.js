@@ -347,7 +347,7 @@ export async function search(language, query, page) {
     
     const searchResults = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=${lang}&query=${finalQuery}&page=${page}&include_adult=false`)
 
-    for(let movie of searchResults) {
+    for(let movie of searchResults.data.results) {
         const modObj = {
             ...movie,
             contentType: 'movie'

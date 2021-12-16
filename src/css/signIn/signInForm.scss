@@ -21,6 +21,14 @@
             padding: 1rem;
             border-radius: .25rem;
         }
+        .success {
+            color: #3c763d;
+            background-color: #dff0d8;
+            border-color: #d6e9c6;
+            padding: 1rem;
+            border-radius: .25rem;
+            font-size: .85rem;
+        }
         input {
             background-color: #333;
             padding: 20px 10px;
@@ -51,6 +59,9 @@
         }
         button:hover {
             cursor: pointer;
+        }
+        .reset {
+            margin-top: 5px;
         }
         .bottom-form {
             color: #b3b3b3;

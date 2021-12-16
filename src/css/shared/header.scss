@@ -52,6 +52,12 @@ html:not([data-scroll='0']) {
         font-size: 14px;
         color: #e5e5e5e5;
         gap: 15px;
+        button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            color: #e5e5e5e5;
+        }
         .search-bar {
             display: flex;
             align-items: center;
@@ -66,11 +72,6 @@ html:not([data-scroll='0']) {
                     width: auto;
                     opacity: 0;
                 }
-            }
-            button {
-                background-color: transparent;
-                border: none;
-                cursor: pointer;
             }
             input {
                 transition: width 200ms ease-out;

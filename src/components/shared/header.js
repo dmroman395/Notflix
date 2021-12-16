@@ -110,12 +110,12 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
         const val = e.target.value
         const cancel = document.querySelector('.cancel > img')
 
-        if (val.length) {
+        if (val) {
             cancel.style.opacity = '1'
             const data = await search(lang, val, 1)
 
             setIsNewPopular(false)
-            setExploreMovies(data.data.results)
+            setExploreMovies(data)
             setIsExploreEmpty(false)
             setIsSearch(true)
             setSelectedGenre(`Search results`)
@@ -167,8 +167,7 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
                     <button className='cancel' onClick={e => handleCancel(e)} ><img src={cancel} ></img></button>
                 </form>
                 <a href="">DVD</a>
-                <p>BELL ICON HERE</p>
-                <button onClick={signOut}>Sign Out</button>
+                <button onClick={signOut} className='signOut'>Sign Out</button>
             </div>
         </div>
     )

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import arrow from '../../images/right-chevron.png'
 import '../../css/landing/emailSignUp.css'
 
-function EmailSignUp({ lang }) {
+function EmailSignUp({ lang, sendToSignIn }) {
     const [email, setEmail] = useState('')
     const [emailError, setEmailError] = useState('')
 
@@ -42,6 +42,7 @@ function EmailSignUp({ lang }) {
         if (isValid) {
             setEmailError('')
             setEmail('')
+            sendToSignIn(email)
         }
     }
 

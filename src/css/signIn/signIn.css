@@ -1,5 +1,6 @@
 .signIn {
   height: 100%;
+  min-height: 100vh;
   background-image: cover;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -17,6 +18,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  min-height: 100vh;
   height: 100%;
   width: 100%;
 }

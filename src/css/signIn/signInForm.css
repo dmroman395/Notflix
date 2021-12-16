@@ -68,6 +68,10 @@
   cursor: pointer;
 }
 
+.form-container .signIn-form .reset {
+  margin-top: 1px;
+}
+
 .form-container .signIn-form .bottom-form {
   color: #b3b3b3;
   display: -webkit-box;

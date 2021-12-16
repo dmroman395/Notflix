@@ -11,13 +11,12 @@ function SignInForm({
     setFormData,
     setNewUser,
     loading,
-    setWatchList
+    setWatchList,
 }) {
     const [errorMessage, setErrorMessage] = useState('')
+    const [needsReset, setNeedsReset] = useState(false)
 
-    const { userSignIn } = useAuth()
-
-    const {getUserWatchList} = require('../../firebase')
+    const { userSignIn, resetPassword } = useAuth()
 
     let signin
     let email
@@ -105,23 +104,33 @@ function SignInForm({
                     break
                 case 'auth/wrong-password':
                     setErrorMessage('Password is wrong. Please try again.')
+                    setNeedsReset(true)
                     break
-                // case 'auth/email-already-exists':
-                //     alert('An account with this email address already exists. Please sign in instead.')
-                //     break
+                case 'auth/email-already-exists':
+                    setErrorMessage('An account with this email address already exists. Please use a different email, or sign in.')
+                    break
                 default:
                     break
             }
         }
     }
 
-    const errMsg = <div className='error'>
+    async function reset(e) {
+        e.preventDefault()
+        const message = document.getElementById('message')
+        message.classList.remove('error')
+        message.classList.add('success')
+        await resetPassword(auth, formData.email)
+        setErrorMessage('An email to reset your password has been sent. Please check your inbox.')
+    }
+
+    const errMsg = <div className='error' id='message'>
         <p>{errorMessage}</p>
     </div>
 
     return (
         <div className="form-container">
-            <form className="signIn-form" onSubmit={signIn}>
+            <form className="signIn-form" >
                 <h1>{signin}</h1>
                 {errorMessage.length > 0 ? errMsg : null}
                 <input
@@ -138,7 +147,8 @@ function SignInForm({
                         setFormData({ ...formData, password: e.target.value })
                     }}
                 />
-                <button disabled={loading}>{signin}</button>
+                <button disabled={loading} onClick={e => signIn(e)}>{signin}</button>
+                {needsReset ? <button className='reset' onClick={e => reset(e)}>Reset your password</button> : null}
                 <div className="bottom-form">
                     <div className="check-rem">
                         <input type="checkbox" defaultChecked="true" />

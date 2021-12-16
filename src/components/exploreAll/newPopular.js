@@ -10,14 +10,12 @@ function NewPopular({lang, nowPlayingMovies, getMovieDetails, setExploreMovies, 
     const {getMovies} = require('../../controllers/moviesController')
 
     async function loadUpcoming() {
-        const upcoming = await getMovies(lang, 'Coming This Week', 1)
-        const data = upcoming.data.results
+        const data = await getMovies(lang, 'Coming This Week', 1)
         setUpcomingMovies(data)
     }
 
     async function loadNewPopular() {
-        const newPop = await getMovies(lang, 'New on Notflix', 1)
-        const data = newPop.data.results
+        const data = await getMovies(lang, 'New on Notflix', 1)
         setNewMovies(data)
     }
 

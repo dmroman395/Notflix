@@ -38,7 +38,7 @@ function LandingPage({ lang, setLang, sendToSignIn} ) {
                     <Accordian data={accordianDataEs} />
                 )}
                 <div className="signup">
-                    <EmailSignUp lang={lang} />
+                    <EmailSignUp lang={lang} sendToSignIn={sendToSignIn}/>
                 </div>
             </div>
             {lang === 'English' ? (

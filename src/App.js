@@ -9,7 +9,10 @@ import './css/app/App.css'
 
 function App() {
     const [lang, setLang] = useState('English')
-    const [needsSignIn, setNeedsSignIn] = useState(true)
+    const [needsSignIn, setNeedsSignIn] = useState({
+        status: true,
+        email:''
+    })
     const [selectedMovie, setSelectedMovie] = useState({})
     const [similarMovies, setSimilarMovies] = useState([])
     const [exploreMovies, setExploreMovies] = useState([])
@@ -38,8 +41,21 @@ function App() {
 
     const { currentUser } = useAuth()
 
-    const sendToSignIn = () => {
-        setNeedsSignIn(false)
+    const sendToSignIn = (email) => {
+        let modObj
+
+        if (email) {
+            modObj = {
+                status: false,
+                email
+            }
+        } else {
+            modObj = {
+                status: false,
+                email: ''
+            }
+        }
+        setNeedsSignIn(modObj)
     }
 
     const mainApp =
@@ -62,7 +78,7 @@ function App() {
 
     const landing = 
         <React.Fragment>
-            { needsSignIn ? <LandingPage lang={lang} setLang={setLang} sendToSignIn={sendToSignIn}/> : <SignInPage lang={lang} setLang={setLang}/>
+            { needsSignIn.status ? <LandingPage lang={lang} setLang={setLang} sendToSignIn={sendToSignIn}/> : <SignInPage lang={lang} setLang={setLang} needsSignIn={needsSignIn}/>
             }
         </React.Fragment>
 

@@ -10,7 +10,8 @@ function SignUpForm({
     formData,
     setFormData,
     setNewUser,
-    loading
+    loading,
+    needsSignIn
 }) {
 
     const [errorMessage, setErrorMessage] = useState('')
@@ -25,7 +26,7 @@ function SignUpForm({
     const createUser = async (e) => {
         e.preventDefault()
         try {
-            await newUserSignUp(auth, formData.email, formData.password)
+            await newUserSignUp(auth, formData.email, formData.password, formData.profileName)
         } catch (err) {
             const code = err.code
             switch (code) {
@@ -71,6 +72,7 @@ function SignUpForm({
                 <input
                     type="email"
                     placeholder={email}
+                    defaultValue={needsSignIn.email}
                     onChange={(e) => {
                         setFormData({ ...formData, email: e.target.value })
                     }}
@@ -82,6 +84,13 @@ function SignUpForm({
                         setFormData({ ...formData, password: e.target.value })
                     }}
                 />
+                {/* <input
+                    type="string"
+                    placeholder='Netflix Profile Name'
+                    onChange={(e) => {
+                        setFormData({ ...formData, profileName: e.target.value })
+                    }}
+                /> */}
                 <button disabled={loading}>{signUp}</button>
                 <p>
                     {account1}

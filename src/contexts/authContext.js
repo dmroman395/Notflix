@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { auth } from '../firebase'
-import {  createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import {  createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendPasswordResetEmail } from "firebase/auth";
+const { createUserProfile } = require('../controllers/userInfoController')
 
 const AuthContext = React.createContext()
 
@@ -12,13 +13,16 @@ export function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState({})
     const [loading, setLoading] = useState(true)
 
-    function newUserSignUp(authInst, email, password) {
+    async function newUserSignUp(authInst, email, password, profileName) {
         try {
-            return createUserWithEmailAndPassword(authInst, email, password)
+            const account = await createUserWithEmailAndPassword(authInst, email, password)
+            await createUserProfile(account.user.uid, profileName)
+            return account
         } catch (e) {
             console.error(e)
         }
     }
+
     function userSignIn(authInst, email, password) {
         try {
             return signInWithEmailAndPassword(authInst, email, password)
@@ -30,6 +34,13 @@ export function AuthProvider({ children }) {
         try {
             return signOut(auth)
         } catch (e) {
+            console.error(e)
+        }
+    }
+    function resetPassword(authInst, email) {
+        try{
+            return sendPasswordResetEmail(authInst, email)
+        } catch(e) {
             console.error(e)
         }
     }
@@ -46,7 +57,8 @@ export function AuthProvider({ children }) {
         currentUser,
         newUserSignUp,
         userSignIn,
-        userSignOut
+        userSignOut,
+        resetPassword
     }
 
     return (
