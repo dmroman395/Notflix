@@ -277,10 +277,7 @@ export async function getDiscover(page) {
 
 export async function search(query, page) {
     
-
     let response = []
-
-    
 
     const finalQuery = query.replace(' ','%20')
     

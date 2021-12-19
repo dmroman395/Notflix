@@ -42,7 +42,7 @@ const debounce = (fn) => {
   // Update scroll position for first time
   storeScroll();
 
-function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExploreEmpty, setIsNewPopular, isSearch, setIsSearch, }) {
+function Header({setExploreMovies, setSelectedGenre, watchlist, setIsExploreEmpty, setIsNewPopular, setIsSearch, }) {
 
     const { userSignOut } = useAuth()
     const { getRandomMovies } = require ('../../controllers/moviesController')
@@ -54,7 +54,7 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
     }
 
     async function handleMovies() {
-        const data = await getRandomMovies(lang, 1)
+        const data = await getRandomMovies(1)
         setIsExploreEmpty(false)
         setIsNewPopular(false)
         setSelectedGenre('Movies')
@@ -112,8 +112,7 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
 
         if (val) {
             cancel.style.opacity = '1'
-            const data = await search(lang, val, 1)
-
+            const data = await search(val, 1)
             setIsNewPopular(false)
             setExploreMovies(data)
             setIsExploreEmpty(false)
@@ -129,7 +128,7 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
     }
 
     async function handleTV() {
-        const popularTv = await getPopularTV(lang, 1)
+        const popularTv = await getPopularTV(1)
 
         setExploreMovies(popularTv)
         setSelectedGenre('Popular TV Shows')
