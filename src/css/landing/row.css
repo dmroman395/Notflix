@@ -49,7 +49,7 @@
           align-items: flex-end;
 }
 
-.row .container .overlayContainer .overlay {
+.row .container .overlayContainer .landingOverlay {
   position: relative;
   bottom: 25px;
   left: 100px;
@@ -69,20 +69,20 @@
   padding: 10px;
 }
 
-.row .container .overlayContainer .overlay img {
+.row .container .overlayContainer .landingOverlay img {
   max-width: 57px;
 }
 
-.row .container .overlayContainer .overlay .overlayText {
+.row .container .overlayContainer .landingOverlay .overlayText {
   margin-right: 30px;
 }
 
-.row .container .overlayContainer .overlay .overlayText .white {
+.row .container .overlayContainer .landingOverlay .overlayText .white {
   font-size: 16px;
   font-weight: bold;
 }
 
-.row .container .overlayContainer .overlay .overlayText .blue {
+.row .container .overlayContainer .landingOverlay .overlayText .blue {
   color: #0071eb;
   font-size: 14px;
 }

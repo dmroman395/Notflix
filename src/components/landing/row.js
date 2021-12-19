@@ -72,7 +72,7 @@ function Row({ rowInfo}) {
     if (hasOverlay) {
         overlay = (
             <div className="overlayContainer">
-                <div className="overlay">
+                <div className="landingOverlay">
                     <img src={graphic2}></img>
                     <div className="overlayText">
                         <p className="white">Stranger Things</p>
