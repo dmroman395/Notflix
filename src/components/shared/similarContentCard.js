@@ -92,7 +92,7 @@ function SimilarContentCard({data, key, watchList, setWatchlist, setExploreMovie
                         </div>
                         {isInList ? <MovieCardIcon icon={check} iconFilled={check} text={remove} id={'remove'} data={data} setIsInList={setIsInList}  setWatchlist={setWatchlist} watchList={watchList} /> : <MovieCardIcon icon={plus} iconFilled={check} text={add} id={'add'} data={details} setIsInList={setIsInList}  setWatchlist={setWatchlist} watchList={watchList}/> }
                     </div>
-                    <h6 className='info-bottom'>{shortOverview}</h6>
+                    <h6 className='info-bottom'>{overview ? shortOverview : 'There is no information for this yet...'}</h6>
                 </div>
             </div>
     )

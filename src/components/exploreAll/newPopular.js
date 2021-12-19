@@ -5,9 +5,10 @@ import MoreInfo from "../shared/moreInfo";
 
 function NewPopular({nowPlayingMovies, getMovieDetails, setExploreMovies, setSelectedGenre, watchlist, setWatchlist, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, setIsExploreEmpty, isExploreEmpty, setIsNewPopular}) {
     const [upcomingMovies, setUpcomingMovies] = useState([])
-    const [newMovies, setNewMovies] = useState([])
+    const [newShows, setNewShows] = useState([])
 
     const {getMovies} = require('../../controllers/moviesController')
+    const {getTVToday} = require('../../controllers/tvShowsController')
 
     async function loadUpcoming() {
         const data = await getMovies('Coming This Week', 1)
@@ -15,8 +16,8 @@ function NewPopular({nowPlayingMovies, getMovieDetails, setExploreMovies, setSel
     }
 
     async function loadNewPopular() {
-        const data = await getMovies('New on Notflix', 1)
-        setNewMovies(data)
+        const data = await getTVToday(1)
+        setNewShows(data)
     }
 
     useEffect(() => {
@@ -43,7 +44,7 @@ function NewPopular({nowPlayingMovies, getMovieDetails, setExploreMovies, setSel
                     setIsNewPopular={setIsNewPopular}
                 />
                 <Row
-                    arr={newMovies}
+                    arr={newShows}
                     getMovieDetails={getMovieDetails}
                     headline={'New on Notflix'}
                     selectedMovie={selectedMovie}

@@ -111,11 +111,11 @@ function MoreInfo({data, similarMovies, setSelectedMovie, watchlist, setWatchlis
                                 {similarMovieList}
                             </div>
                         </div>
-                        <div className='expand-container'>
+                        {/* <div className='expand-container'>
                             <div className='expand' onClick={handleList}>
                                 <img src={downArrow} id='expandArrow'></img>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

@@ -174,13 +174,14 @@
                 font-weight: 500;
             }
             .similarMovies {
+                margin-bottom: 50px;
                 h1 {
                     font-size: 1.55em;
                     margin-bottom: 20px;
                 }
                 .similarMovies-grid {
                     overflow: visible;
-                    max-height: 1000px;
+                    // max-height: 1000px;
                     display: grid;
                     grid-template-columns: 1fr 1fr 1fr;
                     gap: 15px;

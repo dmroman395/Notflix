@@ -291,6 +291,10 @@
   font-weight: 500;
 }
 
+.overlay .moreInfo-container .moreInfo-info .similarMovies {
+  margin-bottom: 50px;
+}
+
 .overlay .moreInfo-container .moreInfo-info .similarMovies h1 {
   font-size: 1.55em;
   margin-bottom: 20px;
@@ -298,7 +302,6 @@
 
 .overlay .moreInfo-container .moreInfo-info .similarMovies .similarMovies-grid {
   overflow: visible;
-  max-height: 1000px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
