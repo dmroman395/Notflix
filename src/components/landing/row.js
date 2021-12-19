@@ -53,7 +53,7 @@ function Row({ rowInfo}) {
         vidContainer = (
             <div className="video1">
                 <div className="vidOverlay">
-                    <video autoplay="" loop>
+                    <video autoPlay loop>
                         <source src={video} type="video/mp4" />
                     </video>
                 </div>
@@ -62,7 +62,7 @@ function Row({ rowInfo}) {
     } else if (videoType === 2) {
         vidContainer = (
             <div className="video2">
-                <video autoplay="" loop>
+                <video autoPlay loop>
                     <source src={video} type="video/mp4" />
                 </video>
             </div>
