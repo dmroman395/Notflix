@@ -1,10 +1,19 @@
 import axios from "axios";
+import { getFunctions, httpsCallable } from "firebase/functions";
+
+let key
+
+const functions = getFunctions();
+const getApiKey = httpsCallable(functions, 'getTmdbKey');
+
+getApiKey().then(res => key = res.data.tmdb.key)
+
 
 export async function getPopularTV(page) {
     
     let response = []
 
-    const popularList = await axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en&page=${page}`)
+    const popularList = await axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=${key}&language=en&page=${page}`)
 
     for(let show of popularList.data.results) {
         const modObj = {
@@ -23,7 +32,7 @@ export async function getShowDetails(id, seasonNum) {
 
     let genres = []
 
-    const details = await axios.get(`https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en&append_to_response=season/${seasonNum}`)
+    const details = await axios.get(`https://api.themoviedb.org/3/tv/${id}?api_key=${key}&language=en&append_to_response=season/${seasonNum}`)
 
     for (let genre of details.data.genres) genres.push(genre.id)
 
@@ -45,7 +54,7 @@ export async function getShowDetails(id, seasonNum) {
 
 export async function getSeasonTV(id, seasonNum) {
 
-    const season = await axios.get(`https://api.themoviedb.org/3/tv/${id}/season/${seasonNum}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en`)
+    const season = await axios.get(`https://api.themoviedb.org/3/tv/${id}/season/${seasonNum}?api_key=${key}&language=en`)
 
     return season
 }
@@ -55,7 +64,7 @@ export async function getSimilarShows(id) {
     let response = []
 
     const similarShows = await axios.get(
-        `https://api.themoviedb.org/3/tv/${id}/similar?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en`
+        `https://api.themoviedb.org/3/tv/${id}/similar?api_key=${key}&language=en`
     )
     for(let show of similarShows.data.results) {
         const modObj = {
@@ -73,7 +82,7 @@ export async function getTVToday(page) {
     let response = []
 
     const todayShows = await axios.get(
-        `https://api.themoviedb.org/3/tv/airing_today?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US&page=${page}`
+        `https://api.themoviedb.org/3/tv/airing_today?api_key=${key}&language=en-US&page=${page}`
     )
     for(let show of todayShows.data.results) {
         const modObj = {
@@ -92,7 +101,7 @@ export async function getTVGenres() {
    
 
     const genreList = await axios.get(
-        `https://api.themoviedb.org/3/genre/tv/list?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en`
+        `https://api.themoviedb.org/3/genre/tv/list?api_key=${key}&language=en`
     )
     return genreList
 }

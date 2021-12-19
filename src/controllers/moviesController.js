@@ -1,11 +1,20 @@
 import axios from 'axios'
+import { getFunctions, httpsCallable } from "firebase/functions";
+
+let key
+
+const functions = getFunctions();
+const getApiKey = httpsCallable(functions, 'getTmdbKey');
+
+getApiKey().then(res => key = res.data.tmdb.key)
+
 
 export async function getTrending(page) {
     
     let response = []
 
     const trendingList = await axios.get(
-        `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en&page=${page}`
+        `https://api.themoviedb.org/3/trending/movie/day?api_key=${key}&language=en&page=${page}`
     )
     
     for(let movie of trendingList.data.results) {
@@ -27,7 +36,7 @@ export async function getAction(page) {
     
 
     const actionMoviesList = await axios.get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=28%2C12&with_watch_monetization_types=flatrate`
+        `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=28%2C12&with_watch_monetization_types=flatrate`
     )
     
     for(let movie of actionMoviesList.data.results) {
@@ -49,7 +58,7 @@ export async function getComedy(page) {
     
 
     const comedyMoviesList = await axios.get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=35&with_watch_monetization_types=flatrate`
+        `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=35&with_watch_monetization_types=flatrate`
     )
     
     for(let movie of comedyMoviesList.data.results) {
@@ -71,7 +80,7 @@ export async function getHorror(page) {
     
 
     const horrorMoviesList = await axios.get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=27&with_watch_monetization_types=flatrate`
+        `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=27&with_watch_monetization_types=flatrate`
     )
     
     for(let movie of horrorMoviesList.data.results) {
@@ -93,7 +102,7 @@ export async function getTopRated(page) {
     
 
     const topRatedMoviesList = await axios.get(
-        `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en&page=${page}`
+        `https://api.themoviedb.org/3/movie/top_rated?api_key=${key}&language=en&page=${page}`
     )
     
     for(let movie of topRatedMoviesList.data.results) {
@@ -115,7 +124,7 @@ export async function getNowPlaying(page) {
     
 
     const nowPlayingMoviesList = await axios.get(
-        `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en&page=${page}`
+        `https://api.themoviedb.org/3/movie/now_playing?api_key=${key}&language=en&page=${page}`
     )
     
     for(let movie of nowPlayingMoviesList.data.results) {
@@ -137,7 +146,7 @@ export async function getPopular(page) {
     
 
     const popularList = await axios.get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en&page=${page}`
+        `https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=en&page=${page}`
     )
 
     for(let movie of popularList.data.results) {
@@ -158,7 +167,7 @@ export async function getMovieDetails(id) {
     
 
     const movieDetails = await axios.get(
-        `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en`
+        `https://api.themoviedb.org/3/movie/${id}?api_key=${key}&language=en`
     )
 
     for (let genre of movieDetails.data.genres) {
@@ -182,7 +191,7 @@ export async function getSimilarMovies(id) {
     
 
     const similarMovies = await axios.get(
-        `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en`
+        `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${key}&language=en`
     )
 
     for(let movie of similarMovies.data.results) {
@@ -200,7 +209,7 @@ export async function getMovieGenres() {
     
 
     const genreList = await axios.get(
-        `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en`
+        `https://api.themoviedb.org/3/genre/movie/list?api_key=${key}&language=en`
     )
     return genreList
 }
@@ -213,7 +222,7 @@ export async function getRandomMovies(page) {
     
 
     const randomList = await axios.get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_watch_monetization_types=flatrate`
+        `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_watch_monetization_types=flatrate`
     )
 
     for(let movie of randomList.data.results) {
@@ -237,7 +246,7 @@ export async function getUpcoming(page) {
     
 
     const upcomingList = await axios.get(
-        `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en&page=${page}`
+        `https://api.themoviedb.org/3/movie/upcoming?api_key=${key}&language=en&page=${page}`
     )
 
     for(let movie of upcomingList.data.results) {
@@ -260,7 +269,7 @@ export async function getDiscover(page) {
     
 
     const discoverList = await axios.get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en}&sort_by=release_date.desc&include_adult=false&include_video=false&page=${page}`
+        `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en}&sort_by=release_date.desc&include_adult=false&include_video=false&page=${page}`
     )
 
     for(let movie of discoverList.data.results) {
@@ -281,7 +290,7 @@ export async function search(query, page) {
 
     const finalQuery = query.replace(' ','%20')
     
-    const searchResults = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en&query=${finalQuery}&page=${page}&include_adult=false`)
+    const searchResults = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${key}&language=en&query=${finalQuery}&page=${page}&include_adult=false`)
 
     for(let movie of searchResults.data.results) {
         const modObj = {
