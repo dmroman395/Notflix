@@ -6,8 +6,7 @@
     "scripts": {
         "serve": "webpack serve --mode development",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "webpack --mode production",
-        "start": "node buildScripts/server.js"
+        "build": "webpack --mode production"
     },
     "keywords": [],
     "author": "",
@@ -18,11 +17,9 @@
         "cheerio": "^1.0.0-rc.10",
         "firebase": "^9.1.2",
         "firebaseui": "^4.8.1",
-        "html-webpack-plugin": "^5.3.2",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
-        "react-slick": "^0.28.1",
-        "svg-url-loader": "^7.1.1"
+        "react-slick": "^0.28.1"
     },
     "devDependencies": {
         "@babel/core": "^7.15.8",
@@ -41,6 +38,8 @@
         "style-loader": "^2.0.0",
         "webpack": "^5.58.1",
         "webpack-cli": "^4.9.0",
-        "webpack-dev-server": "^3.11.2"
+        "webpack-dev-server": "^3.11.2",
+        "svg-url-loader": "^7.1.1",
+        "html-webpack-plugin": "^5.5.0"
     }
 }
