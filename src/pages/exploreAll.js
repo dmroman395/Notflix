@@ -8,19 +8,18 @@ import MoreInfo from '../components/shared/moreInfo'
 import NewPopular from "../components/exploreAll/newPopular"
 import '../css/exploreAll/exploreAll.css'
 
-function ExploreAll({data, lang, setLang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, selectedGenre, watchlist, setWatchlist, setExploreMovies, exploreMovies, getMovies, setSelectedGenre, setIsExploreEmpty, isExploreEmpty, setIsNewPopular, isNewPopular, nowPlayingMovies, isSearch, contentType}) {
+function ExploreAll({data, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, selectedGenre, watchlist, setWatchlist, setExploreMovies, exploreMovies, getMovies, setSelectedGenre, setIsExploreEmpty, isExploreEmpty, setIsNewPopular, isNewPopular, nowPlayingMovies, isSearch}) {
     const [pageCount, setPageCount] = useState(2)
 
     const {
         getMovieDetails
     } = require('../controllers/moviesController')
 
-    const { getPopularTV, getShowDetails, } = require('../controllers/tvShowsController')
+    const { getPopularTV } = require('../controllers/tvShowsController')
 
     const contentMap = data.map((content, i) => {
         return (
                 <ContentCard
-                    lang={lang}
                     data={content}
                     getMovieDetails={getMovieDetails}
                     key={i}
@@ -33,7 +32,6 @@ function ExploreAll({data, lang, setLang, selectedMovie, setSelectedMovie, simil
                     setExploreMovies={setExploreMovies}
                     exploreMovies={data}
                     type={'2'}
-                    contentType={contentType}
                 />
                 
         )
@@ -46,13 +44,13 @@ function ExploreAll({data, lang, setLang, selectedMovie, setSelectedMovie, simil
 
         switch(selectedGenre) {
             case 'Search results':
-                contentList = await getMovies(lang, selectedGenre, pageCount, 1, 1, search.value)
+                contentList = await getMovies(selectedGenre, pageCount, 1, 1, search.value)
                 break;
             case 'Popular TV Shows':
-                contentList = await getPopularTV(lang, pageCount)
+                contentList = await getPopularTV(pageCount)
                 break;
             default:
-                contentList = await getMovies(lang, selectedGenre, pageCount, 1)
+                contentList = await getMovies(selectedGenre, pageCount, 1)
                 break;
         }
 
@@ -90,7 +88,7 @@ function ExploreAll({data, lang, setLang, selectedMovie, setSelectedMovie, simil
     if (isNewPopular) {
         content =
             <div className='exploreContent2'>
-                <NewPopular lang={lang} nowPlayingMovies={nowPlayingMovies} getMovieDetails={getMovieDetails} setExploreMovies={setExploreMovies} setSelectedGenre={setSelectedGenre} watchlist={watchlist} setWatchlist={setWatchlist} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies} setIsExploreEmpty={setIsExploreEmpty} isExploreEmpty={isExploreEmpty} setIsNewPopular={setIsNewPopular} exploreMovies={exploreMovies}/>
+                <NewPopular nowPlayingMovies={nowPlayingMovies} getMovieDetails={getMovieDetails} setExploreMovies={setExploreMovies} setSelectedGenre={setSelectedGenre} watchlist={watchlist} setWatchlist={setWatchlist} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies} setIsExploreEmpty={setIsExploreEmpty} isExploreEmpty={isExploreEmpty} setIsNewPopular={setIsNewPopular} exploreMovies={exploreMovies}/>
             </div>
     } else {
         content = 
@@ -107,24 +105,14 @@ function ExploreAll({data, lang, setLang, selectedMovie, setSelectedMovie, simil
                 {Object.keys(selectedMovie).length === 0  ? 
                     null
                     : 
-                    <MoreInfo data={selectedMovie} similarMovies={similarMovies} lang={lang} setSelectedMovie={setSelectedMovie} watchlist={watchlist} setWatchlist={setWatchlist} setExploreMovies={setExploreMovies} exploreMovies={exploreMovies} contentType={contentType}/>
+                    <MoreInfo data={selectedMovie} similarMovies={similarMovies}  setSelectedMovie={setSelectedMovie} watchlist={watchlist} setWatchlist={setWatchlist} setExploreMovies={setExploreMovies} exploreMovies={exploreMovies} />
                 }
             {content}
-            {lang.lang === 'English' ? 
-                    <Footer
-                        lang={lang}
-                        setLang={setLang}
-                        data={footerDataEn}
-                        style={'footer3'}
-                    />
-                 : 
-                    <Footer
-                        lang={lang}
-                        setLang={setLang}
-                        data={footerDataEs}
-                        style={'footer3'}
-                    />
-            }
+                <Footer
+                    data={footerDataEn}
+                    style={'footer3'}
+                />
+
         </div>
     )
 }

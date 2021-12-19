@@ -2,15 +2,9 @@ import React, {useState} from 'react'
 import triangle from '../../images/triangle.png'
 import '../../css/shared/movieCardIconPlayBig.css'
 
-function ContentCardIconPlayBig({icon, title, lang}) {
+function ContentCardIconPlayBig({icon, title}) {
 
-    let playText
-
-    if (lang === 'English') {
-        playText = 'Play'
-    } else {
-        playText = 'Reproducir'
-    }
+    const playText = 'Play'
 
     function handleClick() {
         const titleSplit = title.split(' ')

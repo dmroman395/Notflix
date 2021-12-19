@@ -13,7 +13,7 @@ import thumbsDownFilled from '../../images/dislike-filled.png'
 import downArrow from '../../images/down-chevron.png'
 import playButton from '../../images/play-button.png'
 
-function MovieCardNotflix({ movie, getMovieDetails, getSimilarMovies, selectedMovie, setSelectedMovie, lang, watchlist, setWatchlist, setSimilarMovies }) {
+function MovieCardNotflix({ movie, getMovieDetails, getSimilarMovies, selectedMovie, setSelectedMovie, watchlist, setWatchlist, setSimilarMovies }) {
     const [movieDetails, setMovieDetails] = useState({})
     const [isInList, setIsInList] = useState(false)
     const [liked, setLiked] = useState(false)
@@ -28,30 +28,15 @@ function MovieCardNotflix({ movie, getMovieDetails, getSimilarMovies, selectedMo
 
     const match = vote_average * 10
 
-    let details
-    let play
-    let remove
-    let add
-    let like
-    let dislike
-    let moreInfo
+    const play = 'Play'
+    const remove = 'Remove from My List'
+    const add = 'Add to My List'
+    const like = 'I like this'
+    const dislike = 'Not for me'
+    const moreInfo = 'More info'
     let imagePath
 
-    if (lang === 'English') {
-        play = 'Play'
-        remove = 'Remove from My List'
-        add = 'Add to My List'
-        like = 'I like this'
-        dislike = 'Not for me'
-        moreInfo = 'More info'
-    } else {
-        play = 'Reproducir'
-        remove = 'Quitar de Mi Lista'
-        add = 'Agregar a Mi Lista'
-        like = 'Me gusta esto'
-        dislike = 'No es para mí'
-        moreInfo = 'Más información'
-    }
+
 
     if (poster_path === null) {
         imagePath = logo
@@ -83,12 +68,12 @@ function MovieCardNotflix({ movie, getMovieDetails, getSimilarMovies, selectedMo
     }
 
     async function loadDetails() {
-            const details = await getMovieDetails(lang, id)
+            const details = await getMovieDetails(id)
             setMovieDetails(details)
     }
 
     async function loadSimilar() {
-            const data = await getSimilarMovies(lang, id)
+            const data = await getSimilarMovies(id)
             setSimilarMovies(data)
     }
 
@@ -112,7 +97,7 @@ function MovieCardNotflix({ movie, getMovieDetails, getSimilarMovies, selectedMo
         <div className='icon-row'>
             <div className='icons'>
                 <MovieCardIcon icon={playButton} text={play} func={handlePlay}/>
-                {isInList ? <MovieCardIcon icon={check} text={remove} id={'remove'} movie={movie} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchlist={watchlist} /> :  <MovieCardIcon icon={plus} text={add} id={'add'} movie={movie} setIsInList={setIsInList} lang={lang} setWatchlist={setWatchlist} watchlist={watchlist}/>}
+                {isInList ? <MovieCardIcon icon={check} text={remove} id={'remove'} data={movie} setIsInList={setIsInList}  setWatchlist={setWatchlist} watchlist={watchlist} /> :  <MovieCardIcon icon={plus} text={add} id={'add'} data={movie} setIsInList={setIsInList}  setWatchlist={setWatchlist} watchlist={watchlist}/>}
                 {liked ? <MovieCardIcon icon={thumbsUpFilled} text={like} id={'like'} liked={liked} setLiked={setLiked}/> : <MovieCardIcon icon={thumbsUp} text={like} liked={liked} setLiked={setLiked} id={'like'}/> }
                 {disliked ? <MovieCardIcon icon={thumbsDownFilled} text={dislike} id={'dislike'} disliked={disliked} setDisliked={setDisliked}/> : <MovieCardIcon icon={thumbsDown} text={dislike} id={'dislike'} disliked={disliked} setDisliked={setDisliked}/> }
             </div>

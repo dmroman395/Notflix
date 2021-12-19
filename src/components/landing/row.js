@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../css/landing/row.css'
 
-function Row({ rowInfo, lang }) {
+function Row({ rowInfo}) {
     const {
         headline,
         desc,
@@ -17,13 +17,7 @@ function Row({ rowInfo, lang }) {
     let row
     let vidContainer
     let overlay
-    let download
-
-    if (lang === 'English') {
-        download = 'Downloading...'
-    } else {
-        download = 'Descargando...'
-    }
+    const download = 'Downloading...'
 
     if (videoType === 1) {
         vidContainer = (

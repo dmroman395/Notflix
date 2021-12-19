@@ -64,7 +64,6 @@ export default class Row extends Component {
 
                 return (
                     <ContentCard
-                        lang={this.props.lang}
                         data={movie}
                         getMovieDetails={this.props.getMovieDetails}
                         key={i}

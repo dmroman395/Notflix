@@ -2,18 +2,23 @@ import React, {useState} from 'react'
 import { useAuth } from '../../contexts/authContext'
 import triangle from '../../images/triangle.png'
 
-function ContentCardIcon({icon, text, func, id, selectedMovie, setSelectedMovie, data, runtime, setWatchlist, watchlist, setIsInList, liked, setLiked, disliked, setDisliked, setExploreMovies, exploreMovies }) {
+function ContentCardIcon({icon, text, func, id, setSelectedMovie, data, setWatchlist, watchlist, setIsInList, liked, setLiked, disliked, setDisliked, setExploreMovies, exploreMovies }) {
     const [iconHover, setIconHover] = useState(false)
     const { currentUser } = useAuth()
 
     const { handleWatchList } = require('../../controllers/userListController')
+    const { getMovieDetails } = require('../../controllers/moviesController')
+    const { getShowDetails } = require('../../controllers/tvShowsController')
 
-    function handleMoreInfo() {
-        const modMovie = {
-            ...data,
-            runtime
+    async function handleMoreInfo() {
+
+        if (data.contentType === 'movie') {
+            const details = await getMovieDetails(data.id)
+            setSelectedMovie(details)
+        } else {
+            const details = await getShowDetails(data.id, 1)
+            setSelectedMovie(details)
         }
-        setSelectedMovie(modMovie)
 
         if (watchlist) {
             for (let item of watchlist) {
@@ -90,9 +95,9 @@ function ContentCardIcon({icon, text, func, id, selectedMovie, setSelectedMovie,
         )
     } else {
         return(
-            <div onMouseEnter={e => handleIconHover(e)} onMouseLeave={e => handleIconHover(e)} onClick={e => handleIconClick(e)} className='icon-container'>
+            <div onMouseEnter={e => handleIconHover(e)} onMouseLeave={e => handleIconHover(e)}  className='icon-container' >
                 {iconHover ? bubble: null}
-                <div className='icon-circle'><img src={icon} onClick={handleIconClick} className='card-icon' id={id}/></div>
+                <div className='icon-circle' onClick={e => handleIconClick(e)} id={id}><img src={icon} className='card-icon' id={id}/></div>
             </div>
         )
     }

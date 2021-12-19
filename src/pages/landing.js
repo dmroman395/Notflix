@@ -13,49 +13,23 @@ import rowDataEn from '../data/en/row.json'
 import rowDataEs from '../data/es/row.json'
 import '../css/landing/faq.css'
 
-function LandingPage({ lang, setLang, sendToSignIn} ) {
-    let FAQ
-
-    if (lang === 'English') {
-        FAQ = 'Frequently Asked Questions'
-    } else {
-        FAQ = 'Preguntas Frecuentes'
-    }
+function LandingPage({ sendToSignIn} ) {
 
     return (
         <div className="landing">
-            <Hero lang={lang} setLang={setLang} sendToSignIn={sendToSignIn} />
-            {lang === 'English' ? (
-                <RowContainer rowsInfo={rowDataEn} lang={lang} />
-            ) : (
-                <RowContainer rowsInfo={rowDataEs} lang={lang} />
-            )}
+            <Hero  sendToSignIn={sendToSignIn} />
+            <RowContainer rowsInfo={rowDataEn}  />
             <div className="faq">
-                <h1>{FAQ}</h1>
-                {lang === 'English' ? (
+                <h1>Frequently Asked Questions</h1>
                     <Accordian data={accordianDataEn} />
-                ) : (
-                    <Accordian data={accordianDataEs} />
-                )}
                 <div className="signup">
-                    <EmailSignUp lang={lang} sendToSignIn={sendToSignIn}/>
+                    <EmailSignUp  sendToSignIn={sendToSignIn}/>
                 </div>
             </div>
-            {lang === 'English' ? (
                 <Footer
-                    lang={lang}
-                    setLang={setLang}
                     data={footerDataEn}
                     style={'footer1'}
                 />
-            ) : (
-                <Footer
-                    lang={lang}
-                    setLang={setLang}
-                    data={footerDataEs}
-                    style={'footer1'}
-                />
-            )}
         </div>
     )
 }

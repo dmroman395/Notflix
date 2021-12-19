@@ -46,7 +46,6 @@ export default class RowNotflix extends Component {
     const row = this.props.arr.map((movie, i) => {
                 return (
                     <MovieCardNotflix
-                        lang={this.props.lang}
                         movie={movie}
                         getMovieDetails={this.props.getMovieDetails}
                         getSimilarMovies={this.props.getSimilarMovies}

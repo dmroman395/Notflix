@@ -13,9 +13,8 @@ import MoreInfo from '../components/shared/moreInfo'
 
 const {getUserWatchList} = require('../controllers/userListController')
 
-function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, setExploreMovies, setSelectedGenre, watchlist, setWatchlist, getTrending, getAction, getComedy, getHorror, getNowPlaying, getTopRated, getPopular, getMovieDetails, getSimilarMovies, getMovieGenres, getTVGenres, getMovies, isExploreEmpty, setIsExploreEmpty, isNewPopular, setIsNewPopular, nowPlayingMovies, setNowPlayingMovies }) {
+function Main({ selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, setExploreMovies, setSelectedGenre, watchlist, setWatchlist, getTrending, getAction, getComedy, getHorror, getNowPlaying, getTopRated, getPopular, getMovieDetails, getSimilarMovies, getMovieGenres, getTVGenres, setIsExploreEmpty, setIsNewPopular, nowPlayingMovies, setNowPlayingMovies }) {
 
-    const [movieDetails, setMovieDetails] = useState({})
     const [actionMovies, setActionMovies] = useState([])
     const [comedyMovies, setComedyMovies] = useState([])
     const [horrorMovies, setHorrorMovies] = useState([])
@@ -28,7 +27,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
     async function loadTrending() {
         const trending = []
 
-        await getTrending(lang).then((movies) => {
+        await getTrending(1).then((movies) => {
             movies.forEach((movie) => {
                 trending.push(movie)
             })
@@ -42,7 +41,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
     async function loadPopular() {
         const popular = []
 
-        await getPopular(lang).then((movies) => {
+        await getPopular(1).then((movies) => {
             movies.forEach((movie) => {
                 popular.push(movie)
             })
@@ -53,7 +52,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
     async function loadAction() {
         const action = []
 
-        await getAction(lang).then((movies) => {
+        await getAction(1).then((movies) => {
             movies.forEach((movie) => {
                 action.push(movie)
             })
@@ -64,7 +63,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
     async function loadComedy() {
         const comedy = []
 
-        await getComedy(lang).then((movies) => {
+        await getComedy(1).then((movies) => {
             movies.forEach((movie) => {
                 comedy.push(movie)
             })
@@ -75,7 +74,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
     async function loadHorror() {
         const horror = []
 
-        await getHorror(lang).then((movies) => {
+        await getHorror(1).then((movies) => {
             movies.forEach((movie) => {
                 horror.push(movie)
             })
@@ -86,7 +85,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
     async function loadNowPlaying() {
         const nowPlaying = []
 
-        await getNowPlaying(lang).then((movies) => {
+        await getNowPlaying(1).then((movies) => {
             movies.forEach((movie) => {
                 nowPlaying.push(movie)
             })
@@ -97,7 +96,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
     async function loadTopRated() {
         const topRated = []
 
-        await getTopRated(lang).then((movies) => {
+        await getTopRated(1).then((movies) => {
             movies.forEach((movie) => {
                 topRated.push(movie)
             })
@@ -107,12 +106,12 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
 
     async function loadGenres() {
         if (window.localStorage.length === 0) {
-            await getMovieGenres(lang).then(data => {
+            await getMovieGenres().then(data => {
                 data.data.genres.forEach(genre => {
                     window.localStorage.setItem(genre.id, genre.name)
                 })
             })
-            await getTVGenres(lang).then(data => {
+            await getTVGenres().then(data => {
                 data.data.genres.forEach(genre => {
                     window.localStorage.setItem(genre.id, genre.name)
                 })
@@ -148,16 +147,15 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
             {Object.keys(selectedMovie).length === 0  ? 
                 null
                 : 
-                <MoreInfo data={selectedMovie} similarMovies={similarMovies} lang={lang} setSelectedMovie={setSelectedMovie} watchlist={watchlist} setWatchlist={setWatchlist}/>
+                <MoreInfo data={selectedMovie} similarMovies={similarMovies}  setSelectedMovie={setSelectedMovie} watchlist={watchlist} setWatchlist={setWatchlist}/>
             }
-            <Featured lang={lang} movie={featuredMovie} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies} watchlist={watchlist} setWatchlist={setWatchlist} setLang={setLang} nowPlayingMovies={nowPlayingMovies}/>
+            <Featured  movie={featuredMovie} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies} watchlist={watchlist} setWatchlist={setWatchlist} nowPlayingMovies={nowPlayingMovies}/>
             <div className='rows-container'>
                 {
                    (watchlist && watchlist.length != 0) ?
                     <Row
                     arr={watchlist}
-                    getMovieDetails={getMovieDetails}
-                    lang={lang}
+                    getMovieDetails={getMovieDetails}                    
                     headline={'My List'}
                     selectedMovie={selectedMovie}
                     setSelectedMovie={setSelectedMovie}
@@ -174,8 +172,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
                 }
                 <Row
                     arr={popularMovies}
-                    getMovieDetails={getMovieDetails}
-                    lang={lang}
+                    getMovieDetails={getMovieDetails}                    
                     headline={'Popular on Notflix'}
                     selectedMovie={selectedMovie}
                     setSelectedMovie={setSelectedMovie}
@@ -190,8 +187,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
                 />
                 <Row
                     arr={trendingMovies}
-                    getMovieDetails={getMovieDetails}
-                    lang={lang}
+                    getMovieDetails={getMovieDetails}                    
                     headline={'Trending Now'}
                     selectedMovie={selectedMovie}
                     setSelectedMovie={setSelectedMovie}
@@ -207,8 +203,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
                 
                 <Row
                     arr={actionMovies}
-                    getMovieDetails={getMovieDetails}
-                    lang={lang}
+                    getMovieDetails={getMovieDetails}                    
                     headline={'Action & Adventure'}
                     selectedMovie={selectedMovie}
                     setSelectedMovie={setSelectedMovie}
@@ -225,8 +220,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
                     arr={topRatedMovies}
                     getMovieDetails={getMovieDetails}
                     getSimilarMovies={getSimilarMovies}
-                    setSimilarMovies={setSimilarMovies}
-                    lang={lang}
+                    setSimilarMovies={setSimilarMovies}                    
                     headline={'Only on Notflix'}
                     setExploreMovies={setExploreMovies}
                     setSelectedGenre={setSelectedGenre}
@@ -239,8 +233,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
                 />
                 <RowTopTen
                     arr={nowPlayingMovies}
-                    getMovieDetails={getMovieDetails}
-                    lang={lang}
+                    getMovieDetails={getMovieDetails}                    
                     headline={'Top 10 in the U.S. Today'}
                     setExploreMovies={setExploreMovies}
                     setSelectedGenre={setSelectedGenre}
@@ -255,8 +248,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
                 />
                 <Row
                     arr={comedyMovies}
-                    getMovieDetails={getMovieDetails}
-                    lang={lang}
+                    getMovieDetails={getMovieDetails}                    
                     headline={'Comedy'}
                     selectedMovie={selectedMovie}
                     setSelectedMovie={setSelectedMovie}
@@ -271,8 +263,7 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
                 />
                 <Row
                     arr={horrorMovies}
-                    getMovieDetails={getMovieDetails}
-                    lang={lang}
+                    getMovieDetails={getMovieDetails}                    
                     headline={'Horror'}
                     selectedMovie={selectedMovie}
                     setSelectedMovie={setSelectedMovie}
@@ -286,21 +277,10 @@ function Main({lang, setLang, selectedMovie, setSelectedMovie, similarMovies, se
                     setIsNewPopular={setIsNewPopular}
                 />
             </div>
-            {lang === 'English' ? 
-                    <Footer
-                        lang={lang}
-                        setLang={setLang}
-                        data={footerDataEn}
-                        style={'footer3'}
-                    />
-                 : 
-                    <Footer
-                        lang={lang}
-                        setLang={setLang}
-                        data={footerDataEs}
-                        style={'footer3'}
-                    />
-            }
+                <Footer                        
+                    data={footerDataEn}
+                    style={'footer3'}
+                />
         </div>
     )
 }

@@ -5,24 +5,21 @@ import EpisodeCardList from './episodeCardList'
 import '../../css/shared/moreInfo.css'
 import downArrow from '../../images/down-chevron.png'
 
-function MoreInfo({data, similarMovies, lang, setSelectedMovie, watchlist, setWatchlist, setExploreMovies, exploreMovies}) {
+function MoreInfo({data, similarMovies, setSelectedMovie, watchlist, setWatchlist, setExploreMovies, exploreMovies}) {
     const [listExpanded, setListExpanded] = useState(false)
     const [isInList, setIsInList] = useState(false)
     const [season, setSeason] = useState(data.contentType == 'tv' ? data['season/1'].episodes: null)
 
-    const { backdrop_path, id, title, vote_average, runtime, genres, overview, release_date, contentType } = data
+    const { backdrop_path, id, vote_average, runtime, overview, release_date, first_air_date, contentType, seasons } = data
 
-    let play
-    let remove
-    let add
-    let like
-    let dislike
     let imagePath
-    let moreMovies
     let seasonText
+    let year
+    let hours
+    let minutes
 
     function handleScroll() {
-        document.body.style.overflow='hidden'
+        document.body.style.overflow = 'hidden'
         const overlay = document.querySelector('.overlay')
         const currScrollPos = window.scrollY
         overlay.style.top = `${currScrollPos}px`
@@ -31,10 +28,6 @@ function MoreInfo({data, similarMovies, lang, setSelectedMovie, watchlist, setWa
         const moreInfoContainer = document.querySelector('.moreInfo-container')
         moreInfoContainer.style.opacity = '1'
     }
-
-    const year = release_date.substring(0,4)
-    const hours = Math.floor(runtime/60)
-    const minutes = runtime % 60
 
     const match = Math.floor(vote_average*10)
 
@@ -46,16 +39,21 @@ function MoreInfo({data, similarMovies, lang, setSelectedMovie, watchlist, setWa
     }
 
     if (contentType === 'tv') { 
+        year = first_air_date.substring(0,4)
         if(data.seasons.length > 1) {
             seasonText = `${data.seasons.length} Seasons`
         }
         else {
             seasonText = `1 Season`
         }
+    } else {
+        year = release_date.substring(0,4)
+        hours = Math.floor(runtime/60)
+        minutes = runtime % 60
     }
 
     const similarMovieList = similarMovies.map((movie, i) => {
-        return <SimilarContentCard data={movie} lang={lang} key={i} watchlist={watchlist} setWatchlist={setWatchlist} setExploreMovies={setExploreMovies} exploreMovies={exploreMovies} />
+        return <SimilarContentCard data={movie} key={i} watchlist={watchlist} setWatchlist={setWatchlist} setExploreMovies={setExploreMovies} exploreMovies={exploreMovies} />
     })
 
     function handleList() {
@@ -76,23 +74,25 @@ function MoreInfo({data, similarMovies, lang, setSelectedMovie, watchlist, setWa
 
     function handleCancel(e) {
         e.stopPropagation()
-        const reset = {}
-        document.body.style.overflowY = 'scroll'
-        document.body.style.position = '';
-        document.body.style.top = '';
-        const moreInfoContainer = document.querySelector('.moreInfo-container')
-        moreInfoContainer.style.opacity = '0'
-        const overlay = document.querySelector('.overlay')
-        overlay.addEventListener('transitionend', () => setSelectedMovie(reset))
+        if (e.target.id =='cancel' || e.target.id == 'cancelIcon') {
+            const reset = {}
+            document.body.style.overflowY = 'scroll'
+            document.body.style.position = '';
+            document.body.style.top = '';
+            const moreInfoContainer = document.querySelector('.moreInfo-container')
+            moreInfoContainer.style.opacity = '0'
+            const overlay = document.querySelector('.overlay')
+            overlay.addEventListener('transitionend', () => setSelectedMovie(reset))
+        }
     }
 
     useEffect(handleScroll,[])
 
     return (
-         <div className='overlay'>
+         <div className='overlay' id='cancel' onClick={e => handleCancel(e)}>
                 <div className='moreInfo-container'>
                     <div className='moreInfo-featured'>
-                        <MiniFeatured data={data} lang={lang} watchlist={watchlist} setWatchlist={setWatchlist} isInList={isInList} setIsInList={setIsInList} cancel={handleCancel} setExploreMovies={setExploreMovies} exploreMovies={exploreMovies} />
+                        <MiniFeatured data={data} watchlist={watchlist} setWatchlist={setWatchlist} isInList={isInList} setIsInList={setIsInList} setExploreMovies={setExploreMovies} exploreMovies={exploreMovies} />
                     </div>
                     <div className='moreInfo-info'>
                         <p>
@@ -104,7 +104,7 @@ function MoreInfo({data, similarMovies, lang, setSelectedMovie, watchlist, setWa
                         <h3>
                             {overview}
                         </h3>
-                        {contentType === 'tv' ? <EpisodeCardList showId={data.id} data={season} seasons={data.seasons} lang={lang} setSeason={setSeason}/> : null}
+                        {contentType === 'tv' ? <EpisodeCardList showId={id} data={season} seasons={seasons} setSeason={setSeason}/> : null}
                         <div className='similarMovies'>
                             <h1>More Like This</h1>
                             <div className='similarMovies-grid'>

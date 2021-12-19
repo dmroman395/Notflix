@@ -46,7 +46,6 @@ export default class RowTopTen extends Component {
     const row = this.props.arr.slice(0,10).map((movie, i) => {
                 return (
                     <MovieCardTopTen
-                        lang={this.props.lang}
                         movie={movie}
                         getMovieDetails={this.props.getMovieDetails}
                         key={i}

@@ -179,7 +179,7 @@
                     margin-bottom: 20px;
                 }
                 .similarMovies-grid {
-                    overflow: hidden;
+                    overflow: visible;
                     max-height: 1000px;
                     display: grid;
                     grid-template-columns: 1fr 1fr 1fr;

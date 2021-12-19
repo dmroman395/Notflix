@@ -3,14 +3,13 @@ import '../../css/exploreAll/movieCard.css'
 import logo from '../../images/logo-short.jpg'
 import MovieCard from './movieCard'
 
-function MovieCardTopTen({ movie, getMovieDetails, lang, index, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, watchlist, setWatchlist }) {
+function MovieCardTopTen({ movie, getMovieDetails, index, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, watchlist, setWatchlist }) {
     const [hover, setHover] = useState(false)
     const [movieDetails, setMovieDetails] = useState({})
 
     const { poster_path, id } = movie
     const { runtime } = movieDetails
 
-    let details
     let imagePath
 
     if (poster_path === null) {
@@ -22,7 +21,7 @@ function MovieCardTopTen({ movie, getMovieDetails, lang, index, selectedMovie, s
 
     async function loadDetails() {
         if (Object.keys(movieDetails).length === 0) {
-            const details = await getMovieDetails(lang, id)
+            const details = await getMovieDetails(id)
             setMovieDetails(details.data)
             setHover(true)
         }
@@ -53,7 +52,6 @@ function MovieCardTopTen({ movie, getMovieDetails, lang, index, selectedMovie, s
     return (
         <div className="movie-ten-container" onMouseEnter={e => handleHover(e)} onMouseLeave={e => handleHover(e)}> 
         {hover ? <MovieCard 
-                        lang={lang}
                         movie={movie}
                         getMovieDetails={getMovieDetails}
                         selectedMovie={selectedMovie}

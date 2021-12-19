@@ -8,7 +8,6 @@ import ExploreAll from './pages/exploreAll'
 import './css/app/App.css'
 
 function App() {
-    const [lang, setLang] = useState('English')
     const [needsSignIn, setNeedsSignIn] = useState({
         status: true,
         email:''
@@ -62,15 +61,15 @@ function App() {
      <React.Fragment>
         { isExploreEmpty ?
             <React.Fragment>
-                <Header setExploreMovies={setExploreMovies} lang={lang} setSelectedGenre={setSelectedGenre} watchlist={watchlist} setIsExploreEmpty={setIsExploreEmpty} isExploreEmpty={isExploreEmpty} setIsNewPopular={setIsNewPopular} isSearch={isSearch} setIsSearch={setIsSearch}/>
-                <Main lang={lang} setLang={setLang} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies}
+                <Header setExploreMovies={setExploreMovies}  setSelectedGenre={setSelectedGenre} watchlist={watchlist} setIsExploreEmpty={setIsExploreEmpty} isExploreEmpty={isExploreEmpty} setIsNewPopular={setIsNewPopular} isSearch={isSearch} setIsSearch={setIsSearch}/>
+                <Main  selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies}
                 setExploreMovies={setExploreMovies} setSelectedGenre={setSelectedGenre} watchlist={watchlist} setWatchlist={setWatchlist} getTrending={getTrending} getAction={getAction} getComedy={getComedy} getHorror={getHorror} getNowPlaying={getNowPlaying} getTopRated={getTopRated} getPopular={getPopular} getMovieDetails={getMovieDetails} getSimilarMovies={getSimilarMovies} getMovieGenres={getMovieGenres} getTVGenres={getTVGenres} isExploreEmpty={isExploreEmpty} setIsExploreEmpty={setIsExploreEmpty} isNewPopular={isNewPopular} setIsNewPopular={setIsNewPopular} nowPlayingMovies={nowPlayingMovies} setNowPlayingMovies={setNowPlayingMovies} />
             </React.Fragment>
             
             :
             <React.Fragment>
-                <Header setExploreMovies={setExploreMovies} lang={lang} setSelectedGenre={setSelectedGenre} watchlist={watchlist} setIsExploreEmpty={setIsExploreEmpty} isExploreEmpty={isExploreEmpty} setIsNewPopular={setIsNewPopular} isSearch={isSearch} setIsSearch={setIsSearch}/>
-                <ExploreAll data={exploreMovies} exploreMovies={exploreMovies} setExploreMovies={setExploreMovies} lang={lang} setLang={setLang} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies} selectedGenre={selectedGenre}setSelectedGenre={setSelectedGenre} watchlist={watchlist} setWatchlist={setWatchlist} getMovies={getMovies} isExploreEmpty={isExploreEmpty} setIsExploreEmpty={setIsExploreEmpty} isNewPopular={isNewPopular} setIsNewPopular={setIsNewPopular} nowPlayingMovies={nowPlayingMovies} isSearch={isSearch} />
+                <Header setExploreMovies={setExploreMovies}  setSelectedGenre={setSelectedGenre} watchlist={watchlist} setIsExploreEmpty={setIsExploreEmpty} isExploreEmpty={isExploreEmpty} setIsNewPopular={setIsNewPopular} isSearch={isSearch} setIsSearch={setIsSearch}/>
+                <ExploreAll data={exploreMovies} exploreMovies={exploreMovies} setExploreMovies={setExploreMovies}  selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies} selectedGenre={selectedGenre}setSelectedGenre={setSelectedGenre} watchlist={watchlist} setWatchlist={setWatchlist} getMovies={getMovies} isExploreEmpty={isExploreEmpty} setIsExploreEmpty={setIsExploreEmpty} isNewPopular={isNewPopular} setIsNewPopular={setIsNewPopular} nowPlayingMovies={nowPlayingMovies} isSearch={isSearch} />
             </React.Fragment>
             
         }
@@ -78,7 +77,7 @@ function App() {
 
     const landing = 
         <React.Fragment>
-            { needsSignIn.status ? <LandingPage lang={lang} setLang={setLang} sendToSignIn={sendToSignIn}/> : <SignInPage lang={lang} setLang={setLang} needsSignIn={needsSignIn}/>
+            { needsSignIn.status ? <LandingPage  sendToSignIn={sendToSignIn}/> : <SignInPage  needsSignIn={needsSignIn}/>
             }
         </React.Fragment>
 

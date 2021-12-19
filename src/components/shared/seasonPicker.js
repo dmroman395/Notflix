@@ -1,13 +1,13 @@
 import React from "react";
 import '../../css/shared/seasonPicker.css'
 
-function SeasonPicker({seasons, setSeason, lang, showId}) {
+function SeasonPicker({seasons, setSeason, showId}) {
 
     const { getSeasonTV } = require('../../controllers/tvShowsController')
 
     async function handleClick(e) {
         const val = e.target.value
-        const data = await getSeasonTV(lang, showId, val)
+        const data = await getSeasonTV(showId, val)
         setSeason(data.data.episodes)
     }
 

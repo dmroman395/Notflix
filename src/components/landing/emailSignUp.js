@@ -2,25 +2,13 @@ import React, { useState } from 'react'
 import arrow from '../../images/right-chevron.png'
 import '../../css/landing/emailSignUp.css'
 
-function EmailSignUp({ lang, sendToSignIn }) {
+function EmailSignUp({ sendToSignIn }) {
     const [email, setEmail] = useState('')
     const [emailError, setEmailError] = useState('')
 
-    let h5
-    let placeholder
-    let button
-
-    if (lang === 'English') {
-        h5 =
-            'Ready to watch? Enter your email to create or restart your membership.'
-        placeholder = 'Email Address'
-        button = 'Get Started'
-    } else {
-        h5 =
-            '¿Quieres ver Netflix ya? Ingresa tu email para crear una cuenta o reiniciar tu membresía de Netflix.'
-        placeholder = 'Email'
-        button = 'Comenzar'
-    }
+    const h5 = 'Ready to watch? Enter your email to create or restart your membership.'
+    const placeholder = 'Email Address'
+    const button = 'Get Started'
 
     function formValidation() {
         let err = ''

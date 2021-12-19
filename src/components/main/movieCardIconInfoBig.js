@@ -2,23 +2,14 @@ import React, {useEffect, useState} from 'react'
 import info from '../../images/info.png'
 import '../../css/main/movieCardIconInfoBig.css'
 
-function MovieCardIconInfoBig({icon, movie, lang, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, id}) {
+function MovieCardIconInfoBig({icon, movie, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies, id}) {
     const [movieDetails, setMovieDetails] = useState({})
 
     const {runtime} = movieDetails
 
-    const {
-        getMovieDetails,
-        getSimilarMovies
-    } = require('../../controllers/moviesController')
+    const { getMovieDetails, getSimilarMovies } = require('../../controllers/moviesController')
 
-    let infoText;
-
-    if (lang === 'English') {
-        infoText = 'More Info'
-    } else {
-        infoText = 'Más Info'
-    }
+    const infoText = 'More Info'
 
     function handleMoreInfo() {
         if (Object.keys(selectedMovie).length === 0) {
@@ -37,14 +28,14 @@ function MovieCardIconInfoBig({icon, movie, lang, selectedMovie, setSelectedMovi
 
     async function loadDetails() {
         if (Object.keys(movieDetails).length === 0) {
-            const details = await getMovieDetails(lang, id)
+            const details = await getMovieDetails(id)
             setMovieDetails(details)
         }
     }
 
     async function loadSimilar() {
         if (Object.keys(similarMovies).length === 0) {
-            const data = await getSimilarMovies(lang, id)
+            const data = await getSimilarMovies(id)
             setSimilarMovies(data)
         }
     }

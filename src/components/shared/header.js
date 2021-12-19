@@ -47,7 +47,7 @@ function Header({setExploreMovies, lang, setSelectedGenre, watchlist, setIsExplo
     const { userSignOut } = useAuth()
     const { getRandomMovies } = require ('../../controllers/moviesController')
     const { search } = require('../../controllers/moviesController')
-    const { getPopularTV, getShowDetails, getTVShows } = require('../../controllers/tvShowsController')
+    const { getPopularTV } = require('../../controllers/tvShowsController')
 
     function signOut() {
         userSignOut()

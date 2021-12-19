@@ -297,7 +297,7 @@
 }
 
 .overlay .moreInfo-container .moreInfo-info .similarMovies .similarMovies-grid {
-  overflow: hidden;
+  overflow: visible;
   max-height: 1000px;
   display: -ms-grid;
   display: grid;

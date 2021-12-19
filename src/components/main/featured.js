@@ -5,7 +5,7 @@ import MovieCardIconInfoBig from './movieCardIconInfoBig'
 import playButton from '../../images/play-button.png'
 import info from '../../images/info.png'
 
-function Featured({ lang, movie, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies }) {
+function Featured({ movie, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies }) {
     const { backdrop_path, title, id, overview } = movie
     return (
         <div
@@ -25,8 +25,8 @@ function Featured({ lang, movie, selectedMovie, setSelectedMovie, similarMovies,
                 <h1>{title}</h1>
                 <h3>{overview}</h3>
                 <div className='buttons'>
-                    <MovieCardIconPlayBig icon={playButton} title={title} lang={lang}/>
-                    <MovieCardIconInfoBig icon={info} movie={movie} lang={lang} setSelectedMovie={setSelectedMovie} selectedMovie={selectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies} id={id} />
+                    <MovieCardIconPlayBig icon={playButton} title={title} />
+                    <MovieCardIconInfoBig icon={info} movie={movie} setSelectedMovie={setSelectedMovie} selectedMovie={selectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies} id={id} />
                 </div>
             </div>
         </div>

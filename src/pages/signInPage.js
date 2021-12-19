@@ -8,21 +8,12 @@ import SignUpForm from '../components/signIn/signUpForm'
 
 import '../css/signIn/signIn.css'
 
-function SignInPage({ lang, setLang, needsSignIn }) {
+function SignInPage({  setLang, needsSignIn }) {
     const [formData, setFormData] = useState({})
     const [newUser, setNewUser] = useState(needsSignIn.email ? true : false)
     const [loading, setLoading] = useState(false)
 
-    let signin
     let hero
-
-    if (lang === 'English') {
-        signin = 'Sign In'
-        hero = 'en'
-    } else {
-        signin = 'Iniciar'
-        hero = 'es'
-    }
 
     return (
         <div className={`signIn ${hero}`}>
@@ -31,8 +22,7 @@ function SignInPage({ lang, setLang, needsSignIn }) {
                     <img id="logo" src={logo} alt="logo"></img>
                 </div>
                 {newUser ? (
-                    <SignUpForm
-                        lang={lang}
+                    <SignUpForm                        
                         formData={formData}
                         setFormData={setFormData}
                         setNewUser={setNewUser}
@@ -41,8 +31,7 @@ function SignInPage({ lang, setLang, needsSignIn }) {
                         needsSignIn={needsSignIn}
                     />
                 ) : (
-                    <SignInForm
-                        lang={lang}
+                    <SignInForm                        
                         formData={formData}
                         setFormData={setFormData}
                         setNewUser={setNewUser}
@@ -53,14 +42,12 @@ function SignInPage({ lang, setLang, needsSignIn }) {
 
                 {lang === 'English' ? (
                     <Footer
-                        lang={lang}
                         setLang={setLang}
                         data={footerDataEn}
                         style={'footer2'}
                     />
                 ) : (
                     <Footer
-                        lang={lang}
                         setLang={setLang}
                         data={footerDataEs}
                         style={'footer2'}

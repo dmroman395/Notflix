@@ -32,6 +32,15 @@
   border-radius: .25rem;
 }
 
+.form-container .signIn-form .success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  padding: 1rem;
+  border-radius: .25rem;
+  font-size: .85rem;
+}
+
 .form-container .signIn-form input {
   background-color: #333;
   padding: 20px 10px;
@@ -69,7 +78,7 @@
 }
 
 .form-container .signIn-form .reset {
-  margin-top: 1px;
+  margin-top: 5px;
 }
 
 .form-container .signIn-form .bottom-form {

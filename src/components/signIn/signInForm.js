@@ -6,73 +6,31 @@ import FBLogo from '../../images/fblogo.png'
 import '../../css/signIn/signInForm.css'
 
 function SignInForm({
-    lang,
     formData,
     setFormData,
     setNewUser,
     loading,
-    setWatchList,
 }) {
     const [errorMessage, setErrorMessage] = useState('')
     const [needsReset, setNeedsReset] = useState(false)
 
     const { userSignIn, resetPassword } = useAuth()
 
-    let signin
-    let email
-    let password
-    let remember
-    let help
-    let fb
-    let newNetflix
-    let signup
-    let recaptcha
-    let learn
-    let moreinfo1
-    let moreinfo2
-    let moreinfo3
-    let link1
-    let link2
-
-    if (lang === 'English') {
-        signin = 'Sign In'
-        email = 'Email Address'
-        password = 'Password'
-        remember = 'Remember me'
-        help = 'Need help?'
-        fb = 'Login with Facebook'
-        newNetflix = 'New to Netflix? '
-        signup = 'Sign up now.'
-        recaptcha =
-            "This page is protected by Google reCAPTCHA to ensure you're not a bot. "
-        learn = 'Learn more.'
-        moreinfo1 =
-            'The information collected by Google reCAPTCHA is subject to the Google '
-        moreinfo2 = ' and '
-        moreinfo3 =
-            ', and is used for providing, maintaining, and improving the reCAPTCHA service and for general security purposes (it is not used for personalized advertising by Google).'
-        link1 = 'Privacy Policy'
-        link2 = 'Terms of Service'
-    } else {
-        signin = 'Iniciar sesión'
-        email = 'Email'
-        password = 'Contraseña'
-        remember = 'Recuérdame'
-        help = '¿Necesitas ayuda?'
-        fb = 'Iniciar sesión con Facebook'
-        newNetflix = '¿Primera vez en Netflix? '
-        signup = 'Suscríbete ya.'
-        recaptcha =
-            'Esta página está protegida por Google reCAPTCHA para comprobar que no eres un robot. '
-        learn = 'Más info.'
-        moreinfo1 =
-            'La información recopilada por Google reCAPTCHA está sujeta a la '
-        moreinfo2 = ' y a las '
-        moreinfo3 =
-            ' de Google, y se utiliza para proporcionar, mantener y mejorar el servicio de reCAPTCHA, así como para fines generales de seguridad (Google no la utiliza para personalizar publicidad).'
-        link1 = 'Política de privacidad'
-        link2 = 'Condiciones del servicio'
-    }
+    const signin = 'Sign In'
+    const email = 'Email Address'
+    const password = 'Password'
+    const remember = 'Remember me'
+    const help = 'Need help?'
+    const fb = 'Login with Facebook'
+    const newNetflix = 'New to N0tflix? '
+    const signup = 'Sign up now.'
+    const recaptcha = "This page is protected by Google reCAPTCHA to ensure you're not a bot. "
+    const learn = 'Learn more.'
+    const moreinfo1 = 'The information collected by Google reCAPTCHA is subject to the Google '
+    const moreinfo2 = ' and '
+    const moreinfo3 = ', and is used for providing, maintaining, and improving the reCAPTCHA service and for general security purposes (it is not used for personalized advertising by Google).'
+    const link1 = 'Privacy Policy'
+    const link2 = 'Terms of Service'
 
     const showSignUp = () => {
         setNewUser(true)

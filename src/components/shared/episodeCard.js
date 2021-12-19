@@ -32,7 +32,7 @@ function EpisodeCard({data}) {
             <div className='episodeInfo'>
                 <div>
                     <h4 id='episodeName'>{name}</h4>
-                    <p id='episodeOverview'>{modOverview}</p>
+                    <p id='episodeOverview'>{overview ? modOverview : 'There is no information on this episode yet...'}</p>
                 </div>
             </div>
         </div>

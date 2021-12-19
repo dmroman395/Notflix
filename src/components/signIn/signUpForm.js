@@ -6,7 +6,6 @@ import '../../css/signIn/signInForm.css'
 import '../../css/signIn/signUpForm.css'
 
 function SignUpForm({
-    lang,
     formData,
     setFormData,
     setNewUser,
@@ -17,11 +16,11 @@ function SignUpForm({
     const [errorMessage, setErrorMessage] = useState('')
     const { newUserSignUp } = useAuth()
 
-    let signUp
-    let email
-    let password
-    let account1
-    let account2
+    const signUp ='Sign Up'
+    const email = 'Email Address'
+    const password = 'Password'
+    const account1 = 'Already have an account? '
+    const account2 = 'Sign in now.'
 
     const createUser = async (e) => {
         e.preventDefault()
@@ -44,20 +43,6 @@ function SignUpForm({
 
     const showSignInForm = () => {
         setNewUser(false)
-    }
-
-    if (lang === 'English') {
-        signUp = 'Sign Up'
-        email = 'Email Address'
-        password = 'Password'
-        account1 = 'Already have an account? '
-        account2 = 'Sign in now.'
-    } else {
-        signUp = 'Suscríbete'
-        email = 'Email'
-        password = 'Contraseña'
-        account1 = '¿Ya tienes una cuenta? '
-        account2 = 'Inicia tu sesión ahora.'
     }
 
     const errMsg = <div className='error'>
