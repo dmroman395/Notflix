@@ -29,7 +29,6 @@ const debounce = (fn) => {
     } 
   };
   
-  
   // Reads out the scroll position and stores it in the data attribute
   // so we can use it in our stylesheets
   const storeScroll = () => {
@@ -105,10 +104,11 @@ function Header({setExploreMovies, setSelectedGenre, watchlist, setIsExploreEmpt
     }
 
     async function handleSearch(e) {
-        
         e.stopPropagation()
         const val = e.target.value
         const cancel = document.querySelector('.cancel > img')
+        window.scroll(0,0)
+        console.log(val)
 
         if (val) {
             cancel.style.opacity = '1'

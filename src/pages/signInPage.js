@@ -8,15 +8,14 @@ import SignUpForm from '../components/signIn/signUpForm'
 
 import '../css/signIn/signIn.css'
 
-function SignInPage({  setLang, needsSignIn }) {
+function SignInPage({ needsSignIn }) {
     const [formData, setFormData] = useState({})
     const [newUser, setNewUser] = useState(needsSignIn.email ? true : false)
     const [loading, setLoading] = useState(false)
 
-    let hero
 
     return (
-        <div className={`signIn ${hero}`}>
+        <div className='signIn'>
             <div className="content">
                 <div className="logo-bar">
                     <img id="logo" src={logo} alt="logo"></img>
@@ -39,20 +38,10 @@ function SignInPage({  setLang, needsSignIn }) {
                         setLoading={setLoading}
                     />
                 )}
-
-                {lang === 'English' ? (
-                    <Footer
-                        setLang={setLang}
-                        data={footerDataEn}
-                        style={'footer2'}
-                    />
-                ) : (
-                    <Footer
-                        setLang={setLang}
-                        data={footerDataEs}
-                        style={'footer2'}
-                    />
-                )}
+                <Footer
+                    data={footerDataEn}
+                    style={'footer2'}
+                />
             </div>
         </div>
     )

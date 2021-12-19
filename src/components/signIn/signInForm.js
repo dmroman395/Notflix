@@ -22,7 +22,7 @@ function SignInForm({
     const remember = 'Remember me'
     const help = 'Need help?'
     const fb = 'Login with Facebook'
-    const newNetflix = 'New to N0tflix? '
+    const newNetflix = 'New to Notflix? '
     const signup = 'Sign up now.'
     const recaptcha = "This page is protected by Google reCAPTCHA to ensure you're not a bot. "
     const learn = 'Learn more.'
@@ -75,11 +75,11 @@ function SignInForm({
 
     async function reset(e) {
         e.preventDefault()
+        await resetPassword(auth, formData.email)
+        setErrorMessage('An email to reset your password has been sent. Please check your inbox.')
         const message = document.getElementById('message')
         message.classList.remove('error')
         message.classList.add('success')
-        await resetPassword(auth, formData.email)
-        setErrorMessage('An email to reset your password has been sent. Please check your inbox.')
     }
 
     const errMsg = <div className='error' id='message'>

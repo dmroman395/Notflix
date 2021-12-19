@@ -49,7 +49,7 @@ function MovieCardTopTen({ movie, getMovieDetails, index, selectedMovie, setSele
                         setSimilarMovies={setSimilarMovies}
                         watchlist={watchlist} 
                         setWatchlist={setWatchlist}
-                        type={''}
+                        type={'2'}
                         /> 
                 : 
                 <React.Fragment>

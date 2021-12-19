@@ -13,7 +13,7 @@ function SignUpForm({
     needsSignIn
 }) {
 
-    const [errorMessage, setErrorMessage] = useState('')
+    const [message, setMessage] = useState('You may use a test email for demo purposes.')
     const { newUserSignUp } = useAuth()
 
     const signUp ='Sign Up'
@@ -25,19 +25,25 @@ function SignUpForm({
     const createUser = async (e) => {
         e.preventDefault()
         try {
-            await newUserSignUp(auth, formData.email, formData.password, formData.profileName)
+            await newUserSignUp(auth, formData.email, formData.password)
         } catch (err) {
             const code = err.code
             switch (code) {
                 case 'auth/email-already-in-use':
-                    setErrorMessage('An account with this email address already exists. Please use another email or sign in.')
+                    setMessage('An account with this email address already exists. Please use another email or sign in.')
                     break
                 case 'auth/invalid-email':
-                    setErrorMessage('This email address is invalid.')
+                    setMessage('This email address is invalid.')
+                    break
+                case 'auth/weak-password':
+                    setMessage('Password must be at least 6 characters.')
                     break
                 default:
                     break
             }
+            const msgContainer = document.querySelector('#message')
+            msgContainer.classList.remove('warning')
+            msgContainer.classList.add('error')
         }
     }
 
@@ -45,15 +51,15 @@ function SignUpForm({
         setNewUser(false)
     }
 
-    const errMsg = <div className='error'>
-    <p>{errorMessage}</p>
+    const msg = <div id='message' className='warning'>
+    <p>{message}</p>
 </div>
 
     return (
         <div className="form-container2">
             <form className="signUp-form" onSubmit={createUser}>
                 <h1>{signUp}</h1>
-                {errorMessage.length > 0 ? errMsg : null}
+                {msg}
                 <input
                     type="email"
                     placeholder={email}
@@ -76,7 +82,7 @@ function SignUpForm({
                         setFormData({ ...formData, profileName: e.target.value })
                     }}
                 /> */}
-                <button disabled={loading}>{signUp}</button>
+                <button disabled={loading} >{signUp}</button>
                 <p>
                     {account1}
                     <span onClick={showSignInForm}>{account2}</span>

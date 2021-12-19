@@ -24,6 +24,17 @@
                 margin-top: 0;
             }
         }
+        .warning {
+            font-size: .85rem;
+            background-color: #fff3cd;
+            border-color: #ffeeba;
+            padding: 1rem;
+            border-radius: .25rem;
+            p {
+                color: #856404;
+                margin-top: 0;
+            }
+        }
         input {
             background-color: #333;
             padding: 20px 10px;

@@ -31,7 +31,7 @@ function ExploreAll({data, selectedMovie, setSelectedMovie, similarMovies, setSi
                     setWatchlist={setWatchlist}
                     setExploreMovies={setExploreMovies}
                     exploreMovies={data}
-                    type={'2'}
+                    type={''}
                 />
                 
         )
@@ -44,7 +44,7 @@ function ExploreAll({data, selectedMovie, setSelectedMovie, similarMovies, setSi
 
         switch(selectedGenre) {
             case 'Search results':
-                contentList = await getMovies(selectedGenre, pageCount, 1, 1, search.value)
+                contentList = await getMovies(selectedGenre, pageCount, null, search.value)
                 break;
             case 'Popular TV Shows':
                 contentList = await getPopularTV(pageCount)

@@ -3,6 +3,7 @@
     min-height: 100vh;
     background-image: cover;
     box-sizing: border-box;
+    background-image: url('../../images/hero.jpg');
     .content {
         background-color: rgba(0, 0, 0, 0.5);
         display: flex;
@@ -19,11 +20,4 @@
             }
         }
     }
-}
-
-.en {
-    background-image: url('../../images/hero.jpg');
-}
-.es {
-    background-image: url('../../images/heroe.jpg');
 }

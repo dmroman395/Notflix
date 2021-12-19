@@ -4,6 +4,7 @@
   background-image: cover;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  background-image: url("../../images/hero.jpg");
 }
 
 .signIn .content {
@@ -30,13 +31,5 @@
 .signIn .content .logo-bar #logo {
   width: auto;
   height: 65px;
-}
-
-.en {
-  background-image: url("../../images/hero.jpg");
-}
-
-.es {
-  background-image: url("../../images/heroe.jpg");
 }
 /*# sourceMappingURL=signIn.css.map */

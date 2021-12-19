@@ -13,11 +13,9 @@ export function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState({})
     const [loading, setLoading] = useState(true)
 
-    async function newUserSignUp(authInst, email, password, profileName) {
+    function newUserSignUp(authInst, email, password) {
         try {
-            const account = await createUserWithEmailAndPassword(authInst, email, password)
-            await createUserProfile(account.user.uid, profileName)
-            return account
+            return createUserWithEmailAndPassword(authInst, email, password)
         } catch (e) {
             console.error(e)
         }
