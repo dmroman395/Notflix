@@ -1,16 +1,13 @@
 import React from 'react'
 
 import accordianDataEn from '../data/en/accordian.json'
-import accordianDataEs from '../data/es/accordian.json'
 import footerDataEn from '../data/en/footer.json'
-import footerDataEs from '../data/es/footer.json'
 import Accordian from '../components/landing/accordian'
 import EmailSignUp from '../components/landing/emailSignUp'
 import Footer from '../components/shared/footer'
 import Hero from '../components/landing/hero'
 import RowContainer from '../components/landing/rowsContainer'
 import rowDataEn from '../data/en/row.json'
-import rowDataEs from '../data/es/row.json'
 import '../css/landing/faq.css'
 
 function LandingPage({ sendToSignIn} ) {

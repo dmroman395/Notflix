@@ -1,23 +1,53 @@
 import React from 'react'
 import '../../css/landing/row.css'
+import tv from '../../images/tv.png'
+import tvVideo from '../../videos/video-tv-0819.mp4'
+import mobile from '../../images/mobile-0819.jpg'
+import boxshot from '../../images/boxshot.png'
+import downloadGif from '../../images/download-icon.gif'
+import devicePile from '../../images/device-pile.png'
+import videoDevices from '../../videos/video-devices.mp4'
+import kids from '../../images/kids.png'
 
 function Row({ rowInfo}) {
     const {
         headline,
         desc,
-        graphic,
-        graphic2,
-        gif,
-        video,
         videoType,
         isLeft,
         hasOverlay,
+        id
     } = rowInfo
 
     let row
     let vidContainer
     let overlay
+    let graphic
+    let graphic2
+    let gif
+    let video
     const download = 'Downloading...'
+
+    switch(id) {
+        case 1:
+            graphic = tv
+            video = tvVideo
+            break;
+        case 2:
+            graphic = mobile
+            graphic2 = boxshot
+            gif = downloadGif
+            break;
+        case 3:
+            graphic = devicePile
+            video = videoDevices
+            break;
+        case 4:
+            graphic = kids
+            break;
+        default:
+            break;
+    }
 
     if (videoType === 1) {
         vidContainer = (
