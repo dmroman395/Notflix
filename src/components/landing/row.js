@@ -53,7 +53,7 @@ function Row({ rowInfo}) {
         vidContainer = (
             <div className="video1">
                 <div className="vidOverlay">
-                    <video autoPlay loop>
+                    <video autoPlay={true} muted={true} loop>
                         <source src={video} type="video/mp4" />
                     </video>
                 </div>
@@ -62,12 +62,12 @@ function Row({ rowInfo}) {
     } else if (videoType === 2) {
         vidContainer = (
             <div className="video2">
-                <video autoPlay loop>
+                <video autoPlay={true} muted={true} loop>
                     <source src={video} type="video/mp4" />
                 </video>
             </div>
         )
-    }
+    } 
 
     if (hasOverlay) {
         overlay = (
@@ -87,10 +87,10 @@ function Row({ rowInfo}) {
     if (isLeft) {
         row = (
             <div className="row left">
-                <div className="container">
-                    <div>
+                <div className="container reverse">
+                    <div className='media'>
                         {vidContainer || overlay ? null : (
-                            <img src={graphic}></img>
+                            <img className='kids' src={graphic}></img>
                         )}
                         {vidContainer}
                         {overlay}
@@ -110,7 +110,7 @@ function Row({ rowInfo}) {
                         <h1>{headline}</h1>
                         <h3>{desc}</h3>
                     </div>
-                    <div>
+                    <div className='media'>
                         {vidContainer ? null : <img src={graphic}></img>}
                         {vidContainer}
                     </div>

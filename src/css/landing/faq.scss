@@ -9,13 +9,33 @@
     align-items: center;
     padding: 75px 0;
     h1 {
-        font-size: 50px;
+        font-size: 3.125rem;
+        line-height: 1.1;
+        margin-bottom: .5rem;
     }
     .signup {
-        width: 50%;
+        width: 75%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+    }
+}
+
+@media only screen and (min-width: 861px) and (max-width: 1075px) {
+    .faq {
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: .1rem;
+        }
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 549px){
+    .faq {
+        h1 {
+            font-size: 1.625rem;
+            margin-bottom: .1rem;
+        }
     }
 }

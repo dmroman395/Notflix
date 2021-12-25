@@ -1,13 +1,14 @@
 .hero {
   background-size: cover;
+  background-image: url("../../images/hero.jpg");
   height: 775px;
   color: #ffffff;
   overflow: hidden;
 }
 
 .hero .hero-overlay {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0.9)), color-stop(60%, rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.85)));
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0.85) 100%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0.9)), color-stop(60%, rgba(0, 0, 0, 0.2)), to(black));
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0, rgba(0, 0, 0, 0.2) 60%, black 100%);
   height: 100%;
 }
 
@@ -45,7 +46,7 @@
   background: rgba(0, 0, 0, 0.4);
   border: 1px solid #aaa;
   color: #fff;
-  font-size: 0.875rem;
+  font-size: 1rem;
   max-height: 39px;
   padding: 10px;
 }
@@ -84,17 +85,17 @@
       -ms-flex-pack: center;
           justify-content: center;
   padding: 50px 200px;
-  margin: 100px 200px;
+  margin: 100px 100px;
   text-align: center;
 }
 
 .hero .hero-overlay .main-content h1 {
-  font-size: 64px;
-  max-width: 800px;
+  font-size: 4rem;
+  max-width: 700px;
 }
 
 .hero .hero-overlay .main-content h3 {
-  font-size: 26px;
+  font-size: 1.625rem;
   margin: 20px;
   font-weight: normal;
 }
@@ -116,11 +117,215 @@
           justify-content: center;
 }
 
-.en {
-  background-image: url("../../images/hero.jpg");
+.hero .hero-overlay .main-content .signup h5 {
+  font-size: 1.2rem;
 }
 
-.es {
-  background-image: url("../../images/heroe.jpg");
+@media only screen and (min-width: 1076px) and (max-width: 1449px) {
+  .hero .hero-overlay .main-content h1 {
+    font-size: 3.125rem;
+  }
+  .hero .hero-overlay .main-content h3 {
+    font-size: 1.625rem;
+  }
+  .hero .hero-overlay .main-content h5 {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (min-width: 861px) and (max-width: 1075px) {
+  .hero .hero-overlay .main-content {
+    padding: 50px 100px;
+  }
+  .hero .hero-overlay .main-content h1 {
+    font-size: 3.125rem;
+    width: 600px;
+  }
+  .hero .hero-overlay .main-content h3 {
+    font-size: 1.625rem;
+    width: 100%;
+    margin: 20px 0;
+  }
+  .hero .hero-overlay .main-content .signup h5 {
+    font-size: 1.45rem;
+  }
+}
+
+@media only screen and (min-width: 740px) and (max-width: 860px) {
+  .hero .hero-overlay .main-content {
+    padding: 50px;
+  }
+  .hero .hero-overlay .main-content h1 {
+    font-size: 3.125rem;
+    width: 600px;
+  }
+  .hero .hero-overlay .main-content h3 {
+    font-size: 1.625rem;
+    width: 100%;
+    margin: 20px 0;
+  }
+}
+
+@media only screen and (min-width: 550px) and (max-width: 739px) {
+  .hero .hero-overlay .main-content {
+    padding: 50px 0;
+    margin: 60px;
+  }
+  .hero .hero-overlay .main-content h1 {
+    font-size: 3.125rem;
+  }
+  .hero .hero-overlay .main-content h3 {
+    font-size: 1.625rem;
+    width: 100%;
+    margin: 20px 0;
+  }
+}
+
+@media only screen and (min-width: 400px) and (max-width: 549px) {
+  .hero {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .hero .hero-overlay {
+    height: 515px;
+  }
+  .hero .hero-overlay .top-bar {
+    width: 100%;
+    padding: 30px 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-line-pack: center;
+        align-content: center;
+  }
+  .hero .hero-overlay .top-bar #logo {
+    height: auto;
+    width: 85px;
+  }
+  .hero .hero-overlay .top-bar .lang-signin {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    gap: 30px;
+  }
+  .hero .hero-overlay .top-bar .lang-signin select {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid #aaa;
+    color: #fff;
+    font-size: 1rem;
+    max-height: 39px;
+    padding: 10px;
+  }
+  .hero .hero-overlay .top-bar .lang-signin .button {
+    background-color: #e50914;
+    padding: 10px 17px;
+    border-radius: 3px;
+    font-size: 1rem;
+    border: none;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 11px;
+  }
+  .hero .hero-overlay .top-bar .lang-signin .button:hover {
+    cursor: pointer;
+  }
+  .hero .hero-overlay .top-bar .lang-signin .sign-in {
+    max-height: 32px;
+  }
+  .hero .hero-overlay .main-content {
+    margin: 45px;
+    padding: 0;
+  }
+  .hero .hero-overlay .main-content h1 {
+    font-size: 1.8rem;
+  }
+  .hero .hero-overlay .main-content h3 {
+    font-size: 1.325rem;
+    width: 100%;
+    margin: 20px 0;
+  }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 399px) {
+  .hero {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .hero .hero-overlay {
+    height: 515px;
+  }
+  .hero .hero-overlay .top-bar {
+    width: 100%;
+    padding: 30px 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-line-pack: center;
+        align-content: center;
+  }
+  .hero .hero-overlay .top-bar #logo {
+    height: auto;
+    width: 85px;
+  }
+  .hero .hero-overlay .top-bar .lang-signin {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    gap: 30px;
+  }
+  .hero .hero-overlay .top-bar .lang-signin select {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid #aaa;
+    color: #fff;
+    font-size: 1rem;
+    max-height: 39px;
+    padding: 10px;
+  }
+  .hero .hero-overlay .top-bar .lang-signin .button {
+    background-color: #e50914;
+    padding: 10px 17px;
+    border-radius: 3px;
+    font-size: 1rem;
+    border: none;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 11px;
+  }
+  .hero .hero-overlay .top-bar .lang-signin .button:hover {
+    cursor: pointer;
+  }
+  .hero .hero-overlay .top-bar .lang-signin .sign-in {
+    max-height: 32px;
+  }
+  .hero .hero-overlay .main-content {
+    margin: 35px 10px;
+    padding: 0;
+  }
+  .hero .hero-overlay .main-content h1 {
+    font-size: 1.75rem;
+  }
+  .hero .hero-overlay .main-content h3 {
+    font-size: 1.125rem;
+    width: 100%;
+    margin: 20px 0;
+  }
 }
 /*# sourceMappingURL=hero.css.map */
