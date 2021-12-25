@@ -13,7 +13,7 @@ function SignUpForm({
     needsSignIn
 }) {
 
-    const [message, setMessage] = useState('You may use a test email for demo purposes.')
+    const [message, setMessage] = useState('You may use a fake email for demo purposes.')
     const { newUserSignUp } = useAuth()
 
     const signUp ='Sign Up'

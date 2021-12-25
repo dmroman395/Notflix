@@ -79,3 +79,16 @@
         }
     }
 }
+
+@media only screen and (min-width: 300px) and (max-width: 739px){
+    .form-container2 {
+        max-width: 100%;
+        margin: 0;
+        padding: 15px;
+        .signUp-form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+    }
+}

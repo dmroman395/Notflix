@@ -98,4 +98,89 @@
   cursor: pointer;
   text-decoration: underline;
 }
+
+@media only screen and (min-width: 300px) and (max-width: 739px) {
+  .form-container2 {
+    max-width: 100%;
+    margin: 0;
+    padding: 15px;
+  }
+  .form-container2 .signUp-form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+  }
+  .form-container2 .signUp-form h1 {
+    color: white;
+    margin-bottom: 20px;
+  }
+  .form-container2 .signUp-form .error {
+    font-size: .85rem;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+    padding: 1rem;
+    border-radius: .25rem;
+  }
+  .form-container2 .signUp-form .error p {
+    color: #842029;
+    margin-top: 0;
+  }
+  .form-container2 .signUp-form .warning {
+    font-size: .85rem;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+    padding: 1rem;
+    border-radius: .25rem;
+  }
+  .form-container2 .signUp-form .warning p {
+    color: #856404;
+    margin-top: 0;
+  }
+  .form-container2 .signUp-form input {
+    background-color: #333;
+    padding: 20px 10px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    margin: 7px 0;
+    color: white;
+  }
+  .form-container2 .signUp-form input::-webkit-input-placeholder {
+    font-size: 1em;
+  }
+  .form-container2 .signUp-form input:-moz-placeholder {
+    font-size: 1em;
+  }
+  .form-container2 .signUp-form input::-moz-placeholder {
+    font-size: 1em;
+  }
+  .form-container2 .signUp-form button {
+    margin: 30px 0 7px 0;
+    padding: 15px 0;
+    background-color: #e50914;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .form-container2 .signUp-form button:hover {
+    cursor: pointer;
+  }
+  .form-container2 .signUp-form p {
+    margin-top: 15px;
+    color: #737373;
+  }
+  .form-container2 .signUp-form p span {
+    color: white;
+  }
+  .form-container2 .signUp-form p span:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
 /*# sourceMappingURL=signUpForm.css.map */
