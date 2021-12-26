@@ -3,7 +3,7 @@
     overflow: visible;
     z-index: 9;
     transition: transform ease-out 200ms, z-index linear 1ms 500ms, opacity ease-in-out 300ms;
-    height: 300px;
+    height: 15.5vw;
     border-radius: 3px;
     opacity: 0;
     .content {
@@ -11,11 +11,11 @@
         height: 100%;
         display: flex;
         flex-direction: column;
-        width: 290px;
+        max-width: 290px;
         transition: all ease-out 1ms;
         .content-card {
             height: 60%;
-            width: 100%;
+            width: 15.5vw;
             display: flex;
             padding: 15px;
             align-items: flex-end;
@@ -24,7 +24,7 @@
             overflow: hidden;
             #title {
                 color: white;
-                font-size: 1.5em;
+                font-size: 1.125vw;
                 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
             }
         }
@@ -740,6 +740,121 @@
         .content {
             opacity: 1;
             transition: all ease-out 200ms 500ms;
+        }
+    }
+}
+
+@media only screen and (min-width: 1100px) and (max-width: 1399px){
+    .content-container {
+        height: 18.5vw;
+        .content {
+            .content-card {
+                width: 18.5vw;
+                #title {
+                    font-size: 1.3vw;
+                }
+            }
+        }
+    }
+    .content-container:hover {
+        height: 18.5vw;
+        .content {
+            .content-card {
+                width: 18.5vw;
+            }
+            .bottom-half {
+                padding: 15px;
+                .icon-row {
+                    height: 45%;
+                    .icons {
+                        height: 100%;
+                        .icon-container {
+                            height: 100%;
+                            .bubble-container {
+                                width: 35px;
+                                .bubble-text {
+                                    font-size: 1vw;
+                                }
+                                #triangle {
+                                    height: 15px;
+                                    width: 20px
+                                }
+                            }
+                            .icon-circle {
+                                height: 90%;
+                                width: 100%;
+                                .card-icon{
+                                    height: 100%;
+                                    width: auto;
+                                }
+                            }
+                            .icon-circle:hover {
+                                border-color: white;
+                            }
+                            .icon-circle-play {
+                                height: 90%;
+                                width: 100%;
+                                margin: 0 1px;
+                                padding: 4px;
+                                .card-icon{
+                                    height: 85%;
+                                    width: auto;
+                                }
+                            }
+                        }
+                    }
+                }
+                .match-row {
+                    font-size: 65%;
+                    margin: 5px 0; 
+                }
+                .genre-list-container {
+                    font-size: 65%;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1099px){
+    .content-container {
+        height: 23.25vw;
+        .content {
+            .content-card {
+                width: 23.25vw;
+                #title {
+                    font-size: 1.75vw;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 500px) and (max-width: 799px){
+    .content-container {
+        height: 30.75vw;
+        .content {
+            .content-card {
+                width: 30.75vw;
+                #title {
+                    font-size: 2vw;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 499px){
+    .content-container {
+        height: 46vw;
+        .content {
+            .content-card {
+                width: 46vw;
+                #title {
+                    font-size: 3vw;
+                    margin-bottom: 0;
+                }
+            }
         }
     }
 }

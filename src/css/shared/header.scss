@@ -58,6 +58,13 @@ html:not([data-scroll='0']) {
             cursor: pointer;
             color: #e5e5e5e5;
         }
+        .signOut {
+            display: flex;
+            align-items: center;
+            background-color: #e50914;
+            padding: 7px;
+            border-radius: 3px;
+        }
         .search-bar {
             display: flex;
             align-items: center;

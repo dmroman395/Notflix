@@ -188,7 +188,7 @@
   transition: all ease-in-out 200ms;
 }
 
-@media only screen and (min-width: 300px) and (max-width: 739px) {
+@media only screen and (min-width: 50px) and (max-width: 739px) {
   .form-container {
     max-width: 100%;
     background-color: black;

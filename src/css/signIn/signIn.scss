@@ -22,12 +22,16 @@
     }
 }
 
-@media only screen and (min-width: 300px) and (max-width: 739px){
+@media only screen and (min-width: 50px) and (max-width: 739px){
     .signIn {
         .content {
             background-color: rgba(0, 0, 0, 1);
             .logo-bar {
                 padding: 15px;
+            }
+            #logo {
+                width: auto;
+                height: 100%;
             }
         }
     }

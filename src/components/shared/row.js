@@ -57,7 +57,41 @@ export default class Row extends Component {
       slidesToScroll: numMovies,
       nextArrow: <SampleNextArrow />,
       prevArrow: <SamplePrevArrow />,
-      speed: 800
+      speed: 800,
+      responsive: [
+        {
+          breakpoint: 1399,
+          settings: {
+            slidesToShow: 5,
+            slidesToScroll: 5,
+            infinite: true,
+          }
+        },
+        {
+          breakpoint: 1099,
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            infinite: true,
+          }
+        },
+        {
+          breakpoint: 799,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+          }
+        },
+        {
+          breakpoint: 499,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            infinite: true,
+          }
+        }
+      ]
     };
 
     const row = this.props.arr.map((movie, i) => {

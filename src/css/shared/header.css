@@ -91,6 +91,18 @@ html:not([data-scroll='0']) .header {
   color: #e5e5e5e5;
 }
 
+.header .header-right .signOut {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #e50914;
+  padding: 7px;
+  border-radius: 3px;
+}
+
 .header .header-right .search-bar {
   display: -webkit-box;
   display: -ms-flexbox;
