@@ -748,8 +748,9 @@
     .content-container {
         height: 18.5vw;
         .content {
+            width: 18.5vw;
             .content-card {
-                width: 18.5vw;
+                width: 100%;
                 #title {
                     font-size: 1.3vw;
                 }
@@ -759,8 +760,9 @@
     .content-container:hover {
         height: 18.5vw;
         .content {
+            width: 18.5vw;
             .content-card {
-                width: 18.5vw;
+                width: 100%;
             }
             .bottom-half {
                 padding: 15px;
@@ -795,7 +797,7 @@
                                 height: 90%;
                                 width: 100%;
                                 margin: 0 1px;
-                                padding: 4px;
+                                padding: 5px 6px;
                                 .card-icon{
                                     height: 85%;
                                     width: auto;
@@ -820,10 +822,73 @@
     .content-container {
         height: 23.25vw;
         .content {
+            width: 23.25vw;
             .content-card {
-                width: 23.25vw;
+                width: 100%;
                 #title {
                     font-size: 1.75vw;
+                }
+            }
+        }
+    }
+    .content-container:hover {
+        height: 23.25vw;
+        .content {
+            width: 23.25vw;
+            .content-card {
+                width: 100%;
+                #title {
+                    font-size: 1.75vw;
+                }
+            }
+            .bottom-half {
+                padding: 15px;
+                .icon-row {
+                    height: 45%;
+                    .icons {
+                        height: 100%;
+                        .icon-container {
+                            height: 100%;
+                            .bubble-container {
+                                width: 35px;
+                                .bubble-text {
+                                    font-size: 1vw;
+                                }
+                                #triangle {
+                                    height: 15px;
+                                    width: 20px
+                                }
+                            }
+                            .icon-circle {
+                                height: 90%;
+                                width: 100%;
+                                .card-icon{
+                                    height: 100%;
+                                    width: auto;
+                                }
+                            }
+                            .icon-circle:hover {
+                                border-color: white;
+                            }
+                            .icon-circle-play {
+                                height: 90%;
+                                width: 100%;
+                                margin: 0 1px;
+                                padding: 5px 6px;
+                                .card-icon{
+                                    height: 85%;
+                                    width: auto;
+                                }
+                            }
+                        }
+                    }
+                }
+                .match-row {
+                    font-size: 65%;
+                    margin: 5px 0; 
+                }
+                .genre-list-container {
+                    font-size: 65%;
                 }
             }
         }
@@ -834,10 +899,74 @@
     .content-container {
         height: 30.75vw;
         .content {
+            width: 30.75vw;
             .content-card {
-                width: 30.75vw;
+                width: 100%;
                 #title {
                     font-size: 2vw;
+                }
+            }
+        }
+    }
+    .content-container:hover {
+        height: 30.75vw;
+        .content {
+            width: 30.75vw;
+            .content-card {
+                width: 100%;
+                #title {
+                    font-size: 2vw;
+                }
+            }
+            .bottom-half {
+                padding: 15px;
+                .icon-row {
+                    height: 45%;
+                    .icons {
+                        height: 100%;
+                        .icon-container {
+                            height: 100%;
+                            .bubble-container {
+                                width: 35px;
+                                .bubble-text {
+                                    font-size: 1vw;
+                                }
+                                #triangle {
+                                    height: 15px;
+                                    width: 20px
+                                }
+                            }
+                            .icon-circle {
+                                height: 90%;
+                                width: 100%;
+                                border: 1px solid lighten(#595959,5%);
+                                .card-icon{
+                                    height: 100%;
+                                    width: auto;
+                                }
+                            }
+                            .icon-circle:hover {
+                                border-color: white;
+                            }
+                            .icon-circle-play {
+                                height: 90%;
+                                width: 100%;
+                                margin: 0 1px;
+                                padding: 5px 6px;
+                                .card-icon{
+                                    height: 85%;
+                                    width: auto;
+                                }
+                            }
+                        }
+                    }
+                }
+                .match-row {
+                    font-size: 1.5vw;
+                    margin: 5px 0; 
+                }
+                .genre-list-container {
+                    font-size: 1.5vw;
                 }
             }
         }
@@ -848,11 +977,75 @@
     .content-container {
         height: 46vw;
         .content {
+            width: 46vw;
             .content-card {
-                width: 46vw;
+                width: 100%;
                 #title {
                     font-size: 3vw;
                     margin-bottom: 0;
+                }
+            }
+        }
+    }
+    .content-container:hover {
+        height: 46vw;
+        .content {
+            width: 46vw;
+            .content-card {
+                width: 100%;
+                #title {
+                    font-size: 3vw;
+                }
+            }
+            .bottom-half {
+                padding: 15px;
+                .icon-row {
+                    height: 45%;
+                    .icons {
+                        height: 100%;
+                        .icon-container {
+                            height: 100%;
+                            .bubble-container {
+                                width: 35px;
+                                .bubble-text {
+                                    font-size: 1vw;
+                                }
+                                #triangle {
+                                    height: 15px;
+                                    width: 20px
+                                }
+                            }
+                            .icon-circle {
+                                height: 90%;
+                                width: 100%;
+                                border: 1px solid lighten(#595959,5%);
+                                .card-icon{
+                                    height: 100%;
+                                    width: auto;
+                                }
+                            }
+                            .icon-circle:hover {
+                                border-color: white;
+                            }
+                            .icon-circle-play {
+                                height: 90%;
+                                width: 100%;
+                                margin: 0 1px;
+                                padding: 5px 6px;
+                                .card-icon{
+                                    height: 85%;
+                                    width: auto;
+                                }
+                            }
+                        }
+                    }
+                }
+                .match-row {
+                    font-size: 2vw;
+                    margin: 5px 0; 
+                }
+                .genre-list-container {
+                    font-size: 2vw;
                 }
             }
         }

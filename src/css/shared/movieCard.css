@@ -1159,8 +1159,11 @@
   .content-container {
     height: 18.5vw;
   }
-  .content-container .content .content-card {
+  .content-container .content {
     width: 18.5vw;
+  }
+  .content-container .content .content-card {
+    width: 100%;
   }
   .content-container .content .content-card #title {
     font-size: 1.3vw;
@@ -1168,8 +1171,11 @@
   .content-container:hover {
     height: 18.5vw;
   }
-  .content-container:hover .content .content-card {
+  .content-container:hover .content {
     width: 18.5vw;
+  }
+  .content-container:hover .content .content-card {
+    width: 100%;
   }
   .content-container:hover .content .bottom-half {
     padding: 15px;
@@ -1208,7 +1214,7 @@
     height: 90%;
     width: 100%;
     margin: 0 1px;
-    padding: 4px;
+    padding: 5px 6px;
   }
   .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle-play .card-icon {
     height: 85%;
@@ -1227,11 +1233,76 @@
   .content-container {
     height: 23.25vw;
   }
-  .content-container .content .content-card {
+  .content-container .content {
     width: 23.25vw;
+  }
+  .content-container .content .content-card {
+    width: 100%;
   }
   .content-container .content .content-card #title {
     font-size: 1.75vw;
+  }
+  .content-container:hover {
+    height: 23.25vw;
+  }
+  .content-container:hover .content {
+    width: 23.25vw;
+  }
+  .content-container:hover .content .content-card {
+    width: 100%;
+  }
+  .content-container:hover .content .content-card #title {
+    font-size: 1.75vw;
+  }
+  .content-container:hover .content .bottom-half {
+    padding: 15px;
+  }
+  .content-container:hover .content .bottom-half .icon-row {
+    height: 45%;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons {
+    height: 100%;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container {
+    height: 100%;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container {
+    width: 35px;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container .bubble-text {
+    font-size: 1vw;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container #triangle {
+    height: 15px;
+    width: 20px;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle {
+    height: 90%;
+    width: 100%;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle .card-icon {
+    height: 100%;
+    width: auto;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle:hover {
+    border-color: white;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle-play {
+    height: 90%;
+    width: 100%;
+    margin: 0 1px;
+    padding: 5px 6px;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle-play .card-icon {
+    height: 85%;
+    width: auto;
+  }
+  .content-container:hover .content .bottom-half .match-row {
+    font-size: 65%;
+    margin: 5px 0;
+  }
+  .content-container:hover .content .bottom-half .genre-list-container {
+    font-size: 65%;
   }
 }
 
@@ -1239,11 +1310,77 @@
   .content-container {
     height: 30.75vw;
   }
-  .content-container .content .content-card {
+  .content-container .content {
     width: 30.75vw;
+  }
+  .content-container .content .content-card {
+    width: 100%;
   }
   .content-container .content .content-card #title {
     font-size: 2vw;
+  }
+  .content-container:hover {
+    height: 30.75vw;
+  }
+  .content-container:hover .content {
+    width: 30.75vw;
+  }
+  .content-container:hover .content .content-card {
+    width: 100%;
+  }
+  .content-container:hover .content .content-card #title {
+    font-size: 2vw;
+  }
+  .content-container:hover .content .bottom-half {
+    padding: 15px;
+  }
+  .content-container:hover .content .bottom-half .icon-row {
+    height: 45%;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons {
+    height: 100%;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container {
+    height: 100%;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container {
+    width: 35px;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container .bubble-text {
+    font-size: 1vw;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container #triangle {
+    height: 15px;
+    width: 20px;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle {
+    height: 90%;
+    width: 100%;
+    border: 1px solid #666666;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle .card-icon {
+    height: 100%;
+    width: auto;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle:hover {
+    border-color: white;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle-play {
+    height: 90%;
+    width: 100%;
+    margin: 0 1px;
+    padding: 5px 6px;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle-play .card-icon {
+    height: 85%;
+    width: auto;
+  }
+  .content-container:hover .content .bottom-half .match-row {
+    font-size: 1.5vw;
+    margin: 5px 0;
+  }
+  .content-container:hover .content .bottom-half .genre-list-container {
+    font-size: 1.5vw;
   }
 }
 
@@ -1251,12 +1388,78 @@
   .content-container {
     height: 46vw;
   }
-  .content-container .content .content-card {
+  .content-container .content {
     width: 46vw;
+  }
+  .content-container .content .content-card {
+    width: 100%;
   }
   .content-container .content .content-card #title {
     font-size: 3vw;
     margin-bottom: 0;
+  }
+  .content-container:hover {
+    height: 46vw;
+  }
+  .content-container:hover .content {
+    width: 46vw;
+  }
+  .content-container:hover .content .content-card {
+    width: 100%;
+  }
+  .content-container:hover .content .content-card #title {
+    font-size: 3vw;
+  }
+  .content-container:hover .content .bottom-half {
+    padding: 15px;
+  }
+  .content-container:hover .content .bottom-half .icon-row {
+    height: 45%;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons {
+    height: 100%;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container {
+    height: 100%;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container {
+    width: 35px;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container .bubble-text {
+    font-size: 1vw;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container #triangle {
+    height: 15px;
+    width: 20px;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle {
+    height: 90%;
+    width: 100%;
+    border: 1px solid #666666;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle .card-icon {
+    height: 100%;
+    width: auto;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle:hover {
+    border-color: white;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle-play {
+    height: 90%;
+    width: 100%;
+    margin: 0 1px;
+    padding: 5px 6px;
+  }
+  .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle-play .card-icon {
+    height: 85%;
+    width: auto;
+  }
+  .content-container:hover .content .bottom-half .match-row {
+    font-size: 2vw;
+    margin: 5px 0;
+  }
+  .content-container:hover .content .bottom-half .genre-list-container {
+    font-size: 2vw;
   }
 }
 /*# sourceMappingURL=movieCard.css.map */
