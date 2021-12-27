@@ -142,6 +142,9 @@ function Header({setExploreMovies, setSelectedGenre, watchlist, setIsExploreEmpt
             <div className="header-left">
                 <img src={logo} id="logo"></img>
                 <ul>
+                    <li className='browse'>
+                        <p>Browse</p>
+                    </li>
                     <li onClick={clearExploreMovies}>
                         <p>Home</p>
                     </li>

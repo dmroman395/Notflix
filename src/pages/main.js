@@ -577,7 +577,7 @@ function Main({ selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies
                 : 
                 <MoreInfo data={selectedMovie} similarMovies={similarMovies}  setSelectedMovie={setSelectedMovie} watchlist={watchlist} setWatchlist={setWatchlist}/>
             }
-            <Featured  movie={featuredMovie} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies} watchlist={watchlist} setWatchlist={setWatchlist} nowPlayingMovies={nowPlayingMovies}/>
+            <Featured movie={testList[11]} selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies} watchlist={watchlist} setWatchlist={setWatchlist} nowPlayingMovies={nowPlayingMovies}/>
             <div className='rows-container'>
                 {/* {
                    (watchlist && watchlist.length != 0) ?
