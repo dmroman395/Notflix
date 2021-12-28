@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useAuth } from '../../contexts/authContext'
 import logo from '../../images/Logo.png'
 import searchIcon from '../../images/search.png'
 import cancel from '../../images/cancel.png'
+import triangle from '../../images/triangle.png'
 import '../../css/shared/header.css'
 
 // The debounce function receives our function as a parameter
@@ -42,15 +43,12 @@ const debounce = (fn) => {
   storeScroll();
 
 function Header({setExploreMovies, setSelectedGenre, watchlist, setIsExploreEmpty, setIsNewPopular, setIsSearch, }) {
+    const [subMenuNotVisible, setSubMenuNotVisible] = useState(true)
 
     const { userSignOut } = useAuth()
     const { getRandomMovies } = require ('../../controllers/moviesController')
     const { search } = require('../../controllers/moviesController')
     const { getPopularTV } = require('../../controllers/tvShowsController')
-
-    function signOut() {
-        userSignOut()
-    }
 
     async function handleMovies() {
         const data = await getRandomMovies(1)
@@ -137,39 +135,69 @@ function Header({setExploreMovies, setSelectedGenre, watchlist, setIsExploreEmpt
         window.scroll(0,0)
     }
 
+    function handleSubMenuVisibility() {
+        const subMenu = document.querySelector('.sub-menu-container')
+
+        if (subMenuNotVisible) subMenu.style.display = 'flex'
+        
+        if (!subMenuNotVisible) subMenu.style.display = 'none'
+
+        setSubMenuNotVisible(!subMenuNotVisible)
+    }
+
     return (
         <div className="header">
             <div className="header-left">
                 <img src={logo} id="logo"></img>
-                <ul>
-                    <li className='browse'>
+                <ul className='top-level-menu'>
+                    <li className='browse' onClick={handleSubMenuVisibility}>
                         <p>Browse</p>
+                        <div className='sub-menu-container'>
+                            <img id='triangle-header' src={triangle}></img>
+                            <ul className='sub-menu'>
+                                <li onClick={clearExploreMovies}>
+                                    <p>Home</p>
+                                </li>
+                                <li onClick={handleTV}>
+                                    <p>TV Shows</p>
+                                </li>
+                                <li onClick={handleMovies}>
+                                    <p>Movies</p>
+                                </li>
+                                <li onClick={handleNewPopular}>
+                                    <p>New & Popular</p>
+                                </li>
+                                <li onClick={handleMyMovies}>
+                                    <p>My List</p>
+                                </li>
+                            </ul>   
+                        </div>
                     </li>
-                    <li onClick={clearExploreMovies}>
+                    <li onClick={clearExploreMovies} className='top-level-item'>
                         <p>Home</p>
                     </li>
-                    <li onClick={handleTV}>
+                    <li onClick={handleTV} className='top-level-item'>
                         <p>TV Shows</p>
                     </li>
-                    <li onClick={handleMovies}>
+                    <li onClick={handleMovies} className='top-level-item'>
                         <p>Movies</p>
                     </li>
-                    <li onClick={handleNewPopular}>
+                    <li onClick={handleNewPopular} className='top-level-item'>
                         <p>New & Popular</p>
                     </li>
-                    <li onClick={handleMyMovies}>
+                    <li onClick={handleMyMovies} className='top-level-item'>
                         <p>My List</p>
                     </li>
                 </ul>
             </div>
             <div className="header-right">
                 <form className='search-bar'>
-                    <button type='button'><img src={searchIcon} ></img></button>
+                    <button type='button'><img id='searchIcon' src={searchIcon} ></img></button>
                     <input type='text' placeholder='Search...' onChange={e => handleSearch(e)} id='search'></input>
                     <button className='cancel' onClick={e => handleCancel(e)} ><img src={cancel} ></img></button>
                 </form>
                 <a href="">DVD</a>
-                <button onClick={signOut} className='signOut'>Sign Out</button>
+                <button onClick={userSignOut} className='signOut'>Sign Out</button>
             </div>
         </div>
     )

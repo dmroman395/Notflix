@@ -26,6 +26,12 @@ html:not([data-scroll='0']) {
             height: 35px;
             width: auto;
         }
+        .browse {
+            display: none;
+            font-size: 14px;
+            color: #e5e5e5e5;
+            text-decoration: none;
+        }
         ul {
             display: flex;
             flex-direction: row;
@@ -292,98 +298,82 @@ html:not([data-scroll='0']) {
     }
 }
 
-
 @media only screen and (max-width: 799px) {
     .header {
         .header-left {
-            ul {
-                display: flex;
-                flex-direction: column;
-                width: 260px;
-                border: solid 1px rgba(255,255,255,.15);
-                li {
-                    padding: 17px 0;
-                    width: 100%;
-                    background-color: rgba(0,0,0,.9);
-                    text-align: center;
-                    p {
-                        font-size: 12px;
+            .top-level-menu {
+                .top-level-item {
+                    display: none;
+                }
+                .sub-menu-container {
+                    display: none;
+                    flex-direction: column;
+                    align-items: center;
+                    position: absolute;
+                    top: 60px;
+                    left: 45px;
+                    width: 260px;
+                    #triangle-header{
+                        transform: rotateX(180deg);
+                        height: 13px;
+                        width: auto;
+                        position: relative;
+                        top: 2px;
+                    }
+                    .sub-menu {
+                        display: flex;
+                        margin-left: 0;
+                        width: 100%;
+                        flex-direction: column;
+                        border: solid 1px rgba(255,255,255,.15);
+                        border-top: solid 2px #e5e5e5e5;
+                        li {
+                            padding: 17px 0;
+                            width: 100%;
+                            background-color: rgba(0,0,0,.9);
+                            text-align: center;
+                            p {
+                                font-size: 12px;
+                            }
+                        }
                     }
                 }
-                .browse {
-                    background-color: transparent;
-                    text-align: start;
-                }
+            }
+            .browse {
+                display: flex;
+                align-items: center;
             }
         }
         .header-right {
-            align-items: center;
-            display: flex;
-            flex-direction: row;
-            font-size: 9px;
-            color: #e5e5e5e5;
-            gap: 15px;
-            button {
-                background-color: transparent;
-                border: none;
-                cursor: pointer;
-                color: #e5e5e5e5;
-            }
             .signOut {
-                font-size: 9px;
-                display: flex;
-                align-items: center;
-                background-color: #e50914;
+                font-size: 10px;
                 padding: 5px;
-                border-radius: 3px;
             }
             .search-bar {
-                display: flex;
-                align-items: center;
-                gap: 5px;
-                cursor: pointer;
-                padding: 5px;
-                border: 0px solid white;
-                transition-delay: 200ms;
-                .cancel {
-                    img {
-                        height: 0px;
-                        width: auto;
-                        opacity: 0;
-                    }
-                }
-                input {
-                    transition: width 200ms ease-out;
-                    background-color: transparent;
-                    outline: none;
-                    width: 0px;
-                    border: none;
-                    color: white;
+                #searchIcon {
+                    height: 10px;
                 }
             }
-    
             .search-bar:focus-within {
-                border: 1px solid white;
-                background-color: rgba(0, 0, 0, 0.7);
-                transition-delay: 0ms;
                 .cancel {
                     img {
-                        height: 15px;
+                        height: 10px;
                     }
                 }
                 input {
-                    width: 200px;
+                    width: 150px;
+                    font-size: 10px;
                 }
                 input::-webkit-input-placeholder {
-                    color: gray;
-                    }
+                    font-size: 10px;
+                }
     
                 input::-moz-placeholder {
-                    color: gray;  
+                    font-size: 10px;
                 }
                     
                 input:-ms-input-placeholder {  
-                    color: gray;      
+                    font-size: 10px;      
                 }
             }
         }
