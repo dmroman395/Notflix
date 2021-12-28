@@ -1,5 +1,6 @@
 .featured {
-  height: 100vh;
+  height: 60vw;
+  max-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13,7 +14,7 @@
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  padding: 150px 50px 100px 50px;
+  padding: 10vw 50px 100px 50px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
 }
 
@@ -23,8 +24,8 @@
 
 .featured .content h1 {
   color: #fff;
-  font-size: 54px;
-  margin-bottom: 20px;
+  font-size: 3.5vw;
+  margin-bottom: 1.75vw;
 }
 
 .featured .content h3 {
@@ -34,9 +35,15 @@
 }
 
 .featured .content .buttons {
-  margin-top: 20px;
+  margin-top: 1.75vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+@media only screen and (max-width: 949px) {
+  .featured {
+    padding: 10vw 30px 100px 30px;
+  }
 }
 /*# sourceMappingURL=featured.css.map */

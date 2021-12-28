@@ -4,7 +4,7 @@
 
 .icon-container .icon-circle-play-big {
   text-shadow: none;
-  padding: 15px 30px;
+  padding: .575vw 1.75vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -15,12 +15,12 @@
   background-color: white;
   color: black;
   font-weight: 600;
-  font-size: 1.5em;
+  font-size: 1.5vw;
   margin-right: 10px;
 }
 
 .icon-container .icon-circle-play-big .card-icon {
-  height: 20px;
+  height: 1.75vw;
   width: auto;
   margin-right: 10px;
 }

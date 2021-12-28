@@ -1,7 +1,7 @@
 .icon-container-big {
     position: relative;
     .icon-circle-info-big {
-        padding: 15px 30px;
+        padding: .575vw 1.75vw;
         text-shadow: none;
         display: flex;
         align-items: center;
@@ -9,10 +9,10 @@
         background-color: rgba(109,109,110,0.85);
         color: white;
         font-weight: 600;
-        font-size: 1.5em;
+        font-size: 1.5vw;
         margin-right: 10px;
         .card-icon{
-            height: 20px;
+            height: 1.75vw;
             width: auto;
             margin-right: 10px;
         }
