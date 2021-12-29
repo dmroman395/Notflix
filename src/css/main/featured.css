@@ -46,4 +46,26 @@
     padding: 10vw 30px 100px 30px;
   }
 }
+
+@media only screen and (min-width: 300px) and (max-width: 799px) {
+  .featured {
+    padding: 25vw 30px 175px 30px;
+  }
+  .featured .content {
+    max-width: 60%;
+  }
+  .featured .content h1 {
+    font-size: 4.25vw;
+  }
+  .featured .content h3 {
+    font-size: 2vw;
+    font-weight: normal;
+  }
+  .featured .content .buttons {
+    margin-top: 2vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
 /*# sourceMappingURL=featured.css.map */

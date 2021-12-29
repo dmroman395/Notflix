@@ -106,7 +106,6 @@ function Header({setExploreMovies, setSelectedGenre, watchlist, setIsExploreEmpt
         const val = e.target.value
         const cancel = document.querySelector('.cancel > img')
         window.scroll(0,0)
-        console.log(val)
 
         if (val) {
             cancel.style.opacity = '1'

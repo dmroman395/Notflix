@@ -14,9 +14,10 @@
         transition: all 200ms ease-out;
         z-index: 65;
         opacity: 0;
+        width: 80%;
         max-width: 900px;
         height: min-content;
-        margin: 100px;
+        margin: 50px 0;
         display: flex;
         flex-direction: column;
         border-radius: 5px;
@@ -62,6 +63,7 @@
                     display: flex;
                     flex-direction: row;
                     position: relative;
+                    align-items: center;
                     .icon-container {
                         position: relative;
                         display: flex;
@@ -228,4 +230,188 @@
 }
 .overlay::-webkit-scrollbar {
     display: none;
+}
+
+@media only screen and (min-width: 700px) and (max-width: 1000px) {
+    .overlay {
+        .moreInfo-container {
+            .moreInfo-featured {
+                height: 400px;
+                .cancel-container {
+                    .cancel {
+                        height: 30px;
+                        width: 30px;
+                    }
+                }
+                .content {
+                    h1 {
+                        font-size: 2.7em;
+                    }
+                    .icon-row {
+                        .icon-container {
+                            .icon-circle-play-big {
+                                font-size: 1.1em;
+                                .card-icon{
+                                    height: 20px;
+                                }
+                            }
+                            .icon-circle {
+                                height: 40px;
+                                width: 40px;
+                                .card-icon{
+                                    height: 17px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .moreInfo-info {
+                p {
+                    font-size: .95em;
+                    .hd {
+                        font-size: .6em;
+                    }
+                }
+                h3 {
+                    font-size: .97em;
+                    margin-bottom: 40px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 450px) and (max-width: 699px) {
+    .overlay {
+        .moreInfo-container {
+            .moreInfo-featured {
+                height: 300px;
+                .cancel-container {
+                    .cancel {
+                        height: 30px;
+                        width: 30px;
+                    }
+                }
+                .content {
+                    padding: 20px 30px;
+                    h1 {
+                        font-size: 2em;
+                    }
+                    .icon-row {
+                        .icon-container {
+                            .icon-circle-play-big {
+                                font-size: .9em;
+                                .card-icon{
+                                    height: 15px;
+                                }
+                            }
+                            .icon-circle {
+                                height: 30px;
+                                width: 30px;
+                                .card-icon{
+                                    height: 15px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .moreInfo-info {
+                padding: 20px 30px;
+                p {
+                    font-size: .85em;
+                    .hd {
+                        font-size: .55em;
+                    }
+                }
+                h3 {
+                    font-size: .85em;
+                    margin-bottom: 35px;
+                }
+                .similarMovies {
+                    margin-bottom: 0;
+                    h1 {
+                        font-size: 1.2em;
+                        margin-bottom: 20px;
+                    }
+                    .similarMovies-grid {
+                        overflow: visible;
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        gap: 15px;
+                        position: relative;
+                        transition: all 300ms ease-out;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 449px) {
+    .overlay {
+        .moreInfo-container {
+            .moreInfo-featured {
+                height: 200px;
+                .cancel-container {
+                    .cancel {
+                        height: 27px;
+                        width: 27px;
+                    }
+                }
+                .content {
+                    padding: 15px 25px;
+                    h1 {
+                        font-size: 1.2em;
+                    }
+                    .icon-row {
+                        .icon-container {
+                            .icon-circle-play-big {
+                                font-size: 1em;
+                                .card-icon{
+                                    height: 13px;
+                                }
+                            }
+                            .icon-circle {
+                                height: 25px;
+                                width: 25px;
+                                .card-icon{
+                                    height: 13px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .moreInfo-info {
+                padding: 15px 25px;
+                p {
+                    font-size: .8em;
+                    .hd {
+                        font-size: .475em;
+                    }
+                }
+                h3 {
+                    font-size: .8em;
+                    margin-bottom: 30px;
+                }
+                .similarMovies {
+                    margin-bottom: 0;
+                    h1 {
+                        font-size: 1.2em;
+                        margin-bottom: 20px;
+                    }
+                    .similarMovies-grid {
+                        overflow: visible;
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        gap: 10px;
+                        position: relative;
+                        transition: all 300ms ease-out;
+                    }
+                }
+            }
+        }
+    }
 }

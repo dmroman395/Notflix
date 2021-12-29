@@ -21,7 +21,7 @@
   position: relative;
   top: 50px;
   margin-bottom: 100px;
-  padding: 50px 50px;
+  padding: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -35,20 +35,29 @@
 
 .exploreAll .exploreContent .genre {
   font-weight: lighter;
-  margin-bottom: 75px;
+  margin-bottom: 4vw;
+  font-size: 2.5vw;
 }
 
 .exploreAll .exploreContent .movies-grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[6];
-      grid-template-columns: repeat(6, 1fr);
+  -ms-grid-columns: (minmax(0, 1fr))[6];
+      grid-template-columns: repeat(6, minmax(0, 1fr));
   grid-auto-rows: auto;
+  -webkit-column-gap: 15px;
+          column-gap: 15px;
+  width: 100%;
   position: relative;
 }
 
 .exploreAll .exploreContent .movies-grid .content-container {
   position: relative;
+  width: 15vw;
+}
+
+.exploreAll .exploreContent .movies-grid .content-container .content {
+  width: 100%;
 }
 
 .exploreAll .exploreContent .movies-grid .fadein {
@@ -518,6 +527,244 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@media only screen and (min-width: 1100px) and (max-width: 1399px) {
+  .exploreAll .exploreContent .movies-grid {
+    -ms-grid-columns: (minmax(0, 1fr))[5];
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+  .exploreAll .exploreContent .movies-grid .content-container {
+    height: 17.5vw;
+    width: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container .content {
+    width: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container .content .content-card {
+    width: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container .content .content-card #title {
+    font-size: 1.3vw;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover {
+    height: 17.5vw;
+    width: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content {
+    width: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .content-card {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1199px) {
+  .exploreAll .exploreContent .movies-grid {
+    -ms-grid-columns: (minmax(0, 1fr))[4];
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .exploreAll .exploreContent .movies-grid .content-container {
+    height: 21.5vw;
+    width: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container .content {
+    width: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container .content .content-card {
+    width: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container .content .content-card #title {
+    font-size: 1.75vw;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover {
+    height: 21.5vw;
+    width: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content {
+    width: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .content-card {
+    width: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .content-card #title {
+    font-size: 1.75vw;
+  }
+}
+
+@media only screen and (min-width: 500px) and (max-width: 799px) {
+  .exploreAll .exploreContent {
+    padding: 30px;
+  }
+  .exploreAll .exploreContent .movies-grid {
+    -ms-grid-columns: (minmax(0, 1fr))[3];
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .exploreAll .exploreContent .movies-grid .content-container {
+    height: 29vw;
+    width: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container .content {
+    width: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container .content .content-card {
+    width: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container .content .content-card #title {
+    font-size: 2vw;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover {
+    height: 29vw;
+    width: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content {
+    width: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .content-card {
+    width: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .content-card #title {
+    font-size: 2vw;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half {
+    padding: 10px;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .icon-row {
+    height: 45%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .icon-row .icons {
+    height: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .icon-row .icons .icon-container {
+    height: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container {
+    width: 35px;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container .bubble-text {
+    font-size: 1vw;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container #triangle {
+    height: 15px;
+    width: 20px;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle {
+    height: 90%;
+    width: 100%;
+    border: 1px solid #666666;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle .card-icon {
+    height: 100%;
+    width: auto;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle:hover {
+    border-color: white;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle-play {
+    height: 90%;
+    width: 100%;
+    margin: 0 1px;
+    padding: 5px 6px;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle-play .card-icon {
+    height: 85%;
+    width: auto;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .match-row {
+    font-size: 1.2vw;
+    margin: 5px 0;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .genre-list-container {
+    font-size: 1.2vw;
+  }
+}
+
+@media only screen and (max-width: 499px) {
+  .exploreAll .exploreContent {
+    padding: 30px;
+  }
+  .exploreAll .exploreContent .movies-grid {
+    -ms-grid-columns: (minmax(0, 1fr))[2];
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .exploreAll .exploreContent .movies-grid .content-container {
+    height: 39vw;
+    width: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container .content {
+    width: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container .content .content-card {
+    width: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container .content .content-card #title {
+    font-size: 2.5vw;
+    margin-bottom: 0;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover {
+    height: 39vw;
+    width: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content {
+    width: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .content-card {
+    width: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .content-card #title {
+    font-size: 3vw;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half {
+    padding: 10px;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .icon-row {
+    height: 45%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .icon-row .icons {
+    height: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .icon-row .icons .icon-container {
+    height: 100%;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container {
+    width: 35px;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container .bubble-text {
+    font-size: 1vw;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container #triangle {
+    height: 15px;
+    width: 20px;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle {
+    height: 90%;
+    width: 100%;
+    border: 1px solid #666666;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle .card-icon {
+    height: 100%;
+    width: auto;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle:hover {
+    border-color: white;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle-play {
+    height: 90%;
+    width: 100%;
+    margin: 0 1px;
+    padding: 5px 6px;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle-play .card-icon {
+    height: 85%;
+    width: auto;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .match-row {
+    font-size: 1.75vw;
+    margin: 5px 0;
+  }
+  .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .genre-list-container {
+    font-size: 1.75vw;
   }
 }
 /*# sourceMappingURL=exploreAll.css.map */

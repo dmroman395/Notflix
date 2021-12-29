@@ -13,9 +13,10 @@
     .moreInfo-container {
         transition: all 200ms ease-out;
         opacity: 0;
+        width: 20%;
         max-width: 900px;
         height: min-content;
-        margin: 100px;
+        // margin: 100px;
         display: flex;
         flex-direction: column;
         border-radius: 5px;

@@ -96,3 +96,38 @@
 .similarMovie:hover {
     cursor: pointer;
 }
+
+@media only screen and (max-width: 699px) {
+    .similarMovie {
+        .banner {
+            height: 100px;
+            h5 {
+                font-size: .85em;
+            }
+        }
+        .info {
+            padding: 15px;
+            .info-top {
+                .match-year {
+                    .match {
+                        color: #46d369;
+                        margin-bottom: 5px;
+                    }
+                }
+              .icon-container {
+                .icon-circle {
+                    position: relative;
+                    height: 35px;
+                    width: 35px;
+                    .card-icon{
+                        height: 12px;
+                    }
+                }
+              }
+            }
+            .info-bottom {
+                font-size: .75em;
+            }
+        }
+    }
+}

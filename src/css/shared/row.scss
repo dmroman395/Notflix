@@ -2,15 +2,16 @@
     margin-bottom: 105px; 
     color: #e5e5e5;
     h1 {
-        margin-bottom: 10px;
+        font-size: 1.4vw;
     }
     .row-header {
         display: flex;
         align-items: center;
         width: 100%;
         z-index: 100;
-        margin: 0 50px;
+        margin: 0 4% .5em 4%;
         span {
+            font-size: 14px;
             font-weight: bold;
             opacity: 0;
             transition: all ease-in-out 600ms;
@@ -36,7 +37,7 @@
         flex-direction: row;
         height: 185px;
         .slick-list {
-            margin: 0 50px;
+            margin: 0 4% .5em 4%;
             width: 95%;
             .slick-track {
                 display: flex;
@@ -47,8 +48,9 @@
             }
         }
         .arrow  {
-            height: 185px;
-            width: 45px;
+            height: 75%;
+            min-width: 30px;
+            width: 2.5vw;
             z-index: 5;
             position: absolute;
             right: 0%;
@@ -203,3 +205,128 @@
     }
 }
 
+@media only screen and (min-width: 1100px) and (max-width: 1399px){
+    .row-container {
+        .row-header {
+            span {
+                font-size: 1vw;
+            }
+        }
+        .row-header:hover {
+            cursor: pointer;
+            span {
+                opacity: 1;
+                transform: translateX(10px);
+            }
+            img {
+                opacity: 1;
+                transform: translateX(8vw);
+            }
+        }
+        .slick-slider {
+            height: 18.5vw;
+            .arrow  {
+                height: 55%;
+                img {
+                    height: 25%;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1099px){
+    .row-container {
+        .row-header {
+            span {
+                font-size: 1.2vw;
+            }
+        }
+        .row-header:hover {
+            cursor: pointer;
+            span {
+                opacity: 1;
+                transform: translateX(8px);
+            }
+            img {
+                opacity: 1;
+                transform: translateX(9.2vw);
+            }
+        }
+        .slick-slider {
+            height: 23.25vw;
+            .arrow  {
+                height: 55%;
+                img {
+                    height: 25%;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 500px) and (max-width: 799px){
+    .row-container {
+        h1 {
+            font-size: 12px;
+        }
+        .row-header {
+            span {
+                font-size: 1.3vw;
+            }
+        }
+        .row-header:hover {
+            cursor: pointer;
+            span {
+                opacity: 1;
+                transform: translateX(6px);
+            }
+            img {
+                opacity: 1;
+                transform: translateX(11vw);
+            }
+        }
+        .slick-slider {
+            height: 30.75vw;
+            .arrow  {
+                height: 55%;
+                img {
+                    height: 25%;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 499px){
+    .row-container {
+        h1 {
+            font-size: 12px;
+        }
+        .row-header {
+            span {
+                font-size: 2vw;
+            }
+        }
+        .row-header:hover {
+            cursor: pointer;
+            span {
+                opacity: 1;
+                transform: translateX(6px);
+            }
+            img {
+                opacity: 1;
+                transform: translateX(15vw);
+            }
+        }
+        .slick-slider {
+            height: 46vw;
+            .arrow  {
+                height: 55%;
+                img {
+                    height: 25%;
+                }
+            }
+        }
+    }
+}

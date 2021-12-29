@@ -12,6 +12,7 @@
 }
 
 .content-container .content {
+  width: 15.5vw;
   position: relative;
   height: 100%;
   display: -webkit-box;
@@ -28,7 +29,7 @@
 
 .content-container .content .content-card {
   height: 60%;
-  width: 15.5vw;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1255,7 +1256,7 @@
     font-size: 1.75vw;
   }
   .content-container:hover .content .bottom-half {
-    padding: 15px;
+    padding: 10px;
   }
   .content-container:hover .content .bottom-half .icon-row {
     height: 45%;
@@ -1332,7 +1333,7 @@
     font-size: 2vw;
   }
   .content-container:hover .content .bottom-half {
-    padding: 15px;
+    padding: 10px;
   }
   .content-container:hover .content .bottom-half .icon-row {
     height: 45%;

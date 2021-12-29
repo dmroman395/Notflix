@@ -155,4 +155,31 @@
 .similarMovie:hover {
   cursor: pointer;
 }
+
+@media only screen and (max-width: 699px) {
+  .similarMovie .banner {
+    height: 100px;
+  }
+  .similarMovie .banner h5 {
+    font-size: .85em;
+  }
+  .similarMovie .info {
+    padding: 15px;
+  }
+  .similarMovie .info .info-top .match-year .match {
+    color: #46d369;
+    margin-bottom: 5px;
+  }
+  .similarMovie .info .info-top .icon-container .icon-circle {
+    position: relative;
+    height: 35px;
+    width: 35px;
+  }
+  .similarMovie .info .info-top .icon-container .icon-circle .card-icon {
+    height: 12px;
+  }
+  .similarMovie .info .info-bottom {
+    font-size: .75em;
+  }
+}
 /*# sourceMappingURL=similarMoveCard.css.map */

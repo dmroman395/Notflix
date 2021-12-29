@@ -21,11 +21,11 @@
   -webkit-transition: all 200ms ease-out;
   transition: all 200ms ease-out;
   opacity: 0;
+  width: 20%;
   max-width: 900px;
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
-  margin: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

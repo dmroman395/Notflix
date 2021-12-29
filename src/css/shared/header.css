@@ -431,4 +431,13 @@ html:not([data-scroll='0']) .header {
     font-size: 10px;
   }
 }
+
+@media only screen and (max-width: 510px) {
+  .header .header-right .search-bar:focus-within {
+    position: absolute;
+    margin: 0 auto;
+    top: 50px;
+    right: 30px;
+  }
+}
 /*# sourceMappingURL=header.css.map */
