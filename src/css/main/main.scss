@@ -8,3 +8,11 @@
         bottom: 105px;
     }
 }
+
+@media only screen and (max-width: 949px) {
+    .main {
+        .rows-container {
+            padding-left: 30px;
+        }
+    }
+}

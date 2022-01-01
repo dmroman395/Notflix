@@ -98,177 +98,169 @@
         position: relative;
         top: 50px;
         margin-bottom: 100px;
-        padding: 50px 0px;
+        padding: 50px;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        .genre {
-            font-weight: lighter;
-            margin-bottom: 75px;
-        }
-        .movies-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            grid-auto-rows: auto;
-            .content-container2 {
-                overflow: visible;
-                z-index: 9;
-                transition: transform ease-out 200ms;
-                height: 300px; 
-                border-radius: 3px;
-                opacity: 0;
-                .content {
-                    position: relative;
-                    height: 100%;
+        .content-container {
+            overflow: visible;
+            z-index: 9;
+            transition: transform ease-out 200ms;
+            height: 14.5vw;
+            width: 14.5vw; 
+            border-radius: 3px;
+            opacity: 0;
+            .content {
+                position: relative;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                transition: all ease-out 1ms;
+                .content-card {
+                    height: 60%;
+                    width: 100%;
+                    display: flex;
+                    padding: 15px;
+                    align-items: flex-end;
+                    border-radius: 3px;
+                    transition: height ease-out 1ms;
+                    overflow: hidden;
+                    #title {
+                        color: white;
+                        font-size: 1.125vw;
+                        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
+                    }
+                }
+                .bottom-half {
+                    opacity: 0;
+                    transition: all ease-out 100ms;
+                    height: 45%;
                     display: flex;
                     flex-direction: column;
-                    width: 98%;
-                    transition: all ease-out 1ms;
-                    .content-card {
-                        height: 60%;
-                        width: 100%;
+                    padding: 15px 20px 20px 20px;
+                    background-color: #141414;
+                    .icon-row {
                         display: flex;
-                        padding: 15px;
-                        align-items: flex-end;
-                        border-radius: 3px;
-                        transition: height ease-out 1ms;
-                        overflow: hidden;
-                        #title {
-                            color: white;
-                            font-size: 1.5em;
-                            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
-                        }
-                    }
-                    .bottom-half {
-                        opacity: 0;
-                        transition: all ease-out 100ms;
-                        height: 40%;
-                        display: flex;
-                        flex-direction: column;
-                        padding: 20px;
-                        background-color: #141414;
-                        .icon-row {
+                        justify-content: space-between;
+                        align-items: center;
+                        .icons {
                             display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-                            .icons {
+                            .icon-container {
                                 display: flex;
-                                .icon-container {
+                                justify-content: center;
+                                .bubble-container {
+                                    animation: fade 250ms;
+                                    opacity: 1;
+                                    position: absolute;
                                     display: flex;
-                                    justify-content: center;
-                                    .bubble-container {
-                                        animation: fade 250ms;
-                                        opacity: 1;
-                                        position: absolute;
-                                        display: flex;
-                                        flex-direction: column;
-                                        align-items: center;
-                                        width: 35px;
-                                        bottom: 30px;
-                                        z-index: 200;
-                                        .bubble-text {
-                                            width: max-content;
-                                            padding: 5px 10px;
-                                            background-color: #D5D5D5;
-                                            border-radius: 3px;
-                                            color: black;
-                                            font-weight: bold;
-                                            font-size: 1em;
-                                        }
-                                        #triangle {
-                                            position: relative;
-                                            bottom: 7px;
-                                            height: 15px;
-                                            width: 20px
-                                        }
+                                    flex-direction: column;
+                                    align-items: center;
+                                    width: 35px;
+                                    bottom: 30px;
+                                    z-index: 200;
+                                    .bubble-text {
+                                        width: max-content;
+                                        padding: 5px 10px;
+                                        background-color: #D5D5D5;
+                                        border-radius: 3px;
+                                        color: black;
+                                        font-weight: bold;
+                                        font-size: 1em;
                                     }
-                                    @keyframes fade {
-                                        from {opacity: 0}
-                                        to {opacity: 1}
-                                    }
-                                    
-                                    .icon-circle {
+                                    #triangle {
                                         position: relative;
-                                        height: 30px;
-                                        width: 30px;
-                                        margin: 0 2px;
-                                        padding: 3px;
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: center;
-                                        border-radius: 100%;
-                                        border: 2px solid lighten(#595959,5%);
-                                        z-index: 15;
-                                        .card-icon{
-                                            height: 17px;
-                                            width: auto;
-                                        }
+                                        bottom: 7px;
+                                        height: 15px;
+                                        width: 20px
                                     }
-                                    .icon-circle:hover {
-                                        border-color: white;
+                                }
+                                @keyframes fade {
+                                    from {opacity: 0}
+                                    to {opacity: 1}
+                                }
+                                .icon-circle {
+                                    position: relative;
+                                    height: 30px;
+                                    width: 30px;
+                                    margin: 0 2px;
+                                    padding: 3px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    border-radius: 100%;
+                                    border: 2px solid lighten(#595959,5%);
+                                    z-index: 15;
+                                    .card-icon{
+                                        height: 17px;
+                                        width: auto;
                                     }
-                                    .icon-circle-play {
-                                        height: 30px;
-                                        width: 30px;
-                                        margin: 0 1px;
-                                        padding-left: 2px;
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: center;
-                                        border-radius: 100%;
-                                        background-color: white;
-                                        .card-icon{
-                                            height: 15px;
-                                            width: auto;
-                                        }
+                                }
+                                .icon-circle:hover {
+                                    border-color: white;
+                                }
+                                .icon-circle-play {
+                                    height: 30px;
+                                    width: 30px;
+                                    margin: 0 1px;
+                                    padding-left: 2px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    border-radius: 100%;
+                                    background-color: white;
+                                    .card-icon{
+                                        height: 15px;
+                                        width: auto;
                                     }
-                                    .icon-circle-play:hover {
-                                        background-color: darken(white,8%);
-                                    }
+                                }
+                                .icon-circle-play:hover {
+                                    background-color: darken(white,8%);
                                 }
                             }
                         }
-                        .match-row {
-                            font-size: .80em;
-                            font-weight: bold;
-                            color: darken(white, 15%);
-                            display: flex;
-                            align-items: center;
-                            margin: 10px 0;
-                            .match {
-                                color: #46d369;
-                            }
-                            .runtime {
-                                margin: 0 10px;
-                            }
-                            .hd {
-                                text-align: center;
-                                font-size: .65em;
-                                padding: 0 .4em;
-                                border-radius: 3px;
-                                border: solid 1px darken(white, 15%);
-                                white-space: nowrap;
-                            }
+                    }
+                    .match-row {
+                        font-size: .80em;
+                        font-weight: bold;
+                        color: darken(white, 15%);
+                        display: flex;
+                        align-items: center;
+                        margin: 10px 0;
+                        .match {
+                            color: #46d369;
                         }
-                        .genre-list-container {
-                            display: flex;
-                            justify-content: space-between;
-                            width: 20%;
+                        .runtime {
+                            margin: 0 10px;
+                        }
+                        .hd {
+                            text-align: center;
+                            font-size: .65em;
+                            padding: 0 .4em;
+                            border-radius: 3px;
+                            border: solid 1px darken(white, 15%);
                             white-space: nowrap;
-                            align-items: center;
-                            font-size: .8em;
-                            font-weight: normal;
-                            .dot {
-                                margin: 0 5px;
-                                color: darken(darkgray,15%);
-                            }
-                            span:last-child {
-                                display: none;
-                            }
+                        }
+                    }
+                    .genre-list-container {
+                        display: flex;
+                        justify-content: space-between;
+                        width: 20%;
+                        white-space: nowrap;
+                        align-items: center;
+                        font-size: .8em;
+                        font-weight: normal;
+                        .dot {
+                            margin: 0 5px;
+                            color: darken(darkgray,15%);
+                        }
+                        span:last-child {
+                            display: none;
                         }
                     }
                 }
             }
+        }
             
             .fadein {
                 animation: fadein .3s linear forwards;
@@ -298,11 +290,13 @@
                 100% { opacity: 0; }
             }
             
-            .content-container2:hover {
+            .content-container:hover {
+                position: absolute;
                 cursor: pointer;
-                transform: scale(130%) translateY(-50px);
-                height: 300px;
-                z-index: 12;
+                transform: scale(120%) translateY(-50px);
+                height: 14.5vw;
+                width: 14.5vw;
+                z-index: 200;
                 transition: all ease-out 200ms 500ms;
                 .content {
                     height: 100%;
@@ -319,13 +313,6 @@
                     }
                 }
             }
-            .empty-list {
-                margin-top: 50px;
-                grid-column: 1 / -1;
-                text-align: center;
-                animation: fade 200ms;
-            }
-        }
     }        
 } 
 
@@ -363,11 +350,87 @@
                     }
                 }
             }
-        }       
+        }
+        .exploreContent2 {
+            .content-container {
+                height: 17vw;
+                width: 17vw;
+                .content {
+                    width: 100%;
+                    .content-card {
+                        width: 100%;
+                        #title {
+                            font-size: 1.3vw;
+                        }
+                    }
+                }
+            }
+            .content-container:hover {
+                height: 17vw;
+                width: 17vw;
+                .content {
+                    width: 100%;
+                    .content-card {
+                        width: 100%;
+                    }
+                    .bottom-half {
+                        height: 40%;
+                        padding: 15px;
+                        .icon-row {
+                            height: 40%;
+                            .icons {
+                                height: 100%;
+                                .icon-container {
+                                    height: 100%;
+                                    .bubble-container {
+                                        width: 35px;
+                                        .bubble-text {
+                                            font-size: 1vw;
+                                        }
+                                        #triangle {
+                                            height: 15px;
+                                            width: 20px
+                                        }
+                                    }
+                                    .icon-circle {
+                                        height: 90%;
+                                        width: 100%;
+                                        .card-icon{
+                                            height: 100%;
+                                            width: auto;
+                                        }
+                                    }
+                                    .icon-circle:hover {
+                                        border-color: white;
+                                    }
+                                    .icon-circle-play {
+                                        height: 90%;
+                                        width: 100%;
+                                        margin: 0 1px;
+                                        padding: 5px 6px;
+                                        .card-icon{
+                                            height: 85%;
+                                            width: auto;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .match-row {
+                            font-size: 65%;
+                            margin: 5px 0; 
+                        }
+                        .genre-list-container {
+                            font-size: 65%;
+                        }
+                    }
+                }
+            }
+        }        
     } 
 }
 
-@media only screen and (min-width: 800px) and (max-width: 1199px) {
+@media only screen and (min-width: 800px) and (max-width: 1099px) {
     .exploreAll {
         .exploreContent {
             .movies-grid {
@@ -399,6 +462,97 @@
                     }
                 }
             }
+        } 
+        .exploreContent2 {
+            .content-container {
+                height: 21vw;
+                width: 21vw;
+                .content {
+                    width: 100%;
+                    .content-card {
+                        width: 100%;
+                        #title {
+                            font-size: 1.75vw;
+                        }
+                    }
+                }
+            }
+            .content-container:hover {
+                height: 21vw;
+                width: 21vw;
+                .content {
+                    width: 100%;
+                    .content-card {
+                        width: 100%;
+                        #title {
+                            font-size: 1.75vw;
+                        }
+                    }
+                    .bottom-half {
+                        height: 45%;
+                        padding: 15px;
+                        .icon-row {
+                            height: 40%;
+                            max-height: 30px;
+                            .icons {
+                                height: 100%;
+                                .icon-container {
+                                    height: 100%;
+                                    .bubble-container {
+                                        width: 35px;
+                                        .bubble-text {
+                                            font-size: 1vw;
+                                        }
+                                        #triangle {
+                                            height: 15px;
+                                            width: 20px
+                                        }
+                                    }
+                                    .icon-circle {
+                                        height: 90%;
+                                        width: 100%;
+                                        .card-icon{
+                                            height: 100%;
+                                            width: auto;
+                                        }
+                                    }
+                                    .icon-circle:hover {
+                                        border-color: white;
+                                    }
+                                    .icon-circle-play {
+                                        height: 90%;
+                                        width: 100%;
+                                        margin: 0 1px;
+                                        padding: 5px 6px;
+                                        .card-icon{
+                                            height: 85%;
+                                            width: auto;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .match-row {
+                            font-size: 65%;
+                            margin: 5px 0; 
+                        }
+                        .genre-list-container {
+                            font-size: 65%;
+                        }
+                    }
+                }
+            }
+        }        
+    } 
+}
+
+@media only screen and (max-width: 949px) {
+    .exploreAll {
+        .exploreContent {
+            padding: 30px;
+        }
+        .exploreContent2 {
+            padding: 30px;
         }        
     } 
 }
@@ -406,7 +560,6 @@
 @media only screen and (min-width: 500px) and (max-width: 799px) {
     .exploreAll {
         .exploreContent {
-            padding: 30px;
             .movies-grid {
                 grid-template-columns: repeat(3, minmax(0, 1fr));
                 .content-container {
@@ -487,14 +640,93 @@
                     }
                 }
             }
-        }         
+        } 
+        .exploreContent2 {
+            .content-container {
+                height: 27.5vw;
+                width: 27.5vw;
+                .content {
+                    width: 100%;
+                    .content-card {
+                        width: 100%;
+                        #title {
+                            font-size: 2vw;
+                        }
+                    }
+                }
+            }
+            .content-container:hover {
+                height: 27.5vw;
+                width: 27.5vw;
+                .content {
+                    width: 100%;
+                    .content-card {
+                        width: 100%;
+                        #title {
+                            font-size: 2vw;
+                        }
+                    }
+                    .bottom-half {
+                        padding: 10px;
+                        .icon-row {
+                            height: 45%;
+                            max-height: 30px;
+                            .icons {
+                                height: 100%;
+                                .icon-container {
+                                    height: 100%;
+                                    .bubble-container {
+                                        width: 35px;
+                                        .bubble-text {
+                                            font-size: 1.5vw;
+                                        }
+                                        #triangle {
+                                            height: 15px;
+                                            width: 20px
+                                        }
+                                    }
+                                    .icon-circle {
+                                        height: 90%;
+                                        width: 100%;
+                                        border: 1px solid lighten(#595959,5%);
+                                        .card-icon{
+                                            height: 100%;
+                                            width: auto;
+                                        }
+                                    }
+                                    .icon-circle:hover {
+                                        border-color: white;
+                                    }
+                                    .icon-circle-play {
+                                        height: 90%;
+                                        width: 100%;
+                                        margin: 0 1px;
+                                        padding: 5px 6px;
+                                        .card-icon{
+                                            height: 85%;
+                                            width: auto;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .match-row {
+                            font-size: 1.5vw;
+                            margin: 5px 0; 
+                        }
+                        .genre-list-container {
+                            font-size: 1.5vw;
+                        }
+                    }
+                }
+            }
+        }        
     } 
 }
 
 @media only screen and (max-width: 499px) {
     .exploreAll {
         .exploreContent {
-            padding: 30px;
             .movies-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
                 .content-container {
@@ -514,6 +746,7 @@
                 .content-container:hover {
                     height: 39vw;
                     width: 100%;
+                    transform: scale(130%) translateY(-20px) translateX(-10px);
                     .content {
                     width: 100%;
                         .content-card {
@@ -576,6 +809,87 @@
                     }
                 }
             }
-        }       
+        }
+        .exploreContent2 {
+            .content-container {
+                height: 39vw;
+                width: 39vw;
+                .content {
+                    width: 100%;
+                    .content-card {
+                        width: 100%;
+                        #title {
+                            font-size: 2.5vw;
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+            .content-container:hover {
+                height: 39vw;
+                width: 39vw;
+                transform: scale(130%) translateY(-20px) translateX(-10px);
+                .content {
+                width: 100%;
+                    .content-card {
+                        width: 100%;
+                        #title {
+                            font-size: 3vw;
+                        }
+                    }
+                    .bottom-half {
+                        padding: 15px;
+                        .icon-row {
+                            height: 45%;
+                            .icons {
+                                height: 100%;
+                                .icon-container {
+                                    height: 100%;
+                                    .bubble-container {
+                                        width: 35px;
+                                        .bubble-text {
+                                            font-size: 2vw;
+                                        }
+                                        #triangle {
+                                            height: 15px;
+                                            width: 20px
+                                        }
+                                    }
+                                    .icon-circle {
+                                        height: 90%;
+                                        width: 100%;
+                                        border: 1px solid lighten(#595959,5%);
+                                        .card-icon{
+                                            height: 100%;
+                                            width: auto;
+                                        }
+                                    }
+                                    .icon-circle:hover {
+                                        border-color: white;
+                                    }
+                                    .icon-circle-play {
+                                        height: 90%;
+                                        width: 100%;
+                                        margin: 0 1px;
+                                        padding: 5px 6px;
+                                        .card-icon{
+                                            height: 85%;
+                                            width: auto;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .match-row {
+                            font-size: 2vw;
+                            margin: 5px 0; 
+                        }
+                        .genre-list-container {
+                            font-size: 2vw;
+                        }
+                    }
+                }
+            }
+        }         
     } 
 }

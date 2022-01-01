@@ -7,6 +7,11 @@ import info from '../../images/info.png'
 
 function Featured({ movie, selectedMovie, setSelectedMovie, similarMovies, setSimilarMovies }) {
     const { backdrop_path, title, id, overview } = movie
+
+    let shortOverview
+
+    if (overview) shortOverview = `${overview.substring(0,200)}...`
+
     return (
         <div
             className="featured"
@@ -23,7 +28,7 @@ function Featured({ movie, selectedMovie, setSelectedMovie, similarMovies, setSi
         >
             <div className="content">
                 <h1>{title}</h1>
-                <h3>{overview}</h3>
+                <h3>{shortOverview}</h3>
                 <div className='buttons'>
                     <MovieCardIconPlayBig icon={playButton} title={title} />
                     <MovieCardIconInfoBig icon={info} movie={movie} setSelectedMovie={setSelectedMovie} selectedMovie={selectedMovie} similarMovies={similarMovies} setSimilarMovies={setSimilarMovies} id={id} />

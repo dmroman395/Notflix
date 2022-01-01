@@ -151,7 +151,7 @@
   position: relative;
   top: 50px;
   margin-bottom: 100px;
-  padding: 50px 0px;
+  padding: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -163,32 +163,20 @@
       justify-content: space-around;
 }
 
-.exploreAll .exploreContent2 .genre {
-  font-weight: lighter;
-  margin-bottom: 75px;
-}
-
-.exploreAll .exploreContent2 .movies-grid {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[6];
-      grid-template-columns: repeat(6, 1fr);
-  grid-auto-rows: auto;
-}
-
-.exploreAll .exploreContent2 .movies-grid .content-container2 {
+.exploreAll .exploreContent2 .content-container {
   overflow: visible;
   z-index: 9;
   -webkit-transition: -webkit-transform ease-out 200ms;
   transition: -webkit-transform ease-out 200ms;
   transition: transform ease-out 200ms;
   transition: transform ease-out 200ms, -webkit-transform ease-out 200ms;
-  height: 300px;
+  height: 14.5vw;
+  width: 14.5vw;
   border-radius: 3px;
   opacity: 0;
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2 .content {
+.exploreAll .exploreContent2 .content-container .content {
   position: relative;
   height: 100%;
   display: -webkit-box;
@@ -198,12 +186,12 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 98%;
+  width: 100%;
   -webkit-transition: all ease-out 1ms;
   transition: all ease-out 1ms;
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2 .content .content-card {
+.exploreAll .exploreContent2 .content-container .content .content-card {
   height: 60%;
   width: 100%;
   display: -webkit-box;
@@ -219,17 +207,17 @@
   overflow: hidden;
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2 .content .content-card #title {
+.exploreAll .exploreContent2 .content-container .content .content-card #title {
   color: white;
-  font-size: 1.5em;
+  font-size: 1.125vw;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half {
+.exploreAll .exploreContent2 .content-container .content .bottom-half {
   opacity: 0;
   -webkit-transition: all ease-out 100ms;
   transition: all ease-out 100ms;
-  height: 40%;
+  height: 45%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -237,11 +225,11 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 20px;
+  padding: 15px 20px 20px 20px;
   background-color: #141414;
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .icon-row {
+.exploreAll .exploreContent2 .content-container .content .bottom-half .icon-row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -253,13 +241,13 @@
           align-items: center;
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .icon-row .icons {
+.exploreAll .exploreContent2 .content-container .content .bottom-half .icon-row .icons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container {
+.exploreAll .exploreContent2 .content-container .content .bottom-half .icon-row .icons .icon-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -268,7 +256,7 @@
           justify-content: center;
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .bubble-container {
+.exploreAll .exploreContent2 .content-container .content .bottom-half .icon-row .icons .icon-container .bubble-container {
   -webkit-animation: fade 250ms;
           animation: fade 250ms;
   opacity: 1;
@@ -288,7 +276,7 @@
   z-index: 200;
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .bubble-container .bubble-text {
+.exploreAll .exploreContent2 .content-container .content .bottom-half .icon-row .icons .icon-container .bubble-container .bubble-text {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -300,7 +288,7 @@
   font-size: 1em;
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .bubble-container #triangle {
+.exploreAll .exploreContent2 .content-container .content .bottom-half .icon-row .icons .icon-container .bubble-container #triangle {
   position: relative;
   bottom: 7px;
   height: 15px;
@@ -325,7 +313,7 @@
   }
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .icon-circle {
+.exploreAll .exploreContent2 .content-container .content .bottom-half .icon-row .icons .icon-container .icon-circle {
   position: relative;
   height: 30px;
   width: 30px;
@@ -345,16 +333,16 @@
   z-index: 15;
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .icon-circle .card-icon {
+.exploreAll .exploreContent2 .content-container .content .bottom-half .icon-row .icons .icon-container .icon-circle .card-icon {
   height: 17px;
   width: auto;
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .icon-circle:hover {
+.exploreAll .exploreContent2 .content-container .content .bottom-half .icon-row .icons .icon-container .icon-circle:hover {
   border-color: white;
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .icon-circle-play {
+.exploreAll .exploreContent2 .content-container .content .bottom-half .icon-row .icons .icon-container .icon-circle-play {
   height: 30px;
   width: 30px;
   margin: 0 1px;
@@ -372,16 +360,16 @@
   background-color: white;
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .icon-circle-play .card-icon {
+.exploreAll .exploreContent2 .content-container .content .bottom-half .icon-row .icons .icon-container .icon-circle-play .card-icon {
   height: 15px;
   width: auto;
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .icon-row .icons .icon-container .icon-circle-play:hover {
+.exploreAll .exploreContent2 .content-container .content .bottom-half .icon-row .icons .icon-container .icon-circle-play:hover {
   background-color: #ebebeb;
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .match-row {
+.exploreAll .exploreContent2 .content-container .content .bottom-half .match-row {
   font-size: .80em;
   font-weight: bold;
   color: #d9d9d9;
@@ -394,15 +382,15 @@
   margin: 10px 0;
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .match-row .match {
+.exploreAll .exploreContent2 .content-container .content .bottom-half .match-row .match {
   color: #46d369;
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .match-row .runtime {
+.exploreAll .exploreContent2 .content-container .content .bottom-half .match-row .runtime {
   margin: 0 10px;
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .match-row .hd {
+.exploreAll .exploreContent2 .content-container .content .bottom-half .match-row .hd {
   text-align: center;
   font-size: .65em;
   padding: 0 .4em;
@@ -411,7 +399,7 @@
   white-space: nowrap;
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .genre-list-container {
+.exploreAll .exploreContent2 .content-container .content .bottom-half .genre-list-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -427,16 +415,16 @@
   font-weight: normal;
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .genre-list-container .dot {
+.exploreAll .exploreContent2 .content-container .content .bottom-half .genre-list-container .dot {
   margin: 0 5px;
   color: #838383;
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2 .content .bottom-half .genre-list-container span:last-child {
+.exploreAll .exploreContent2 .content-container .content .bottom-half .genre-list-container span:last-child {
   display: none;
 }
 
-.exploreAll .exploreContent2 .movies-grid .fadein {
+.exploreAll .exploreContent2 .fadein {
   -webkit-animation: fadein .3s linear forwards;
           animation: fadein .3s linear forwards;
 }
@@ -459,7 +447,7 @@
   }
 }
 
-.exploreAll .exploreContent2 .movies-grid .fadeout {
+.exploreAll .exploreContent2 .fadeout {
   -webkit-animation: fadeout .3s linear forwards;
           animation: fadeout .3s linear forwards;
 }
@@ -482,17 +470,19 @@
   }
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2:hover {
+.exploreAll .exploreContent2 .content-container:hover {
+  position: absolute;
   cursor: pointer;
-  -webkit-transform: scale(130%) translateY(-50px);
-          transform: scale(130%) translateY(-50px);
-  height: 300px;
-  z-index: 12;
+  -webkit-transform: scale(120%) translateY(-50px);
+          transform: scale(120%) translateY(-50px);
+  height: 14.5vw;
+  width: 14.5vw;
+  z-index: 200;
   -webkit-transition: all ease-out 200ms 500ms;
   transition: all ease-out 200ms 500ms;
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2:hover .content {
+.exploreAll .exploreContent2 .content-container:hover .content {
   height: 100%;
   border-radius: 5px;
   -webkit-box-shadow: 0px 3px 8px black;
@@ -501,24 +491,16 @@
   transition: all ease-out 200ms 500ms;
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2:hover .content .content-card {
+.exploreAll .exploreContent2 .content-container:hover .content .content-card {
   -webkit-transition: all ease-out 200ms 500ms;
   transition: all ease-out 200ms 500ms;
   border-radius: 3px;
 }
 
-.exploreAll .exploreContent2 .movies-grid .content-container2:hover .content .bottom-half {
+.exploreAll .exploreContent2 .content-container:hover .content .bottom-half {
   opacity: 1;
   -webkit-transition: all ease-out 200ms 500ms;
   transition: all ease-out 200ms 500ms;
-}
-
-.exploreAll .exploreContent2 .movies-grid .empty-list {
-  margin-top: 50px;
-  grid-column: 1 / -1;
-  text-align: center;
-  -webkit-animation: fade 200ms;
-          animation: fade 200ms;
 }
 
 @keyframes fade {
@@ -558,9 +540,83 @@
   .exploreAll .exploreContent .movies-grid .content-container:hover .content .content-card {
     width: 100%;
   }
+  .exploreAll .exploreContent2 .content-container {
+    height: 17vw;
+    width: 17vw;
+  }
+  .exploreAll .exploreContent2 .content-container .content {
+    width: 100%;
+  }
+  .exploreAll .exploreContent2 .content-container .content .content-card {
+    width: 100%;
+  }
+  .exploreAll .exploreContent2 .content-container .content .content-card #title {
+    font-size: 1.3vw;
+  }
+  .exploreAll .exploreContent2 .content-container:hover {
+    height: 17vw;
+    width: 17vw;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content {
+    width: 100%;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .content-card {
+    width: 100%;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half {
+    height: 40%;
+    padding: 15px;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row {
+    height: 40%;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons {
+    height: 100%;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container {
+    height: 100%;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container {
+    width: 35px;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container .bubble-text {
+    font-size: 1vw;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container #triangle {
+    height: 15px;
+    width: 20px;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle {
+    height: 90%;
+    width: 100%;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle .card-icon {
+    height: 100%;
+    width: auto;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle:hover {
+    border-color: white;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle-play {
+    height: 90%;
+    width: 100%;
+    margin: 0 1px;
+    padding: 5px 6px;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle-play .card-icon {
+    height: 85%;
+    width: auto;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .match-row {
+    font-size: 65%;
+    margin: 5px 0;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .genre-list-container {
+    font-size: 65%;
+  }
 }
 
-@media only screen and (min-width: 800px) and (max-width: 1199px) {
+@media only screen and (min-width: 800px) and (max-width: 1099px) {
   .exploreAll .exploreContent .movies-grid {
     -ms-grid-columns: (minmax(0, 1fr))[4];
         grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -591,12 +647,96 @@
   .exploreAll .exploreContent .movies-grid .content-container:hover .content .content-card #title {
     font-size: 1.75vw;
   }
+  .exploreAll .exploreContent2 .content-container {
+    height: 21vw;
+    width: 21vw;
+  }
+  .exploreAll .exploreContent2 .content-container .content {
+    width: 100%;
+  }
+  .exploreAll .exploreContent2 .content-container .content .content-card {
+    width: 100%;
+  }
+  .exploreAll .exploreContent2 .content-container .content .content-card #title {
+    font-size: 1.75vw;
+  }
+  .exploreAll .exploreContent2 .content-container:hover {
+    height: 21vw;
+    width: 21vw;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content {
+    width: 100%;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .content-card {
+    width: 100%;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .content-card #title {
+    font-size: 1.75vw;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half {
+    height: 45%;
+    padding: 15px;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row {
+    height: 40%;
+    max-height: 30px;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons {
+    height: 100%;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container {
+    height: 100%;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container {
+    width: 35px;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container .bubble-text {
+    font-size: 1vw;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container #triangle {
+    height: 15px;
+    width: 20px;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle {
+    height: 90%;
+    width: 100%;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle .card-icon {
+    height: 100%;
+    width: auto;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle:hover {
+    border-color: white;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle-play {
+    height: 90%;
+    width: 100%;
+    margin: 0 1px;
+    padding: 5px 6px;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle-play .card-icon {
+    height: 85%;
+    width: auto;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .match-row {
+    font-size: 65%;
+    margin: 5px 0;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .genre-list-container {
+    font-size: 65%;
+  }
 }
 
-@media only screen and (min-width: 500px) and (max-width: 799px) {
+@media only screen and (max-width: 949px) {
   .exploreAll .exploreContent {
     padding: 30px;
   }
+  .exploreAll .exploreContent2 {
+    padding: 30px;
+  }
+}
+
+@media only screen and (min-width: 500px) and (max-width: 799px) {
   .exploreAll .exploreContent .movies-grid {
     -ms-grid-columns: (minmax(0, 1fr))[3];
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -678,12 +818,87 @@
   .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .genre-list-container {
     font-size: 1.2vw;
   }
+  .exploreAll .exploreContent2 .content-container {
+    height: 27.5vw;
+    width: 27.5vw;
+  }
+  .exploreAll .exploreContent2 .content-container .content {
+    width: 100%;
+  }
+  .exploreAll .exploreContent2 .content-container .content .content-card {
+    width: 100%;
+  }
+  .exploreAll .exploreContent2 .content-container .content .content-card #title {
+    font-size: 2vw;
+  }
+  .exploreAll .exploreContent2 .content-container:hover {
+    height: 27.5vw;
+    width: 27.5vw;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content {
+    width: 100%;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .content-card {
+    width: 100%;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .content-card #title {
+    font-size: 2vw;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half {
+    padding: 10px;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row {
+    height: 45%;
+    max-height: 30px;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons {
+    height: 100%;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container {
+    height: 100%;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container {
+    width: 35px;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container .bubble-text {
+    font-size: 1.5vw;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container #triangle {
+    height: 15px;
+    width: 20px;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle {
+    height: 90%;
+    width: 100%;
+    border: 1px solid #666666;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle .card-icon {
+    height: 100%;
+    width: auto;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle:hover {
+    border-color: white;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle-play {
+    height: 90%;
+    width: 100%;
+    margin: 0 1px;
+    padding: 5px 6px;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle-play .card-icon {
+    height: 85%;
+    width: auto;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .match-row {
+    font-size: 1.5vw;
+    margin: 5px 0;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .genre-list-container {
+    font-size: 1.5vw;
+  }
 }
 
 @media only screen and (max-width: 499px) {
-  .exploreAll .exploreContent {
-    padding: 30px;
-  }
   .exploreAll .exploreContent .movies-grid {
     -ms-grid-columns: (minmax(0, 1fr))[2];
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -705,6 +920,8 @@
   .exploreAll .exploreContent .movies-grid .content-container:hover {
     height: 39vw;
     width: 100%;
+    -webkit-transform: scale(130%) translateY(-20px) translateX(-10px);
+            transform: scale(130%) translateY(-20px) translateX(-10px);
   }
   .exploreAll .exploreContent .movies-grid .content-container:hover .content {
     width: 100%;
@@ -765,6 +982,86 @@
   }
   .exploreAll .exploreContent .movies-grid .content-container:hover .content .bottom-half .genre-list-container {
     font-size: 1.75vw;
+  }
+  .exploreAll .exploreContent2 .content-container {
+    height: 39vw;
+    width: 39vw;
+  }
+  .exploreAll .exploreContent2 .content-container .content {
+    width: 100%;
+  }
+  .exploreAll .exploreContent2 .content-container .content .content-card {
+    width: 100%;
+  }
+  .exploreAll .exploreContent2 .content-container .content .content-card #title {
+    font-size: 2.5vw;
+    margin-bottom: 0;
+  }
+  .exploreAll .exploreContent2 .content-container:hover {
+    height: 39vw;
+    width: 39vw;
+    -webkit-transform: scale(130%) translateY(-20px) translateX(-10px);
+            transform: scale(130%) translateY(-20px) translateX(-10px);
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content {
+    width: 100%;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .content-card {
+    width: 100%;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .content-card #title {
+    font-size: 3vw;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half {
+    padding: 15px;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row {
+    height: 45%;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons {
+    height: 100%;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container {
+    height: 100%;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container {
+    width: 35px;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container .bubble-text {
+    font-size: 2vw;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container #triangle {
+    height: 15px;
+    width: 20px;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle {
+    height: 90%;
+    width: 100%;
+    border: 1px solid #666666;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle .card-icon {
+    height: 100%;
+    width: auto;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle:hover {
+    border-color: white;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle-play {
+    height: 90%;
+    width: 100%;
+    margin: 0 1px;
+    padding: 5px 6px;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .icon-row .icons .icon-container .icon-circle-play .card-icon {
+    height: 85%;
+    width: auto;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .match-row {
+    font-size: 2vw;
+    margin: 5px 0;
+  }
+  .exploreAll .exploreContent2 .content-container:hover .content .bottom-half .genre-list-container {
+    font-size: 2vw;
   }
 }
 /*# sourceMappingURL=exploreAll.css.map */

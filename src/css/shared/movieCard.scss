@@ -34,7 +34,7 @@
         .bottom-half {
             opacity: 0;
             transition: all ease-out 100ms;
-            height: 40%;
+            height: 45%;
             display: flex;
             flex-direction: column;
             padding: 20px;
@@ -121,7 +121,7 @@
                 }
             }
             .match-row {
-                font-size: .80em;
+                font-size: .8em;
                 font-weight: bold;
                 color: darken(white, 15%);
                 display: flex;
@@ -150,6 +150,7 @@
                 align-items: center;
                 font-size: .8em;
                 font-weight: normal;
+                margin-bottom: 5px;
                 .dot {
                     margin: 0 5px;
                     color: darken(darkgray,15%);
@@ -165,7 +166,8 @@
 .content-container:hover {
     cursor: pointer;
     transform: scale(130%) translateY(-50px);
-    height: 300px;
+    height: 15vw;
+    width: 15vw;
     z-index: 11;
     transition: all ease-out 200ms 500ms;
     .content {
@@ -768,9 +770,10 @@
                 width: 100%;
             }
             .bottom-half {
+                height: 40%;
                 padding: 15px;
                 .icon-row {
-                    height: 45%;
+                    height: 40%;
                     .icons {
                         height: 100%;
                         .icon-container {
@@ -846,10 +849,11 @@
                 }
             }
             .bottom-half {
-                padding: 10px;
+                height: 45%;
+                padding: 15px;
                 .icon-row {
-                    height: 45%;
-                    max-height: 35px;
+                    height: 40%;
+                    max-height: 30px;
                     .icons {
                         height: 100%;
                         .icon-container {
@@ -914,10 +918,10 @@
         }
     }
     .content-container:hover {
-        height: 30.75vw;
+        height: 28vw;
         transform: scale(120%) translateY(-50px) translateX(-20px);
         .content {
-            width: 30.75vw;
+            width: 28vw;
             .content-card {
                 width: 100%;
                 #title {
