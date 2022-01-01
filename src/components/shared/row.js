@@ -43,11 +43,32 @@ export default class Row extends Component {
   render() {
 
     let numMovies
+    let className
 
-    if (this.props.arr.length < 6 ) {
-      numMovies = this.props.arr.length
-    } else {
-      numMovies = 6
+    switch(this.props.arr.length) {
+      case 5:
+        numMovies = 5
+        className = 'small-list'
+        break; 
+      case 4:
+        numMovies = 4
+        className = 'small-list'
+        break; 
+      case 3:
+        numMovies = 3
+        className = 'small-list'
+        break; 
+      case 2:
+        numMovies = 2
+        className = 'small-list'
+        break;
+      case 1:
+        numMovies = 1
+        className = 'small-list'
+        break;  
+      default:
+        numMovies = 6
+        break;
     }
 
     const settings = {
@@ -57,45 +78,61 @@ export default class Row extends Component {
       slidesToScroll: numMovies,
       nextArrow: <SampleNextArrow />,
       prevArrow: <SamplePrevArrow />,
+      className,
       speed: 800,
       responsive: [
         {
           breakpoint: 1399,
           settings: {
-            slidesToShow: 5,
-            slidesToScroll: 5,
+            dots: false,
+            slidesToShow: (this.props.arr.length > 5) ? 5 : numMovies,
+            slidesToScroll: (this.props.arr.length > 5) ? 5 : numMovies,
             infinite: true,
+            nextArrow: <SampleNextArrow />,
+            prevArrow: <SamplePrevArrow />,
+            speed: 800
           }
         },
         {
           breakpoint: 1099,
           settings: {
-            slidesToShow: 4,
-            slidesToScroll: 4,
+            dots: false,
+            slidesToShow: (this.props.arr.length > 4) ? 4 : numMovies,
+            slidesToScroll: (this.props.arr.length > 4) ? 4 : numMovies,
             infinite: true,
+            nextArrow: <SampleNextArrow />,
+            prevArrow: <SamplePrevArrow />,
+            speed: 800
           }
         },
         {
           breakpoint: 799,
           settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
+            dots: false,
+            slidesToShow: (this.props.arr.length > 3) ? 3 : numMovies,
+            slidesToScroll: (this.props.arr.length > 3) ? 3 : numMovies,
             infinite: true,
+            nextArrow: <SampleNextArrow />,
+            prevArrow: <SamplePrevArrow />,
+            speed: 800
           }
         },
         {
           breakpoint: 499,
           settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
+            dots: false,
+            slidesToShow: (this.props.arr.length > 2) ? 2 : numMovies,
+            slidesToScroll: (this.props.arr.length > 2) ? 2 : numMovies,
             infinite: true,
+            nextArrow: <SampleNextArrow />,
+            prevArrow: <SamplePrevArrow />,
+            speed: 800
           }
         }
       ]
     };
 
     const row = this.props.arr.map((movie, i) => {
-
                 return (
                     <ContentCard
                         data={movie}
@@ -109,7 +146,6 @@ export default class Row extends Component {
                         setWatchlist={this.props.setWatchlist}
                         exploreMovies={this.props.exploreMovies}
                         setExploreMovies={this.props.setExploreMovies}
-                        type={this.props.type ? this.props.type : ''}
                     />
                 )
             })

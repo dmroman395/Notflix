@@ -6,13 +6,15 @@
   transition: z-index linear 1ms 500ms, opacity ease-in-out 300ms, -webkit-transform ease-out 200ms;
   transition: transform ease-out 200ms, z-index linear 1ms 500ms, opacity ease-in-out 300ms;
   transition: transform ease-out 200ms, z-index linear 1ms 500ms, opacity ease-in-out 300ms, -webkit-transform ease-out 200ms;
-  height: 15.5vw;
+  height: 15vw;
+  width: 15vw;
+  max-width: 320px;
   border-radius: 3px;
   opacity: 0;
 }
 
 .content-container .content {
-  width: 15.5vw;
+  width: 100%;
   position: relative;
   height: 100%;
   display: -webkit-box;
@@ -1158,10 +1160,10 @@
 
 @media only screen and (min-width: 1100px) and (max-width: 1399px) {
   .content-container {
-    height: 18.5vw;
+    height: 18vw;
   }
   .content-container .content {
-    width: 18.5vw;
+    width: 18vw;
   }
   .content-container .content .content-card {
     width: 100%;
@@ -1170,10 +1172,10 @@
     font-size: 1.3vw;
   }
   .content-container:hover {
-    height: 18.5vw;
+    height: 18vw;
   }
   .content-container:hover .content {
-    width: 18.5vw;
+    width: 18vw;
   }
   .content-container:hover .content .content-card {
     width: 100%;
@@ -1232,10 +1234,10 @@
 
 @media only screen and (min-width: 800px) and (max-width: 1099px) {
   .content-container {
-    height: 23.25vw;
+    height: 22vw;
   }
   .content-container .content {
-    width: 23.25vw;
+    width: 22vw;
   }
   .content-container .content .content-card {
     width: 100%;
@@ -1244,10 +1246,12 @@
     font-size: 1.75vw;
   }
   .content-container:hover {
-    height: 23.25vw;
+    height: 22vw;
+    -webkit-transform: scale(130%) translateY(-50px) translateX(-10px);
+            transform: scale(130%) translateY(-50px) translateX(-10px);
   }
   .content-container:hover .content {
-    width: 23.25vw;
+    width: 22vw;
   }
   .content-container:hover .content .content-card {
     width: 100%;
@@ -1260,6 +1264,7 @@
   }
   .content-container:hover .content .bottom-half .icon-row {
     height: 45%;
+    max-height: 35px;
   }
   .content-container:hover .content .bottom-half .icon-row .icons {
     height: 100%;
@@ -1309,10 +1314,10 @@
 
 @media only screen and (min-width: 500px) and (max-width: 799px) {
   .content-container {
-    height: 30.75vw;
+    height: 28vw;
   }
   .content-container .content {
-    width: 30.75vw;
+    width: 28vw;
   }
   .content-container .content .content-card {
     width: 100%;
@@ -1322,6 +1327,8 @@
   }
   .content-container:hover {
     height: 30.75vw;
+    -webkit-transform: scale(120%) translateY(-50px) translateX(-20px);
+            transform: scale(120%) translateY(-50px) translateX(-20px);
   }
   .content-container:hover .content {
     width: 30.75vw;
@@ -1337,6 +1344,7 @@
   }
   .content-container:hover .content .bottom-half .icon-row {
     height: 45%;
+    max-height: 30px;
   }
   .content-container:hover .content .bottom-half .icon-row .icons {
     height: 100%;
@@ -1348,7 +1356,7 @@
     width: 35px;
   }
   .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container .bubble-text {
-    font-size: 1vw;
+    font-size: 1.5vw;
   }
   .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container #triangle {
     height: 15px;
@@ -1387,10 +1395,10 @@
 
 @media only screen and (max-width: 499px) {
   .content-container {
-    height: 46vw;
+    height: 40vw;
   }
   .content-container .content {
-    width: 46vw;
+    width: 40vw;
   }
   .content-container .content .content-card {
     width: 100%;
@@ -1401,6 +1409,8 @@
   }
   .content-container:hover {
     height: 46vw;
+    -webkit-transform: scale(120%) translateY(-50px) translateX(-30px);
+            transform: scale(120%) translateY(-50px) translateX(-30px);
   }
   .content-container:hover .content {
     width: 46vw;
@@ -1427,7 +1437,7 @@
     width: 35px;
   }
   .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container .bubble-text {
-    font-size: 1vw;
+    font-size: 2vw;
   }
   .content-container:hover .content .bottom-half .icon-row .icons .icon-container .bubble-container #triangle {
     height: 15px;

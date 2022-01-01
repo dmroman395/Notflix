@@ -18,7 +18,6 @@ const { getSimilarMovies } = require('../../controllers/moviesController')
 const { getSimilarShows } = require('../../controllers/tvShowsController')
 
 function ContentCard({ data,  setSelectedMovie, setSimilarMovies, watchlist, setWatchlist, type, setExploreMovies, exploreMovies}) {
-    // const [dataDetails, setMovieDetails] = useState({seasons: []})
     const [isInList, setIsInList] = useState(false)
     const [liked, setLiked] = useState(false)
     const [disliked, setDisliked] = useState(false)
@@ -124,7 +123,7 @@ function ContentCard({ data,  setSelectedMovie, setSimilarMovies, watchlist, set
                 <div className='genre-list-container'>{genreList}</div>
             </div>
     return (
-        <div className={`content-container${type}`} id={`${randInt}`}>
+        <div className={`content-container`} id={`${randInt}`}>
             <div className="content" onMouseEnter={handleMovieCardHover}>
             <div
                 className="content-card"

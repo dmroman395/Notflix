@@ -1,5 +1,5 @@
 .row-container {
-  margin-bottom: 105px;
+  margin-bottom: 2vw;
   color: #e5e5e5;
 }
 
@@ -16,7 +16,7 @@
           align-items: center;
   width: 100%;
   z-index: 100;
-  margin: 0 4% .5em 4%;
+  margin: 0 0 .5em 0;
 }
 
 .row-container .row-header span {
@@ -57,11 +57,11 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  height: 185px;
+  height: 11vw;
 }
 
 .row-container .slick-slider .slick-list {
-  margin: 0 4% .5em 4%;
+  margin: 0 0 .5em 0;
   width: 95%;
 }
 
@@ -76,7 +76,7 @@
 }
 
 .row-container .slick-slider .slick-list .slick-track .slick-slide {
-  max-width: 320px;
+  max-width: 320px !important;
 }
 
 .row-container .slick-slider .arrow {
@@ -118,6 +118,10 @@
 
 .row-container .slick-slider .left {
   left: 0%;
+}
+
+.row-container .small-list .slick-list .slick-track .slick-slide {
+  width: 15.5vw !important;
 }
 
 .row-container .arrow-ten {
@@ -325,13 +329,16 @@
             transform: translateX(8vw);
   }
   .row-container .slick-slider {
-    height: 18.5vw;
+    height: 15vw;
   }
   .row-container .slick-slider .arrow {
     height: 55%;
   }
   .row-container .slick-slider .arrow img {
     height: 25%;
+  }
+  .row-container .small-list .slick-list .slick-track .slick-slide {
+    width: 18.5vw !important;
   }
 }
 
@@ -353,13 +360,16 @@
             transform: translateX(9.2vw);
   }
   .row-container .slick-slider {
-    height: 23.25vw;
+    height: 18vw;
   }
   .row-container .slick-slider .arrow {
     height: 55%;
   }
   .row-container .slick-slider .arrow img {
     height: 25%;
+  }
+  .row-container .small-list .slick-list .slick-track .slick-slide {
+    width: 22.5vw !important;
   }
 }
 
@@ -384,13 +394,16 @@
             transform: translateX(11vw);
   }
   .row-container .slick-slider {
-    height: 30.75vw;
+    height: 21vw;
   }
   .row-container .slick-slider .arrow {
     height: 55%;
   }
   .row-container .slick-slider .arrow img {
     height: 25%;
+  }
+  .row-container .small-list .slick-list .slick-track .slick-slide {
+    width: 40.5vw !important;
   }
 }
 
@@ -415,13 +428,16 @@
             transform: translateX(15vw);
   }
   .row-container .slick-slider {
-    height: 46vw;
+    height: 33vw;
   }
   .row-container .slick-slider .arrow {
     height: 55%;
   }
   .row-container .slick-slider .arrow img {
     height: 25%;
+  }
+  .row-container .small-list .slick-list .slick-track .slick-slide {
+    width: 46.5vw !important;
   }
 }
 /*# sourceMappingURL=row.css.map */

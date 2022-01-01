@@ -1,5 +1,5 @@
 .row-container {
-    margin-bottom: 105px; 
+    margin-bottom: 2vw; 
     color: #e5e5e5;
     h1 {
         font-size: 1.4vw;
@@ -9,7 +9,7 @@
         align-items: center;
         width: 100%;
         z-index: 100;
-        margin: 0 4% .5em 4%;
+        margin: 0 0 .5em 0;
         span {
             font-size: 14px;
             font-weight: bold;
@@ -35,15 +35,15 @@
     .slick-slider {
         display: flex;
         flex-direction: row;
-        height: 185px;
+        height: 11vw;
         .slick-list {
-            margin: 0 4% .5em 4%;
+            margin: 0 0 .5em 0;
             width: 95%;
             .slick-track {
                 display: flex;
                 flex-direction: row;
                 .slick-slide {
-                    max-width: 320px;
+                    max-width: 320px !important;
                 }
             }
         }
@@ -76,6 +76,15 @@
         }
         .left {
             left: 0%; 
+        }
+    }
+    .small-list {
+        .slick-list {
+            .slick-track {
+                .slick-slide {
+                    width: 15.5vw !important;
+                }
+            }
         }
     }
     .arrow-ten  {
@@ -224,11 +233,20 @@
             }
         }
         .slick-slider {
-            height: 18.5vw;
+            height: 15vw;
             .arrow  {
                 height: 55%;
                 img {
                     height: 25%;
+                }
+            }
+        }
+        .small-list {
+            .slick-list {
+                .slick-track {
+                    .slick-slide {
+                        width: 18.5vw !important;
+                    }
                 }
             }
         }
@@ -254,11 +272,20 @@
             }
         }
         .slick-slider {
-            height: 23.25vw;
+            height: 18vw;
             .arrow  {
                 height: 55%;
                 img {
                     height: 25%;
+                }
+            }
+        }
+        .small-list {
+            .slick-list {
+                .slick-track {
+                    .slick-slide {
+                        width: 22.5vw !important;
+                    }
                 }
             }
         }
@@ -287,11 +314,20 @@
             }
         }
         .slick-slider {
-            height: 30.75vw;
+            height: 21vw;
             .arrow  {
                 height: 55%;
                 img {
                     height: 25%;
+                }
+            }
+        }
+        .small-list {
+            .slick-list {
+                .slick-track {
+                    .slick-slide {
+                        width: 40.5vw !important;
+                    }
                 }
             }
         }
@@ -320,11 +356,20 @@
             }
         }
         .slick-slider {
-            height: 46vw;
+            height: 33vw;
             .arrow  {
                 height: 55%;
                 img {
                     height: 25%;
+                }
+            }
+        }
+        .small-list {
+            .slick-list {
+                .slick-track {
+                    .slick-slide {
+                        width: 46.5vw !important;
+                    }
                 }
             }
         }

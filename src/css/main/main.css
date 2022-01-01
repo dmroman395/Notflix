@@ -1,6 +1,6 @@
 .main {
   background-color: #141414;
-  overflow-x: hidden;
+  overflow: hidden;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -8,6 +8,7 @@
 
 .main .rows-container {
   position: relative;
+  padding-left: 50px;
   bottom: 105px;
 }
 /*# sourceMappingURL=main.css.map */

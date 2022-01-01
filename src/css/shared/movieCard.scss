@@ -3,11 +3,13 @@
     overflow: visible;
     z-index: 9;
     transition: transform ease-out 200ms, z-index linear 1ms 500ms, opacity ease-in-out 300ms;
-    height: 15.5vw;
+    height: 15vw;
+    width: 15vw;
+    max-width: 320px;
     border-radius: 3px;
     opacity: 0;
     .content {
-        width: 15.5vw;
+        width: 100%;
         position: relative;
         height: 100%;
         display: flex;
@@ -747,9 +749,9 @@
 
 @media only screen and (min-width: 1100px) and (max-width: 1399px){
     .content-container {
-        height: 18.5vw;
+        height: 18vw;
         .content {
-            width: 18.5vw;
+            width: 18vw;
             .content-card {
                 width: 100%;
                 #title {
@@ -759,9 +761,9 @@
         }
     }
     .content-container:hover {
-        height: 18.5vw;
+        height: 18vw;
         .content {
-            width: 18.5vw;
+            width: 18vw;
             .content-card {
                 width: 100%;
             }
@@ -821,9 +823,9 @@
 
 @media only screen and (min-width: 800px) and (max-width: 1099px){
     .content-container {
-        height: 23.25vw;
+        height: 22vw;
         .content {
-            width: 23.25vw;
+            width: 22vw;
             .content-card {
                 width: 100%;
                 #title {
@@ -833,9 +835,10 @@
         }
     }
     .content-container:hover {
-        height: 23.25vw;
+        height: 22vw;
+        transform: scale(130%) translateY(-50px) translateX(-10px);
         .content {
-            width: 23.25vw;
+            width: 22vw;
             .content-card {
                 width: 100%;
                 #title {
@@ -846,6 +849,7 @@
                 padding: 10px;
                 .icon-row {
                     height: 45%;
+                    max-height: 35px;
                     .icons {
                         height: 100%;
                         .icon-container {
@@ -898,9 +902,9 @@
 
 @media only screen and (min-width: 500px) and (max-width: 799px){
     .content-container {
-        height: 30.75vw;
+        height: 28vw;
         .content {
-            width: 30.75vw;
+            width: 28vw;
             .content-card {
                 width: 100%;
                 #title {
@@ -911,6 +915,7 @@
     }
     .content-container:hover {
         height: 30.75vw;
+        transform: scale(120%) translateY(-50px) translateX(-20px);
         .content {
             width: 30.75vw;
             .content-card {
@@ -923,6 +928,7 @@
                 padding: 10px;
                 .icon-row {
                     height: 45%;
+                    max-height: 30px;
                     .icons {
                         height: 100%;
                         .icon-container {
@@ -930,7 +936,7 @@
                             .bubble-container {
                                 width: 35px;
                                 .bubble-text {
-                                    font-size: 1vw;
+                                    font-size: 1.5vw;
                                 }
                                 #triangle {
                                     height: 15px;
@@ -976,9 +982,9 @@
 
 @media only screen and (max-width: 499px){
     .content-container {
-        height: 46vw;
+        height: 40vw;
         .content {
-            width: 46vw;
+            width: 40vw;
             .content-card {
                 width: 100%;
                 #title {
@@ -990,6 +996,7 @@
     }
     .content-container:hover {
         height: 46vw;
+        transform: scale(120%) translateY(-50px) translateX(-30px);
         .content {
             width: 46vw;
             .content-card {
@@ -1009,7 +1016,7 @@
                             .bubble-container {
                                 width: 35px;
                                 .bubble-text {
-                                    font-size: 1vw;
+                                    font-size: 2vw;
                                 }
                                 #triangle {
                                     height: 15px;
