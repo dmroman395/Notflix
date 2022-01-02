@@ -303,8 +303,9 @@
   transition: z-index linear 1ms 500ms, -webkit-transform ease-out 200ms;
   transition: transform ease-out 200ms, z-index linear 1ms 500ms;
   transition: transform ease-out 200ms, z-index linear 1ms 500ms, -webkit-transform ease-out 200ms;
-  height: 300px;
-  width: 290px;
+  height: 15vw;
+  width: 15vw;
+  max-width: 320px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -321,14 +322,14 @@
 }
 
 .movie-ten-container .number {
-  font-size: 19.1rem;
-  line-height: 14.5rem;
+  font-size: 19vw;
+  line-height: 15vw;
   color: black;
   -webkit-text-stroke: 5px #595959;
   text-shadow: none;
   position: relative;
-  left: 27px;
-  top: 9px;
+  left: -8px;
+  top: 4px;
   z-index: -1;
   max-width: 20%;
 }
@@ -336,13 +337,13 @@
 .movie-ten-container .ten {
   font-size: 15rem;
   line-height: 14.5rem;
-  left: -5px;
+  left: -20px;
   letter-spacing: -37px;
 }
 
 .movie-ten-container .movie-ten {
-  width: 50%;
-  height: 225px;
+  width: 55%;
+  height: 95%;
   padding: 20px;
 }
 
@@ -1285,6 +1286,20 @@
   .movie-poster-container:hover .movie-poster .content .genre-list-container {
     font-size: 65%;
   }
+  .movie-ten-container {
+    height: 18vw;
+    width: 18vw;
+  }
+  .movie-ten-container .number {
+    font-size: 22vw;
+    line-height: 18vw;
+  }
+  .movie-ten-container .ten {
+    font-size: 16vw;
+    line-height: 14.5rem;
+    left: -19px;
+    letter-spacing: -37px;
+  }
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1099px) {
@@ -1418,6 +1433,17 @@
   .movie-poster-container:hover .movie-poster .content .genre-list-container {
     font-size: 65%;
   }
+  .movie-ten-container {
+    height: 22vw;
+    width: 22vw;
+  }
+  .movie-ten-container .number {
+    font-size: 28vw;
+    line-height: 18vw;
+  }
+  .movie-ten-container .ten {
+    font-size: 23vw;
+  }
 }
 
 @media only screen and (min-width: 500px) and (max-width: 799px) {
@@ -1550,6 +1576,18 @@
   }
   .movie-poster-container:hover .movie-poster .content .genre-list-container {
     font-size: 1.5vw;
+  }
+  .movie-ten-container {
+    height: 28vw;
+    width: 28vw;
+  }
+  .movie-ten-container .number {
+    font-size: 35vw;
+    line-height: 18vw;
+  }
+  .movie-ten-container .ten {
+    font-size: 30vw;
+    left: -20px;
   }
 }
 
@@ -1686,6 +1724,19 @@
   }
   .movie-poster-container:hover .movie-poster .content .genre-list-container {
     font-size: 2vw;
+  }
+  .movie-ten-container {
+    height: 40vw;
+    width: 40vw;
+  }
+  .movie-ten-container .number {
+    font-size: 50vw;
+    line-height: 18vw;
+  }
+  .movie-ten-container .ten {
+    font-size: 42vw;
+    left: -20px;
+    letter-spacing: -35px;
   }
 }
 /*# sourceMappingURL=movieCard.css.map */

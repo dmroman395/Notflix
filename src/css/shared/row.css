@@ -126,7 +126,7 @@
 }
 
 .row-container .arrow-ten {
-  height: 300px;
+  height: 15vw;
   width: 50px;
   z-index: 5;
   position: absolute;
@@ -155,6 +155,10 @@
 
 .row-container .arrow-ten:hover img {
   display: inline-block;
+}
+
+.marginBottom {
+  margin-bottom: 8vw;
 }
 
 .poster-row-container {
@@ -308,6 +312,10 @@
   .row-container .slick-slider .arrow img {
     height: 25%;
   }
+  .row-container .arrow-ten {
+    height: 18vw;
+    width: 50px;
+  }
   .row-container .small-list .slick-list .slick-track .slick-slide {
     width: 18.5vw !important;
   }
@@ -426,6 +434,10 @@
   .row-container .slick-slider .arrow img {
     height: 25%;
   }
+  .row-container .arrow-ten {
+    height: 22vw;
+    width: 4vw;
+  }
   .row-container .small-list .slick-list .slick-track .slick-slide {
     width: 22.5vw !important;
   }
@@ -475,6 +487,9 @@
   .row-container .slick-slider .left {
     left: -30px !important;
   }
+  .marginBottom {
+    margin-bottom: 12vw;
+  }
 }
 
 @media only screen and (min-width: 500px) and (max-width: 799px) {
@@ -507,6 +522,10 @@
   }
   .row-container .slick-slider .arrow img {
     height: 25%;
+  }
+  .row-container .arrow-ten {
+    height: 28vw;
+    width: 4vw;
   }
   .row-container .small-list .slick-list .slick-track .slick-slide {
     width: 40.5vw !important;
@@ -585,6 +604,10 @@
   }
   .row-container .slick-slider .arrow img {
     height: 25%;
+  }
+  .row-container .arrow-ten {
+    height: 40vw;
+    width: 5vw;
   }
   .row-container .small-list .slick-list .slick-track .slick-slide {
     width: 46.5vw !important;

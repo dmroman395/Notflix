@@ -165,7 +165,7 @@
     padding: 75px 200px 20px 300px;
   }
   .footer3 {
-    padding: 75px 200px 20px 300px;
+    padding: 0 200px 20px 300px;
   }
 }
 
@@ -329,7 +329,7 @@
     margin-bottom: 30px;
   }
   .footer3 {
-    padding: 20px 75px 50px 40px;
+    padding: 20px 40px 50px 40px;
   }
   .footer3 .footer-list {
     display: -ms-grid;
