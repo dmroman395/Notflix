@@ -58,10 +58,10 @@
       -ms-flex-direction: row;
           flex-direction: row;
   height: 11vw;
+  position: relative;
 }
 
 .row-container .slick-slider .slick-list {
-  margin: 0 0 .5em 0;
   width: 95%;
 }
 
@@ -80,7 +80,7 @@
 }
 
 .row-container .slick-slider .arrow {
-  height: 75%;
+  height: 8.75vw;
   min-width: 30px;
   width: 2.5vw;
   z-index: 5;
@@ -98,7 +98,8 @@
 }
 
 .row-container .slick-slider .arrow img {
-  height: 35px;
+  height: 2.2vw;
+  max-height: 35px;
   width: auto;
   display: none;
 }
@@ -117,7 +118,7 @@
 }
 
 .row-container .slick-slider .left {
-  left: 0%;
+  left: -50px;
 }
 
 .row-container .small-list .slick-list .slick-track .slick-slide {
@@ -332,7 +333,8 @@
     height: 15vw;
   }
   .row-container .slick-slider .arrow {
-    height: 55%;
+    height: 10vw;
+    width: 4vw;
   }
   .row-container .slick-slider .arrow img {
     height: 25%;
@@ -363,13 +365,20 @@
     height: 18vw;
   }
   .row-container .slick-slider .arrow {
-    height: 55%;
+    height: 12vw;
+    width: 4vw;
   }
   .row-container .slick-slider .arrow img {
     height: 25%;
   }
   .row-container .small-list .slick-list .slick-track .slick-slide {
     width: 22.5vw !important;
+  }
+}
+
+@media only screen and (max-width: 949px) {
+  .row-container .slick-slider .left {
+    left: -30px !important;
   }
 }
 
@@ -397,7 +406,9 @@
     height: 21vw;
   }
   .row-container .slick-slider .arrow {
-    height: 55%;
+    height: 15vw;
+    max-width: 25px;
+    width: 4vw;
   }
   .row-container .slick-slider .arrow img {
     height: 25%;
@@ -431,7 +442,8 @@
     height: 33vw;
   }
   .row-container .slick-slider .arrow {
-    height: 55%;
+    height: 22vw;
+    width: 5vw;
   }
   .row-container .slick-slider .arrow img {
     height: 25%;

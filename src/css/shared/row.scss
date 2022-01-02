@@ -36,8 +36,8 @@
         display: flex;
         flex-direction: row;
         height: 11vw;
+        position: relative;
         .slick-list {
-            margin: 0 0 .5em 0;
             width: 95%;
             .slick-track {
                 display: flex;
@@ -48,7 +48,7 @@
             }
         }
         .arrow  {
-            height: 75%;
+            height: 8.75vw;
             min-width: 30px;
             width: 2.5vw;
             z-index: 5;
@@ -58,7 +58,8 @@
             justify-content: center;
             align-items: center;
             img {
-                height: 35px;
+                height: 2.2vw;
+                max-height: 35px;
                 width: auto;
                 display: none;
             }
@@ -75,7 +76,7 @@
             
         }
         .left {
-            left: 0%; 
+            left: -50px; 
         }
     }
     .small-list {
@@ -235,7 +236,8 @@
         .slick-slider {
             height: 15vw;
             .arrow  {
-                height: 55%;
+                height: 10vw;
+                width: 4vw;
                 img {
                     height: 25%;
                 }
@@ -274,7 +276,8 @@
         .slick-slider {
             height: 18vw;
             .arrow  {
-                height: 55%;
+                height: 12vw;
+                width: 4vw;
                 img {
                     height: 25%;
                 }
@@ -287,6 +290,16 @@
                         width: 22.5vw !important;
                     }
                 }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 949px) {
+    .row-container {
+        .slick-slider {
+            .left {
+                left: -30px !important;
             }
         }
     }
@@ -316,7 +329,9 @@
         .slick-slider {
             height: 21vw;
             .arrow  {
-                height: 55%;
+                height: 15vw;
+                max-width: 25px;
+                width: 4vw;
                 img {
                     height: 25%;
                 }
@@ -358,7 +373,8 @@
         .slick-slider {
             height: 33vw;
             .arrow  {
-                height: 55%;
+                height: 22vw;
+                width: 5vw;
                 img {
                     height: 25%;
                 }
