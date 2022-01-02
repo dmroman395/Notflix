@@ -594,12 +594,13 @@
     overflow: visible;
     z-index: 9;
     transition: transform ease-out 200ms, z-index linear 1ms 500ms;
-    width: 290px;
+    width: 15vw;
+    height: 28vw;
     .movie-poster {
-        width: 290px;
-        height: 500px;
+        width: 100%;
+        height: 100%;
         display: flex;
-        padding: 20px;
+        padding: 20px 10px;
         align-items: flex-end;
         border-radius: 3px;
         .content {
@@ -735,8 +736,7 @@
 
 .movie-poster-container:hover {
     cursor: pointer;
-    transform: scale(130%) translateY(-50px);
-    height: 300px;
+    transform: scale(130%) translateY(-35px);
     z-index: 10;
     transition: all ease-out 200ms 500ms;
     .movie-poster:hover {
@@ -822,6 +822,64 @@
             }
         }
     }
+    .movie-poster-container {
+        width: 18vw;
+        height: 31vw;
+    }
+    .movie-poster-container:hover {
+        .movie-poster {
+            .content {
+                .icon-row {
+                    height: 40%;
+                    max-height: 30px;
+                    .icons {
+                        height: 100%;
+                        .icon-container {
+                            height: 100%;
+                            .bubble-container {
+                                width: 35px;
+                                .bubble-text {
+                                    font-size: 1vw;
+                                }
+                                #triangle {
+                                    height: 15px;
+                                    width: 20px
+                                }
+                            }
+                            .icon-circle {
+                                height: 90%;
+                                width: 100%;
+                                .card-icon{
+                                    height: 100%;
+                                    width: auto;
+                                }
+                            }
+                            .icon-circle:hover {
+                                border-color: white;
+                            }
+                            .icon-circle-play {
+                                height: 90%;
+                                width: 100%;
+                                margin: 0 1px;
+                                padding: 5px 6px;
+                                .card-icon{
+                                    height: 85%;
+                                    width: auto;
+                                }
+                            }
+                        }
+                    }
+                }
+                .match-row {
+                    font-size: 65%;
+                    margin: 5px 0; 
+                }
+                .genre-list-container {
+                    font-size: 65%;
+                }
+            }
+        }
+    }
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1099px){
@@ -853,6 +911,64 @@
                 padding: 15px;
                 .icon-row {
                     height: 40%;
+                    max-height: 30px;
+                    .icons {
+                        height: 100%;
+                        .icon-container {
+                            height: 100%;
+                            .bubble-container {
+                                width: 35px;
+                                .bubble-text {
+                                    font-size: 1vw;
+                                }
+                                #triangle {
+                                    height: 15px;
+                                    width: 20px
+                                }
+                            }
+                            .icon-circle {
+                                height: 90%;
+                                width: 100%;
+                                .card-icon{
+                                    height: 100%;
+                                    width: auto;
+                                }
+                            }
+                            .icon-circle:hover {
+                                border-color: white;
+                            }
+                            .icon-circle-play {
+                                height: 90%;
+                                width: 100%;
+                                margin: 0 1px;
+                                padding: 5px 6px;
+                                .card-icon{
+                                    height: 85%;
+                                    width: auto;
+                                }
+                            }
+                        }
+                    }
+                }
+                .match-row {
+                    font-size: 65%;
+                    margin: 5px 0; 
+                }
+                .genre-list-container {
+                    font-size: 65%;
+                }
+            }
+        }
+    }
+    .movie-poster-container {
+        width: 22vw;
+        height: 32vw;
+    }
+    .movie-poster-container:hover {
+        .movie-poster {
+            .content {
+                .icon-row {
+                    height: 30%;
                     max-height: 30px;
                     .icons {
                         height: 100%;
@@ -982,6 +1098,64 @@
             }
         }
     }
+    .movie-poster-container {
+        width: 28.25vw;
+        height: 50vw;
+    }
+    .movie-poster-container:hover {
+        .movie-poster {
+            .content {
+                .icon-row {
+                    height: 30%;
+                    max-height: 30px;
+                    .icons {
+                        height: 100%;
+                        .icon-container {
+                            height: 100%;
+                            .bubble-container {
+                                width: 35px;
+                                .bubble-text {
+                                    font-size: 1vw;
+                                }
+                                #triangle {
+                                    height: 15px;
+                                    width: 20px
+                                }
+                            }
+                            .icon-circle {
+                                height: 90%;
+                                width: 100%;
+                                .card-icon{
+                                    height: 100%;
+                                    width: auto;
+                                }
+                            }
+                            .icon-circle:hover {
+                                border-color: white;
+                            }
+                            .icon-circle-play {
+                                height: 90%;
+                                width: 100%;
+                                margin: 0 1px;
+                                padding: 5px 6px;
+                                .card-icon{
+                                    height: 85%;
+                                    width: auto;
+                                }
+                            }
+                        }
+                    }
+                }
+                .match-row {
+                    font-size: 1.5vw;
+                    margin: 5px 0; 
+                }
+                .genre-list-container {
+                    font-size: 1.5vw;
+                }
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 499px){
@@ -1031,6 +1205,65 @@
                                 height: 90%;
                                 width: 100%;
                                 border: 1px solid lighten(#595959,5%);
+                                .card-icon{
+                                    height: 100%;
+                                    width: auto;
+                                }
+                            }
+                            .icon-circle:hover {
+                                border-color: white;
+                            }
+                            .icon-circle-play {
+                                height: 90%;
+                                width: 100%;
+                                margin: 0 1px;
+                                padding: 5px 6px;
+                                .card-icon{
+                                    height: 85%;
+                                    width: auto;
+                                }
+                            }
+                        }
+                    }
+                }
+                .match-row {
+                    font-size: 2vw;
+                    margin: 5px 0; 
+                }
+                .genre-list-container {
+                    font-size: 2vw;
+                }
+            }
+        }
+    }
+    .movie-poster-container {
+        width: 40vw;
+        height: 70vw;
+    }
+    .movie-poster-container:hover {
+        .movie-poster {
+            .content {
+                padding: 0;
+                .icon-row {
+                    height: 40%;
+                    max-height: 30px;
+                    .icons {
+                        height: 100%;
+                        .icon-container {
+                            height: 100%;
+                            .bubble-container {
+                                width: 35px;
+                                .bubble-text {
+                                    font-size: 1vw;
+                                }
+                                #triangle {
+                                    height: 15px;
+                                    width: 20px
+                                }
+                            }
+                            .icon-circle {
+                                height: 90%;
+                                width: 100%;
                                 .card-icon{
                                     height: 100%;
                                     width: auto;

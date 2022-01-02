@@ -40,7 +40,56 @@ export default class RowNotflix extends Component {
       nextArrow: <SampleNextArrow />,
       prevArrow: <SamplePrevArrow />,
       speed: 800,
-      easing: 'ease-out'
+      responsive: [
+        {
+          breakpoint: 1399,
+          settings: {
+            dots: false,
+            slidesToShow: 5,
+            slidesToScroll: 5,
+            infinite: true,
+            nextArrow: <SampleNextArrow />,
+            prevArrow: <SamplePrevArrow />,
+            speed: 800
+          }
+        },
+        {
+          breakpoint: 1099,
+          settings: {
+            dots: false,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            infinite: true,
+            nextArrow: <SampleNextArrow />,
+            prevArrow: <SamplePrevArrow />,
+            speed: 800
+          }
+        },
+        {
+          breakpoint: 799,
+          settings: {
+            dots: false,
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            nextArrow: <SampleNextArrow />,
+            prevArrow: <SamplePrevArrow />,
+            speed: 800
+          }
+        },
+        {
+          breakpoint: 499,
+          settings: {
+            dots: false,
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            infinite: true,
+            nextArrow: <SampleNextArrow />,
+            prevArrow: <SamplePrevArrow />,
+            speed: 800
+          }
+        }
+      ]
     };
 
     const row = this.props.arr.map((movie, i) => {
